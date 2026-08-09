@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Instalgaschile Spa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        .glass-box {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="h-full font-sans antialiased bg-slate-950 flex items-center justify-center p-4 relative overflow-hidden">
+
+    <!-- Background Ambient Glow -->
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-sky-500/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -right-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="w-full max-w-md relative z-10">
+        
+        <!-- Header Brand -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center p-3 rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl mb-4">
+                <img src="{{ asset('images/instalgaschile-logitpo.png') }}" alt="Instalgaschile" class="h-12 w-auto">
+            </div>
+            <h1 class="text-2xl font-bold text-white tracking-tight">Instalgaschile Spa</h1>
+            <p class="text-xs text-sky-400 font-medium mt-1 uppercase tracking-wider">Sistema de Certificados y Gestión SEC</p>
+        </div>
+
+        <!-- Login Card -->
+        <div class="glass-box rounded-3xl p-8 shadow-2xl">
+            
+            <h2 class="text-lg font-semibold text-slate-200 mb-6 flex items-center gap-2">
+                <i data-lucide="lock" class="w-5 h-5 text-sky-400"></i>
+                <span>Acceso al Sistema</span>
+            </h2>
+
+            @if($errors->any())
+                <div class="mb-6 p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-sm">
+                    <p class="font-medium mb-1">Error de acceso:</p>
+                    <ul class="list-disc list-inside text-xs text-rose-200">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('login') }}" method="POST" class="space-y-5">
+                @csrf
+
+                <div>
+                    <label for="email" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Correo Electrónico</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <input type="email" id="email" name="email" value="{{ old('email') }}" required 
+                               class="w-full pl-11 pr-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all"
+                               placeholder="domi@instalgaschile.cl">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Contraseña</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                            <i data-lucide="key-round" class="w-5 h-5"></i>
+                        </div>
+                        <input type="password" id="password" name="password" required 
+                               class="w-full pl-11 pr-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all"
+                               placeholder="••••••••">
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" name="remember" class="rounded bg-slate-900 border-slate-800 text-sky-500 focus:ring-sky-500">
+                        <span>Recordar sesión</span>
+                    </label>
+                </div>
+
+                <button type="submit" 
+                        class="w-full py-3.5 px-4 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-semibold rounded-xl text-sm shadow-lg shadow-sky-500/25 transition-all flex items-center justify-center gap-2 group">
+                    <span>Ingresar</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </form>
+
+            <!-- Quick Access Presets for Demo / Easy Login -->
+            <div class="mt-8 pt-6 border-t border-slate-800/80">
+                <p class="text-xs text-slate-400 font-medium text-center mb-3">Accesos Rápido (Demostración):</p>
+                <div class="grid grid-cols-2 gap-2">
+                    <button type="button" onclick="fillAdmin()" class="px-3 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-amber-400 transition-colors flex items-center justify-center gap-1.5">
+                        <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+                        <span>Domingo (Admin)</span>
+                    </button>
+                    <button type="button" onclick="fillTech()" class="px-3 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-emerald-400 transition-colors flex items-center justify-center gap-1.5">
+                        <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+                        <span>Técnico Campo</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-6 text-xs text-slate-400">
+            &copy; {{ date('Y') }} Instalgaschile Spa — Av. Lib. Bernardo O'Higgins 1302, Santiago
+        </div>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function fillAdmin() {
+            document.getElementById('email').value = 'domi@instalgaschile.cl';
+            document.getElementById('password').value = 'admin123';
+        }
+        function fillTech() {
+            document.getElementById('email').value = 'tecnico@instalgaschile.cl';
+            document.getElementById('password').value = 'tecnico123';
+        }
+    </script>
+</body>
+</html>
