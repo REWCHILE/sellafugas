@@ -110,7 +110,7 @@ class CertificateController extends Controller
             'items.*.description' => 'nullable|string',
             'items.*.quantity' => 'nullable|integer|min:1',
             'items.*.unit_price' => 'nullable|numeric|min:0',
-            'tax_type' => 'required|in:neto,factura',
+            'tax_type' => 'nullable|in:neto,factura',
             'work_details' => 'nullable|string',
             'gasfiter_name' => 'required|string',
             'gasfiter_rut' => 'required|string',
@@ -120,6 +120,8 @@ class CertificateController extends Controller
             'photo_2' => 'nullable|image|max:10240',
             'photo_3' => 'nullable|image|max:10240',
         ]);
+
+        $validated['tax_type'] = 'neto';
 
         // Process items list
         $rawItems = $request->input('items', []);
@@ -162,10 +164,7 @@ class CertificateController extends Controller
         }
 
         $taxAmount = 0;
-        if ($validated['tax_type'] === 'factura') {
-            $taxAmount = round($subtotal * 0.19, 2);
-        }
-        $totalPrice = $subtotal + $taxAmount;
+        $totalPrice = $subtotal;
 
         // Auto-save or link Client catalog
         $client = Client::firstOrCreate(
@@ -279,7 +278,7 @@ class CertificateController extends Controller
             'items.*.description' => 'nullable|string',
             'items.*.quantity' => 'nullable|integer|min:1',
             'items.*.unit_price' => 'nullable|numeric|min:0',
-            'tax_type' => 'required|in:neto,factura',
+            'tax_type' => 'nullable|in:neto,factura',
             'work_details' => 'nullable|string',
             'gasfiter_name' => 'required|string',
             'gasfiter_rut' => 'required|string',
@@ -289,6 +288,8 @@ class CertificateController extends Controller
             'photo_2' => 'nullable|image|max:10240',
             'photo_3' => 'nullable|image|max:10240',
         ]);
+
+        $validated['tax_type'] = 'neto';
 
         // Process items list
         $rawItems = $request->input('items', []);
@@ -331,10 +332,7 @@ class CertificateController extends Controller
         }
 
         $taxAmount = 0;
-        if ($validated['tax_type'] === 'factura') {
-            $taxAmount = round($subtotal * 0.19, 2);
-        }
-        $totalPrice = $subtotal + $taxAmount;
+        $totalPrice = $subtotal;
 
         $updateData = [
             'certificate_number' => $validated['certificate_number'],

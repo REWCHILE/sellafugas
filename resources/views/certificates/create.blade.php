@@ -22,8 +22,7 @@
          get subtotal() { 
              return this.items.reduce((sum, item) => sum + ((item.quantity || 0) * (item.unit_price || 0)), 0); 
          },
-         get taxAmount() { return this.taxType === 'factura' ? Math.round(this.subtotal * 0.19) : 0; },
-         get total() { return this.subtotal + this.taxAmount; },
+         get total() { return this.subtotal; },
          formatMoney(val) { return '$' + new Intl.NumberFormat('es-CL').format(val || 0); },
          activeTemplate: null,
          metrosLineales: 30,
@@ -309,39 +308,17 @@
                 </table>
             </div>
 
-            <!-- Tax Mode Selection -->
-            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800">
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Modalidad Documento Tributario</label>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md">
-                    <label :class="taxType === 'neto' ? 'bg-amber-500/20 border-amber-500/50 text-amber-300 font-bold' : 'bg-slate-900 border-slate-800 text-slate-400'"
-                           class="flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer text-xs text-center transition-all">
-                        <input type="radio" name="tax_type" value="neto" x-model="taxType" class="sr-only">
-                        <span>Sin Doc Tributario</span>
-                        <span class="text-[10px] opacity-75 mt-0.5">Neto Directo</span>
-                    </label>
-
-                    <label :class="taxType === 'factura' ? 'bg-purple-500/20 border-purple-500/50 text-purple-300 font-bold' : 'bg-slate-900 border-slate-800 text-slate-400'"
-                           class="flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer text-xs text-center transition-all">
-                        <input type="radio" name="tax_type" value="factura" x-model="taxType" class="sr-only">
-                        <span>Factura</span>
-                        <span class="text-[10px] opacity-75 mt-0.5">+19% IVA</span>
-                    </label>
-                </div>
-            </div>
+            <!-- Hidden tax_type input defaulting to neto -->
+            <input type="hidden" name="tax_type" value="neto">
 
             <!-- Dynamic Live Calculation Summary Card -->
             <div class="p-5 rounded-xl bg-gradient-to-r from-slate-900 via-slate-900/90 to-sky-950/40 border border-sky-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div class="space-y-1">
                     <p class="text-xs text-slate-400 uppercase tracking-wider">Desglose de Pago:</p>
-                    <div class="flex items-center gap-4 text-sm">
-                        <span class="text-slate-300">Subtotal Neto: <strong class="text-white" x-text="formatMoney(subtotal)"></strong></span>
-                        <template x-if="taxType === 'factura'">
-                            <span class="text-purple-300">IVA (19%): <strong x-text="formatMoney(taxAmount)"></strong></span>
-                        </template>
-                    </div>
+                    <span class="text-sm text-slate-300 font-medium">Valores expresados exclusivamente en <strong>Neto Directo</strong></span>
                 </div>
                 <div class="text-right">
-                    <span class="text-xs text-sky-400 font-semibold uppercase tracking-wider block">Total a Pagar</span>
+                    <span class="text-xs text-sky-400 font-semibold uppercase tracking-wider block">Total Neto a Pagar</span>
                     <span class="text-3xl font-black text-emerald-400 tracking-tight" x-text="formatMoney(total)"></span>
                 </div>
             </div>

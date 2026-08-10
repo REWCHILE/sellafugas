@@ -51,20 +51,14 @@
                         <p class="text-slate-300 font-medium line-clamp-2 max-w-xs">{{ $cert->description }}</p>
                     </td>
 
-                    <!-- Financial & Tax -->
+                    <!-- Financial -->
                     <td class="py-4 px-5">
                         <div class="font-extrabold text-white text-base">
                             ${{ number_format($cert->total_price, 0, ',', '.') }}
                         </div>
-                        @if($cert->tax_type === 'factura')
-                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30 mt-1">
-                                Factura (+19% IVA)
-                            </span>
-                        @else
-                            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 mt-1">
-                                Neto (Sin Doc Tributario)
-                            </span>
-                        @endif
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 mt-1">
+                            Valor Neto
+                        </span>
                     </td>
 
                     <!-- Issuer / Tech -->

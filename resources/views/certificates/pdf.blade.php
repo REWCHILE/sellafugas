@@ -242,8 +242,8 @@
         <tr>
             <td class="lbl">Región:</td>
             <td class="val">{{ $certificate->client_region }}</td>
-            <td class="lbl">Doc Tributario:</td>
-            <td class="val" style="text-transform: uppercase;">{{ $certificate->tax_type === 'factura' ? 'Factura (+19% IVA)' : 'Sin Doc Tributario (Neto)' }}</td>
+            <td class="lbl">Modalidad:</td>
+            <td class="val" style="text-transform: uppercase;">Neto Directo</td>
         </tr>
     </table>
 
@@ -358,7 +358,7 @@
 
     <!-- 6. Total Bar -->
     <div class="total-bar">
-        {{ $certificate->document_type === 'cotizacion' ? 'Total Cotizado' : 'Total' }} {{ $certificate->tax_type === 'factura' ? 'Factura Con IVA' : 'Neto' }} a Pagar: ${{ number_format($certificate->total_price, 0, ',', '.') }}
+        {{ $certificate->document_type === 'cotizacion' ? 'Total Cotizado Neto' : 'Total Neto' }} a Pagar: ${{ number_format($certificate->total_price, 0, ',', '.') }}
     </div>
 
     <!-- 7. Footer Branding, Registro QR & Digital Signature -->
