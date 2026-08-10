@@ -24,7 +24,9 @@
 
             <!-- WhatsApp Share Button -->
             @php
-                $waText = rawurlencode("Hola {$certificate->client_name}, le compartimos el Certificado de Servicio N° {$certificate->certificate_number} de Instalgaschile Spa por un total de {$certificate->formatted_total}.");
+                $pdfUrl = route('certificates.pdf', $certificate->id);
+                $docName = $certificate->document_type === 'cotizacion' ? 'la Cotización' : 'el Certificado';
+                $waText = rawurlencode("Hola {$certificate->client_name}, le compartimos {$docName} de Servicio N° {$certificate->certificate_number} de Instalgaschile SPA por un total de {$certificate->formatted_total}.\n\nEnlace directo para descargar el documento PDF:\n{$pdfUrl}");
                 $waPhone = preg_replace('/[^0-9]/', '', $certificate->client_phone);
             @endphp
             <a href="https://wa.me/{{ $waPhone }}?text={{ $waText }}" target="_blank"
@@ -56,19 +58,19 @@
         <!-- 1. Header: Logo, Title & SEC Badge -->
         <div class="flex items-center justify-between border-b-2 border-slate-900 pb-6">
             <div class="flex items-center gap-3">
-                <img src="{{ asset('images/instalgaschile-logitpo.png') }}" alt="Instalgaschile Logo" class="h-12 w-auto">
+                <img src="{{ asset('images/instalgaschile-logitpo.png') }}" alt="Instalgaschile Logo" class="h-20 w-auto">
             </div>
 
             <div class="text-center">
                 <h2 class="text-2xl font-black uppercase tracking-wider text-slate-900 underline underline-offset-4">
-                    CERTIFICADO DE SERVICIO
+                    {{ $certificate->document_type === 'cotizacion' ? 'COTIZACIÓN DE SERVICIO' : 'CERTIFICADO DE SERVICIO' }}
                 </h2>
             </div>
 
             <div class="text-right space-y-1">
                 <p class="text-sm font-bold">N°: <span class="text-sky-600 text-lg">{{ $certificate->certificate_number }}</span></p>
                 <p class="text-xs font-semibold text-slate-600">FECHA: {{ \Carbon\Carbon::parse($certificate->date)->format('d/m/Y') }}</p>
-                <img src="{{ asset('images/logotipo-sec.png') }}" alt="Certificados SEC" class="h-10 w-auto ml-auto mt-1">
+                <img src="{{ asset('images/logotipo-sec.png') }}" alt="Certificados SEC" class="h-20 w-auto ml-auto mt-1">
             </div>
         </div>
 
@@ -99,12 +101,14 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-200">
-                    <tr>
-                        <td class="py-3 px-4 font-semibold text-slate-800">{{ $certificate->description }}</td>
-                        <td class="py-3 px-4 text-center">${{ number_format($certificate->unit_price, 0, ',', '.') }}</td>
-                        <td class="py-3 px-4 text-center">{{ $certificate->quantity }}</td>
-                        <td class="py-3 px-4 text-right font-bold">${{ number_format($certificate->subtotal_neto, 0, ',', '.') }}</td>
-                    </tr>
+                    @foreach($certificate->items_list as $item)
+                        <tr>
+                            <td class="py-3 px-4 font-semibold text-slate-800">{{ $item['description'] }}</td>
+                            <td class="py-3 px-4 text-center">${{ number_format($item['unit_price'], 0, ',', '.') }}</td>
+                            <td class="py-3 px-4 text-center">{{ $item['quantity'] }}</td>
+                            <td class="py-3 px-4 text-right font-bold">${{ number_format($item['total'], 0, ',', '.') }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -119,43 +123,71 @@
             </div>
         </div>
 
-        <!-- 5. 3 Images & Evidence Section -->
-        <div class="grid grid-cols-3 gap-4 text-center">
-            
-            <!-- Photo 1 -->
-            <div class="border border-slate-200 rounded-xl p-2 bg-slate-50">
-                @if($certificate->photo_1)
-                    <img src="{{ asset('storage/' . $certificate->photo_1) }}" alt="Evidencia 1" class="h-44 w-full object-cover rounded-lg">
-                @else
-                    <img src="{{ asset('images/logotipo-holding.png') }}" alt="Evidencia 1" class="h-44 w-full object-contain p-4 rounded-lg bg-white">
-                @endif
-                <span class="text-[11px] font-semibold text-slate-600 block mt-2">Evidencia de Instalación / Fuga</span>
-            </div>
-
-            <!-- Photo 2: SEC QR -->
-            <div class="border border-slate-200 rounded-xl p-2 bg-slate-50 flex flex-col items-center justify-between">
-                <div class="text-[11px] font-bold text-sky-800 uppercase tracking-tight">
-                    Gasfiter Certificado Autorizado SEC<br>Domingo Isain
+        <!-- 5. Images & Evidence Section -->
+        @if(!$certificate->photo_1 && !$certificate->photo_3)
+            <div class="max-w-md mx-auto text-center">
+                <div class="border border-slate-200 rounded-xl p-4 bg-slate-50 flex flex-col items-center justify-between">
+                    <div class="text-xs font-bold text-sky-800 uppercase tracking-tight mb-2">
+                        Gasfiter Certificado Autorizado SEC<br>Domingo Isain
+                    </div>
+                    @if($certificate->photo_2)
+                        <img src="{{ asset('storage/' . $certificate->photo_2) }}" alt="QR SEC" class="h-40 w-auto object-contain my-1">
+                    @else
+                        <img src="{{ asset('images/domingo-isain-gasfiter-sec-qr.png') }}" alt="QR SEC" class="h-40 w-auto object-contain my-1">
+                    @endif
+                    <span class="text-[11px] font-semibold text-slate-500 mt-2">Escanear para Verificación SEC</span>
                 </div>
-                @if($certificate->photo_2)
-                    <img src="{{ asset('storage/' . $certificate->photo_2) }}" alt="QR SEC" class="h-32 w-auto object-contain my-1">
-                @else
-                    <img src="{{ asset('images/domingo-isain-gasfiter-sec-qr.png') }}" alt="QR SEC" class="h-32 w-auto object-contain my-1">
-                @endif
-                <span class="text-[10px] font-semibold text-slate-500">Escanear para Verificación SEC</span>
             </div>
+        @else
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                <!-- Photo 1 -->
+                <div class="border border-slate-200 rounded-xl p-2 bg-slate-50">
+                    @if($certificate->photo_1)
+                        <img src="{{ asset('storage/' . $certificate->photo_1) }}" alt="Evidencia 1" class="h-44 w-full object-cover rounded-lg">
+                    @else
+                        <img src="{{ asset('images/logotipo-holding.png') }}" alt="Evidencia 1" class="h-44 w-full object-contain p-4 rounded-lg bg-white">
+                    @endif
+                    <span class="text-[11px] font-semibold text-slate-600 block mt-2">Evidencia de Instalación / Fuga</span>
+                </div>
 
-            <!-- Photo 3 -->
-            <div class="border border-slate-200 rounded-xl p-2 bg-slate-50">
-                @if($certificate->photo_3)
-                    <img src="{{ asset('storage/' . $certificate->photo_3) }}" alt="Evidencia 3" class="h-44 w-full object-cover rounded-lg">
-                @else
-                    <img src="{{ asset('images/logotipo-sec.png') }}" alt="Evidencia 3" class="h-44 w-full object-contain p-4 rounded-lg bg-white">
-                @endif
-                <span class="text-[11px] font-semibold text-slate-600 block mt-2">Prueba de Hermeticidad / Manómetro</span>
+                <!-- Photo 2: SEC QR -->
+                <div class="border border-slate-200 rounded-xl p-2 bg-slate-50 flex flex-col items-center justify-between">
+                    <div class="text-[11px] font-bold text-sky-800 uppercase tracking-tight">
+                        Gasfiter Certificado Autorizado SEC<br>Domingo Isain
+                    </div>
+                    @if($certificate->photo_2)
+                        <img src="{{ asset('storage/' . $certificate->photo_2) }}" alt="QR SEC" class="h-32 w-auto object-contain my-1">
+                    @else
+                        <img src="{{ asset('images/domingo-isain-gasfiter-sec-qr.png') }}" alt="QR SEC" class="h-32 w-auto object-contain my-1">
+                    @endif
+                    <span class="text-[10px] font-semibold text-slate-500">Escanear para Verificación SEC</span>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="border border-slate-200 rounded-xl p-2 bg-slate-50">
+                    @if($certificate->photo_3)
+                        <img src="{{ asset('storage/' . $certificate->photo_3) }}" alt="Evidencia 3" class="h-44 w-full object-cover rounded-lg">
+                    @else
+                        <img src="{{ asset('images/logotipo-sec.png') }}" alt="Evidencia 3" class="h-44 w-full object-contain p-4 rounded-lg bg-white">
+                    @endif
+                    <span class="text-[11px] font-semibold text-slate-600 block mt-2">Prueba de Hermeticidad / Manómetro</span>
+                </div>
             </div>
+        @endif
 
-        </div>
+        @if(!empty($certificate->extra_photos) && is_array($certificate->extra_photos))
+            <div class="pt-2 border-t border-slate-200 space-y-2">
+                <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Fotografías Adicionales de Evidencia</h4>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    @foreach($certificate->extra_photos as $idx => $exPath)
+                        <div class="border border-slate-200 rounded-lg p-1.5 bg-slate-50 text-center">
+                            <img src="{{ asset('storage/' . $exPath) }}" class="h-28 w-full object-cover rounded">
+                            <span class="text-[10px] font-medium text-slate-500 mt-1 block">Foto Extra {{ $idx + 4 }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
 
         <!-- 6. Total Amount Bar -->
         <div class="border-t-2 border-b-2 border-slate-900 py-3 flex items-center justify-between">
@@ -178,12 +210,12 @@
 
             <!-- Sub-brand Logos Center -->
             <div class="col-span-4 flex items-center justify-center gap-2">
-                <img src="{{ asset('images/logotipo-holding.png') }}" alt="Holding" class="h-10 w-auto">
+                <img src="{{ asset('images/logotipo-holding.png') }}" alt="Holding" class="h-28 w-auto">
             </div>
 
             <!-- Digital Signature Right -->
             <div class="col-span-4 text-center space-y-1 border-t border-slate-300 pt-2">
-                <img src="{{ asset('images/firma-domingo.png') }}" alt="Firma Domingo Isain" class="h-12 w-auto mx-auto mb-1">
+                <img src="{{ asset('images/firma-domingo.png') }}" alt="Firma Domingo Isain" class="h-44 w-auto mx-auto mb-1">
                 <p class="font-bold text-slate-900 text-xs">Instalgaschile®</p>
                 <p class="text-[10px] text-slate-600 font-medium">Domingo Isain Plaza Caamaño<br>RUT: 12.738.961-6</p>
             </div>

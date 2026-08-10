@@ -5,21 +5,55 @@
 @section('content')
 <div class="max-w-5xl mx-auto space-y-6" 
      x-data="{ 
-         quantity: 1, 
-         unitPrice: 800000, 
+         documentType: '{{ old('document_type', 'certificado') }}',
+         items: [
+             { description: 'Sellado de fugas de gas en red', quantity: 1, unit_price: 800000 }
+         ],
          taxType: 'neto',
-         get subtotal() { return this.quantity * (this.unitPrice || 0); },
+         addItem() {
+             this.items.push({ description: '', quantity: 1, unit_price: 0 });
+             this.$nextTick(() => { if (window.lucide) lucide.createIcons(); });
+         },
+         removeItem(index) {
+             if (this.items.length > 1) {
+                 this.items.splice(index, 1);
+             }
+         },
+         get subtotal() { 
+             return this.items.reduce((sum, item) => sum + ((item.quantity || 0) * (item.unit_price || 0)), 0); 
+         },
          get taxAmount() { return this.taxType === 'factura' ? Math.round(this.subtotal * 0.19) : 0; },
          get total() { return this.subtotal + this.taxAmount; },
          formatMoney(val) { return '$' + new Intl.NumberFormat('es-CL').format(val || 0); },
-         applyTemplate(type) {
+         activeTemplate: 'sellado',
+         metrosLineales: 30,
+         presionMmca: 368,
+         updateSelladoText() {
+             this.activeTemplate = 'sellado';
              const area = document.getElementById('work_details');
+             if (!area) return;
+             const m = this.metrosLineales || 30;
+             const p = this.presionMmca || 368;
+             
+             area.value = `Se realizó sellado de fuga de gas en red de ${m} metros lineales aproximadamente\n\n` +
+                 `Se asegura hermeticidad de acuerdo al Decreto Supremo 66 Artículo 44.2.3 SEC no importa si es una o más fugas. Se utilizará prodoral r6-1 sellante alemán para Fugas de Gas aceptado por SEC ds66 artículo 7: DIN EN 13090 Y NAG-203.\n\n` +
+                 `En procedimiento necesitamos desconectar artefactos y medidor para realizar la inyección, necesitamos provisión de electricidad y acceso libre a su domicilio y medidor mientras dure el procedimiento.\n\n` +
+                 `Prueba de hermeticidad final a ${p}mmca estanco por 5 minutos, sin fugas.\n\n` +
+                 `Tiempo de ejecución 2 horas aproximadamente, se entrega certificado de servicio realizado, garantía 3 años por efectos de sellado.\n` +
+                 `Se solicita pago contado una vez realizado el trabajo.\n\n` +
+                 `Responsable Domingo Isain Plaza Caamaño Rut 12738961-6\n` +
+                 `Gasfiter Certificado Autorizado SEC Clase 3`;
+         },
+         applyTemplate(type) {
+             this.activeTemplate = type;
              if(type === 'sellado') {
-                 area.value = `Se realizó sellado de fuga de gas en red de 30 metros lineales.\n\nSe asegura hermeticidad de acuerdo al Decreto Supremo 66 Artículo 44.2.3 SEC. Se utilizó prodoral r6-1 sellante alemán para Fugas de Gas aceptado por SEC ds66 artículo 7: DIN EN 13090 Y NAG-203.\n\nSolucionado, garantía 3 años por efectos de sellado.\n\nPrueba de hermeticidad final a 368mmca estanco por 5 minutos, sin fugas\n\nResponsable Domingo Isain Plaza Caamaño Rut 12738961-6\nGasfiter Certificado Autorizado SEC Clase 3`;
+                 this.updateSelladoText();
              } else if(type === 'hermeticidad') {
-                 area.value = `Prueba de hermeticidad en instalación de gas según normativa SEC DS66.\n\nSe realiza presurización a 368 mmca manteniéndose estable por 15 minutos sin caídas de presión.\n\nInstalación apta y conforme a normas de seguridad vigentes.`;
+                 const area = document.getElementById('work_details');
+                 if(area) area.value = `Prueba de hermeticidad en instalación de gas según normativa SEC DS66.\n\nSe realiza presurización a 368 mmca manteniéndose estable por 15 minutos sin caídas de presión.\n\nInstalación apta y conforme a normas de seguridad vigentes.`;
              } else if(type === 'calefon') {
-                 area.value = `Servicio técnico y mantenimiento preventivo/correctivo de artefacto a gas (Calefón/Caldera).\n\nVerificación de ducto de evacuación de gases de combustión, limpieza de inyectores, prueba de encendido y sellado de conexiones. Proceso verificado bajo norma SEC.`;
+                 const area = document.getElementById('work_details');
+                 if(area) area.value = `Servicio técnico y mantenimiento preventivo/correctivo de artefacto a gas (Calefón/Caldera).\n\nVerificación de ducto de evacuación de gases de combustión, limpieza de inyectores, prueba de encendido y sellado de conexiones. Proceso verificado bajo norma SEC.`;
              }
          }
      }">
@@ -43,34 +77,89 @@
     <form action="{{ route('certificates.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
 
-        <!-- 1. Folio & Fecha Block -->
-        <div class="glass-panel p-6 rounded-2xl border border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 1. Tipo de Documento, Folio & Fecha Block -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
             <div>
-                <label for="certificate_number" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                    N° Folio Certificado <span class="text-rose-400">*</span>
+                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <i data-lucide="layers" class="w-4 h-4 text-sky-400"></i>
+                    <span>Seleccione Tipo de Documento a Emitir</span>
+                    <span class="text-rose-400">*</span>
                 </label>
-                <input type="text" id="certificate_number" name="certificate_number" value="{{ old('certificate_number', $nextNumber) }}" required
-                       class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-sky-400 font-bold text-lg focus:outline-none focus:border-sky-500">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Option 1: Certificado SEC -->
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="document_type" value="certificado" x-model="documentType" class="sr-only">
+                        <div :class="documentType === 'certificado' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-4 ring-emerald-500/20 shadow-xl shadow-emerald-950/60' : 'bg-slate-900/90 border border-slate-800 text-slate-400 hover:border-slate-700 hover:bg-slate-800/60'"
+                             class="p-4 rounded-2xl flex items-center justify-between transition-all duration-200">
+                            <div class="flex items-center gap-3">
+                                <div :class="documentType === 'certificado' ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40' : 'bg-slate-800 text-slate-400 border-slate-700'"
+                                     class="p-2.5 rounded-xl border transition-colors">
+                                    <i data-lucide="award" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-extrabold uppercase tracking-wide">Certificado de Servicio SEC</div>
+                                    <div class="text-xs text-slate-400 font-medium mt-0.5">Documento oficial con respaldo normativo SEC</div>
+                                </div>
+                            </div>
+                            <div :class="documentType === 'certificado' ? 'border-emerald-400 bg-emerald-400' : 'border-slate-600'"
+                                 class="w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all shrink-0">
+                                <div x-show="documentType === 'certificado'" class="w-2 h-2 rounded-full bg-slate-950"></div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Option 2: Cotización de Servicio -->
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="document_type" value="cotizacion" x-model="documentType" class="sr-only">
+                        <div :class="documentType === 'cotizacion' ? 'bg-sky-950/90 border-2 border-sky-400 text-sky-200 ring-4 ring-sky-500/20 shadow-xl shadow-sky-950/60' : 'bg-slate-900/90 border border-slate-800 text-slate-400 hover:border-slate-700 hover:bg-slate-800/60'"
+                             class="p-4 rounded-2xl flex items-center justify-between transition-all duration-200">
+                            <div class="flex items-center gap-3">
+                                <div :class="documentType === 'cotizacion' ? 'bg-sky-500/20 text-sky-300 border-sky-500/40' : 'bg-slate-800 text-slate-400 border-slate-700'"
+                                     class="p-2.5 rounded-xl border transition-colors">
+                                    <i data-lucide="file-text" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-extrabold uppercase tracking-wide">Cotización de Servicio</div>
+                                    <div class="text-xs text-slate-400 font-medium mt-0.5">Propuesta comercial previa para el cliente</div>
+                                </div>
+                            </div>
+                            <div :class="documentType === 'cotizacion' ? 'border-sky-400 bg-sky-400' : 'border-slate-600'"
+                                 class="w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all shrink-0">
+                                <div x-show="documentType === 'cotizacion'" class="w-2 h-2 rounded-full bg-slate-950"></div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
             </div>
 
-            <div>
-                <label for="date" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                    Fecha de Emisión <span class="text-rose-400">*</span>
-                </label>
-                <input type="date" id="date" name="date" value="{{ old('date', date('Y-m-d')) }}" required
-                       class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-sky-500">
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-3 border-t border-slate-800/80">
+                <div>
+                    <label for="certificate_number" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                        N° Folio <span class="text-rose-400">*</span>
+                    </label>
+                    <input type="text" id="certificate_number" name="certificate_number" value="{{ old('certificate_number', $nextNumber) }}" required
+                           class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-sky-400 font-bold text-lg focus:outline-none focus:border-sky-500">
+                </div>
 
-            <div>
-                <label for="status" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                    Estado del Documento <span class="text-rose-400">*</span>
-                </label>
-                <select id="status" name="status" class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-sky-500">
-                    <option value="emitido" selected>Emitido / Vigente</option>
-                    <option value="completado">Completado</option>
-                    <option value="pendiente">Pendiente de Trabajo</option>
-                    <option value="anulado">Anulado</option>
-                </select>
+                <div>
+                    <label for="date" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                        Fecha de Emisión <span class="text-rose-400">*</span>
+                    </label>
+                    <input type="date" id="date" name="date" value="{{ old('date', date('Y-m-d')) }}" required
+                           class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-sky-500">
+                </div>
+
+                <div>
+                    <label for="status" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                        Estado del Documento <span class="text-rose-400">*</span>
+                    </label>
+                    <select id="status" name="status" class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white font-medium focus:outline-none focus:border-sky-500">
+                        <option value="emitido" selected>Emitido / Vigente</option>
+                        <option value="completado">Completado</option>
+                        <option value="pendiente">Pendiente de Trabajo</option>
+                        <option value="anulado">Anulado</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -116,53 +205,79 @@
             </div>
         </div>
 
-        <!-- 3. Servicio & Cálculo de Precios (Valores Netos / Factura) -->
+        <!-- 3. Servicio & Cálculo de Precios con Ítems Dinámicos -->
         <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
-            <h2 class="text-lg font-semibold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-                <i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i>
-                <span>Descripción del Servicio y Tributación</span>
-            </h2>
-
-            <div>
-                <label for="description" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                    Descripción Principal del Servicio <span class="text-rose-400">*</span>
-                </label>
-                <input type="text" id="description" name="description" value="{{ old('description', 'Sellado de fugas de gas en red') }}" required
-                       class="w-full px-4 py-3 bg-slate-900 border border-slate-800 rounded-xl text-white font-medium text-sm focus:outline-none focus:border-sky-500"
-                       placeholder="Ej: Sellado de fugas de gas en red / Inspección técnica SEC">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <h2 class="text-lg font-semibold text-white flex items-center gap-2">
+                    <i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i>
+                    <span>Descripción de Servicios e Ítems</span>
+                </h2>
+                
+                <button type="button" @click="addItem()" class="px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white text-xs font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition-all flex items-center gap-1.5 cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    <span>+ Añadir Servicio</span>
+                </button>
             </div>
 
-            <!-- Price Breakdown inputs -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-slate-900/60 p-5 rounded-xl border border-slate-800">
-                <div>
-                    <label for="quantity" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Cantidad</label>
-                    <input type="number" id="quantity" name="quantity" min="1" x-model.number="quantity" required
-                           class="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
-                </div>
+            <!-- Items Dynamic Table -->
+            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/60">
+                <table class="w-full text-left text-sm text-slate-200">
+                    <thead class="bg-slate-900/90 text-xs uppercase tracking-wider text-slate-400 border-b border-slate-800">
+                        <tr>
+                            <th class="px-4 py-3 min-w-[280px]">Descripción del Servicio</th>
+                            <th class="px-4 py-3 w-40">Precio Unit. NETO ($)</th>
+                            <th class="px-4 py-3 w-28">Cantidad</th>
+                            <th class="px-4 py-3 w-36 text-right">Total</th>
+                            <th class="px-3 py-3 w-12 text-center"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-800">
+                        <template x-for="(item, index) in items" :key="index">
+                            <tr class="hover:bg-slate-800/40 transition-colors">
+                                <td class="p-3">
+                                    <input type="text" :name="'items[' + index + '][description]'" x-model="item.description" required
+                                           placeholder="Ej: Sellado de fugas / Mantención calefón / Reparación de red"
+                                           class="w-full px-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                </td>
+                                <td class="p-3">
+                                    <input type="number" :name="'items[' + index + '][unit_price]'" min="0" x-model.number="item.unit_price" required
+                                           class="w-full px-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-emerald-400 font-bold text-sm focus:outline-none focus:border-sky-500">
+                                </td>
+                                <td class="p-3">
+                                    <input type="number" :name="'items[' + index + '][quantity]'" min="1" x-model.number="item.quantity" required
+                                           class="w-full px-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                </td>
+                                <td class="p-3 text-right font-bold text-emerald-400 text-base" x-text="formatMoney((item.quantity || 0) * (item.unit_price || 0))">
+                                </td>
+                                <td class="p-3 text-center">
+                                    <button type="button" @click="removeItem(index)" x-show="items.length > 1"
+                                            class="p-2 text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 rounded-xl transition-colors cursor-pointer" title="Eliminar este servicio">
+                                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
 
-                <div>
-                    <label for="unit_price" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Precio Unitario NETO ($)</label>
-                    <input type="number" id="unit_price" name="unit_price" min="0" x-model.number="unitPrice" required
-                           class="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-emerald-400 font-bold text-sm focus:outline-none focus:border-sky-500">
-                </div>
+            <!-- Tax Mode Selection -->
+            <div class="bg-slate-900/60 p-5 rounded-xl border border-slate-800">
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Modalidad Documento Tributario</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-md">
+                    <label :class="taxType === 'neto' ? 'bg-amber-500/20 border-amber-500/50 text-amber-300 font-bold' : 'bg-slate-900 border-slate-800 text-slate-400'"
+                           class="flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer text-xs text-center transition-all">
+                        <input type="radio" name="tax_type" value="neto" x-model="taxType" class="sr-only">
+                        <span>Sin Doc Tributario</span>
+                        <span class="text-[10px] opacity-75 mt-0.5">Neto Directo</span>
+                    </label>
 
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Modalidad Documento Tributario</label>
-                    <div class="grid grid-cols-2 gap-2">
-                        <label :class="taxType === 'neto' ? 'bg-amber-500/20 border-amber-500/50 text-amber-300 font-bold' : 'bg-slate-900 border-slate-800 text-slate-400'"
-                               class="flex flex-col items-center justify-center p-2.5 rounded-xl border cursor-pointer text-xs text-center transition-all">
-                            <input type="radio" name="tax_type" value="neto" x-model="taxType" class="sr-only">
-                            <span>Sin Doc Tributario</span>
-                            <span class="text-[10px] opacity-75 mt-0.5">Neto Directo</span>
-                        </label>
-
-                        <label :class="taxType === 'factura' ? 'bg-purple-500/20 border-purple-500/50 text-purple-300 font-bold' : 'bg-slate-900 border-slate-800 text-slate-400'"
-                               class="flex flex-col items-center justify-center p-2.5 rounded-xl border cursor-pointer text-xs text-center transition-all">
-                            <input type="radio" name="tax_type" value="factura" x-model="taxType" class="sr-only">
-                            <span>Factura</span>
-                            <span class="text-[10px] opacity-75 mt-0.5">+19% IVA</span>
-                        </label>
-                    </div>
+                    <label :class="taxType === 'factura' ? 'bg-purple-500/20 border-purple-500/50 text-purple-300 font-bold' : 'bg-slate-900 border-slate-800 text-slate-400'"
+                           class="flex flex-col items-center justify-center p-3 rounded-xl border cursor-pointer text-xs text-center transition-all">
+                        <input type="radio" name="tax_type" value="factura" x-model="taxType" class="sr-only">
+                        <span>Factura</span>
+                        <span class="text-[10px] opacity-75 mt-0.5">+19% IVA</span>
+                    </label>
                 </div>
             </div>
 
@@ -192,26 +307,79 @@
                     <span>Detalle Técnico del Trabajo SEC</span>
                 </h2>
                 
-                <!-- Quick Preset Buttons -->
-                <div class="flex items-center gap-2 flex-wrap">
-                    <span class="text-xs text-slate-400">Plantillas rápidas:</span>
-                    <button type="button" @click="applyTemplate('sellado')" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-sky-300 text-xs rounded-lg border border-slate-700 transition-colors">
-                        Sellado Fuga DS66
-                    </button>
-                    <button type="button" @click="applyTemplate('hermeticidad')" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-emerald-300 text-xs rounded-lg border border-slate-700 transition-colors">
-                        Prueba Hermeticidad
-                    </button>
-                    <button type="button" @click="applyTemplate('calefon')" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs rounded-lg border border-slate-700 transition-colors">
-                        Calefón / Caldera
-                    </button>
-                </div>
+                @if(auth()->user() && auth()->user()->isAdmin())
+                    <!-- Quick Preset Buttons (Admin only) -->
+                    <div class="flex items-center gap-2 flex-wrap">
+                        <span class="text-xs text-slate-400">Plantillas rápidas:</span>
+                        <button type="button" @click="applyTemplate('sellado')" 
+                                :class="activeTemplate === 'sellado' ? 'bg-sky-500 text-white font-bold' : 'bg-slate-800 text-sky-300 hover:bg-slate-700'"
+                                class="px-3 py-1.5 text-xs rounded-xl border border-sky-500/30 transition-all cursor-pointer flex items-center gap-1">
+                            <span>🛡️ Sellado Fuga DS66</span>
+                        </button>
+                        <button type="button" @click="applyTemplate('hermeticidad')" 
+                                :class="activeTemplate === 'hermeticidad' ? 'bg-emerald-500 text-white font-bold' : 'bg-slate-800 text-emerald-300 hover:bg-slate-700'"
+                                class="px-3 py-1.5 text-xs rounded-xl border border-emerald-500/30 transition-all cursor-pointer">
+                            Prueba Hermeticidad
+                        </button>
+                        <button type="button" @click="applyTemplate('calefon')" 
+                                :class="activeTemplate === 'calefon' ? 'bg-amber-500 text-white font-bold' : 'bg-slate-800 text-amber-300 hover:bg-slate-700'"
+                                class="px-3 py-1.5 text-xs rounded-xl border border-amber-500/30 transition-all cursor-pointer">
+                            Calefón / Caldera
+                        </button>
+                    </div>
+                @endif
             </div>
+
+            <!-- Dynamic Input Box for Fuga de Gas Template -->
+            <template x-if="activeTemplate === 'sellado'">
+                <div class="p-4 bg-sky-950/40 border border-sky-500/30 rounded-xl space-y-3">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="sliders" class="w-4 h-4"></i>
+                            <span>Ajustes Dinámicos: Plantilla Sellado Fugas de Gas</span>
+                        </span>
+                        <span class="text-[11px] text-slate-400">Modifica los campos para actualizar la frase en tiempo real</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">
+                                📏 Metros Lineales de Red:
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" 
+                                       x-model.number="metrosLineales" 
+                                       @input="updateSelladoText()" 
+                                       min="1" max="1000" 
+                                       placeholder="30"
+                                       class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm font-bold focus:outline-none focus:border-sky-500">
+                                <span class="text-xs text-slate-400 font-medium shrink-0">metros</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1">
+                                ⏱️ Presión de Hermeticidad (mmca):
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <input type="number" 
+                                       x-model.number="presionMmca" 
+                                       @input="updateSelladoText()" 
+                                       min="1" max="5000" 
+                                       placeholder="368"
+                                       class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm font-bold focus:outline-none focus:border-sky-500">
+                                <span class="text-xs text-slate-400 font-medium shrink-0">mmca</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
 
             <div>
                 <label for="work_details" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
                     Detalle del Trabajo, Normativas SEC, Garantía y Mediciones
                 </label>
-                <textarea id="work_details" name="work_details" rows="6" required
+                <textarea id="work_details" name="work_details" rows="7" required
                           class="w-full p-4 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm font-mono focus:outline-none focus:border-sky-500 leading-relaxed">{{ old('work_details', $defaultDetails) }}</textarea>
             </div>
 
@@ -235,37 +403,223 @@
             </div>
         </div>
 
-        <!-- 5. Evidencia Fotográfica (3 Imágenes) -->
-        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
-            <h2 class="text-lg font-semibold text-white flex items-center gap-2 border-b border-slate-800 pb-3">
-                <i data-lucide="camera" class="w-5 h-5 text-purple-400"></i>
-                <span>Evidencia Fotográfica del Servicio (3 Fotografías)</span>
-            </h2>
+        <!-- 5. Evidencia Fotográfica y Captura desde Celular -->
+        <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-6"
+             x-data="{
+                 extraPhotos: [],
+                 addExtraPhoto() {
+                     this.extraPhotos.push({ id: Date.now(), fileName: '', previewUrl: null });
+                 },
+                 removeExtraPhoto(index) {
+                     this.extraPhotos.splice(index, 1);
+                 }
+             }">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 flex-wrap gap-2">
+                <div>
+                    <h2 class="text-lg font-semibold text-white flex items-center gap-2">
+                        <i data-lucide="camera" class="w-5 h-5 text-purple-400"></i>
+                        <span>Evidencia Fotográfica del Servicio (Cámara Celular / Galería)</span>
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-0.5">Capture o seleccione fotografías directamente con la cámara del dispositivo móvil</p>
+                </div>
+
+                <button type="button" @click="addExtraPhoto()" class="px-3.5 py-2 bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 text-xs font-bold rounded-xl border border-purple-500/30 transition-all flex items-center gap-1.5 cursor-pointer">
+                    <i data-lucide="plus-circle" class="w-4 h-4"></i>
+                    <span>+ Añadir Foto Extra (Foto 4+)</span>
+                </button>
+            </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
                 <!-- Photo 1 -->
-                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <label class="block text-xs font-semibold text-sky-400 uppercase tracking-wider">Imagen 1: Trabajo / Fuga / Evidencia</label>
-                    <input type="file" name="photo_1" accept="image/*" class="text-xs text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-sky-500/20 file:text-sky-300 hover:file:bg-sky-500/30">
-                    <p class="text-[11px] text-slate-500">Fotografía de la red, equipo o fuga inspeccionada.</p>
+                <div x-data="{ 
+                        fileName: '', 
+                        previewUrl: null,
+                        handleFile(e) {
+                            const file = e.target.files[0];
+                            if (file) {
+                                this.fileName = file.name;
+                                this.previewUrl = URL.createObjectURL(file);
+                            }
+                        }
+                     }"
+                     class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <label class="block text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Imagen 1: Trabajo / Fuga / Evidencia</label>
+                        <input type="file" id="photo_1_input" name="photo_1" accept="image/*" capture="environment" @change="handleFile($event)" class="hidden">
+                        
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="document.getElementById('photo_1_input').click()" 
+                                    class="w-full py-2.5 px-3 bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 text-xs font-bold rounded-xl border border-sky-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <i data-lucide="camera" class="w-4 h-4"></i>
+                                <span>📷 Cámara / Galería</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <template x-if="fileName">
+                            <div class="flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
+                                <i data-lucide="check-circle" class="w-4 h-4 shrink-0"></i>
+                                <span class="truncate max-w-[180px]" x-text="fileName"></span>
+                            </div>
+                        </template>
+                        <template x-if="!fileName">
+                            <span class="text-slate-500 text-[11px] italic block text-center">Sin archivo seleccionado</span>
+                        </template>
+
+                        <template x-if="previewUrl">
+                            <div class="mt-2 text-center">
+                                <img :src="previewUrl" class="h-28 w-full object-cover rounded-lg border border-slate-700 shadow-md">
+                            </div>
+                        </template>
+
+                        <p class="text-[11px] text-slate-500 pt-1 border-t border-slate-800/80">Fotografía de la red, equipo o fuga inspeccionada.</p>
+                    </div>
                 </div>
 
                 <!-- Photo 2 (Default SEC QR) -->
-                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <label class="block text-xs font-semibold text-emerald-400 uppercase tracking-wider">Imagen 2: Credencial / QR SEC</label>
-                    <input type="file" name="photo_2" accept="image/*" class="text-xs text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-500/20 file:text-emerald-300 hover:file:bg-emerald-500/30">
-                    <p class="text-[11px] text-slate-500">Si se deja vacío, utilizará el QR Oficial SEC Domingo Isain.</p>
+                <div x-data="{ 
+                        fileName: '', 
+                        previewUrl: null,
+                        handleFile(e) {
+                            const file = e.target.files[0];
+                            if (file) {
+                                this.fileName = file.name;
+                                this.previewUrl = URL.createObjectURL(file);
+                            }
+                        }
+                     }"
+                     class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <label class="block text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">Imagen 2: Credencial / QR SEC</label>
+                        <input type="file" id="photo_2_input" name="photo_2" accept="image/*" capture="environment" @change="handleFile($event)" class="hidden">
+                        
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="document.getElementById('photo_2_input').click()" 
+                                    class="w-full py-2.5 px-3 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 text-xs font-bold rounded-xl border border-emerald-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <i data-lucide="camera" class="w-4 h-4"></i>
+                                <span>📷 Cámara / Galería</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <template x-if="fileName">
+                            <div class="flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
+                                <i data-lucide="check-circle" class="w-4 h-4 shrink-0"></i>
+                                <span class="truncate max-w-[180px]" x-text="fileName"></span>
+                            </div>
+                        </template>
+                        <template x-if="!fileName">
+                            <span class="text-slate-500 text-[11px] italic block text-center">Sin archivo seleccionado (Usará QR Oficial SEC)</span>
+                        </template>
+
+                        <template x-if="previewUrl">
+                            <div class="mt-2 text-center">
+                                <img :src="previewUrl" class="h-28 w-full object-cover rounded-lg border border-slate-700 shadow-md">
+                            </div>
+                        </template>
+
+                        <p class="text-[11px] text-slate-500 pt-1 border-t border-slate-800/80">Si se deja vacío, utilizará la credencial QR SEC Domingo Isain.</p>
+                    </div>
                 </div>
 
                 <!-- Photo 3 -->
-                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800 space-y-3">
-                    <label class="block text-xs font-semibold text-amber-400 uppercase tracking-wider">Imagen 3: Medición / Manómetro</label>
-                    <input type="file" name="photo_3" accept="image/*" class="text-xs text-slate-400 file:mr-3 file:py-2 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-amber-500/20 file:text-amber-300 hover:file:bg-amber-500/30">
-                    <p class="text-[11px] text-slate-500">Prueba de hermeticidad o instrumento de medición.</p>
+                <div x-data="{ 
+                        fileName: '', 
+                        previewUrl: null,
+                        handleFile(e) {
+                            const file = e.target.files[0];
+                            if (file) {
+                                this.fileName = file.name;
+                                this.previewUrl = URL.createObjectURL(file);
+                            }
+                        }
+                     }"
+                     class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
+                    <div>
+                        <label class="block text-xs font-semibold text-amber-400 uppercase tracking-wider mb-2">Imagen 3: Medición / Manómetro</label>
+                        <input type="file" id="photo_3_input" name="photo_3" accept="image/*" capture="environment" @change="handleFile($event)" class="hidden">
+                        
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="document.getElementById('photo_3_input').click()" 
+                                    class="w-full py-2.5 px-3 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold rounded-xl border border-amber-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <i data-lucide="camera" class="w-4 h-4"></i>
+                                <span>📷 Cámara / Galería</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <template x-if="fileName">
+                            <div class="flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
+                                <i data-lucide="check-circle" class="w-4 h-4 shrink-0"></i>
+                                <span class="truncate max-w-[180px]" x-text="fileName"></span>
+                            </div>
+                        </template>
+                        <template x-if="!fileName">
+                            <span class="text-slate-500 text-[11px] italic block text-center">Sin archivo seleccionado</span>
+                        </template>
+
+                        <template x-if="previewUrl">
+                            <div class="mt-2 text-center">
+                                <img :src="previewUrl" class="h-28 w-full object-cover rounded-lg border border-slate-700 shadow-md">
+                            </div>
+                        </template>
+
+                        <p class="text-[11px] text-slate-500 pt-1 border-t border-slate-800/80">Prueba de hermeticidad o instrumento de medición.</p>
+                    </div>
                 </div>
 
             </div>
+
+            <!-- Dynamic Extra Photos Container (Foto 4, 5...) -->
+            <template x-if="extraPhotos.length > 0">
+                <div class="pt-4 border-t border-slate-800 space-y-4">
+                    <h3 class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Fotos Adicionales de Evidencia (Foto 4+)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <template x-for="(ex, index) in extraPhotos" :key="ex.id">
+                            <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between relative">
+                                <div class="flex items-center justify-between mb-2">
+                                    <label class="block text-xs font-semibold text-purple-300 uppercase tracking-wider" x-text="'Foto Adicional ' + (index + 4)"></label>
+                                    <button type="button" @click="removeExtraPhoto(index)" class="text-rose-400 hover:bg-rose-500/10 p-1 rounded-lg transition-colors" title="Eliminar foto extra">
+                                        <i data-lucide="trash-2" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+
+                                <input type="file" :id="'extra_photo_' + index" name="extra_photos[]" accept="image/*" capture="environment"
+                                       @change="const file = $event.target.files[0]; if(file) { ex.fileName = file.name; ex.previewUrl = URL.createObjectURL(file); }"
+                                       class="hidden">
+
+                                <button type="button" @click="document.getElementById('extra_photo_' + index).click()"
+                                        class="w-full py-2.5 px-3 bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 text-xs font-bold rounded-xl border border-purple-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                    <i data-lucide="camera" class="w-4 h-4"></i>
+                                    <span>📷 Tomar Foto / Subir</span>
+                                </button>
+
+                                <div class="space-y-2">
+                                    <template x-if="ex.fileName">
+                                        <div class="flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
+                                            <i data-lucide="check-circle" class="w-4 h-4 shrink-0"></i>
+                                            <span class="truncate max-w-[180px]" x-text="ex.fileName"></span>
+                                        </div>
+                                    </template>
+                                    <template x-if="!ex.fileName">
+                                        <span class="text-slate-500 text-[11px] italic block text-center">Sin archivo seleccionado</span>
+                                    </template>
+
+                                    <template x-if="ex.previewUrl">
+                                        <div class="mt-2 text-center">
+                                            <img :src="ex.previewUrl" class="h-28 w-full object-cover rounded-lg border border-slate-700 shadow-md">
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
         </div>
 
         <!-- Submit Button Bar -->

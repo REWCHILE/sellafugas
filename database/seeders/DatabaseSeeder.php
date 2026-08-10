@@ -81,5 +81,8 @@ class DatabaseSeeder extends Seeder
                 'status' => 'emitido',
             ]
         );
+
+        // 5. Call CertificateSeeder for rich realistic certificates
+        $this->call(CertificateSeeder::class);
     }
 }

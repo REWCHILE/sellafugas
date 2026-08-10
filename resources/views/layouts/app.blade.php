@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Sistema de Gestión') - Instalgaschile Spa</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,13 +91,14 @@
                 </button>
             </div>
 
-            <!-- User Info Badge -->
-            <div class="p-4 mx-4 my-4 rounded-xl bg-slate-900/60 border border-slate-800 flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-500 to-brand-600 flex items-center justify-center font-bold text-white shadow-md">
+            <!-- User Info Badge (Clickable to Edit Profile) -->
+            <a href="{{ route('profile.edit') }}" title="Editar mi perfil" 
+               class="p-4 mx-4 my-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-800/80 transition-all flex items-center gap-3 group cursor-pointer shadow-sm">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-500 to-brand-600 flex items-center justify-center font-bold text-white shadow-md group-hover:scale-105 transition-transform shrink-0">
                     {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
                 </div>
-                <div class="overflow-hidden">
-                    <p class="text-sm font-semibold text-white truncate">{{ Auth::user()->name }}</p>
+                <div class="overflow-hidden flex-1">
+                    <p class="text-sm font-semibold text-white truncate group-hover:text-purple-300 transition-colors">{{ Auth::user()->name }}</p>
                     <p class="text-xs text-sky-400 flex items-center gap-1 font-medium">
                         @if(Auth::user()->isAdmin())
                             <span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span> Administrador (Domingo)
@@ -102,7 +107,8 @@
                         @endif
                     </p>
                 </div>
-            </div>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition-colors"></i>
+            </a>
 
             <!-- Navigation Links -->
             <nav class="flex-1 px-4 space-y-1.5 overflow-y-auto">
@@ -122,11 +128,17 @@
                     <span>Emitir Certificado</span>
                 </a>
 
-                @if(Auth::user()->isAdmin())
-                    <div class="px-3 pb-2 pt-6 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                        Administración
-                    </div>
+                <div class="px-3 pb-2 pt-6 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                    Cuenta y Configuración
+                </div>
 
+                <a href="{{ route('profile.edit') }}" 
+                   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all {{ request()->routeIs('profile.*') ? 'bg-purple-500/10 text-purple-400 border border-purple-500/30' : 'text-slate-300 hover:bg-slate-800/60 hover:text-white' }}">
+                    <i data-lucide="user-cog" class="w-5 h-5 text-purple-400"></i>
+                    <span>Mi Perfil</span>
+                </a>
+
+                @if(Auth::user()->isAdmin())
                     <a href="{{ route('users.index') }}" 
                        class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all {{ request()->routeIs('users.*') ? 'bg-sky-500/10 text-sky-400 border border-sky-500/30' : 'text-slate-300 hover:bg-slate-800/60 hover:text-white' }}">
                         <i data-lucide="users" class="w-5 h-5 text-amber-400"></i>

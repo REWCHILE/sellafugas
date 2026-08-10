@@ -35,8 +35,13 @@
 
         <div>
             <label for="password" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">Contraseña Inicial <span class="text-rose-400">*</span></label>
-            <input type="password" id="password" name="password" required placeholder="••••••••"
-                   class="w-full px-4 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+            <div class="relative">
+                <input type="password" id="password" name="password" required placeholder="••••••••"
+                       class="w-full pl-4 pr-11 py-2.5 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-white transition-colors focus:outline-none" title="Mostrar/Ocultar contraseña">
+                    <i data-lucide="eye" id="eyeIcon" class="w-5 h-5"></i>
+                </button>
+            </div>
         </div>
 
         <div>

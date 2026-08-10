@@ -88,7 +88,15 @@
                             <!-- Actions -->
                             <td class="py-4 px-5 text-right whitespace-nowrap">
                                 <div class="inline-flex items-center gap-2">
-                                    <a href="{{ route('users.edit', $usr->id) }}" class="p-2 bg-slate-800 hover:bg-slate-700 text-amber-400 rounded-lg transition-colors">
+                                    <form action="{{ route('users.welcome-email', $usr->id) }}" method="POST" class="inline">
+                                        @csrf
+                                        <button type="submit" title="Enviar Correo de Bienvenida / Clave" class="px-2.5 py-1.5 bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/20 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-semibold">
+                                            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                                            <span>Enviar Clave</span>
+                                        </button>
+                                    </form>
+
+                                    <a href="{{ route('users.edit', $usr->id) }}" class="p-2 bg-slate-800 hover:bg-slate-700 text-amber-400 rounded-lg transition-colors" title="Editar">
                                         <i data-lucide="edit" class="w-4 h-4"></i>
                                     </a>
 
@@ -96,7 +104,7 @@
                                         <form action="{{ route('users.destroy', $usr->id) }}" method="POST" class="inline" onsubmit="return confirm('¿Confirma eliminar este usuario?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="p-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 rounded-lg transition-colors">
+                                            <button type="submit" class="p-2 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 rounded-lg transition-colors" title="Eliminar">
                                                 <i data-lucide="trash-2" class="w-4 h-4"></i>
                                             </button>
                                         </form>

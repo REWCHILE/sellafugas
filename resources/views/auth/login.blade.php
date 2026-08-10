@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión - Instalgaschile Spa</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -78,8 +82,11 @@
                             <i data-lucide="key-round" class="w-5 h-5"></i>
                         </div>
                         <input type="password" id="password" name="password" required 
-                               class="w-full pl-11 pr-4 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all"
+                               class="w-full pl-11 pr-11 py-3 bg-slate-900/80 border border-slate-800 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 transition-all"
                                placeholder="••••••••">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-white transition-colors focus:outline-none" title="Mostrar/Ocultar contraseña">
+                            <i data-lucide="eye" id="eyeIcon" class="w-5 h-5"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -96,21 +103,6 @@
                     <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                 </button>
             </form>
-
-            <!-- Quick Access Presets for Demo / Easy Login -->
-            <div class="mt-8 pt-6 border-t border-slate-800/80">
-                <p class="text-xs text-slate-400 font-medium text-center mb-3">Accesos Rápido (Demostración):</p>
-                <div class="grid grid-cols-2 gap-2">
-                    <button type="button" onclick="fillAdmin()" class="px-3 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-amber-400 transition-colors flex items-center justify-center gap-1.5">
-                        <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-                        <span>Domingo (Admin)</span>
-                    </button>
-                    <button type="button" onclick="fillTech()" class="px-3 py-2 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-lg text-xs font-medium text-emerald-400 transition-colors flex items-center justify-center gap-1.5">
-                        <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
-                        <span>Técnico Campo</span>
-                    </button>
-                </div>
-            </div>
         </div>
 
         <div class="text-center mt-6 text-xs text-slate-400">
@@ -121,13 +113,18 @@
 
     <script>
         lucide.createIcons();
-        function fillAdmin() {
-            document.getElementById('email').value = 'domi@instalgaschile.cl';
-            document.getElementById('password').value = 'admin123';
-        }
-        function fillTech() {
-            document.getElementById('email').value = 'tecnico@instalgaschile.cl';
-            document.getElementById('password').value = 'tecnico123';
+
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.setAttribute('data-lucide', 'eye');
+            }
+            lucide.createIcons();
         }
     </script>
 </body>

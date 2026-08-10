@@ -32,7 +32,7 @@ class UserController extends Controller
             'sec_code' => ['nullable', 'string', 'max:255'],
         ]);
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -43,8 +43,11 @@ class UserController extends Controller
             'is_active' => true,
         ]);
 
+        // Automatically trigger welcome email with password setup token
+        $this->sendWelcomeMail($user);
+
         return redirect()->route('users.index')
-            ->with('success', 'Usuario / Técnico creado exitosamente.');
+            ->with('success', "Usuario / Técnico '{$user->name}' creado exitosamente y correo de bienvenida enviado.");
     }
 
     public function edit(User $user)
@@ -95,5 +98,91 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
             ->with('success', 'Usuario eliminado.');
+    }
+
+    /**
+     * Send welcome email with password setup token to a technician/user.
+     */
+    public function sendWelcomeMail(User $user)
+    {
+        $token = \Illuminate\Support\Str::random(60);
+
+        \Illuminate\Support\Facades\DB::table('password_reset_tokens')->updateOrInsert(
+            ['email' => $user->email],
+            [
+                'token' => \Illuminate\Support\Facades\Hash::make($token),
+                'created_at' => now(),
+            ]
+        );
+
+        $setupUrl = route('password.set.form', [
+            'token' => $token,
+            'email' => $user->email,
+        ]);
+
+        try {
+            \Illuminate\Support\Facades\Mail::to($user->email)->send(new \App\Mail\TechnicianWelcomeMail($user, $setupUrl));
+            return back()->with('success', "Correo de bienvenida enviado exitosamente a {$user->name} ({$user->email}).");
+        } catch (\Throwable $e) {
+            return back()->with('error', "No se pudo enviar el correo: " . $e->getMessage() . " | Enlace generado: " . $setupUrl);
+        }
+    }
+
+    /**
+     * Show public set password form from token link.
+     */
+    public function showSetPasswordForm(Request $request, $token)
+    {
+        $email = $request->query('email');
+        if (!$email) {
+            return redirect()->route('login')->with('error', 'Enlace de contraseña inválido o incompleto.');
+        }
+
+        $record = \Illuminate\Support\Facades\DB::table('password_reset_tokens')
+            ->where('email', $email)
+            ->first();
+
+        if (!$record || !\Illuminate\Support\Facades\Hash::check($token, $record->token)) {
+            return redirect()->route('login')->with('error', 'El enlace para establecer contraseña ha expirado o no es válido.');
+        }
+
+        return view('auth.set-password', compact('token', 'email'));
+    }
+
+    /**
+     * Update user password from set password form.
+     */
+    public function updateSetPassword(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $record = \Illuminate\Support\Facades\DB::table('password_reset_tokens')
+            ->where('email', $request->email)
+            ->first();
+
+        if (!$record || !\Illuminate\Support\Facades\Hash::check($request->token, $record->token)) {
+            return back()->with('error', 'El enlace ha expirado o es inválido.');
+        }
+
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return back()->with('error', 'No se encontró el usuario asociado a este correo.');
+        }
+
+        $user->password = \Illuminate\Support\Facades\Hash::make($request->password);
+        $user->save();
+
+        \Illuminate\Support\Facades\DB::table('password_reset_tokens')
+            ->where('email', $request->email)
+            ->delete();
+
+        \Illuminate\Support\Facades\Auth::login($user);
+
+        return redirect()->route('certificates.index')
+            ->with('success', "¡Bienvenido {$user->name}! Tu contraseña se ha establecido correctamente.");
     }
 }
