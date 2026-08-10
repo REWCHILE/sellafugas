@@ -86,8 +86,8 @@ class CertificateController extends Controller
         $lastCert = Certificate::orderByRaw('CAST(certificate_number AS UNSIGNED) DESC')->first();
         $nextNumber = $lastCert ? intval($lastCert->certificate_number) + 1 : 14409;
 
-        // Default SEC text template matching Domingo's WhatsApp standard
-        $defaultDetails = "Se oferta sellado de fuga de gas en red de 30 metros lineales aproximadamente\n\nSe asegura hermeticidad de acuerdo al Decreto Supremo 66 Artículo 44.2.3 SEC no importa si es una o más fugas. Se utilizará prodoral r6-1 sellante alemán para Fugas de Gas aceptado por SEC ds66 artículo 7: DIN EN 13090 Y NAG-203.\n\nEn procedimiento necesitamos desconectar artefactos y medidor para realizar la inyección, necesitamos provisión de electricidad y acceso libre a su domicilio y medidor mientras dure el procedimiento.\n\nTiempo de ejecución 2 horas aproximadamente, se entrega certificado de servicio realizado, garantía 3 años por efectos de sellado.\nSe solicita pago contado una vez realizado el trabajo.\n\nResponsable Domingo Isain Plaza Caamaño Rut 12738961-6\nGasfiter Certificado Autorizado SEC Clase 3";
+        // Default details start empty so the user can select via template pills or type freely
+        $defaultDetails = "";
 
         return view('certificates.create', compact('nextNumber', 'defaultDetails'));
     }

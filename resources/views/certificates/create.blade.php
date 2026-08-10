@@ -25,7 +25,7 @@
          get taxAmount() { return this.taxType === 'factura' ? Math.round(this.subtotal * 0.19) : 0; },
          get total() { return this.subtotal + this.taxAmount; },
          formatMoney(val) { return '$' + new Intl.NumberFormat('es-CL').format(val || 0); },
-         activeTemplate: 'sellado',
+         activeTemplate: null,
          metrosLineales: 30,
          presionMmca: 368,
          updateSelladoText() {
@@ -45,15 +45,19 @@
                  `Gasfiter Certificado Autorizado SEC Clase 3`;
          },
          applyTemplate(type) {
-             this.activeTemplate = type;
-             if(type === 'sellado') {
-                 this.updateSelladoText();
-             } else if(type === 'hermeticidad') {
-                 const area = document.getElementById('work_details');
-                 if(area) area.value = `Prueba de hermeticidad en instalación de gas según normativa SEC DS66.\n\nSe realiza presurización a 368 mmca manteniéndose estable por 15 minutos sin caídas de presión.\n\nInstalación apta y conforme a normas de seguridad vigentes.`;
-             } else if(type === 'calefon') {
-                 const area = document.getElementById('work_details');
-                 if(area) area.value = `Servicio técnico y mantenimiento preventivo/correctivo de artefacto a gas (Calefón/Caldera).\n\nVerificación de ducto de evacuación de gases de combustión, limpieza de inyectores, prueba de encendido y sellado de conexiones. Proceso verificado bajo norma SEC.`;
+             const area = document.getElementById('work_details');
+             if (this.activeTemplate === type) {
+                 this.activeTemplate = null;
+                 if (area) area.value = '';
+             } else {
+                 this.activeTemplate = type;
+                 if (type === 'sellado') {
+                     this.updateSelladoText();
+                 } else if (type === 'hermeticidad') {
+                     if (area) area.value = `Prueba de hermeticidad en instalación de gas según normativa SEC DS66.\n\nSe realiza presurización a 368 mmca manteniéndose estable por 15 minutos sin caídas de presión.\n\nInstalación apta y conforme a normas de seguridad vigentes.`;
+                 } else if (type === 'calefon') {
+                     if (area) area.value = `Servicio técnico y mantenimiento preventivo/correctivo de artefacto a gas (Calefón/Caldera).\n\nVerificación de ducto de evacuación de gases de combustión, limpieza de inyectores, prueba de encendido y sellado de conexiones. Proceso verificado bajo norma SEC.`;
+                 }
              }
          }
      }">
@@ -219,37 +223,81 @@
                 </button>
             </div>
 
-            <!-- Items Dynamic Table -->
-            <div class="overflow-x-auto rounded-xl border border-slate-800 bg-slate-900/60">
-                <table class="w-full text-left text-sm text-slate-200">
-                    <thead class="bg-slate-900/90 text-xs uppercase tracking-wider text-slate-400 border-b border-slate-800">
+            <!-- Items Dynamic Responsive Table / Cards -->
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-3 sm:p-0">
+                <table class="w-full text-left text-sm text-slate-200 border-collapse">
+                    <thead class="hidden sm:table-header-group bg-slate-900/90 text-xs uppercase tracking-wider text-slate-400 border-b border-slate-800">
                         <tr>
-                            <th class="px-4 py-3 min-w-[280px]">Descripción del Servicio</th>
-                            <th class="px-4 py-3 w-40">Precio Unit. NETO ($)</th>
-                            <th class="px-4 py-3 w-28">Cantidad</th>
-                            <th class="px-4 py-3 w-36 text-right">Total</th>
+                            <th class="px-4 py-3 min-w-[260px]">Descripción del Servicio</th>
+                            <th class="px-4 py-3 w-48 min-w-[170px]">Precio Unit. NETO ($)</th>
+                            <th class="px-4 py-3 w-28 min-w-[100px]">Cantidad</th>
+                            <th class="px-4 py-3 w-36 min-w-[120px] text-right">Total</th>
                             <th class="px-3 py-3 w-12 text-center"></th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-800">
+                    <tbody class="block sm:table-row-group divide-y-0 sm:divide-y divide-slate-800 space-y-4 sm:space-y-0">
                         <template x-for="(item, index) in items" :key="index">
-                            <tr class="hover:bg-slate-800/40 transition-colors">
-                                <td class="p-3">
+                            <tr class="block sm:table-row bg-slate-900/90 sm:bg-transparent border border-slate-800/80 sm:border-0 p-4 sm:p-0 rounded-2xl sm:rounded-none hover:bg-slate-800/40 transition-all space-y-3 sm:space-y-0 shadow-lg sm:shadow-none">
+                                
+                                <!-- Mobile Header Row (Item # and Trash button) -->
+                                <td class="block sm:hidden p-0 pb-2 border-b border-slate-800/60">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                                            <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+                                            <span x-text="'Ítem Servicio #' + (index + 1)"></span>
+                                        </span>
+                                        <button type="button" @click="removeItem(index)" x-show="items.length > 1"
+                                                class="px-2.5 py-1 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 text-xs font-bold rounded-lg border border-rose-500/20 transition-all flex items-center gap-1.5 cursor-pointer">
+                                            <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                            <span>Eliminar</span>
+                                        </button>
+                                    </div>
+                                </td>
+
+                                <!-- Descripción del Servicio -->
+                                <td class="block sm:table-cell p-0 sm:p-3">
+                                    <label class="block sm:hidden text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                                        Descripción del Servicio
+                                    </label>
                                     <input type="text" :name="'items[' + index + '][description]'" x-model="item.description" required
                                            placeholder="Ej: Sellado de fugas / Mantención calefón / Reparación de red"
-                                           class="w-full px-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                           class="w-full px-3.5 py-2.5 sm:py-2 bg-slate-950 sm:bg-slate-900 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
                                 </td>
-                                <td class="p-3">
-                                    <input type="number" :name="'items[' + index + '][unit_price]'" min="0" x-model.number="item.unit_price" required
-                                           class="w-full px-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-emerald-400 font-bold text-sm focus:outline-none focus:border-sky-500">
+
+                                <!-- Container for Price & Quantity on Mobile -->
+                                <div class="grid grid-cols-2 gap-3 sm:contents">
+                                    <!-- Precio Unitario NETO -->
+                                    <td class="block sm:table-cell p-0 sm:p-3">
+                                        <label class="block sm:hidden text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                                            Precio Unit. NETO ($)
+                                        </label>
+                                        <div class="relative">
+                                            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-emerald-400 font-bold text-sm select-none">$</span>
+                                            <input type="number" :name="'items[' + index + '][unit_price]'" min="0" x-model.number="item.unit_price" required
+                                                   class="w-full pl-7 pr-3 py-2.5 sm:py-2 bg-slate-950 sm:bg-slate-900 border border-slate-800 rounded-xl text-emerald-400 font-bold text-sm sm:text-base focus:outline-none focus:border-sky-500">
+                                        </div>
+                                    </td>
+
+                                    <!-- Cantidad -->
+                                    <td class="block sm:table-cell p-0 sm:p-3">
+                                        <label class="block sm:hidden text-[11px] font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                                            Cantidad
+                                        </label>
+                                        <input type="number" :name="'items[' + index + '][quantity]'" min="1" x-model.number="item.quantity" required
+                                               class="w-full px-3.5 py-2.5 sm:py-2 bg-slate-950 sm:bg-slate-900 border border-slate-800 rounded-xl text-white font-semibold text-sm sm:text-base focus:outline-none focus:border-sky-500">
+                                    </td>
+                                </div>
+
+                                <!-- Subtotal / Total -->
+                                <td class="block sm:table-cell p-0 sm:p-3 text-left sm:text-right pt-2 sm:pt-3 border-t sm:border-t-0 border-slate-800/60">
+                                    <div class="flex sm:block items-center justify-between">
+                                        <span class="sm:hidden text-xs font-semibold text-slate-400 uppercase tracking-wider">Subtotal Ítem:</span>
+                                        <span class="font-black text-emerald-400 text-base sm:text-lg tracking-tight" x-text="formatMoney((item.quantity || 0) * (item.unit_price || 0))"></span>
+                                    </div>
                                 </td>
-                                <td class="p-3">
-                                    <input type="number" :name="'items[' + index + '][quantity]'" min="1" x-model.number="item.quantity" required
-                                           class="w-full px-3.5 py-2 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
-                                </td>
-                                <td class="p-3 text-right font-bold text-emerald-400 text-base" x-text="formatMoney((item.quantity || 0) * (item.unit_price || 0))">
-                                </td>
-                                <td class="p-3 text-center">
+
+                                <!-- Desktop Delete Button -->
+                                <td class="hidden sm:table-cell p-3 text-center">
                                     <button type="button" @click="removeItem(index)" x-show="items.length > 1"
                                             class="p-2 text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 rounded-xl transition-colors cursor-pointer" title="Eliminar este servicio">
                                         <i data-lucide="trash-2" class="w-4 h-4"></i>
@@ -307,27 +355,25 @@
                     <span>Detalle Técnico del Trabajo SEC</span>
                 </h2>
                 
-                @if(auth()->user() && auth()->user()->isAdmin())
-                    <!-- Quick Preset Buttons (Admin only) -->
-                    <div class="flex items-center gap-2 flex-wrap">
-                        <span class="text-xs text-slate-400">Plantillas rápidas:</span>
-                        <button type="button" @click="applyTemplate('sellado')" 
-                                :class="activeTemplate === 'sellado' ? 'bg-sky-500 text-white font-bold' : 'bg-slate-800 text-sky-300 hover:bg-slate-700'"
-                                class="px-3 py-1.5 text-xs rounded-xl border border-sky-500/30 transition-all cursor-pointer flex items-center gap-1">
-                            <span>🛡️ Sellado Fuga DS66</span>
-                        </button>
-                        <button type="button" @click="applyTemplate('hermeticidad')" 
-                                :class="activeTemplate === 'hermeticidad' ? 'bg-emerald-500 text-white font-bold' : 'bg-slate-800 text-emerald-300 hover:bg-slate-700'"
-                                class="px-3 py-1.5 text-xs rounded-xl border border-emerald-500/30 transition-all cursor-pointer">
-                            Prueba Hermeticidad
-                        </button>
-                        <button type="button" @click="applyTemplate('calefon')" 
-                                :class="activeTemplate === 'calefon' ? 'bg-amber-500 text-white font-bold' : 'bg-slate-800 text-amber-300 hover:bg-slate-700'"
-                                class="px-3 py-1.5 text-xs rounded-xl border border-amber-500/30 transition-all cursor-pointer">
-                            Calefón / Caldera
-                        </button>
-                    </div>
-                @endif
+                <!-- Quick Preset Buttons -->
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span class="text-xs text-slate-400 font-medium">Plantillas rápidas:</span>
+                    <button type="button" @click="applyTemplate('sellado')" 
+                            :class="activeTemplate === 'sellado' ? 'bg-sky-500 text-white font-bold ring-2 ring-sky-400/40 shadow-lg shadow-sky-500/20' : 'bg-slate-800 text-sky-300 hover:bg-slate-700'"
+                            class="px-3 py-1.5 text-xs rounded-xl border border-sky-500/30 transition-all cursor-pointer flex items-center gap-1.5">
+                        <span>🛡️ Sellado Fuga DS66</span>
+                    </button>
+                    <button type="button" @click="applyTemplate('hermeticidad')" 
+                            :class="activeTemplate === 'hermeticidad' ? 'bg-emerald-500 text-white font-bold ring-2 ring-emerald-400/40 shadow-lg shadow-emerald-500/20' : 'bg-slate-800 text-emerald-300 hover:bg-slate-700'"
+                            class="px-3 py-1.5 text-xs rounded-xl border border-emerald-500/30 transition-all cursor-pointer flex items-center gap-1.5">
+                        <span>🧪 Prueba Hermeticidad</span>
+                    </button>
+                    <button type="button" @click="applyTemplate('calefon')" 
+                            :class="activeTemplate === 'calefon' ? 'bg-amber-500 text-white font-bold ring-2 ring-amber-400/40 shadow-lg shadow-amber-500/20' : 'bg-slate-800 text-amber-300 hover:bg-slate-700'"
+                            class="px-3 py-1.5 text-xs rounded-xl border border-amber-500/30 transition-all cursor-pointer flex items-center gap-1.5">
+                        <span>🔥 Calefón / Caldera</span>
+                    </button>
+                </div>
             </div>
 
             <!-- Dynamic Input Box for Fuga de Gas Template -->
@@ -376,10 +422,13 @@
             </template>
 
             <div>
-                <label for="work_details" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                    Detalle del Trabajo, Normativas SEC, Garantía y Mediciones
-                </label>
-                <textarea id="work_details" name="work_details" rows="7" required
+                <div class="flex items-center justify-between mb-2">
+                    <label for="work_details" class="block text-xs font-semibold text-slate-300 uppercase tracking-wider">
+                        Detalle del Trabajo, Normativas SEC, Garantía y Mediciones
+                    </label>
+                    <span class="text-[11px] text-slate-400 italic">Haga clic en una plantilla arriba para insertar texto predefinido</span>
+                </div>
+                <textarea id="work_details" name="work_details" rows="7" placeholder="Seleccione una plantilla rápida de arriba o escriba libremente..."
                           class="w-full p-4 bg-slate-900 border border-slate-800 rounded-xl text-white text-sm font-mono focus:outline-none focus:border-sky-500 leading-relaxed">{{ old('work_details', $defaultDetails) }}</textarea>
             </div>
 
