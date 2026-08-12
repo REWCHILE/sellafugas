@@ -29,6 +29,9 @@ Route::get('/mail-preview/welcome', function () {
     return new \App\Mail\TechnicianWelcomeMail($user, $setupUrl);
 });
 
+// Public certificate PDF view/download route (accessible by clients via shared link)
+Route::get('/certificates/{certificate}/pdf', [CertificateController::class, 'downloadPdf'])->name('certificates.pdf');
+
 // Authenticated routes
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -52,7 +55,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/certificates/{certificate}', [CertificateController::class, 'show'])->name('certificates.show');
     Route::get('/certificates/{certificate}/edit', [CertificateController::class, 'edit'])->name('certificates.edit');
     Route::put('/certificates/{certificate}', [CertificateController::class, 'update'])->name('certificates.update');
-    Route::get('/certificates/{certificate}/pdf', [CertificateController::class, 'downloadPdf'])->name('certificates.pdf');
 
     // Admin only routes
     Route::middleware(['App\Http\Middleware\RoleMiddleware:admin'])->group(function () {

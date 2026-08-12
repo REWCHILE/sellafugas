@@ -446,7 +446,7 @@
                         <i data-lucide="camera" class="w-5 h-5 text-purple-400"></i>
                         <span>Evidencia Fotográfica del Servicio (Cámara Celular / Galería)</span>
                     </h2>
-                    <p class="text-xs text-slate-400 mt-0.5">Capture o seleccione fotografías directamente con la cámara del dispositivo móvil</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Capture fotografías con la cámara o selecciónelas desde la galería de su dispositivo</p>
                 </div>
 
                 <button type="button" @click="addExtraPhoto()" class="px-3.5 py-2 bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 text-xs font-bold rounded-xl border border-purple-500/30 transition-all flex items-center gap-1.5 cursor-pointer">
@@ -472,7 +472,7 @@
                      class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
                     <div>
                         <label class="block text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Imagen 1: Trabajo / Fuga / Evidencia</label>
-                        <input type="file" id="photo_1_input" name="photo_1" accept="image/*" capture="environment" @change="handleFile($event)" class="hidden">
+                        <input type="file" id="photo_1_input" name="photo_1" accept="image/*" @change="handleFile($event)" class="hidden">
                         
                         <div class="flex items-center gap-2">
                             <button type="button" onclick="document.getElementById('photo_1_input').click()" 
@@ -519,7 +519,7 @@
                      class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
                     <div>
                         <label class="block text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">Imagen 2: Credencial / QR SEC</label>
-                        <input type="file" id="photo_2_input" name="photo_2" accept="image/*" capture="environment" @change="handleFile($event)" class="hidden">
+                        <input type="file" id="photo_2_input" name="photo_2" accept="image/*" @change="handleFile($event)" class="hidden">
                         
                         <div class="flex items-center gap-2">
                             <button type="button" onclick="document.getElementById('photo_2_input').click()" 
@@ -566,7 +566,7 @@
                      class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
                     <div>
                         <label class="block text-xs font-semibold text-amber-400 uppercase tracking-wider mb-2">Imagen 3: Medición / Manómetro</label>
-                        <input type="file" id="photo_3_input" name="photo_3" accept="image/*" capture="environment" @change="handleFile($event)" class="hidden">
+                        <input type="file" id="photo_3_input" name="photo_3" accept="image/*" @change="handleFile($event)" class="hidden">
                         
                         <div class="flex items-center gap-2">
                             <button type="button" onclick="document.getElementById('photo_3_input').click()" 
@@ -614,7 +614,7 @@
                                     </button>
                                 </div>
 
-                                <input type="file" :id="'extra_photo_' + index" name="extra_photos[]" accept="image/*" capture="environment"
+                                <input type="file" :id="'extra_photo_' + index" name="extra_photos[]" accept="image/*"
                                        @change="const file = $event.target.files[0]; if(file) { ex.fileName = file.name; ex.previewUrl = URL.createObjectURL(file); }"
                                        class="hidden">
 
