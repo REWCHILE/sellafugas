@@ -443,15 +443,15 @@
             <div class="flex items-center justify-between border-b border-slate-800 pb-3 flex-wrap gap-2">
                 <div>
                     <h2 class="text-lg font-semibold text-white flex items-center gap-2">
-                        <i data-lucide="camera" class="w-5 h-5 text-purple-400"></i>
-                        <span>Evidencia Fotográfica del Servicio (Cámara Celular / Galería)</span>
+                        <i data-lucide="image" class="w-5 h-5 text-purple-400"></i>
+                        <span>Evidencia Fotográfica / Documentos del Servicio</span>
                     </h2>
-                    <p class="text-xs text-slate-400 mt-0.5">Capture fotografías con la cámara o selecciónelas desde la galería de su dispositivo</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Seleccione fotografías o archivos desde su galería/dispositivo o capture con la cámara</p>
                 </div>
 
                 <button type="button" @click="addExtraPhoto()" class="px-3.5 py-2 bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 text-xs font-bold rounded-xl border border-purple-500/30 transition-all flex items-center gap-1.5 cursor-pointer">
                     <i data-lucide="plus-circle" class="w-4 h-4"></i>
-                    <span>+ Añadir Foto Extra (Foto 4+)</span>
+                    <span>+ Añadir Archivo/Foto Extra (Foto 4+)</span>
                 </button>
             </div>
 
@@ -468,17 +468,17 @@
                                 this.previewUrl = URL.createObjectURL(file);
                             }
                         }
-                     }"
+                    }"
                      class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
                     <div>
                         <label class="block text-xs font-semibold text-sky-400 uppercase tracking-wider mb-2">Imagen 1: Trabajo / Fuga / Evidencia</label>
-                        <input type="file" id="photo_1_input" name="photo_1" accept="image/*" @change="handleFile($event)" class="hidden">
+                        <input type="file" id="photo_1_input" name="photo_1" @change="handleFile($event)" class="hidden">
                         
                         <div class="flex items-center gap-2">
                             <button type="button" onclick="document.getElementById('photo_1_input').click()" 
                                     class="w-full py-2.5 px-3 bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 text-xs font-bold rounded-xl border border-sky-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <i data-lucide="camera" class="w-4 h-4"></i>
-                                <span>📷 Cámara / Galería</span>
+                                <i data-lucide="upload" class="w-4 h-4"></i>
+                                <span>📁 Subir Archivo / Foto</span>
                             </button>
                         </div>
                     </div>
@@ -515,17 +515,17 @@
                                 this.previewUrl = URL.createObjectURL(file);
                             }
                         }
-                     }"
+                    }"
                      class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
                     <div>
                         <label class="block text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-2">Imagen 2: Credencial / QR SEC</label>
-                        <input type="file" id="photo_2_input" name="photo_2" accept="image/*" @change="handleFile($event)" class="hidden">
+                        <input type="file" id="photo_2_input" name="photo_2" @change="handleFile($event)" class="hidden">
                         
                         <div class="flex items-center gap-2">
                             <button type="button" onclick="document.getElementById('photo_2_input').click()" 
                                     class="w-full py-2.5 px-3 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 text-xs font-bold rounded-xl border border-emerald-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <i data-lucide="camera" class="w-4 h-4"></i>
-                                <span>📷 Cámara / Galería</span>
+                                <i data-lucide="upload" class="w-4 h-4"></i>
+                                <span>📁 Subir Archivo / Foto</span>
                             </button>
                         </div>
                     </div>
@@ -562,17 +562,17 @@
                                 this.previewUrl = URL.createObjectURL(file);
                             }
                         }
-                     }"
+                    }"
                      class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 space-y-3 flex flex-col justify-between">
                     <div>
                         <label class="block text-xs font-semibold text-amber-400 uppercase tracking-wider mb-2">Imagen 3: Medición / Manómetro</label>
-                        <input type="file" id="photo_3_input" name="photo_3" accept="image/*" @change="handleFile($event)" class="hidden">
+                        <input type="file" id="photo_3_input" name="photo_3" @change="handleFile($event)" class="hidden">
                         
                         <div class="flex items-center gap-2">
                             <button type="button" onclick="document.getElementById('photo_3_input').click()" 
                                     class="w-full py-2.5 px-3 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold rounded-xl border border-amber-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <i data-lucide="camera" class="w-4 h-4"></i>
-                                <span>📷 Cámara / Galería</span>
+                                <i data-lucide="upload" class="w-4 h-4"></i>
+                                <span>📁 Subir Archivo / Foto</span>
                             </button>
                         </div>
                     </div>
@@ -614,14 +614,14 @@
                                     </button>
                                 </div>
 
-                                <input type="file" :id="'extra_photo_' + index" name="extra_photos[]" accept="image/*"
+                                <input type="file" :id="'extra_photo_' + index" name="extra_photos[]"
                                        @change="const file = $event.target.files[0]; if(file) { ex.fileName = file.name; ex.previewUrl = URL.createObjectURL(file); }"
                                        class="hidden">
 
                                 <button type="button" @click="document.getElementById('extra_photo_' + index).click()"
                                         class="w-full py-2.5 px-3 bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 text-xs font-bold rounded-xl border border-purple-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                    <i data-lucide="camera" class="w-4 h-4"></i>
-                                    <span>📷 Tomar Foto / Subir</span>
+                                    <i data-lucide="upload" class="w-4 h-4"></i>
+                                    <span>📁 Subir Archivo / Foto</span>
                                 </button>
 
                                 <div class="space-y-2">
