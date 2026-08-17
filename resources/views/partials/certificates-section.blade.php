@@ -22,7 +22,7 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
-        <div class="text-center max-w-3xl mx-auto space-y-4">
+        <div data-animate="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
                 <i data-lucide="award" class="w-4 h-4"></i>
                 <span>Documentos & Certificaciones Oficiales</span>
@@ -36,10 +36,10 @@
         </div>
 
         <!-- 4 Official Interactive Document Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div data-animate="fade-up" data-delay="150" data-stagger class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <!-- Card 1: Licencia Oficial SEC Clase 3 -->
-            <div class="glass-dark rounded-2xl border-2 border-emerald-500/40 p-5 flex flex-col justify-between space-y-4 shadow-xl shadow-emerald-950/20 group hover:border-emerald-400 transition-all">
+            <div class="glass-dark rounded-2xl border-2 border-emerald-500/40 p-5 flex flex-col justify-between space-y-4 shadow-xl shadow-emerald-950/20 group hover:border-emerald-400 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
                     <div class="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-3 cursor-pointer group-hover:shadow-lg transition-all"
@@ -84,7 +84,7 @@
             </div>
 
             <!-- Card 2: Certificado Fuga de Gas -->
-            <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-sky-500/60 transition-all">
+            <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-sky-500/60 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
                     <div class="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700/80 aspect-[4/3] flex items-center justify-center cursor-pointer group-hover:shadow-lg transition-all"
@@ -123,7 +123,7 @@
             </div>
 
             <!-- Card 3: Certificado Prodoral R6-1 -->
-            <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-amber-500/60 transition-all">
+            <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-amber-500/60 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
                     <div class="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700/80 aspect-[4/3] flex items-center justify-center cursor-pointer group-hover:shadow-lg transition-all"
@@ -162,7 +162,7 @@
             </div>
 
             <!-- Card 4: Certificado Prueba de Hermeticidad -->
-            <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-cyan-500/60 transition-all">
+            <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-cyan-500/60 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
                     <div class="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700/80 aspect-[4/3] flex items-center justify-center cursor-pointer group-hover:shadow-lg transition-all"

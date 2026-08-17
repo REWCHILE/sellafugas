@@ -28,6 +28,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Animations Stylesheet Preset -->
+    <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -370,7 +373,7 @@
                 <div class="lg:col-span-7 space-y-7">
                     
                     <!-- Trust Badges Pill -->
-                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 text-xs font-semibold text-emerald-300 shadow-lg shadow-emerald-950/40">
+                    <div data-animate="fade-down" data-delay="100" class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 text-xs font-semibold text-emerald-300 shadow-lg shadow-emerald-950/40">
                         <span class="p-1 rounded-full bg-emerald-500 text-slate-950">
                             <i data-lucide="check" class="w-3 h-3 stroke-[3]"></i>
                         </span>
@@ -378,32 +381,32 @@
                     </div>
 
                     <!-- Main H1 Title -->
-                    <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+                    <h1 data-animate="fade-up" data-delay="150" class="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
                         Reparación de Fugas de Gas <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400">Sin Romper Muros</span> ni Pisos
                     </h1>
 
                     <!-- Hero Subtitle & Domingo Isain Credential -->
-                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+                    <p data-animate="fade-up" data-delay="200" class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
                         Servicio técnico especializado en sellado de cañerías no visibles con <strong>Prodoral R6-1</strong>. Procedimiento limpio en <strong class="text-emerald-400">menos de 2 horas</strong>, prueba de hermeticidad certificada y entrega de <strong class="text-sky-400">Certificado Oficial SEC</strong> para seguros y empresas de inspección.
                     </p>
 
                     <!-- Key Selling Point Cards -->
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800">
+                    <div data-animate="fade-up" data-delay="250" data-stagger class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800 hover-lift">
                             <div class="flex items-center gap-2 text-emerald-400 mb-1">
                                 <i data-lucide="shield-check" class="w-5 h-5"></i>
                                 <span class="font-bold text-sm">Garantía 3 Años</span>
                             </div>
                             <p class="text-xs text-slate-400">Por escrito ante cualquier efecto de sellado</p>
                         </div>
-                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800">
+                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800 hover-lift">
                             <div class="flex items-center gap-2 text-sky-400 mb-1">
                                 <i data-lucide="clock" class="w-5 h-5"></i>
                                 <span class="font-bold text-sm">Menos de 2 Horas</span>
                             </div>
                             <p class="text-xs text-slate-400">Procedimiento rápido sin escombros</p>
                         </div>
-                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800 col-span-2 sm:col-span-1">
+                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800 col-span-2 sm:col-span-1 hover-lift">
                             <div class="flex items-center gap-2 text-amber-400 mb-1">
                                 <i data-lucide="handshake" class="w-5 h-5"></i>
                                 <span class="font-bold text-sm">Paga Solucionado</span>
@@ -413,12 +416,12 @@
                     </div>
 
                     <!-- CTA Action Buttons -->
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-                        <a href="#cotizador" class="px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white font-black text-base rounded-2xl shadow-xl shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-1">
+                    <div data-animate="fade-up" data-delay="300" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <a href="#cotizador" class="px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white font-black text-base rounded-2xl shadow-xl shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-neon-emerald">
                             <i data-lucide="calculator" class="w-5 h-5"></i>
                             <span>Calcular Cotización Online</span>
                         </a>
-                        <a href="tel:949877316" class="px-6 py-4 bg-slate-900/90 hover:bg-slate-800 text-white font-bold text-base rounded-2xl border border-slate-700 transition-all flex items-center justify-center gap-3 shadow-lg">
+                        <a href="tel:949877316" class="px-6 py-4 bg-slate-900/90 hover:bg-slate-800 text-white font-bold text-base rounded-2xl border border-slate-700 transition-all flex items-center justify-center gap-3 shadow-lg hover-lift">
                             <div class="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400">
                                 <i data-lucide="phone" class="w-5 h-5"></i>
                             </div>
@@ -430,7 +433,7 @@
                     </div>
 
                     <!-- Direct Verification Badge -->
-                    <div class="flex items-center gap-3 pt-2 text-xs text-slate-400 border-t border-slate-800/80">
+                    <div data-animate="fade-up" data-delay="350" class="flex items-center gap-3 pt-2 text-xs text-slate-400 border-t border-slate-800/80">
                         <img src="{{ asset('images/logotipo-sec.png') }}" alt="SEC" class="h-6 w-auto opacity-90">
                         <span>Gasfiter Certificado Autorizado SEC Clase 3 · <strong>Domingo Isain Plaza Caamaño</strong> (RUT 12.738.961-6)</span>
                     </div>
@@ -438,11 +441,11 @@
                 </div>
 
                 <!-- Hero Right Column: Domingo Profile & Technology Card -->
-                <div class="lg:col-span-5">
+                <div class="lg:col-span-5" data-animate="fade-left" data-delay="200">
                     <div class="relative">
                         
                         <!-- Glowing card frame -->
-                        <div class="glass-dark p-6 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6 relative overflow-hidden">
+                        <div class="glass-dark p-6 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6 relative overflow-hidden hover-lift">
                             
                             <!-- Technician Header -->
                             <div class="flex items-center gap-4 pb-5 border-b border-slate-800">
@@ -497,7 +500,7 @@
                             </div>
 
                             <!-- Emergency Floating Action -->
-                            <a href="#cotizador" class="w-full py-3 bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 rounded-xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all">
+                            <a href="#cotizador" class="w-full py-3 bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 rounded-xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all hover:scale-[1.02]">
                                 <i data-lucide="arrow-down-circle" class="w-4 h-4 text-sky-400"></i>
                                 <span>Ir al Cotizador por Metros Lineales</span>
                             </a>
@@ -516,7 +519,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <!-- Section Header -->
-            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+            <div data-animate="fade-up" class="text-center max-w-3xl mx-auto space-y-4 mb-12">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
                     <i data-lucide="calculator" class="w-4 h-4"></i>
                     <span>Cotizador Interactivo en Tiempo Real</span>
@@ -530,7 +533,7 @@
             </div>
 
             <!-- Main Interactive Card -->
-            <div class="glass-dark rounded-3xl border border-slate-800 shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+            <div data-animate="fade-scale" data-delay="150" class="glass-dark rounded-3xl border border-slate-800 shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 hover-lift">
                 
                 <!-- Left Form Column -->
                 <div class="lg:col-span-7 p-6 sm:p-10 space-y-6">
@@ -788,7 +791,7 @@
     <section id="como-funciona" class="py-16 lg:py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
             
-            <div class="text-center max-w-3xl mx-auto space-y-4">
+            <div data-animate="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider">
                     <i data-lucide="cpu" class="w-4 h-4"></i>
                     <span>Tecnología Alemana de Sellado Interior</span>
@@ -802,9 +805,9 @@
             </div>
 
             <!-- 4 Step Process Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div data-animate="fade-up" data-delay="150" data-stagger class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 
-                <div class="glass-card-hover p-6 rounded-2xl space-y-4">
+                <div class="glass-card-hover p-6 rounded-2xl space-y-4 hover-lift">
                     <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-black text-xl font-display border border-sky-500/30">
                         01
                     </div>
@@ -814,7 +817,7 @@
                     </p>
                 </div>
 
-                <div class="glass-card-hover p-6 rounded-2xl space-y-4">
+                <div class="glass-card-hover p-6 rounded-2xl space-y-4 hover-lift">
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-xl font-display border border-emerald-500/30">
                         02
                     </div>
@@ -824,7 +827,7 @@
                     </p>
                 </div>
 
-                <div class="glass-card-hover p-6 rounded-2xl space-y-4">
+                <div class="glass-card-hover p-6 rounded-2xl space-y-4 hover-lift">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-black text-xl font-display border border-cyan-500/30">
                         03
                     </div>
@@ -834,7 +837,7 @@
                     </p>
                 </div>
 
-                <div class="glass-card-hover p-6 rounded-2xl space-y-4">
+                <div class="glass-card-hover p-6 rounded-2xl space-y-4 hover-lift">
                     <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-xl font-display border border-amber-500/30">
                         04
                     </div>
@@ -847,7 +850,7 @@
             </div>
 
             <!-- Comparison Table: SellafuGas vs Método Tradicional -->
-            <div class="glass-dark rounded-3xl border border-slate-800 p-6 sm:p-10 space-y-6">
+            <div data-animate="flip-up" data-delay="200" class="glass-dark rounded-3xl border border-slate-800 p-6 sm:p-10 space-y-6 hover-lift">
                 <div class="text-center max-w-2xl mx-auto space-y-2">
                     <h3 class="text-2xl font-black text-white font-display">
                         Comparativa: SellafuGas Prodoral vs Picar Muros Tradicional
@@ -910,7 +913,7 @@
     <section id="faq" class="py-16 lg:py-24 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             
-            <div class="text-center space-y-4">
+            <div data-animate="fade-up" class="text-center space-y-4">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider">
                     <i data-lucide="help-circle" class="w-4 h-4"></i>
                     <span>Resolución de Dudas Frecuentes</span>
@@ -924,7 +927,7 @@
             </div>
 
             <!-- Accordion List (10 FAQs) -->
-            <div class="space-y-3.5">
+            <div data-animate="fade-up" data-delay="150" data-stagger class="space-y-3.5">
                 
                 <!-- FAQ 1 -->
                 <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">

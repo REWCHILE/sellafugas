@@ -1,3 +1,6 @@
+<!-- Animations Stylesheet Preset -->
+<link rel="stylesheet" href="{{ asset('css/animations.css') }}">
+
 <!-- Top Emergency Ribbon -->
 <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-sky-950 border-b border-emerald-500/20 text-xs py-2 px-4 sticky top-0 z-50 backdrop-blur-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">

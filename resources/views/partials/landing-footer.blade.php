@@ -77,3 +77,6 @@
         </div>
     </div>
 </footer>
+
+<!-- Animations Observer Engine -->
+<script defer src="{{ asset('js/animations.js') }}"></script>

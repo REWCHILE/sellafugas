@@ -197,20 +197,20 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-300 text-xs font-bold uppercase tracking-wider">
+                    <div data-animate="fade-down" data-delay="100" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-300 text-xs font-bold uppercase tracking-wider">
                         <span>Acreditación Oficial SEC Clase 3 Vigente</span>
                     </div>
 
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+                    <h1 data-animate="fade-up" data-delay="150" class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
                         Certificados Oficiales de Gas <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-emerald-400">SEC DS66</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+                    <p data-animate="fade-up" data-delay="200" class="text-base sm:text-lg text-slate-300 leading-relaxed">
                         Emisión inmediata de <strong>Certificados Oficiales de Hermeticidad e Instalaciones de Gas</strong> emitidos por <strong>Domingo Isain Plaza Caamaño (RUT 12.738.961-6)</strong>. Acreditación válida para Metrogas, Lipigas, Abastible, Gasco, entidades certificadoras y municipalidades.
                     </p>
 
                     <!-- Feature Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                    <div data-animate="fade-up" data-delay="250" data-stagger class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
                             <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
                             <span><strong>Prueba DS66:</strong> 368 mmca por 5 minutos</span>
@@ -230,7 +230,7 @@
                     </div>
 
                     <!-- Fast Contact Card -->
-                    <div class="glass-card p-6 rounded-3xl border border-slate-700 space-y-4 pt-4">
+                    <div data-animate="fade-scale" data-delay="300" class="glass-card p-6 rounded-3xl border border-slate-700 space-y-4 pt-4 hover-lift">
                         <h3 class="text-sm font-bold text-white uppercase tracking-wider">Solicitar Certificación Oficial SEC:</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" placeholder="Su Nombre *" x-model="nombre"
@@ -242,7 +242,7 @@
                         </div>
 
                         <button type="button" @click="submitCert()"
-                                class="w-full py-4 bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400 text-slate-950 font-black text-base rounded-xl shadow-xl shadow-sky-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                class="w-full py-4 bg-gradient-to-r from-sky-500 via-teal-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400 text-slate-950 font-black text-base rounded-xl shadow-xl shadow-sky-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02] hover:shadow-neon-sky">
                             <i data-lucide="file-check-2" class="w-5 h-5"></i>
                             <span>Coordinar Prueba y Certificado SEC por WhatsApp</span>
                         </button>
@@ -250,8 +250,8 @@
 
                 </div>
 
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="glass-card p-4 rounded-3xl border border-slate-700 overflow-hidden shadow-2xl">
+                <div class="lg:col-span-5 space-y-6" data-animate="fade-left" data-delay="200">
+                    <div class="glass-card p-4 rounded-3xl border border-slate-700 overflow-hidden shadow-2xl hover-lift">
                         <img src="{{ asset('images/certificados-sec-gas.png') }}" alt="Certificado Oficial SEC DS66" class="w-full h-80 object-cover rounded-2xl">
                         <div class="p-4 space-y-2">
                             <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">Documento Técnico Legal</span>
