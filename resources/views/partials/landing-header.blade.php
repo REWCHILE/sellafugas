@@ -167,47 +167,182 @@
             </a>
 
             <!-- Mobile Hamburger Button -->
-            <button type="button" @click="mobileNav = !mobileNav" class="lg:hidden p-2 rounded-xl bg-slate-800 text-slate-200 hover:text-white">
-                <i data-lucide="menu" class="w-6 h-6" x-show="!mobileNav"></i>
-                <i data-lucide="x" class="w-6 h-6" x-show="mobileNav" x-cloak></i>
+            <button type="button" @click="mobileNav = true" 
+                    aria-label="Abrir Menú"
+                    class="lg:hidden p-2.5 rounded-xl bg-slate-800/90 text-slate-200 hover:text-white border border-slate-700 hover:bg-slate-700 transition-all flex items-center justify-center">
+                <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
 
     </div>
 
-    <!-- Mobile Drawer Menu -->
-    <div x-show="mobileNav" x-cloak class="lg:hidden bg-slate-950/95 backdrop-blur-2xl border-t border-slate-800 px-4 py-6 space-y-4 max-h-[85vh] overflow-y-auto">
-        <div class="space-y-1">
-            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block px-3 mb-2">Navegación</span>
-            <a href="{{ route('home') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">Inicio</a>
-            <a href="{{ route('nosotros') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">Nosotros</a>
-            <a href="{{ route('contacto') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">Contacto</a>
-        </div>
+    <!-- Mobile Off-Canvas Slide-Over Drawer (Right to Left) -->
+    <div x-show="mobileNav" x-cloak 
+         class="fixed inset-0 z-50 lg:hidden overflow-hidden" 
+         role="dialog" 
+         aria-modal="true">
+        
+        <!-- Backdrop with Smooth Fade -->
+        <div x-show="mobileNav"
+             x-transition:enter="transition-opacity ease-out duration-300"
+             x-transition:enter-start="opacity-0"
+             x-transition:enter-end="opacity-100"
+             x-transition:leave="transition-opacity ease-in duration-200"
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="fixed inset-0 bg-slate-950/85 backdrop-blur-md transition-opacity"
+             @click="mobileNav = false"></div>
 
-        <div class="space-y-1 pt-2 border-t border-slate-800">
-            <span class="text-[11px] font-bold text-amber-400 uppercase tracking-wider block px-3 mb-2">Servicios Técnicos</span>
-            <a href="{{ route('landing.prodoral') }}" class="block px-3 py-2 rounded-lg text-sm font-bold text-amber-300 bg-amber-500/10">🇩🇪 Prodoral R6-1 Alemán</a>
-            <a href="{{ route('landing.fugas-gas') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">🔥 Fugas de Gas (Sellado)</a>
-            <a href="{{ route('landing.gasfiter-sec') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">🛡️ Gasfíter SEC Domingo</a>
-            <a href="{{ route('landing.sello-rojo') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">🚨 Sello Rojo SEC</a>
-            <a href="{{ route('landing.gas-trazador') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">💨 Gas Trazador</a>
-            <a href="{{ route('landing.fugas-agua') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">💧 Fugas de Agua (Geófono)</a>
-            <a href="{{ route('landing.fugas-piscinas') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">🏊 Piscinas sin Vaciar</a>
-            <a href="{{ route('landing.deteccion-sin-romper') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">🔍 Detección Sin Romper</a>
-            <a href="{{ route('landing.reparacion-calefont') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">🔧 Calefont SEC</a>
-            <a href="{{ route('landing.certificados-sec') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-200 hover:bg-slate-800">📋 Certificados DS66</a>
-        </div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-8">
+            <!-- Slide-Over Panel -->
+            <div x-show="mobileNav"
+                 x-transition:enter="transform transition ease-out duration-300 sm:duration-400"
+                 x-transition:enter-start="translate-x-full"
+                 x-transition:enter-end="translate-x-0"
+                 x-transition:leave="transform transition ease-in duration-300 sm:duration-400"
+                 x-transition:leave-start="translate-x-0"
+                 x-transition:leave-end="translate-x-full"
+                 class="w-screen max-w-sm bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 border-l border-slate-800/90 shadow-2xl flex flex-col h-full overflow-hidden"
+                 @click.away="mobileNav = false">
+                
+                <!-- Drawer Top Bar -->
+                <div class="p-5 border-b border-slate-800/90 flex items-center justify-between bg-slate-950/60">
+                    <a href="{{ route('home') }}" class="flex items-center gap-2.5" @click="mobileNav = false">
+                        <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-9 w-auto rounded-lg">
+                        <div>
+                            <span class="font-display font-black text-lg text-white leading-tight block">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</span>
+                            <span class="text-[10px] text-slate-400 font-semibold uppercase">Domingo Isain SEC</span>
+                        </div>
+                    </a>
 
-        <div class="pt-3 border-t border-slate-800">
-            @auth
-            <a href="{{ route('certificates.index') }}" class="block w-full py-2.5 text-center text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-xl">
-                Mi Portal Admin
-            </a>
-            @else
-            <a href="{{ route('login') }}" class="block w-full py-2.5 text-center text-xs font-bold text-slate-300 border border-slate-700 rounded-xl">
-                Acceso Administrador
-            </a>
-            @endauth
+                    <!-- Close Button (X) -->
+                    <button type="button" @click="mobileNav = false"
+                            class="p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <!-- Emergency Contact Quick Banner -->
+                <div class="px-5 py-3 bg-emerald-500/10 border-b border-emerald-500/20 flex items-center justify-between text-xs">
+                    <span class="text-emerald-300 font-bold flex items-center gap-1.5">
+                        <i data-lucide="phone-call" class="w-3.5 h-3.5 text-emerald-400"></i>
+                        <span>Urgencias 24/7:</span>
+                    </span>
+                    <a href="tel:949877316" class="font-black text-white hover:text-emerald-300 underline">
+                        949 877 316
+                    </a>
+                </div>
+
+                <!-- Drawer Scrollable Content -->
+                <div class="flex-1 overflow-y-auto p-5 space-y-6">
+                    
+                    <!-- Section 1: Navigation -->
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block px-3 mb-1.5">Navegación Principal</span>
+                        <a href="{{ route('home') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                            <i data-lucide="home" class="w-4 h-4 text-sky-400"></i>
+                            <span>Inicio</span>
+                        </a>
+                        <a href="{{ route('home') }}#cotizador" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm font-semibold text-emerald-300 bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors">
+                            <i data-lucide="calculator" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Cotizador de Sellado</span>
+                        </a>
+                        <a href="{{ route('home') }}#certificaciones" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                            <i data-lucide="award" class="w-4 h-4 text-amber-400"></i>
+                            <span>Documentos & Certificados</span>
+                        </a>
+                        <a href="{{ route('nosotros') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                            <i data-lucide="user-check" class="w-4 h-4 text-sky-400"></i>
+                            <span>Sobre Nosotros (Domingo SEC)</span>
+                        </a>
+                        <a href="{{ route('contacto') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-sm font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                            <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Contacto y Central</span>
+                        </a>
+                    </div>
+
+                    <!-- Section 2: Technical Services -->
+                    <div class="space-y-1 pt-3 border-t border-slate-800/80">
+                        <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block px-3 mb-1.5">Servicios Especializados</span>
+                        
+                        <a href="{{ route('landing.prodoral') }}" @click="mobileNav = false" class="flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold text-amber-300 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 transition-all">
+                            <span class="flex items-center gap-2">
+                                <span class="text-sm">🇩🇪</span>
+                                <span>Prodoral R6-1 Sellado Alemán</span>
+                            </span>
+                            <span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-300 font-black">Sin Romper</span>
+                        </a>
+
+                        <a href="{{ route('landing.fugas-gas') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>🔥</span>
+                            <span>Sellado Fugas de Gas</span>
+                        </a>
+
+                        <a href="{{ route('landing.gasfiter-sec') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>🛡️</span>
+                            <span>Gasfíter Certificado SEC</span>
+                        </a>
+
+                        <a href="{{ route('landing.sello-rojo') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>🚨</span>
+                            <span>Levantamiento Sello Rojo</span>
+                        </a>
+
+                        <a href="{{ route('landing.gas-trazador') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>💨</span>
+                            <span>Detección Gas Trazador</span>
+                        </a>
+
+                        <a href="{{ route('landing.fugas-agua') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>💧</span>
+                            <span>Detección Fugas de Agua</span>
+                        </a>
+
+                        <a href="{{ route('landing.fugas-piscinas') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>🏊</span>
+                            <span>Fugas en Piscinas sin Vaciar</span>
+                        </a>
+
+                        <a href="{{ route('landing.deteccion-sin-romper') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>🔍</span>
+                            <span>Detección Sin Romper Muros</span>
+                        </a>
+
+                        <a href="{{ route('landing.reparacion-calefont') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>🔧</span>
+                            <span>Calefont SEC Reparación</span>
+                        </a>
+
+                        <a href="{{ route('landing.certificados-sec') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>📋</span>
+                            <span>Certificados Oficiales DS66</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Drawer Footer & Auth -->
+                <div class="p-5 border-t border-slate-800/90 bg-slate-950/90 space-y-3">
+                    <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20necesito%20atencion%20tecnica%20SellafuGas" target="_blank"
+                       class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25 transition-all">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>Contactar por WhatsApp</span>
+                    </a>
+
+                    @auth
+                    <a href="{{ route('certificates.index') }}" class="block w-full py-2.5 text-center text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-xl hover:bg-emerald-500/20 transition-all">
+                        <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 inline mr-1"></i>
+                        <span>Mi Portal Administrador</span>
+                    </a>
+                    @else
+                    <a href="{{ route('login') }}" class="block w-full py-2.5 text-center text-xs font-bold text-slate-400 border border-slate-700/80 rounded-xl hover:text-white hover:bg-slate-800/60 transition-all">
+                        <span>Acceso Administrador</span>
+                    </a>
+                    @endauth
+                </div>
+
+            </div>
         </div>
     </div>
 </header>
