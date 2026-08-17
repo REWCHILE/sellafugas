@@ -397,15 +397,13 @@
             </a>
 
             <!-- Navigation Links Desktop -->
-            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
-                <a href="#cotizador" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
-                    <i data-lucide="calculator" class="w-4 h-4 text-emerald-400"></i>
-                    <span>Cotizar Online</span>
-                </a>
-                <a href="#como-funciona" class="hover:text-sky-400 transition-colors">¿Cómo Funciona?</a>
-                <a href="#precios" class="hover:text-sky-400 transition-colors">Precios y Regiones</a>
-                <a href="#certificaciones" class="hover:text-sky-400 transition-colors">Certificados SEC</a>
-                <a href="#faq" class="hover:text-sky-400 transition-colors">Preguntas Frecuentes</a>
+            <nav class="hidden lg:flex items-center gap-5 text-xs font-semibold text-slate-300">
+                <a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 transition-colors">Fugas de Gas</a>
+                <a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 transition-colors">Gasfíter SEC</a>
+                <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
+                <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
+                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Fugas en Piscinas</a>
+                <a href="#faq" class="hover:text-sky-400 transition-colors">FAQ</a>
                 <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-slate-200 border border-slate-700 px-2.5 py-1 rounded-lg">
                     Acceso Administrador
                 </a>
@@ -1251,7 +1249,19 @@
                     </div>
                 </div>
 
-                <!-- Col 2: Fast Links -->
+                <!-- Col 2: Specialized Landing Services -->
+                <div class="space-y-2">
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Especialidades SEO</h4>
+                    <ul class="space-y-1.5 text-xs">
+                        <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 text-slate-300">Sellado Fugas de Gas (Prodoral)</a></li>
+                        <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 text-slate-300">Gasfiter Certificado SEC Domingo</a></li>
+                        <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 text-slate-300">Detección con Gas Trazador</a></li>
+                        <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 text-slate-300">Detección Fugas de Agua (Geófono)</a></li>
+                        <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 text-slate-300">Fugas en Piscinas sin Vaciar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Fast Links -->
                 <div class="space-y-2">
                     <h4 class="text-sm font-bold text-white uppercase tracking-wider">Enlaces Rápidos</h4>
                     <ul class="space-y-1.5 text-xs">
@@ -1263,7 +1273,7 @@
                     </ul>
                 </div>
 
-                <!-- Col 3: Contact & Emergency -->
+                <!-- Col 4: Contact & Emergency -->
                 <div class="space-y-2">
                     <h4 class="text-sm font-bold text-white uppercase tracking-wider">Atención y Urgencias</h4>
                     <p class="text-xs text-slate-300 font-bold">Teléfono / WhatsApp:</p>

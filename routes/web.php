@@ -7,6 +7,8 @@ use App\Http\Controllers\QuotePublicController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 
+use App\Http\Controllers\PublicLandingController;
+
 /*
 |--------------------------------------------------------------------------
 | Public Routes (Sitio Web Público Sellafugas.cl)
@@ -15,6 +17,13 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+// 5 Specialized SEO Landing Pages (High-Conversion Google Ads & Organic SEO)
+Route::get('/fugas-de-gas', [PublicLandingController::class, 'fugasGas'])->name('landing.fugas-gas');
+Route::get('/gasfiter-sec', [PublicLandingController::class, 'gasfiterSec'])->name('landing.gasfiter-sec');
+Route::get('/gas-trazador', [PublicLandingController::class, 'gasTrazador'])->name('landing.gas-trazador');
+Route::get('/fugas-de-agua', [PublicLandingController::class, 'fugasAgua'])->name('landing.fugas-agua');
+Route::get('/fugas-piscinas', [PublicLandingController::class, 'fugasPiscinas'])->name('landing.fugas-piscinas');
 
 // Public quotation calculator & submission
 Route::post('/cotizar', [QuotePublicController::class, 'store'])->name('quote.public.store');
