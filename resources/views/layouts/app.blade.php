@@ -78,12 +78,10 @@
             <!-- Brand Header -->
             <div class="h-20 flex items-center justify-between px-6 border-b border-slate-800/80 bg-slate-900/40">
                 <a href="{{ route('certificates.index') }}" class="flex items-center gap-3 group">
-                    <div class="p-2 rounded-xl bg-gradient-to-tr from-brand-600 to-sky-400 shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-transform">
-                        <img src="{{ asset('images/instalgaschile-logitpo.png') }}" alt="Logo" class="h-7 w-auto bg-white rounded p-0.5">
-                    </div>
+                    <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-10 w-auto rounded-lg shadow-md group-hover:scale-105 transition-transform">
                     <div>
-                        <span class="font-bold text-lg text-white tracking-wide block leading-tight">Instalgaschile</span>
-                        <span class="text-xs text-sky-400 font-medium">Servicio Técnico SEC</span>
+                        <span class="font-black text-lg text-white tracking-wide block leading-tight">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span></span>
+                        <span class="text-[11px] text-slate-400 font-medium">Prodoral R6-1 · SEC</span>
                     </div>
                 </a>
                 <button @click="sidebarOpen = false" class="md:hidden text-slate-400 hover:text-white">
@@ -93,43 +91,53 @@
 
             <!-- User Info Badge (Clickable to Edit Profile) -->
             <a href="{{ route('profile.edit') }}" title="Editar mi perfil" 
-               class="p-4 mx-4 my-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-purple-500/50 hover:bg-slate-800/80 transition-all flex items-center gap-3 group cursor-pointer shadow-sm">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-500 to-brand-600 flex items-center justify-center font-bold text-white shadow-md group-hover:scale-105 transition-transform shrink-0">
-                    {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
-                </div>
+               class="p-3.5 mx-4 my-3.5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-sky-500/50 hover:bg-slate-800/80 transition-all flex items-center gap-3 group cursor-pointer shadow-sm">
+                @if(file_exists(public_path('images/domingo-isain.jpg')) && (str_contains(strtolower(Auth::user()->name), 'domingo') || Auth::user()->isAdmin()))
+                    <img src="{{ asset('images/domingo-isain.jpg') }}" alt="Domingo Isain" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-400/80 shadow-md shrink-0">
+                @else
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-sky-500 to-brand-600 flex items-center justify-center font-bold text-white shadow-md group-hover:scale-105 transition-transform shrink-0">
+                        {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                    </div>
+                @endif
                 <div class="overflow-hidden flex-1">
-                    <p class="text-sm font-semibold text-white truncate group-hover:text-purple-300 transition-colors">{{ Auth::user()->name }}</p>
-                    <p class="text-xs text-sky-400 flex items-center gap-1 font-medium">
+                    <p class="text-sm font-bold text-white truncate group-hover:text-sky-300 transition-colors">{{ Auth::user()->name }}</p>
+                    <p class="text-xs flex items-center gap-1 font-medium">
                         @if(Auth::user()->isAdmin())
-                            <span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span> Administrador (Domingo)
+                            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span> <span class="text-emerald-400 font-semibold">SEC Clase 3 (Admin)</span>
                         @else
-                            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span> Técnico Certificado
+                            <span class="inline-block w-2 h-2 rounded-full bg-amber-400"></span> <span class="text-slate-400">Técnico Asistente</span>
                         @endif
                     </p>
                 </div>
-                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-purple-400 transition-colors"></i>
+                <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500 group-hover:text-sky-400 transition-colors"></i>
             </a>
 
             <!-- Navigation Links -->
             <nav class="flex-1 px-4 space-y-1.5 overflow-y-auto">
                 <div class="px-3 pb-2 pt-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                    Certificados y Órdenes
+                    Certificados y Cotizaciones
                 </div>
 
                 <a href="{{ route('certificates.index') }}" 
                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all {{ request()->routeIs('certificates.index') ? 'bg-sky-500/10 text-sky-400 border border-sky-500/30' : 'text-slate-300 hover:bg-slate-800/60 hover:text-white' }}">
                     <i data-lucide="file-text" class="w-5 h-5 text-sky-400"></i>
-                    <span>Listado de Certificados</span>
+                    <span>Listado General</span>
                 </a>
 
                 <a href="{{ route('certificates.create') }}" 
-                   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all {{ request()->routeIs('certificates.create') ? 'bg-sky-500/10 text-sky-400 border border-sky-500/30' : 'text-slate-300 hover:bg-slate-800/60 hover:text-white' }}">
+                   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all {{ request()->routeIs('certificates.create') ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30' : 'text-slate-300 hover:bg-slate-800/60 hover:text-white' }}">
                     <i data-lucide="plus-circle" class="w-5 h-5 text-emerald-400"></i>
-                    <span>Emitir Certificado</span>
+                    <span>Emitir Documento</span>
                 </a>
 
-                <div class="px-3 pb-2 pt-6 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                    Cuenta y Configuración
+                <a href="{{ route('home') }}" target="_blank"
+                   class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-medium text-sm transition-all text-slate-300 hover:bg-slate-800/60 hover:text-white">
+                    <i data-lucide="globe" class="w-5 h-5 text-cyan-400"></i>
+                    <span>Ver Sitio Web Público</span>
+                </a>
+
+                <div class="px-3 pb-2 pt-5 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
+                    Sistema y Cuenta
                 </div>
 
                 <a href="{{ route('profile.edit') }}" 

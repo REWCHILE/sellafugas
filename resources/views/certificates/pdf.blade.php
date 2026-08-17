@@ -192,9 +192,9 @@
             <!-- Left Logo -->
             <td style="width: 44%; text-align: left; vertical-align: middle;">
                 @if($logoBase64)
-                    <img src="{{ $logoBase64 }}" style="height: 60px; max-width: 95%; width: auto;" alt="Instalgaschile Logo">
+                    <img src="{{ $logoBase64 }}" style="height: 62px; max-width: 95%; width: auto;" alt="SellafuGas Logo">
                 @else
-                    <span style="font-size: 18px; font-weight: bold; color: #0284c7;">Instalgaschile®</span>
+                    <span style="font-size: 18px; font-weight: bold; color: #0284c7;">SellafuGas®</span>
                 @endif
             </td>
 
@@ -241,9 +241,9 @@
         </tr>
         <tr>
             <td class="lbl">Región:</td>
-            <td class="val">{{ $certificate->client_region }}</td>
+            <td class="val">{{ $certificate->client_region ?: 'Región Metropolitana' }}</td>
             <td class="lbl">Modalidad:</td>
-            <td class="val" style="text-transform: uppercase;">Neto Directo</td>
+            <td class="val" style="text-transform: uppercase;">{{ $certificate->tax_type === 'factura' ? 'Factura con IVA' : 'Neto Directo' }}</td>
         </tr>
     </table>
 
@@ -251,50 +251,41 @@
     <table class="items-table">
         <thead>
             <tr>
-                <th style="width: 48%;">Descripción</th>
-                <th style="width: 18%; text-align: center;">Precio Unit.</th>
-                <th style="width: 14%; text-align: center;">Cantidad</th>
-                <th style="width: 20%; text-align: right;">Total</th>
+                <th style="width: 60%;">DESCRIPCIÓN DEL SERVICIO REALIZADO</th>
+                <th style="width: 12%; text-align: center;">CANT</th>
+                <th style="width: 14%; text-align: right;">UNITARIO</th>
+                <th style="width: 14%; text-align: right;">TOTAL</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($certificate->items_list as $item)
+            @if(!empty($certificate->items) && is_array($certificate->items))
+                @foreach($certificate->items as $item)
+                    <tr>
+                        <td>{{ $item['description'] ?? 'Servicio de sellado de gas' }}</td>
+                        <td class="text-center">{{ $item['quantity'] ?? 1 }}</td>
+                        <td class="text-right">${{ number_format($item['unit_price'] ?? 0, 0, ',', '.') }}</td>
+                        <td class="text-right font-bold">${{ number_format(($item['quantity'] ?? 1) * ($item['unit_price'] ?? 0), 0, ',', '.') }}</td>
+                    </tr>
+                @endforeach
+            @else
                 <tr>
-                    <td>{!! nl2br(e(preg_replace('/<br\s*\/?>/i', "\n", $item['description']))) !!}</td>
-                    <td style="text-align: center;">${{ number_format($item['unit_price'], 0, ',', '.') }}</td>
-                    <td style="text-align: center;">{{ $item['quantity'] }}</td>
-                    <td style="text-align: right;" class="font-bold">${{ number_format($item['total'], 0, ',', '.') }}</td>
+                    <td>{{ $certificate->description ?: 'Sellado de fugas de gas con Prodoral R6-1' }}</td>
+                    <td class="text-center">{{ $certificate->quantity ?: 1 }}</td>
+                    <td class="text-right">${{ number_format($certificate->unit_price ?: $certificate->subtotal_neto, 0, ',', '.') }}</td>
+                    <td class="text-right font-bold">${{ number_format($certificate->subtotal_neto ?: $certificate->total_price, 0, ',', '.') }}</td>
                 </tr>
-            @endforeach
+            @endif
         </tbody>
     </table>
 
-    <!-- 4. Work Detail Text Container -->
+    <!-- 4. Technical Details -->
     <div class="details-container">
-        <div class="details-title">Detalle Trabajo:</div>
+        <div class="details-title">DETALLE TÉCNICO Y PROCEDIMIENTO REALIZADO:</div>
         <div class="details-content">{{ $certificate->work_details }}</div>
     </div>
 
-    <!-- 5. Photographs Evidence Row -->
-    @if(!$photo1Base64 && !$photo3Base64)
-        <!-- Without uploaded evidence photos: Display only centered SEC QR card -->
-        <table class="photos-table" style="margin: 0 auto; width: 50%;">
-            <tr>
-                <td style="width: 100%; text-align: center;">
-                    <div class="photo-card" style="padding: 10px;">
-                        <div style="font-size: 10px; font-weight: bold; color: #0369a1; margin-bottom: 4px;">
-                            Gasfiter Certificado Autorizado SEC<br>Domingo Isain
-                        </div>
-                        @if($secQrBase64)
-                            <img src="{{ $secQrBase64 }}" class="qr-img" style="height: 125px;" alt="QR SEC">
-                        @endif
-                        <div style="font-size: 9px; font-weight: bold; color: #475569; margin-top: 4px;">Escanear para Verificación SEC</div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    @else
-        <!-- Standard 3-column row for Certificados or Cotizaciones with custom uploaded photos -->
+    <!-- 5. Photographs Evidence Grid -->
+    @if($photo1Base64 || $secQrBase64 || $photo3Base64)
         <table class="photos-table">
             <tr>
                 <!-- Photo 1 -->
@@ -365,20 +356,20 @@
     <table class="footer-table">
         <tr>
             <!-- Company Info Left -->
-            <td style="width: 24%;">
-                <strong style="font-size: 10px; color: #0f172a;">Instalgaschile SPA</strong><br>
-                RUT: 76.776.528-2<br>
-                Av. Lib. Bernardo O'Higgins 1302<br>
-                Santiago, Santiago<br>
-                Servicio Técnico Autorizado SEC<br>
-                Tel: +56 9 4987 7316<br>
-                domi@instalgaschile.cl
+            <td style="width: 28%;">
+                <strong style="font-size: 10px; color: #0f172a;">SellafuGas Domingo Isain®</strong><br>
+                Instalgaschile SpA · RUT: 76.776.528-2<br>
+                Dirección: Estado 215, Santiago<br>
+                Av. Lib. Bernardo O'Higgins 1302, Santiago<br>
+                Especialista en Fugas de Gas & Prodoral R6-1<br>
+                Tel / WhatsApp: +56 9 4987 7316<br>
+                domi@sellafugas.cl · sellafugas.cl
             </td>
 
             <!-- Sub Brand Badges Center-Left -->
-            <td style="width: 35%; text-align: center;">
+            <td style="width: 31%; text-align: center;">
                 @if($holdingLogoBase64)
-                    <img src="{{ $holdingLogoBase64 }}" style="height: 110px; width: auto;" alt="Logos Holding">
+                    <img src="{{ $holdingLogoBase64 }}" style="height: 105px; width: auto;" alt="Logos Holding">
                 @endif
             </td>
 
@@ -386,19 +377,20 @@
             <td style="width: 16%; text-align: center;">
                 @if($registroQrBase64)
                     <img src="{{ $registroQrBase64 }}" style="height: 75px; width: auto;" alt="QR Registro">
-                    <div style="font-size: 8px; font-weight: bold; color: #334155; margin-top: 2px;">Registro SEC</div>
+                    <div style="font-size: 8px; font-weight: bold; color: #334155; margin-top: 2px;">Verificación SEC</div>
                 @endif
             </td>
 
             <!-- Digital Signature Right -->
             <td style="width: 25%; text-align: center;">
                 @if($firmaBase64)
-                    <img src="{{ $firmaBase64 }}" style="height: 160px; width: auto; margin-bottom: 2px;" alt="Firma Domingo">
+                    <img src="{{ $firmaBase64 }}" style="height: 155px; width: auto; margin-bottom: 2px;" alt="Firma Domingo">
                 @endif
-                <div style="font-weight: bold; font-size: 9.5px; color: #0f172a;">Instalgaschile®</div>
+                <div style="font-weight: bold; font-size: 9.5px; color: #0f172a;">SellafuGas® / SEC</div>
                 <div style="font-size: 8px; color: #475569;">
                     {{ $certificate->gasfiter_name ?: 'Domingo Isain Plaza Caamaño' }}<br>
-                    RUT: {{ $certificate->gasfiter_rut ?: '12.738.961-6' }}
+                    RUT: {{ $certificate->gasfiter_rut ?: '12.738.961-6' }}<br>
+                    Gasfiter Certificado Autorizado SEC
                 </div>
             </td>
         </tr>

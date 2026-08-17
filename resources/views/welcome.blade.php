@@ -1,227 +1,1378 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SellafuGas® | Reparación de Fugas de Gas Sin Romper · Prodoral R6-1 · Gasfiter Certificado SEC Domingo Isain</title>
+    
+    <!-- Meta SEO Tags -->
+    <meta name="description" content="Sellado de fugas de gas no visibles en cañerías sin romper muros ni pisos. Aplicación oficial de Prodoral R6-1 alemán por Domingo Isain, Gasfiter Certificado SEC Clase 3. Procedimiento < 2 horas, garantía 3 años, usted paga después de solucionado. RM, V y VI Región. Llame al 949 877 316.">
+    <meta name="keywords" content="sellafugas, fuga de gas, fugas de gas, gasfiter certificado, gasfiter certificados sec, prodoral, prodoral r6-1, reparacion de fugas de gas sin romper, sellar fuga de gas, detectar fuga de gas, sellado de cañerias de gas, gasfiter certificado a domicilio, gasfiter sec santiago, gasfiter sec la florida, gasfiter las condes, gasfiter providencia, gasfiter chicureo, prueba de hermeticidad gas, ds66 sec">
+    <meta name="author" content="Domingo Isain Plaza Caamaño - SellafuGas®">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sellafugas.cl">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sellafugas.cl/">
+    <meta property="og:title" content="SellafuGas® · Reparación de Fugas de Gas Sin Romper con Prodoral R6-1 · Gasfiter SEC">
+    <meta property="og:description" content="Especialistas en sellado de fugas de gas no visibles. Solución en menos de 2 horas con tecnología alemana Prodoral R6-1. Garantía 3 años por escrito. Certificado SEC oficial.">
+    <meta property="og:image" content="{{ asset('images/logotipo-sellafugas.cl.webp') }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="{{ asset('images/logotipo-sellafugas.cl.webp') }}">
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        @fonts
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        gas: {
+                            emerald: '#10b981',
+                            cyan: '#06b6d4',
+                            amber: '#f59e0b',
+                            rose: '#ef4444',
+                        }
+                    },
+                    boxShadow: {
+                        'neon-emerald': '0 0 25px -5px rgba(16, 185, 129, 0.4)',
+                        'neon-sky': '0 0 25px -5px rgba(56, 189, 248, 0.4)',
+                        'glow-lg': '0 10px 40px -10px rgba(2, 132, 199, 0.35)',
+                    }
+                }
+            }
+        }
+    </script>
 
-        <!-- Styles / Scripts -->
-        @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-            @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @else
-            <style>
-                /*! tailwindcss v4.0.7 | MIT License | https://tailwindcss.com */ @layer properties{@supports (((-webkit-hyphens:none)) and (not (margin-trim:inline))) or ((-moz-orient:inline) and (not (color:rgb(from red r g b)))){*,:before,:after,::backdrop{--tw-translate-x:0;--tw-translate-y:0;--tw-translate-z:0;--tw-rotate-x:initial;--tw-rotate-y:initial;--tw-rotate-z:initial;--tw-skew-x:initial;--tw-skew-y:initial;--tw-space-x-reverse:0;--tw-border-style:solid;--tw-leading:initial;--tw-font-weight:initial;--tw-tracking:initial;--tw-shadow:0 0 #0000;--tw-shadow-color:initial;--tw-shadow-alpha:100%;--tw-inset-shadow:0 0 #0000;--tw-inset-shadow-color:initial;--tw-inset-shadow-alpha:100%;--tw-ring-color:initial;--tw-ring-shadow:0 0 #0000;--tw-inset-ring-color:initial;--tw-inset-ring-shadow:0 0 #0000;--tw-ring-inset:initial;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-offset-shadow:0 0 #0000;--tw-blur:initial;--tw-brightness:initial;--tw-contrast:initial;--tw-grayscale:initial;--tw-hue-rotate:initial;--tw-invert:initial;--tw-opacity:initial;--tw-saturate:initial;--tw-sepia:initial;--tw-drop-shadow:initial;--tw-drop-shadow-color:initial;--tw-drop-shadow-alpha:100%;--tw-drop-shadow-size:initial;--tw-duration:initial;--tw-ease:initial;--tw-content:""}}}@layer theme{:root,:host{--font-sans:"Instrument Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";--font-serif:ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;--font-mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;--color-red-50:oklch(97.1% .013 17.38);--color-red-100:oklch(93.6% .032 17.717);--color-red-200:oklch(88.5% .062 18.334);--color-red-300:oklch(80.8% .114 19.571);--color-red-400:oklch(70.4% .191 22.216);--color-red-500:oklch(63.7% .237 25.331);--color-red-600:oklch(57.7% .245 27.325);--color-red-700:oklch(50.5% .213 27.518);--color-red-800:oklch(44.4% .177 26.899);--color-red-900:oklch(39.6% .141 25.723);--color-red-950:oklch(25.8% .092 26.042);--color-orange-50:oklch(98% .016 73.684);--color-orange-100:oklch(95.4% .038 75.164);--color-orange-200:oklch(90.1% .076 70.697);--color-orange-300:oklch(83.7% .128 66.29);--color-orange-400:oklch(75% .183 55.934);--color-orange-500:oklch(70.5% .213 47.604);--color-orange-600:oklch(64.6% .222 41.116);--color-orange-700:oklch(55.3% .195 38.402);--color-orange-800:oklch(47% .157 37.304);--color-orange-900:oklch(40.8% .123 38.172);--color-orange-950:oklch(26.6% .079 36.259);--color-amber-50:oklch(98.7% .022 95.277);--color-amber-100:oklch(96.2% .059 95.617);--color-amber-200:oklch(92.4% .12 95.746);--color-amber-300:oklch(87.9% .169 91.605);--color-amber-400:oklch(82.8% .189 84.429);--color-amber-500:oklch(76.9% .188 70.08);--color-amber-600:oklch(66.6% .179 58.318);--color-amber-700:oklch(55.5% .163 48.998);--color-amber-800:oklch(47.3% .137 46.201);--color-amber-900:oklch(41.4% .112 45.904);--color-amber-950:oklch(27.9% .077 45.635);--color-yellow-50:oklch(98.7% .026 102.212);--color-yellow-100:oklch(97.3% .071 103.193);--color-yellow-200:oklch(94.5% .129 101.54);--color-yellow-300:oklch(90.5% .182 98.111);--color-yellow-400:oklch(85.2% .199 91.936);--color-yellow-500:oklch(79.5% .184 86.047);--color-yellow-600:oklch(68.1% .162 75.834);--color-yellow-700:oklch(55.4% .135 66.442);--color-yellow-800:oklch(47.6% .114 61.907);--color-yellow-900:oklch(42.1% .095 57.708);--color-yellow-950:oklch(28.6% .066 53.813);--color-lime-50:oklch(98.6% .031 120.757);--color-lime-100:oklch(96.7% .067 122.328);--color-lime-200:oklch(93.8% .127 124.321);--color-lime-300:oklch(89.7% .196 126.665);--color-lime-400:oklch(84.1% .238 128.85);--color-lime-500:oklch(76.8% .233 130.85);--color-lime-600:oklch(64.8% .2 131.684);--color-lime-700:oklch(53.2% .157 131.589);--color-lime-800:oklch(45.3% .124 130.933);--color-lime-900:oklch(40.5% .101 131.063);--color-lime-950:oklch(27.4% .072 132.109);--color-green-50:oklch(98.2% .018 155.826);--color-green-100:oklch(96.2% .044 156.743);--color-green-200:oklch(92.5% .084 155.995);--color-green-300:oklch(87.1% .15 154.449);--color-green-400:oklch(79.2% .209 151.711);--color-green-500:oklch(72.3% .219 149.579);--color-green-600:oklch(62.7% .194 149.214);--color-green-700:oklch(52.7% .154 150.069);--color-green-800:oklch(44.8% .119 151.328);--color-green-900:oklch(39.3% .095 152.535);--color-green-950:oklch(26.6% .065 152.934);--color-emerald-50:oklch(97.9% .021 166.113);--color-emerald-100:oklch(95% .052 163.051);--color-emerald-200:oklch(90.5% .093 164.15);--color-emerald-300:oklch(84.5% .143 164.978);--color-emerald-400:oklch(76.5% .177 163.223);--color-emerald-500:oklch(69.6% .17 162.48);--color-emerald-600:oklch(59.6% .145 163.225);--color-emerald-700:oklch(50.8% .118 165.612);--color-emerald-800:oklch(43.2% .095 166.913);--color-emerald-900:oklch(37.8% .077 168.94);--color-emerald-950:oklch(26.2% .051 172.552);--color-teal-50:oklch(98.4% .014 180.72);--color-teal-100:oklch(95.3% .051 180.801);--color-teal-200:oklch(91% .096 180.426);--color-teal-300:oklch(85.5% .138 181.071);--color-teal-400:oklch(77.7% .152 181.912);--color-teal-500:oklch(70.4% .14 182.503);--color-teal-600:oklch(60% .118 184.704);--color-teal-700:oklch(51.1% .096 186.391);--color-teal-800:oklch(43.7% .078 188.216);--color-teal-900:oklch(38.6% .063 188.416);--color-teal-950:oklch(27.7% .046 192.524);--color-cyan-50:oklch(98.4% .019 200.873);--color-cyan-100:oklch(95.6% .045 203.388);--color-cyan-200:oklch(91.7% .08 205.041);--color-cyan-300:oklch(86.5% .127 207.078);--color-cyan-400:oklch(78.9% .154 211.53);--color-cyan-500:oklch(71.5% .143 215.221);--color-cyan-600:oklch(60.9% .126 221.723);--color-cyan-700:oklch(52% .105 223.128);--color-cyan-800:oklch(45% .085 224.283);--color-cyan-900:oklch(39.8% .07 227.392);--color-cyan-950:oklch(30.2% .056 229.695);--color-sky-50:oklch(97.7% .013 236.62);--color-sky-100:oklch(95.1% .026 236.824);--color-sky-200:oklch(90.1% .058 230.902);--color-sky-300:oklch(82.8% .111 230.318);--color-sky-400:oklch(74.6% .16 232.661);--color-sky-500:oklch(68.5% .169 237.323);--color-sky-600:oklch(58.8% .158 241.966);--color-sky-700:oklch(50% .134 242.749);--color-sky-800:oklch(44.3% .11 240.79);--color-sky-900:oklch(39.1% .09 240.876);--color-sky-950:oklch(29.3% .066 243.157);--color-blue-50:oklch(97% .014 254.604);--color-blue-100:oklch(93.2% .032 255.585);--color-blue-200:oklch(88.2% .059 254.128);--color-blue-300:oklch(80.9% .105 251.813);--color-blue-400:oklch(70.7% .165 254.624);--color-blue-500:oklch(62.3% .214 259.815);--color-blue-600:oklch(54.6% .245 262.881);--color-blue-700:oklch(48.8% .243 264.376);--color-blue-800:oklch(42.4% .199 265.638);--color-blue-900:oklch(37.9% .146 265.522);--color-blue-950:oklch(28.2% .091 267.935);--color-indigo-50:oklch(96.2% .018 272.314);--color-indigo-100:oklch(93% .034 272.788);--color-indigo-200:oklch(87% .065 274.039);--color-indigo-300:oklch(78.5% .115 274.713);--color-indigo-400:oklch(67.3% .182 276.935);--color-indigo-500:oklch(58.5% .233 277.117);--color-indigo-600:oklch(51.1% .262 276.966);--color-indigo-700:oklch(45.7% .24 277.023);--color-indigo-800:oklch(39.8% .195 277.366);--color-indigo-900:oklch(35.9% .144 278.697);--color-indigo-950:oklch(25.7% .09 281.288);--color-violet-50:oklch(96.9% .016 293.756);--color-violet-100:oklch(94.3% .029 294.588);--color-violet-200:oklch(89.4% .057 293.283);--color-violet-300:oklch(81.1% .111 293.571);--color-violet-400:oklch(70.2% .183 293.541);--color-violet-500:oklch(60.6% .25 292.717);--color-violet-600:oklch(54.1% .281 293.009);--color-violet-700:oklch(49.1% .27 292.581);--color-violet-800:oklch(43.2% .232 292.759);--color-violet-900:oklch(38% .189 293.745);--color-violet-950:oklch(28.3% .141 291.089);--color-purple-50:oklch(97.7% .014 308.299);--color-purple-100:oklch(94.6% .033 307.174);--color-purple-200:oklch(90.2% .063 306.703);--color-purple-300:oklch(82.7% .119 306.383);--color-purple-400:oklch(71.4% .203 305.504);--color-purple-500:oklch(62.7% .265 303.9);--color-purple-600:oklch(55.8% .288 302.321);--color-purple-700:oklch(49.6% .265 301.924);--color-purple-800:oklch(43.8% .218 303.724);--color-purple-900:oklch(38.1% .176 304.987);--color-purple-950:oklch(29.1% .149 302.717);--color-fuchsia-50:oklch(97.7% .017 320.058);--color-fuchsia-100:oklch(95.2% .037 318.852);--color-fuchsia-200:oklch(90.3% .076 319.62);--color-fuchsia-300:oklch(83.3% .145 321.434);--color-fuchsia-400:oklch(74% .238 322.16);--color-fuchsia-500:oklch(66.7% .295 322.15);--color-fuchsia-600:oklch(59.1% .293 322.896);--color-fuchsia-700:oklch(51.8% .253 323.949);--color-fuchsia-800:oklch(45.2% .211 324.591);--color-fuchsia-900:oklch(40.1% .17 325.612);--color-fuchsia-950:oklch(29.3% .136 325.661);--color-pink-50:oklch(97.1% .014 343.198);--color-pink-100:oklch(94.8% .028 342.258);--color-pink-200:oklch(89.9% .061 343.231);--color-pink-300:oklch(82.3% .12 346.018);--color-pink-400:oklch(71.8% .202 349.761);--color-pink-500:oklch(65.6% .241 354.308);--color-pink-600:oklch(59.2% .249 .584);--color-pink-700:oklch(52.5% .223 3.958);--color-pink-800:oklch(45.9% .187 3.815);--color-pink-900:oklch(40.8% .153 2.432);--color-pink-950:oklch(28.4% .109 3.907);--color-rose-50:oklch(96.9% .015 12.422);--color-rose-100:oklch(94.1% .03 12.58);--color-rose-200:oklch(89.2% .058 10.001);--color-rose-300:oklch(81% .117 11.638);--color-rose-400:oklch(71.2% .194 13.428);--color-rose-500:oklch(64.5% .246 16.439);--color-rose-600:oklch(58.6% .253 17.585);--color-rose-700:oklch(51.4% .222 16.935);--color-rose-800:oklch(45.5% .188 13.697);--color-rose-900:oklch(41% .159 10.272);--color-rose-950:oklch(27.1% .105 12.094);--color-slate-50:oklch(98.4% .003 247.858);--color-slate-100:oklch(96.8% .007 247.896);--color-slate-200:oklch(92.9% .013 255.508);--color-slate-300:oklch(86.9% .022 252.894);--color-slate-400:oklch(70.4% .04 256.788);--color-slate-500:oklch(55.4% .046 257.417);--color-slate-600:oklch(44.6% .043 257.281);--color-slate-700:oklch(37.2% .044 257.287);--color-slate-800:oklch(27.9% .041 260.031);--color-slate-900:oklch(20.8% .042 265.755);--color-slate-950:oklch(12.9% .042 264.695);--color-gray-50:oklch(98.5% .002 247.839);--color-gray-100:oklch(96.7% .003 264.542);--color-gray-200:oklch(92.8% .006 264.531);--color-gray-300:oklch(87.2% .01 258.338);--color-gray-400:oklch(70.7% .022 261.325);--color-gray-500:oklch(55.1% .027 264.364);--color-gray-600:oklch(44.6% .03 256.802);--color-gray-700:oklch(37.3% .034 259.733);--color-gray-800:oklch(27.8% .033 256.848);--color-gray-900:oklch(21% .034 264.665);--color-gray-950:oklch(13% .028 261.692);--color-zinc-50:oklch(98.5% 0 0);--color-zinc-100:oklch(96.7% .001 286.375);--color-zinc-200:oklch(92% .004 286.32);--color-zinc-300:oklch(87.1% .006 286.286);--color-zinc-400:oklch(70.5% .015 286.067);--color-zinc-500:oklch(55.2% .016 285.938);--color-zinc-600:oklch(44.2% .017 285.786);--color-zinc-700:oklch(37% .013 285.805);--color-zinc-800:oklch(27.4% .006 286.033);--color-zinc-900:oklch(21% .006 285.885);--color-zinc-950:oklch(14.1% .005 285.823);--color-neutral-50:oklch(98.5% 0 0);--color-neutral-100:oklch(97% 0 0);--color-neutral-200:oklch(92.2% 0 0);--color-neutral-300:oklch(87% 0 0);--color-neutral-400:oklch(70.8% 0 0);--color-neutral-500:oklch(55.6% 0 0);--color-neutral-600:oklch(43.9% 0 0);--color-neutral-700:oklch(37.1% 0 0);--color-neutral-800:oklch(26.9% 0 0);--color-neutral-900:oklch(20.5% 0 0);--color-neutral-950:oklch(14.5% 0 0);--color-stone-50:oklch(98.5% .001 106.423);--color-stone-100:oklch(97% .001 106.424);--color-stone-200:oklch(92.3% .003 48.717);--color-stone-300:oklch(86.9% .005 56.366);--color-stone-400:oklch(70.9% .01 56.259);--color-stone-500:oklch(55.3% .013 58.071);--color-stone-600:oklch(44.4% .011 73.639);--color-stone-700:oklch(37.4% .01 67.558);--color-stone-800:oklch(26.8% .007 34.298);--color-stone-900:oklch(21.6% .006 56.043);--color-stone-950:oklch(14.7% .004 49.25);--color-black:#000;--color-white:#fff;--spacing:.25rem;--breakpoint-sm:40rem;--breakpoint-md:48rem;--breakpoint-lg:64rem;--breakpoint-xl:80rem;--breakpoint-2xl:96rem;--container-3xs:16rem;--container-2xs:18rem;--container-xs:20rem;--container-sm:24rem;--container-md:28rem;--container-lg:32rem;--container-xl:36rem;--container-2xl:42rem;--container-3xl:48rem;--container-4xl:56rem;--container-5xl:64rem;--container-6xl:72rem;--container-7xl:80rem;--text-xs:.75rem;--text-xs--line-height:calc(1 / .75);--text-sm:.875rem;--text-sm--line-height:calc(1.25 / .875);--text-base:1rem;--text-base--line-height: 1.5 ;--text-lg:1.125rem;--text-lg--line-height:calc(1.75 / 1.125);--text-xl:1.25rem;--text-xl--line-height:calc(1.75 / 1.25);--text-2xl:1.5rem;--text-2xl--line-height:calc(2 / 1.5);--text-3xl:1.875rem;--text-3xl--line-height: 1.2 ;--text-4xl:2.25rem;--text-4xl--line-height:calc(2.5 / 2.25);--text-5xl:3rem;--text-5xl--line-height:1;--text-6xl:3.75rem;--text-6xl--line-height:1;--text-7xl:4.5rem;--text-7xl--line-height:1;--text-8xl:6rem;--text-8xl--line-height:1;--text-9xl:8rem;--text-9xl--line-height:1;--font-weight-thin:100;--font-weight-extralight:200;--font-weight-light:300;--font-weight-normal:400;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--font-weight-extrabold:800;--font-weight-black:900;--tracking-tighter:-.05em;--tracking-tight:-.025em;--tracking-normal:0em;--tracking-wide:.025em;--tracking-wider:.05em;--tracking-widest:.1em;--leading-tight:1.25;--leading-snug:1.375;--leading-normal:1.5;--leading-relaxed:1.625;--leading-loose:2;--radius-xs:.125rem;--radius-sm:.25rem;--radius-md:.375rem;--radius-lg:.5rem;--radius-xl:.75rem;--radius-2xl:1rem;--radius-3xl:1.5rem;--radius-4xl:2rem;--shadow-2xs:0 1px #0000000d;--shadow-xs:0 1px 2px 0 #0000000d;--shadow-sm:0 1px 3px 0 #0000001a, 0 1px 2px -1px #0000001a;--shadow-md:0 4px 6px -1px #0000001a, 0 2px 4px -2px #0000001a;--shadow-lg:0 10px 15px -3px #0000001a, 0 4px 6px -4px #0000001a;--shadow-xl:0 20px 25px -5px #0000001a, 0 8px 10px -6px #0000001a;--shadow-2xl:0 25px 50px -12px #00000040;--inset-shadow-2xs:inset 0 1px #0000000d;--inset-shadow-xs:inset 0 1px 1px #0000000d;--inset-shadow-sm:inset 0 2px 4px #0000000d;--drop-shadow-xs:0 1px 1px #0000000d;--drop-shadow-sm:0 1px 2px #00000026;--drop-shadow-md:0 3px 3px #0000001f;--drop-shadow-lg:0 4px 4px #00000026;--drop-shadow-xl:0 9px 7px #0000001a;--drop-shadow-2xl:0 25px 25px #00000026;--ease-in:cubic-bezier(.4, 0, 1, 1);--ease-out:cubic-bezier(0, 0, .2, 1);--ease-in-out:cubic-bezier(.4, 0, .2, 1);--animate-spin:spin 1s linear infinite;--animate-ping:ping 1s cubic-bezier(0, 0, .2, 1) infinite;--animate-pulse:pulse 2s cubic-bezier(.4, 0, .6, 1) infinite;--animate-bounce:bounce 1s infinite;--blur-xs:4px;--blur-sm:8px;--blur-md:12px;--blur-lg:16px;--blur-xl:24px;--blur-2xl:40px;--blur-3xl:64px;--perspective-dramatic:100px;--perspective-near:300px;--perspective-normal:500px;--perspective-midrange:800px;--perspective-distant:1200px;--aspect-video:16 / 9;--default-transition-duration:.15s;--default-transition-timing-function:cubic-bezier(.4, 0, .2, 1);--default-font-family:var(--font-sans);--default-mono-font-family:var(--font-mono)}}@layer base{*,:after,:before,::backdrop{box-sizing:border-box;border:0 solid;margin:0;padding:0}::file-selector-button{box-sizing:border-box;border:0 solid;margin:0;padding:0}html,:host{-webkit-text-size-adjust:100%;tab-size:4;line-height:1.5;font-family:var(--default-font-family,ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");font-feature-settings:var(--default-font-feature-settings,normal);font-variation-settings:var(--default-font-variation-settings,normal);-webkit-tap-highlight-color:transparent}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;-webkit-text-decoration:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,samp,pre{font-family:var(--default-mono-font-family,ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);font-feature-settings:var(--default-mono-font-feature-settings,normal);font-variation-settings:var(--default-mono-font-variation-settings,normal);font-size:1em}small{font-size:80%}sub,sup{vertical-align:baseline;font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}:-moz-focusring{outline:auto}progress{vertical-align:baseline}summary{display:list-item}ol,ul,menu{list-style:none}img,svg,video,canvas,audio,iframe,embed,object{vertical-align:middle;display:block}img,video{max-width:100%;height:auto}button,input,select,optgroup,textarea{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}::file-selector-button{font:inherit;font-feature-settings:inherit;font-variation-settings:inherit;letter-spacing:inherit;color:inherit;opacity:1;background-color:#0000;border-radius:0}:where(select:is([multiple],[size])) optgroup{font-weight:bolder}:where(select:is([multiple],[size])) optgroup option{padding-inline-start:20px}::file-selector-button{margin-inline-end:4px}::placeholder{opacity:1}@supports (not ((-webkit-appearance:-apple-pay-button))) or (contain-intrinsic-size:1px){::placeholder{color:currentColor}@supports (color:color-mix(in lab,red,red)){::placeholder{color:color-mix(in oklab,currentcolor 50%,transparent)}}}textarea{resize:vertical}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-date-and-time-value{min-height:1lh;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-datetime-edit{padding-block:0}::-webkit-datetime-edit-year-field{padding-block:0}::-webkit-datetime-edit-month-field{padding-block:0}::-webkit-datetime-edit-day-field{padding-block:0}::-webkit-datetime-edit-hour-field{padding-block:0}::-webkit-datetime-edit-minute-field{padding-block:0}::-webkit-datetime-edit-second-field{padding-block:0}::-webkit-datetime-edit-millisecond-field{padding-block:0}::-webkit-datetime-edit-meridiem-field{padding-block:0}::-webkit-calendar-picker-indicator{line-height:1}:-moz-ui-invalid{box-shadow:none}button,input:where([type=button],[type=reset],[type=submit]){appearance:button}::file-selector-button{appearance:button}::-webkit-inner-spin-button{height:auto}::-webkit-outer-spin-button{height:auto}[hidden]:where(:not([hidden=until-found])){display:none!important}}@layer components;@layer utilities{.absolute{position:absolute}.fixed{position:fixed}.relative{position:relative}.static{position:static}.inset-0{inset:calc(var(--spacing) * 0)}.start{inset-inline-start:var(--spacing)}.top-0{top:calc(var(--spacing) * 0)}.right-0{right:calc(var(--spacing) * 0)}.container{width:100%}@media(min-width:40rem){.container{max-width:40rem}}@media(min-width:48rem){.container{max-width:48rem}}@media(min-width:64rem){.container{max-width:64rem}}@media(min-width:80rem){.container{max-width:80rem}}@media(min-width:96rem){.container{max-width:96rem}}.mx-auto{margin-inline:auto}.-mt-\[6\.6rem\]{margin-top:-6.6rem}.-mt-px{margin-top:-1px}.mt-2{margin-top:calc(var(--spacing) * 2)}.mt-4{margin-top:calc(var(--spacing) * 4)}.mt-6{margin-top:calc(var(--spacing) * 6)}.mt-8{margin-top:calc(var(--spacing) * 8)}.mr-2{margin-right:calc(var(--spacing) * 2)}.-mb-px{margin-bottom:-1px}.mb-1{margin-bottom:calc(var(--spacing) * 1)}.mb-2{margin-bottom:calc(var(--spacing) * 2)}.mb-4{margin-bottom:calc(var(--spacing) * 4)}.mb-6{margin-bottom:calc(var(--spacing) * 6)}.-ml-8{margin-left:calc(var(--spacing) * -8)}.-ml-px{margin-left:-1px}.ml-1{margin-left:calc(var(--spacing) * 1)}.ml-2{margin-left:calc(var(--spacing) * 2)}.ml-4{margin-left:calc(var(--spacing) * 4)}.ml-12{margin-left:calc(var(--spacing) * 12)}.contents{display:contents}.flex{display:flex}.grid{display:grid}.hidden{display:none}.inline-block{display:inline-block}.inline-flex{display:inline-flex}.table{display:table}.aspect-\[335\/364\]{aspect-ratio:335/364}.h-1{height:calc(var(--spacing) * 1)}.h-1\.5{height:calc(var(--spacing) * 1.5)}.h-2{height:calc(var(--spacing) * 2)}.h-2\.5{height:calc(var(--spacing) * 2.5)}.h-3{height:calc(var(--spacing) * 3)}.h-3\.5{height:calc(var(--spacing) * 3.5)}.h-5{height:calc(var(--spacing) * 5)}.h-8{height:calc(var(--spacing) * 8)}.h-14{height:calc(var(--spacing) * 14)}.h-14\.5{height:calc(var(--spacing) * 14.5)}.h-16{height:calc(var(--spacing) * 16)}.min-h-screen{min-height:100vh}.w-1{width:calc(var(--spacing) * 1)}.w-1\.5{width:calc(var(--spacing) * 1.5)}.w-2{width:calc(var(--spacing) * 2)}.w-2\.5{width:calc(var(--spacing) * 2.5)}.w-3{width:calc(var(--spacing) * 3)}.w-3\.5{width:calc(var(--spacing) * 3.5)}.w-5{width:calc(var(--spacing) * 5)}.w-8{width:calc(var(--spacing) * 8)}.w-\[438px\]{width:438px}.w-auto{width:auto}.w-full{width:100%}.max-w-6xl{max-width:var(--container-6xl)}.max-w-\[335px\]{max-width:335px}.max-w-none{max-width:none}.max-w-xl{max-width:var(--container-xl)}.flex-1{flex:1}.shrink-0{flex-shrink:0}.translate-y-0{--tw-translate-y:calc(var(--spacing) * 0);translate:var(--tw-translate-x) var(--tw-translate-y)}.transform{transform:var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,)}.cursor-default{cursor:default}.cursor-not-allowed{cursor:not-allowed}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-col-reverse{flex-direction:column-reverse}.items-center{align-items:center}.justify-between{justify-content:space-between}.justify-center{justify-content:center}.justify-end{justify-content:flex-end}.justify-items-center{justify-items:center}.gap-2{gap:calc(var(--spacing) * 2)}.gap-3{gap:calc(var(--spacing) * 3)}.gap-4{gap:calc(var(--spacing) * 4)}:where(.space-x-1>:not(:last-child)){--tw-space-x-reverse:0;margin-inline-start:calc(calc(var(--spacing) * 1) * var(--tw-space-x-reverse));margin-inline-end:calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-x-reverse)))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:3.40282e38px}.rounded-md{border-radius:var(--radius-md)}.rounded-sm{border-radius:var(--radius-sm)}.rounded-t-lg{border-top-left-radius:var(--radius-lg);border-top-right-radius:var(--radius-lg)}.rounded-l-md{border-top-left-radius:var(--radius-md);border-bottom-left-radius:var(--radius-md)}.rounded-r-md{border-top-right-radius:var(--radius-md);border-bottom-right-radius:var(--radius-md)}.rounded-br-lg{border-bottom-right-radius:var(--radius-lg)}.rounded-bl-lg{border-bottom-left-radius:var(--radius-lg)}.border{border-style:var(--tw-border-style);border-width:1px}.border-t{border-top-style:var(--tw-border-style);border-top-width:1px}.border-r{border-right-style:var(--tw-border-style);border-right-width:1px}.border-\[\#19140035\]{border-color:#19140035}.border-\[\#e3e3e0\]{border-color:#e3e3e0}.border-black{border-color:var(--color-black)}.border-gray-200{border-color:var(--color-gray-200)}.border-gray-300{border-color:var(--color-gray-300)}.border-gray-400{border-color:var(--color-gray-400)}.border-transparent{border-color:#0000}.bg-\[\#1b1b18\]{background-color:#1b1b18}.bg-\[\#FDFDFC\]{background-color:#fdfdfc}.bg-\[\#dbdbd7\]{background-color:#dbdbd7}.bg-\[\#fff2f2\]{background-color:#fff2f2}.bg-gray-100{background-color:var(--color-gray-100)}.bg-gray-200{background-color:var(--color-gray-200)}.bg-white{background-color:var(--color-white)}.p-6{padding:calc(var(--spacing) * 6)}.px-2{padding-inline:calc(var(--spacing) * 2)}.px-4{padding-inline:calc(var(--spacing) * 4)}.px-5{padding-inline:calc(var(--spacing) * 5)}.px-6{padding-inline:calc(var(--spacing) * 6)}.py-1{padding-block:calc(var(--spacing) * 1)}.py-1\.5{padding-block:calc(var(--spacing) * 1.5)}.py-2{padding-block:calc(var(--spacing) * 2)}.py-4{padding-block:calc(var(--spacing) * 4)}.pt-8{padding-top:calc(var(--spacing) * 8)}.pb-6{padding-bottom:calc(var(--spacing) * 6)}.pb-12{padding-bottom:calc(var(--spacing) * 12)}.text-center{text-align:center}.text-lg{font-size:var(--text-lg);line-height:var(--tw-leading,var(--text-lg--line-height))}.text-sm{font-size:var(--text-sm);line-height:var(--tw-leading,var(--text-sm--line-height))}.text-\[13px\]{font-size:13px}.leading-5{--tw-leading:calc(var(--spacing) * 5);line-height:calc(var(--spacing) * 5)}.leading-7{--tw-leading:calc(var(--spacing) * 7);line-height:calc(var(--spacing) * 7)}.leading-\[20px\]{--tw-leading:20px;line-height:20px}.leading-normal{--tw-leading:var(--leading-normal);line-height:var(--leading-normal)}.font-medium{--tw-font-weight:var(--font-weight-medium);font-weight:var(--font-weight-medium)}.font-semibold{--tw-font-weight:var(--font-weight-semibold);font-weight:var(--font-weight-semibold)}.tracking-wider{--tw-tracking:var(--tracking-wider);letter-spacing:var(--tracking-wider)}.text-\[\#1B1B18\],.text-\[\#1b1b18\]{color:#1b1b18}.text-\[\#706f6c\]{color:#706f6c}.text-\[\#F3BEC7\]{color:#f3bec7}.text-\[\#F8B803\]{color:#f8b803}.text-\[\#F53003\],.text-\[\#f53003\]{color:#f53003}.text-gray-200{color:var(--color-gray-200)}.text-gray-300{color:var(--color-gray-300)}.text-gray-400{color:var(--color-gray-400)}.text-gray-500{color:var(--color-gray-500)}.text-gray-600{color:var(--color-gray-600)}.text-gray-700{color:var(--color-gray-700)}.text-gray-800{color:var(--color-gray-800)}.text-gray-900{color:var(--color-gray-900)}.text-white{color:var(--color-white)}.uppercase{text-transform:uppercase}.underline{text-decoration-line:underline}.underline-offset-4{text-underline-offset:4px}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-100{opacity:1}.mix-blend-color{mix-blend-mode:color}.mix-blend-darken{mix-blend-mode:darken}.mix-blend-hard-light{mix-blend-mode:hard-light}.mix-blend-multiply{mix-blend-mode:multiply}.shadow{--tw-shadow:0 1px 3px 0 var(--tw-shadow-color,#0000001a), 0 1px 2px -1px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-\[0px_0px_1px_0px_rgba\(0\,0\,0\,0\.03\)\,0px_1px_2px_0px_rgba\(0\,0\,0\,0\.06\)\]{--tw-shadow:0px 0px 1px 0px var(--tw-shadow-color,#00000008), 0px 1px 2px 0px var(--tw-shadow-color,#0000000f);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-\[inset_0px_0px_0px_1px_rgba\(26\,26\,0\,0\.16\)\]{--tw-shadow:inset 0px 0px 0px 1px var(--tw-shadow-color,#1a1a0029);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 3px 0 var(--tw-shadow-color,#0000001a), 0 1px 2px -1px var(--tw-shadow-color,#0000001a);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.ring-gray-300{--tw-ring-color:var(--color-gray-300)}.filter{filter:var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,)}.transition{transition-property:color,background-color,border-color,outline-color,text-decoration-color,fill,stroke,--tw-gradient-from,--tw-gradient-via,--tw-gradient-to,opacity,box-shadow,transform,translate,scale,rotate,filter,-webkit-backdrop-filter,backdrop-filter,display,content-visibility,overlay,pointer-events;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-all{transition-property:all;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.transition-opacity{transition-property:opacity;transition-timing-function:var(--tw-ease,var(--default-transition-timing-function));transition-duration:var(--tw-duration,var(--default-transition-duration))}.delay-200{transition-delay:.2s}.delay-300{transition-delay:.3s}.delay-400{transition-delay:.4s}.duration-150{--tw-duration:.15s;transition-duration:.15s}.duration-750{--tw-duration:.75s;transition-duration:.75s}.ease-in-out{--tw-ease:var(--ease-in-out);transition-timing-function:var(--ease-in-out)}.\[--stroke-color\:\#1B1B18\]{--stroke-color:#1b1b18}.not-has-\[nav\]\:hidden:not(:has(:is(nav))){display:none}.before\:absolute:before{content:var(--tw-content);position:absolute}.before\:top-0:before{content:var(--tw-content);top:calc(var(--spacing) * 0)}.before\:top-1\/2:before{content:var(--tw-content);top:50%}.before\:bottom-0:before{content:var(--tw-content);bottom:calc(var(--spacing) * 0)}.before\:bottom-1\/2:before{content:var(--tw-content);bottom:50%}.before\:left-\[0\.4rem\]:before{content:var(--tw-content);left:.4rem}.before\:border-l:before{content:var(--tw-content);border-left-style:var(--tw-border-style);border-left-width:1px}.before\:border-\[\#e3e3e0\]:before{content:var(--tw-content);border-color:#e3e3e0}@media(hover:hover){.hover\:border-\[\#1915014a\]:hover{border-color:#1915014a}.hover\:border-\[\#19140035\]:hover{border-color:#19140035}.hover\:border-black:hover{border-color:var(--color-black)}.hover\:bg-black:hover{background-color:var(--color-black)}.hover\:bg-gray-100:hover{background-color:var(--color-gray-100)}.hover\:text-gray-400:hover{color:var(--color-gray-400)}.hover\:text-gray-700:hover{color:var(--color-gray-700)}}.focus\:border-blue-300:focus{border-color:var(--color-blue-300)}.focus\:ring:focus{--tw-ring-shadow:var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color,currentcolor);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.focus\:outline-none:focus{--tw-outline-style:none;outline-style:none}.active\:bg-gray-100:active{background-color:var(--color-gray-100)}.active\:text-gray-500:active{color:var(--color-gray-500)}.active\:text-gray-700:active{color:var(--color-gray-700)}.active\:text-gray-800:active{color:var(--color-gray-800)}@media(min-width:40rem){.sm\:flex{display:flex}.sm\:hidden{display:none}.sm\:flex-1{flex:1}.sm\:items-center{align-items:center}.sm\:justify-between{justify-content:space-between}.sm\:justify-start{justify-content:flex-start}.sm\:gap-2{gap:calc(var(--spacing) * 2)}.sm\:px-6{padding-inline:calc(var(--spacing) * 6)}.sm\:pt-0{padding-top:calc(var(--spacing) * 0)}}@media(min-width:64rem){.lg\:mt-10{margin-top:calc(var(--spacing) * 10)}.lg\:mb-0{margin-bottom:calc(var(--spacing) * 0)}.lg\:mb-6{margin-bottom:calc(var(--spacing) * 6)}.lg\:-ml-px{margin-left:-1px}.lg\:ml-0{margin-left:calc(var(--spacing) * 0)}.lg\:block{display:block}.lg\:aspect-auto{aspect-ratio:auto}.lg\:w-\[438px\]{width:438px}.lg\:max-w-4xl{max-width:var(--container-4xl)}.lg\:grow{flex-grow:1}.lg\:flex-row{flex-direction:row}.lg\:justify-center{justify-content:center}.lg\:rounded-t-none{border-top-left-radius:0;border-top-right-radius:0}.lg\:rounded-tl-lg{border-top-left-radius:var(--radius-lg)}.lg\:rounded-r-lg{border-top-right-radius:var(--radius-lg);border-bottom-right-radius:var(--radius-lg)}.lg\:rounded-br-none{border-bottom-right-radius:0}.lg\:p-8{padding:calc(var(--spacing) * 8)}.lg\:p-20{padding:calc(var(--spacing) * 20)}.lg\:px-8{padding-inline:calc(var(--spacing) * 8)}.lg\:pb-10{padding-bottom:calc(var(--spacing) * 10)}}.rtl\:flex-row-reverse:where(:dir(rtl),[dir=rtl],[dir=rtl] *){flex-direction:row-reverse}@media(prefers-color-scheme:dark){.dark\:border-\[\#3E3E3A\]{border-color:#3e3e3a}.dark\:border-\[\#eeeeec\]{border-color:#eeeeec}.dark\:border-gray-600{border-color:var(--color-gray-600)}.dark\:bg-\[\#0a0a0a\]{background-color:#0a0a0a}.dark\:bg-\[\#1D0002\]{background-color:#1d0002}.dark\:bg-\[\#3E3E3A\]{background-color:#3e3e3a}.dark\:bg-\[\#161615\]{background-color:#161615}.dark\:bg-\[\#eeeeec\]{background-color:#eeeeec}.dark\:bg-gray-700{background-color:var(--color-gray-700)}.dark\:bg-gray-800{background-color:var(--color-gray-800)}.dark\:bg-gray-900{background-color:var(--color-gray-900)}.dark\:text-\[\#1C1C1A\]{color:#1c1c1a}.dark\:text-\[\#4B0600\]{color:#4b0600}.dark\:text-\[\#391800\]{color:#391800}.dark\:text-\[\#733000\]{color:#733000}.dark\:text-\[\#A1A09A\]{color:#a1a09a}.dark\:text-\[\#EDEDEC\]{color:#ededec}.dark\:text-\[\#F61500\]{color:#f61500}.dark\:text-\[\#FF4433\]{color:#f43}.dark\:text-black{color:var(--color-black)}.dark\:text-gray-200{color:var(--color-gray-200)}.dark\:text-gray-300{color:var(--color-gray-300)}.dark\:text-gray-400{color:var(--color-gray-400)}.dark\:text-gray-600{color:var(--color-gray-600)}.dark\:mix-blend-hard-light{mix-blend-mode:hard-light}.dark\:mix-blend-normal{mix-blend-mode:normal}.dark\:shadow-\[inset_0px_0px_0px_1px_\#fffaed2d\]{--tw-shadow:inset 0px 0px 0px 1px var(--tw-shadow-color,#fffaed2d);box-shadow:var(--tw-inset-shadow),var(--tw-inset-ring-shadow),var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}.dark\:\[--stroke-color\:\#FF750F\]{--stroke-color:#ff750f}.dark\:before\:border-\[\#3E3E3A\]:before{content:var(--tw-content);border-color:#3e3e3a}@media(hover:hover){.dark\:hover\:border-\[\#3E3E3A\]:hover{border-color:#3e3e3a}.dark\:hover\:border-\[\#62605b\]:hover{border-color:#62605b}.dark\:hover\:border-white:hover{border-color:var(--color-white)}.dark\:hover\:bg-gray-900:hover{background-color:var(--color-gray-900)}.dark\:hover\:bg-white:hover{background-color:var(--color-white)}.dark\:hover\:text-gray-200:hover{color:var(--color-gray-200)}.dark\:hover\:text-gray-300:hover{color:var(--color-gray-300)}}.dark\:focus\:border-blue-700:focus{border-color:var(--color-blue-700)}.dark\:focus\:border-blue-800:focus{border-color:var(--color-blue-800)}.dark\:active\:bg-gray-700:active{background-color:var(--color-gray-700)}.dark\:active\:text-gray-300:active{color:var(--color-gray-300)}}@starting-style{.starting\:opacity-0{opacity:0}}@media(prefers-reduced-motion:no-preference){@starting-style{.motion-safe\:starting\:-translate-x-\[26px\]{--tw-translate-x: -26px ;translate:var(--tw-translate-x) var(--tw-translate-y)}}@starting-style{.motion-safe\:starting\:-translate-x-\[51px\]{--tw-translate-x: -51px ;translate:var(--tw-translate-x) var(--tw-translate-y)}}@starting-style{.motion-safe\:starting\:-translate-x-\[78px\]{--tw-translate-x: -78px ;translate:var(--tw-translate-x) var(--tw-translate-y)}}@starting-style{.motion-safe\:starting\:-translate-x-\[102px\]{--tw-translate-x: -102px ;translate:var(--tw-translate-x) var(--tw-translate-y)}}@starting-style{.motion-safe\:starting\:translate-y-6{--tw-translate-y:calc(var(--spacing) * 6);translate:var(--tw-translate-x) var(--tw-translate-y)}}}}@property --tw-translate-x{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-y{syntax:"*";inherits:false;initial-value:0}@property --tw-translate-z{syntax:"*";inherits:false;initial-value:0}@property --tw-rotate-x{syntax:"*";inherits:false}@property --tw-rotate-y{syntax:"*";inherits:false}@property --tw-rotate-z{syntax:"*";inherits:false}@property --tw-skew-x{syntax:"*";inherits:false}@property --tw-skew-y{syntax:"*";inherits:false}@property --tw-space-x-reverse{syntax:"*";inherits:false;initial-value:0}@property --tw-border-style{syntax:"*";inherits:false;initial-value:solid}@property --tw-leading{syntax:"*";inherits:false}@property --tw-font-weight{syntax:"*";inherits:false}@property --tw-tracking{syntax:"*";inherits:false}@property --tw-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-shadow-color{syntax:"*";inherits:false}@property --tw-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-inset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-shadow-color{syntax:"*";inherits:false}@property --tw-inset-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-ring-color{syntax:"*";inherits:false}@property --tw-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-inset-ring-color{syntax:"*";inherits:false}@property --tw-inset-ring-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-ring-inset{syntax:"*";inherits:false}@property --tw-ring-offset-width{syntax:"<length>";inherits:false;initial-value:0}@property --tw-ring-offset-color{syntax:"*";inherits:false;initial-value:#fff}@property --tw-ring-offset-shadow{syntax:"*";inherits:false;initial-value:0 0 #0000}@property --tw-blur{syntax:"*";inherits:false}@property --tw-brightness{syntax:"*";inherits:false}@property --tw-contrast{syntax:"*";inherits:false}@property --tw-grayscale{syntax:"*";inherits:false}@property --tw-hue-rotate{syntax:"*";inherits:false}@property --tw-invert{syntax:"*";inherits:false}@property --tw-opacity{syntax:"*";inherits:false}@property --tw-saturate{syntax:"*";inherits:false}@property --tw-sepia{syntax:"*";inherits:false}@property --tw-drop-shadow{syntax:"*";inherits:false}@property --tw-drop-shadow-color{syntax:"*";inherits:false}@property --tw-drop-shadow-alpha{syntax:"<percentage>";inherits:false;initial-value:100%}@property --tw-drop-shadow-size{syntax:"*";inherits:false}@property --tw-duration{syntax:"*";inherits:false}@property --tw-ease{syntax:"*";inherits:false}@property --tw-content{syntax:"*";inherits:false;initial-value:""}@keyframes spin{to{transform:rotate(360deg)}}@keyframes ping{75%,to{opacity:0;transform:scale(2)}}@keyframes pulse{50%{opacity:.5}}@keyframes bounce{0%,to{animation-timing-function:cubic-bezier(.8,0,1,1);transform:translateY(-25%)}50%{animation-timing-function:cubic-bezier(0,0,.2,1);transform:none}}
-            </style>
-        @endif
-    </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    @auth
-                        <a
-                            href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
-                            Dashboard
-                        </a>
-                    @else
-                        <a
-                            href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
-                        >
-                            Log in
-                        </a>
+    <!-- Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-                        @if (Route::has('register'))
-                            <a
-                                href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                                Register
-                            </a>
-                        @endif
-                    @endauth
-                </nav>
-            @endif
-        </header>
-        <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
-            <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
-                <div class="text-[13px] leading-[20px] flex-1 p-6 pb-6 lg:p-20 lg:pb-10 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-bl-lg rounded-br-lg lg:rounded-tl-lg lg:rounded-br-none">
-                    <h1 class="mb-1 font-medium">Let's get started</h1>
-                    <p class="mb-2 text-[#706f6c] dark:text-[#A1A09A]">With so many options available to you,<br /> we suggest you start with the following:</p>
-                    <ul class="flex flex-col mb-4 lg:mb-6">
-                        <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:top-1/2 before:bottom-0 before:left-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Read the
-                                <a href="https://laravel.com/docs" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                    <span>Documentation</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
-                                        <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
-                                    </svg>
-                                </a>
-                            </span>
-                        </li>
-                        <li class="flex items-center gap-4 py-2 relative before:border-l before:border-[#e3e3e0] dark:before:border-[#3E3E3A] before:bottom-1/2 before:top-0 before:left-[0.4rem] before:absolute">
-                            <span class="relative py-1 bg-white dark:bg-[#161615]">
-                                <span class="flex items-center justify-center rounded-full bg-[#FDFDFC] dark:bg-[#161615] shadow-[0px_0px_1px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(0,0,0,0.06)] w-3.5 h-3.5 border dark:border-[#3E3E3A] border-[#e3e3e0]">
-                                    <span class="rounded-full bg-[#dbdbd7] dark:bg-[#3E3E3A] w-1.5 h-1.5"></span>
-                                </span>
-                            </span>
-                            <span>
-                                Watch video tutorials at
-                                <a href="https://laracasts.com" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                                    <span>Laracasts</span>
-                                    <svg
-                                        width="10"
-                                        height="11"
-                                        viewBox="0 0 10 11"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-2.5 h-2.5"
-                                    >
-                                        <path
-                                            d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                            stroke="currentColor"
-                                            stroke-linecap="square"
-                                        />
-                                    </svg>
-                                </a>
-                            </span>
-                        </li>
-                    </ul>
-                    <ul class="flex gap-3 text-sm leading-normal">
-                        <li>
-                            <a href="https://cloud.laravel.com" target="_blank" class="inline-block dark:bg-[#eeeeec] dark:border-[#eeeeec] dark:text-[#1C1C1A] dark:hover:bg-white dark:hover:border-white hover:bg-black hover:border-black px-5 py-1.5 bg-[#1b1b18] rounded-sm border border-black text-white text-sm leading-normal">
-                                Deploy now
-                            </a>
-                        </li>
-                    </ul>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-                    <p class="mt-6 lg:mt-10 text-[#706f6c] dark:text-[#A1A09A]">
-                        v{{ app()->version() }}
-                        <a href="https://github.com/laravel/framework/blob/13.x/CHANGELOG.md" target="_blank" class="inline-flex items-center space-x-1 font-medium underline underline-offset-4 text-[#f53003] dark:text-[#FF4433] ml-1">
-                            <span>View changelog</span>
-                            <svg
-                                width="10"
-                                height="11"
-                                viewBox="0 0 10 11"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-2.5 h-2.5"
-                            >
-                                <path
-                                    d="M7.70833 6.95834V2.79167H3.54167M2.5 8L7.5 3.00001"
-                                    stroke="currentColor"
-                                    stroke-linecap="square"
-                                />
-                            </svg>
-                        </a>
+    <style>
+        [x-cloak] { display: none !important; }
+        
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.78);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card-hover {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.25);
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 0.3; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        .animate-pulse-ring {
+            animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-float {
+            animation: float-slow 4s ease-in-out infinite;
+        }
+    </style>
+
+    <!-- JSON-LD Schema: LocalBusiness / EmergencyService -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "HVACBusiness",
+      "name": "SellafuGas® Domingo Isain - Prodoral R6-1",
+      "image": "{{ asset('images/logotipo-sellafugas.cl.webp') }}",
+      "@@id": "https://sellafugas.cl",
+      "url": "https://sellafugas.cl",
+      "telephone": "+56949877316",
+      "priceRange": "$300.000 - $850.000 CLP",
+      "address": {
+        "@@type": "PostalAddress",
+        "streetAddress": "Estado 215 / Av. Libertador Bernardo O'Higgins 1302",
+        "addressLocality": "Santiago",
+        "addressRegion": "Región Metropolitana",
+        "postalCode": "8320000",
+        "addressCountry": "CL"
+      },
+      "geo": {
+        "@@type": "GeoCoordinates",
+        "latitude": -33.4429,
+        "longitude": -70.6483
+      },
+      "openingHoursSpecification": {
+        "@@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "aggregateRating": {
+        "@@type": "AggregateRating",
+        "ratingValue": "4.95",
+        "reviewCount": "194",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "founder": {
+        "@@type": "Person",
+        "name": "Domingo Isain Plaza Caamaño",
+        "jobTitle": "Gasfiter Certificado Autorizado SEC Clase 3",
+        "knowsAbout": ["Sellado de Fugas de Gas", "Prodoral R6-1", "Pruebas de Hermeticidad DS66", "Detección de Fugas con Ultrasonido y Gas Trazador"]
+      },
+      "areaServed": [
+        "Santiago", "Las Condes", "Vitacura", "Providencia", "Lo Barnechea", 
+        "La Reina", "Ñuñoa", "Peñalolén", "La Florida", "Chicureo", "Colina",
+        "Maipú", "San Miguel", "San Joaquín", "Macul", "Pudahuel", "Quilicura", 
+        "Rancagua", "Valparaíso", "Viña del Mar"
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD Schema: FAQPage (10 Preguntas Reales) -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@@type": "Question",
+          "name": "¿Cómo se calculan los metros lineales para el sellado de fugas de gas?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "La medición se realiza calculando la distancia estimada en metros lineales de cañería desde el medidor o regulador principal hasta la llave de paso de cada artefacto a gas (calefón, cocina, estufa, caldera). En la Región Metropolitana el valor base es de $300.000 neto hasta 10 metros, y cada metro adicional tiene un valor de $25.000 neto."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Por qué el método SellafuGas Prodoral R6-1 no requiere romper muros ni pisos?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Prodoral R6-1 es un producto alemán líquido de alta tecnología que se introduce directamente al interior de la red de cañerías mediante inyección neumática a presión controlada. El producto recorre toda la cañería interior no visible, polimerizando y sellando todas las uniones roscadas y microporosidades de forma hermética y permanente sin necesidad de picar cerámicos ni destruir muros."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿El certificado emitido por Domingo Isain es válido ante la SEC y compañías de seguros?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí, absolutamente. Domingo Isain Plaza Caamaño es Gasfíter Certificado Autorizado SEC Clase 3 desde el año 2009 (RUT 12.738.961-6). Al finalizar las pruebas de hermeticidad a 368 mmca bajo Decreto Supremo DS66 Artículo 44.2.3, se entrega el Certificado Oficial de Servicio que cuenta con código QR verificable en la plataforma oficial de la Superintendencia de Electricidad y Combustibles (SEC)."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cuánto tiempo demora el procedimiento de sellado en una casa o departamento?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "El procedimiento completo de sellado con Prodoral R6-1 toma menos de 2 horas. Incluye la prueba de diagnóstico inicial, desconexión de artefactos, inyección y purga del sellante alemán, secado neumático y prueba final de hermeticidad estanco a 368 mmca."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué garantía tiene el sellado de cañerías de gas?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Otorgamos 3 años de garantía por escrito por efectos de sellado de fugas de gas en la red interior tratada."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿En qué consiste la condición 'Usted Paga Después de Solucionado'?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Nuestra política de máxima confianza y seguridad garantiza que el cliente solo realiza el pago una vez que el procedimiento ha concluido con éxito y se ha demostrado la total hermeticidad de la instalación mediante manómetro digital sin caídas de presión."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué normas técnicas cumple el producto Prodoral R6-1 en Chile?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Prodoral R6-1 cumple rigurosamente con las normativas internacionales DIN EN 13090 y NAG-203, y está aceptado por la Superintendencia de Electricidad y Combustibles (SEC) bajo el Decreto Supremo 66 Artículo 7."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Se deben desconectar artefactos a gas durante el sellado?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí. Nuestro servicio incluye la desconexión cuidadosa y posterior reconexión de todos los artefactos a gas (calefón, cocina, estufas, calderas) para aislar la red durante la inyección y asegurar una hermeticidad total."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué cobertura tienen en Santiago y regiones?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Atendemos de forma inmediata en toda la Región Metropolitana (Las Condes, Vitacura, Providencia, Lo Barnechea, Chicureo, La Reina, Ñuñoa, La Florida, Maipú, Santiago Centro, etc.), Quinta Región (Valparaíso, Viña del Mar, Quilpué, etc.) y Sexta Región (Rancagua, Machalí, etc.)."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cómo solicito atención inmediata si tengo gas cortado por sello rojo o emergencia?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Puede comunicarse directamente al teléfono / WhatsApp +56 9 4987 7316 (949 877 316) o completar el cotizador en línea. Atendemos emergencias y urgencias el mismo día para reestablecer el suministro de gas a la brevedad."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white bg-grid-pattern min-h-screen relative overflow-x-hidden"
+      x-data="{
+          activeFaq: null,
+          metros: 12,
+          zone: 'rm',
+          comuna: 'Las Condes',
+          provincia: 'Santiago',
+          direccion: '',
+          nombre: '',
+          telefono: '',
+          email: '',
+          detalles: '',
+          taxType: 'neto',
+          submitting: false,
+          quoteSubmitted: false,
+          quoteFolio: '',
+          quoteTotalFormatted: '',
+          quoteSubtotalFormatted: '',
+          whatsappRedirectUrl: '',
+          
+          get basePrice() {
+              if (this.zone === 'v_vi') return 350000;
+              if (this.zone === 'otras') return 400000;
+              return 300000;
+          },
+          get extraMeterPrice() {
+              if (this.zone === 'v_vi') return 30000;
+              if (this.zone === 'otras') return 35000;
+              return 25000;
+          },
+          get extraMeters() {
+              return Math.max(0, parseInt(this.metros || 10) - 10);
+          },
+          get subtotalNeto() {
+              return this.basePrice + (this.extraMeters * this.extraMeterPrice);
+          },
+          get taxAmount() {
+              return this.taxType === 'factura' ? Math.round(this.subtotalNeto * 0.19) : 0;
+          },
+          get totalPrice() {
+              return this.subtotalNeto + this.taxAmount;
+          },
+          formatCLP(val) {
+              return '$' + new Intl.NumberFormat('es-CL').format(val || 0);
+          },
+          
+          async submitQuote() {
+              if (!this.nombre || !this.telefono || !this.comuna) {
+                  alert('Por favor complete Nombre, Teléfono y Comuna para generar su cotización.');
+                  return;
+              }
+              this.submitting = true;
+              try {
+                  const res = await fetch('{{ route('quote.public.store') }}', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json',
+                          'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                          'Accept': 'application/json',
+                      },
+                      body: JSON.stringify({
+                          metros: this.metros,
+                          zone: this.zone,
+                          comuna: this.comuna,
+                          provincia: this.provincia,
+                          direccion: this.direccion,
+                          nombre: this.nombre,
+                          telefono: this.telefono,
+                          email: this.email,
+                          detalles: this.detalles,
+                          tax_type: this.taxType,
+                      })
+                  });
+                  const data = await res.json();
+                  if (data.success) {
+                      this.quoteFolio = data.folio;
+                      this.quoteTotalFormatted = data.pricing.formatted_total;
+                      this.quoteSubtotalFormatted = data.pricing.formatted_subtotal;
+                      this.whatsappRedirectUrl = data.whatsapp_url;
+                      this.quoteSubmitted = true;
+                  } else {
+                      alert('Ocurrió un error al procesar la cotización. Por favor contáctenos directamente al +56 9 4987 7316');
+                  }
+              } catch (e) {
+                  console.error(e);
+                  const fallbackMsg = `Hola Domingo Isain (SellafuGas), deseo cotizar sellado de ${this.metros} metros lineales en ${this.comuna}. Total estimado: ${this.formatCLP(this.totalPrice)}. Mi nombre es ${this.nombre} (${this.telefono}).`;
+                  window.open(`https://api.whatsapp.com/send?phone=56949877316&text=${encodeURIComponent(fallbackMsg)}`, '_blank');
+              } finally {
+                  this.submitting = false;
+              }
+          }
+      }">
+
+    <!-- Top Urgent Contact Bar -->
+    <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-sky-950 border-b border-emerald-500/20 text-xs py-2 px-4 sticky top-0 z-50 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                </span>
+                <span class="text-emerald-300 font-bold uppercase tracking-wider text-[11px]">Servicio de Emergencia y Sellado en el Mismo Día</span>
+                <span class="hidden sm:inline text-slate-500">|</span>
+                <span class="hidden sm:inline text-slate-300">Gasfiter Certificado SEC Domingo Isain · <strong>RUT 12.738.961-6</strong></span>
+            </div>
+            <div class="flex items-center gap-4 text-xs font-semibold">
+                <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="text-sky-400 hover:text-sky-300 underline flex items-center gap-1">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span>Verificar SEC Online</span>
+                </a>
+                <a href="tel:949877316" class="text-white bg-emerald-600 hover:bg-emerald-500 px-3 py-1 rounded-full text-xs font-bold transition-all shadow-md shadow-emerald-600/30 flex items-center gap-1.5">
+                    <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+                    <span>949 877 316</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="glass-dark border-b border-slate-800/80 sticky top-[37px] z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo & Brand Title -->
+            <a href="#hero" class="flex items-center gap-3.5 group">
+                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo Oficial" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
+                <div>
+                    <span class="font-display font-black text-xl sm:text-2xl text-white tracking-tight leading-none block">
+                        SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>
+                    </span>
+                    <span class="text-[11px] sm:text-xs text-slate-400 font-semibold tracking-wider block mt-0.5">
+                        PRODORAL R6-1 · GASFITER SEC CLASE 3
+                    </span>
+                </div>
+            </a>
+
+            <!-- Navigation Links Desktop -->
+            <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+                <a href="#cotizador" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="calculator" class="w-4 h-4 text-emerald-400"></i>
+                    <span>Cotizar Online</span>
+                </a>
+                <a href="#como-funciona" class="hover:text-sky-400 transition-colors">¿Cómo Funciona?</a>
+                <a href="#precios" class="hover:text-sky-400 transition-colors">Precios y Regiones</a>
+                <a href="#certificaciones" class="hover:text-sky-400 transition-colors">Certificados SEC</a>
+                <a href="#faq" class="hover:text-sky-400 transition-colors">Preguntas Frecuentes</a>
+                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-slate-200 border border-slate-700 px-2.5 py-1 rounded-lg">
+                    Acceso Administrador
+                </a>
+            </nav>
+
+            <!-- CTA Header Buttons -->
+            <div class="flex items-center gap-3">
+                <a href="#cotizador" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    <span>Cotizar Sellado</span>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo%20Isain%2C%20necesito%20atenci%C3%B3n%20por%20fuga%20de%20gas%20SellafuGas" target="_blank"
+                   class="px-4 py-2.5 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 border border-emerald-500/40 rounded-xl font-bold text-sm flex items-center gap-2 transition-all">
+                    <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                    <span class="hidden md:inline">WhatsApp Directo</span>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+        <!-- Glowing Ambient Lighting Backdrops -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-sky-600/20 via-emerald-500/20 to-transparent blur-[120px] pointer-events-none -z-10"></div>
+        <div class="absolute top-10 right-10 w-72 h-72 bg-emerald-500/10 blur-[100px] pointer-events-none -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Column: Main Headlines & Value Props -->
+                <div class="lg:col-span-7 space-y-7">
+                    
+                    <!-- Trust Badges Pill -->
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 text-xs font-semibold text-emerald-300 shadow-lg shadow-emerald-950/40">
+                        <span class="p-1 rounded-full bg-emerald-500 text-slate-950">
+                            <i data-lucide="check" class="w-3 h-3 stroke-[3]"></i>
+                        </span>
+                        <span>Tecnología Alemana Prodoral R6-1 · Especialistas Desde 2009</span>
+                    </div>
+
+                    <!-- Main H1 Title -->
+                    <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+                        Reparación de Fugas de Gas <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400">Sin Romper Muros</span> ni Pisos
+                    </h1>
+
+                    <!-- Hero Subtitle & Domingo Isain Credential -->
+                    <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
+                        Servicio técnico especializado en sellado de cañerías no visibles con <strong>Prodoral R6-1</strong>. Procedimiento limpio en <strong class="text-emerald-400">menos de 2 horas</strong>, prueba de hermeticidad certificada y entrega de <strong class="text-sky-400">Certificado Oficial SEC</strong> para seguros y empresas de inspección.
                     </p>
-                </div>
-                <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ml-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg aspect-[335/364] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">
-                    {{-- Laravel Logo --}}
-                    <svg class="w-full text-[#F53003] dark:text-[#F61500] transition-all translate-y-0 opacity-100 max-w-none duration-750 starting:opacity-0 motion-safe:starting:translate-y-6" viewBox="0 0 438 104" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.2036 -3H0V102.197H49.5189V86.7187H17.2036V-3Z" fill="currentColor" />
-                        <path d="M110.256 41.6337C108.061 38.1275 104.945 35.3731 100.905 33.3681C96.8667 31.3647 92.8016 30.3618 88.7131 30.3618C83.4247 30.3618 78.5885 31.3389 74.201 33.2923C69.8111 35.2456 66.0474 37.928 62.9059 41.3333C59.7643 44.7401 57.3198 48.6726 55.5754 53.1293C53.8287 57.589 52.9572 62.274 52.9572 67.1813C52.9572 72.1925 53.8287 76.8995 55.5754 81.3069C57.3191 85.7173 59.7636 89.6241 62.9059 93.0293C66.0474 96.4361 69.8119 99.1155 74.201 101.069C78.5885 103.022 83.4247 103.999 88.7131 103.999C92.8016 103.999 96.8667 102.997 100.905 100.994C104.945 98.9911 108.061 96.2359 110.256 92.7282V102.195H126.563V32.1642H110.256V41.6337ZM108.76 75.7472C107.762 78.4531 106.366 80.8078 104.572 82.8112C102.776 84.8161 100.606 86.4183 98.0637 87.6206C95.5202 88.823 92.7004 89.4238 89.6103 89.4238C86.5178 89.4238 83.7252 88.823 81.2324 87.6206C78.7388 86.4183 76.5949 84.8161 74.7998 82.8112C73.004 80.8078 71.6319 78.4531 70.6856 75.7472C69.7356 73.0421 69.2644 70.1868 69.2644 67.1821C69.2644 64.1758 69.7356 61.3205 70.6856 58.6154C71.6319 55.9102 73.004 53.5571 74.7998 51.5522C76.5949 49.5495 78.738 47.9451 81.2324 46.7427C83.7252 45.5404 86.5178 44.9396 89.6103 44.9396C92.7012 44.9396 95.5202 45.5404 98.0637 46.7427C100.606 47.9451 102.776 49.5487 104.572 51.5522C106.367 53.5571 107.762 55.9102 108.76 58.6154C109.756 61.3205 110.256 64.1758 110.256 67.1821C110.256 70.1868 109.756 73.0421 108.76 75.7472Z" fill="currentColor" />
-                        <path d="M242.805 41.6337C240.611 38.1275 237.494 35.3731 233.455 33.3681C229.416 31.3647 225.351 30.3618 221.262 30.3618C215.974 30.3618 211.138 31.3389 206.75 33.2923C202.36 35.2456 198.597 37.928 195.455 41.3333C192.314 44.7401 189.869 48.6726 188.125 53.1293C186.378 57.589 185.507 62.274 185.507 67.1813C185.507 72.1925 186.378 76.8995 188.125 81.3069C189.868 85.7173 192.313 89.6241 195.455 93.0293C198.597 96.4361 202.361 99.1155 206.75 101.069C211.138 103.022 215.974 103.999 221.262 103.999C225.351 103.999 229.416 102.997 233.455 100.994C237.494 98.9911 240.611 96.2359 242.805 92.7282V102.195H259.112V32.1642H242.805V41.6337ZM241.31 75.7472C240.312 78.4531 238.916 80.8078 237.122 82.8112C235.326 84.8161 233.156 86.4183 230.614 87.6206C228.07 88.823 225.251 89.4238 222.16 89.4238C219.068 89.4238 216.275 88.823 213.782 87.6206C211.289 86.4183 209.145 84.8161 207.35 82.8112C205.554 80.8078 204.182 78.4531 203.236 75.7472C202.286 73.0421 201.814 70.1868 201.814 67.1821C201.814 64.1758 202.286 61.3205 203.236 58.6154C204.182 55.9102 205.554 53.5571 207.35 51.5522C209.145 49.5495 211.288 47.9451 213.782 46.7427C216.275 45.5404 219.068 44.9396 222.16 44.9396C225.251 44.9396 228.07 45.5404 230.614 46.7427C233.156 47.9451 235.326 49.5487 237.122 51.5522C238.917 53.5571 240.312 55.9102 241.31 58.6154C242.306 61.3205 242.806 64.1758 242.806 67.1821C242.805 70.1868 242.305 73.0421 241.31 75.7472Z" fill="currentColor" />
-                        <path d="M438 -3H421.694V102.197H438V-3Z" fill="currentColor" />
-                        <path d="M139.43 102.197H155.735V48.2834H183.712V32.1665H139.43V102.197Z" fill="currentColor" />
-                        <path d="M324.49 32.1665L303.995 85.794L283.498 32.1665H266.983L293.748 102.197H314.242L341.006 32.1665H324.49Z" fill="currentColor" />
-                        <path d="M376.571 30.3656C356.603 30.3656 340.797 46.8497 340.797 67.1828C340.797 89.6597 356.094 104 378.661 104C391.29 104 399.354 99.1488 409.206 88.5848L398.189 80.0226C398.183 80.031 389.874 90.9895 377.468 90.9895C363.048 90.9895 356.977 79.3111 356.977 73.269H411.075C413.917 50.1328 398.775 30.3656 376.571 30.3656ZM357.02 61.0967C357.145 59.7487 359.023 43.3761 376.442 43.3761C393.861 43.3761 395.978 59.7464 396.099 61.0967H357.02Z" fill="currentColor" />
-                    </svg>
 
-                    {{-- 13 --}}
-                    <svg class="w-[438px] max-w-none relative -mt-[6.6rem] -ml-8 lg:ml-0 [--stroke-color:#1B1B18] dark:[--stroke-color:#FF750F]" viewBox="0 0 440 392" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g class="mix-blend-darken dark:mix-blend-normal transition-all delay-300 opacity-100 duration-750 starting:opacity-0 text-[#1B1B18] dark:text-black">
-                            <mask id="path-1-mask" maskUnits="userSpaceOnUse" x="-0.328613" y="103" width="338" height="299" fill="black">
-                                <rect fill="white" x="-0.328613" y="103" width="338" height="299"/>
-                                <path d="M234.936 400.8C204.136 400.8 178.936 392.4 159.336 375.6C140.136 358.8 130.536 337 130.536 310.2H200.736C200.736 318.2 203.736 324.8 209.736 330C215.736 335.2 223.736 337.8 233.736 337.8C243.336 337.8 251.136 335 257.136 329.4C263.536 323.8 266.736 316.6 266.736 307.8C266.736 299.8 263.936 293.2 258.336 288C252.736 282.8 245.536 280.2 236.736 280.2H199.536V218.4H236.736C243.536 218.4 249.336 216 254.136 211.2C258.936 206.4 261.336 200.4 261.336 193.2C261.336 184.8 258.736 178.2 253.536 173.4C248.336 168.6 241.736 166.2 233.736 166.2C226.536 166.2 220.336 168.4 215.136 172.8C210.336 177.2 207.936 182.8 207.936 189.6H141.336C141.336 164.8 150.136 144.6 167.736 129C185.336 113 207.936 105 235.536 105C263.136 105 285.536 112.2 302.736 126.6C320.336 141 329.136 160 329.136 183.6C329.136 200.8 324.536 214.8 315.336 225.6C306.136 236 294.336 243.2 279.936 247.2C297.136 252 310.736 260.2 320.736 271.8C331.136 283.4 336.336 298 336.336 315.6C336.336 340.4 326.936 360.8 308.136 376.8C289.336 392.8 264.936 400.8 234.936 400.8Z"/>
-                                <path d="M26.8714 167.6H1.67139V105.2H94.6714V400.2H26.8714V167.6Z"/>
-                            </mask>
-                            <path d="M234.936 400.8C204.136 400.8 178.936 392.4 159.336 375.6C140.136 358.8 130.536 337 130.536 310.2H200.736C200.736 318.2 203.736 324.8 209.736 330C215.736 335.2 223.736 337.8 233.736 337.8C243.336 337.8 251.136 335 257.136 329.4C263.536 323.8 266.736 316.6 266.736 307.8C266.736 299.8 263.936 293.2 258.336 288C252.736 282.8 245.536 280.2 236.736 280.2H199.536V218.4H236.736C243.536 218.4 249.336 216 254.136 211.2C258.936 206.4 261.336 200.4 261.336 193.2C261.336 184.8 258.736 178.2 253.536 173.4C248.336 168.6 241.736 166.2 233.736 166.2C226.536 166.2 220.336 168.4 215.136 172.8C210.336 177.2 207.936 182.8 207.936 189.6H141.336C141.336 164.8 150.136 144.6 167.736 129C185.336 113 207.936 105 235.536 105C263.136 105 285.536 112.2 302.736 126.6C320.336 141 329.136 160 329.136 183.6C329.136 200.8 324.536 214.8 315.336 225.6C306.136 236 294.336 243.2 279.936 247.2C297.136 252 310.736 260.2 320.736 271.8C331.136 283.4 336.336 298 336.336 315.6C336.336 340.4 326.936 360.8 308.136 376.8C289.336 392.8 264.936 400.8 234.936 400.8Z" fill="currentColor"/>
-                            <path d="M26.8714 167.6H1.67139V105.2H94.6714V400.2H26.8714V167.6Z" fill="currentColor"/>
-                            <path d="M234.936 400.8C204.136 400.8 178.936 392.4 159.336 375.6C140.136 358.8 130.536 337 130.536 310.2H200.736C200.736 318.2 203.736 324.8 209.736 330C215.736 335.2 223.736 337.8 233.736 337.8C243.336 337.8 251.136 335 257.136 329.4C263.536 323.8 266.736 316.6 266.736 307.8C266.736 299.8 263.936 293.2 258.336 288C252.736 282.8 245.536 280.2 236.736 280.2H199.536V218.4H236.736C243.536 218.4 249.336 216 254.136 211.2C258.936 206.4 261.336 200.4 261.336 193.2C261.336 184.8 258.736 178.2 253.536 173.4C248.336 168.6 241.736 166.2 233.736 166.2C226.536 166.2 220.336 168.4 215.136 172.8C210.336 177.2 207.936 182.8 207.936 189.6H141.336C141.336 164.8 150.136 144.6 167.736 129C185.336 113 207.936 105 235.536 105C263.136 105 285.536 112.2 302.736 126.6C320.336 141 329.136 160 329.136 183.6C329.136 200.8 324.536 214.8 315.336 225.6C306.136 236 294.336 243.2 279.936 247.2C297.136 252 310.736 260.2 320.736 271.8C331.136 283.4 336.336 298 336.336 315.6C336.336 340.4 326.936 360.8 308.136 376.8C289.336 392.8 264.936 400.8 234.936 400.8Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-1-mask)"/>
-                            <path d="M26.8714 167.6H1.67139V105.2H94.6714V400.2H26.8714V167.6Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-1-mask)"/>
-                        </g>
+                    <!-- Key Selling Point Cards -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800">
+                            <div class="flex items-center gap-2 text-emerald-400 mb-1">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                                <span class="font-bold text-sm">Garantía 3 Años</span>
+                            </div>
+                            <p class="text-xs text-slate-400">Por escrito ante cualquier efecto de sellado</p>
+                        </div>
+                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800">
+                            <div class="flex items-center gap-2 text-sky-400 mb-1">
+                                <i data-lucide="clock" class="w-5 h-5"></i>
+                                <span class="font-bold text-sm">Menos de 2 Horas</span>
+                            </div>
+                            <p class="text-xs text-slate-400">Procedimiento rápido sin escombros</p>
+                        </div>
+                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800 col-span-2 sm:col-span-1">
+                            <div class="flex items-center gap-2 text-amber-400 mb-1">
+                                <i data-lucide="handshake" class="w-5 h-5"></i>
+                                <span class="font-bold text-sm">Paga Solucionado</span>
+                            </div>
+                            <p class="text-xs text-slate-400">Comprobada la hermeticidad a 368 mmca</p>
+                        </div>
+                    </div>
 
-                        <g class="transition-all delay-400 opacity-100 duration-750 starting:opacity-0 motion-safe:starting:-translate-x-[26px] text-[#F3BEC7] dark:text-[#4B0600]">
-                            <mask id="path-2-mask" maskUnits="userSpaceOnUse" x="25.3357" y="103" width="338" height="299" fill="black">
-                                <rect fill="white" x="25.3357" y="103" width="338" height="299"/>
-                                <path d="M260.6 400.8C229.8 400.8 204.6 392.4 185 375.6C165.8 358.8 156.2 337 156.2 310.2H226.4C226.4 318.2 229.4 324.8 235.4 330C241.4 335.2 249.4 337.8 259.4 337.8C269 337.8 276.8 335 282.8 329.4C289.2 323.8 292.4 316.6 292.4 307.8C292.4 299.8 289.6 293.2 284 288C278.4 282.8 271.2 280.2 262.4 280.2H225.2V218.4H262.4C269.2 218.4 275 216 279.8 211.2C284.6 206.4 287 200.4 287 193.2C287 184.8 284.4 178.2 279.2 173.4C274 168.6 267.4 166.2 259.4 166.2C252.2 166.2 246 168.4 240.8 172.8C236 177.2 233.6 182.8 233.6 189.6H167C167 164.8 175.8 144.6 193.4 129C211 113 233.6 105 261.2 105C288.8 105 311.2 112.2 328.4 126.6C346 141 354.8 160 354.8 183.6C354.8 200.8 350.2 214.8 341 225.6C331.8 236 320 243.2 305.6 247.2C322.8 252 336.4 260.2 346.4 271.8C356.8 283.4 362 298 362 315.6C362 340.4 352.6 360.8 333.8 376.8C315 392.8 290.6 400.8 260.6 400.8Z"/>
-                                <path d="M52.5357 167.6H27.3357V105.2H120.336V400.2H52.5357V167.6Z"/>
-                            </mask>
-                            <path d="M260.6 400.8C229.8 400.8 204.6 392.4 185 375.6C165.8 358.8 156.2 337 156.2 310.2H226.4C226.4 318.2 229.4 324.8 235.4 330C241.4 335.2 249.4 337.8 259.4 337.8C269 337.8 276.8 335 282.8 329.4C289.2 323.8 292.4 316.6 292.4 307.8C292.4 299.8 289.6 293.2 284 288C278.4 282.8 271.2 280.2 262.4 280.2H225.2V218.4H262.4C269.2 218.4 275 216 279.8 211.2C284.6 206.4 287 200.4 287 193.2C287 184.8 284.4 178.2 279.2 173.4C274 168.6 267.4 166.2 259.4 166.2C252.2 166.2 246 168.4 240.8 172.8C236 177.2 233.6 182.8 233.6 189.6H167C167 164.8 175.8 144.6 193.4 129C211 113 233.6 105 261.2 105C288.8 105 311.2 112.2 328.4 126.6C346 141 354.8 160 354.8 183.6C354.8 200.8 350.2 214.8 341 225.6C331.8 236 320 243.2 305.6 247.2C322.8 252 336.4 260.2 346.4 271.8C356.8 283.4 362 298 362 315.6C362 340.4 352.6 360.8 333.8 376.8C315 392.8 290.6 400.8 260.6 400.8Z" fill="currentColor"/>
-                            <path d="M52.5357 167.6H27.3357V105.2H120.336V400.2H52.5357V167.6Z" fill="currentColor"/>
-                            <path d="M260.6 400.8C229.8 400.8 204.6 392.4 185 375.6C165.8 358.8 156.2 337 156.2 310.2H226.4C226.4 318.2 229.4 324.8 235.4 330C241.4 335.2 249.4 337.8 259.4 337.8C269 337.8 276.8 335 282.8 329.4C289.2 323.8 292.4 316.6 292.4 307.8C292.4 299.8 289.6 293.2 284 288C278.4 282.8 271.2 280.2 262.4 280.2H225.2V218.4H262.4C269.2 218.4 275 216 279.8 211.2C284.6 206.4 287 200.4 287 193.2C287 184.8 284.4 178.2 279.2 173.4C274 168.6 267.4 166.2 259.4 166.2C252.2 166.2 246 168.4 240.8 172.8C236 177.2 233.6 182.8 233.6 189.6H167C167 164.8 175.8 144.6 193.4 129C211 113 233.6 105 261.2 105C288.8 105 311.2 112.2 328.4 126.6C346 141 354.8 160 354.8 183.6C354.8 200.8 350.2 214.8 341 225.6C331.8 236 320 243.2 305.6 247.2C322.8 252 336.4 260.2 346.4 271.8C356.8 283.4 362 298 362 315.6C362 340.4 352.6 360.8 333.8 376.8C315 392.8 290.6 400.8 260.6 400.8Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-2-mask)"/>
-                            <path d="M52.5357 167.6H27.3357V105.2H120.336V400.2H52.5357V167.6Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-2-mask)"/>
-                        </g>
-                        
-                        <g class="mix-blend-color dark:mix-blend-hard-light transition-all delay-400 opacity-100 duration-750 starting:opacity-0 motion-safe:starting:-translate-x-[51px] text-[#F8B803] dark:text-[#391800]">
-                            <mask id="path-3-mask" maskUnits="userSpaceOnUse" x="51" y="103" width="338" height="299" fill="black">
-                                <rect fill="white" x="51" y="103" width="338" height="299"/>
-                                <path d="M286.264 400.8C255.464 400.8 230.264 392.4 210.664 375.6C191.464 358.8 181.864 337 181.864 310.2H252.064C252.064 318.2 255.064 324.8 261.064 330C267.064 335.2 275.064 337.8 285.064 337.8C294.664 337.8 302.464 335 308.464 329.4C314.864 323.8 318.064 316.6 318.064 307.8C318.064 299.8 315.264 293.2 309.664 288C304.064 282.8 296.864 280.2 288.064 280.2H250.864V218.4H288.064C294.864 218.4 300.664 216 305.464 211.2C310.264 206.4 312.664 200.4 312.664 193.2C312.664 184.8 310.064 178.2 304.864 173.4C299.664 168.6 293.064 166.2 285.064 166.2C277.864 166.2 271.664 168.4 266.464 172.8C261.664 177.2 259.264 182.8 259.264 189.6H192.664C192.664 164.8 201.464 144.6 219.064 129C236.664 113 259.264 105 286.864 105C314.464 105 336.864 112.2 354.064 126.6C371.664 141 380.464 160 380.464 183.6C380.464 200.8 375.864 214.8 366.664 225.6C357.464 236 345.664 243.2 331.264 247.2C348.464 252 362.064 260.2 372.064 271.8C382.464 283.4 387.664 298 387.664 315.6C387.664 340.4 378.264 360.8 359.464 376.8C340.664 392.8 316.264 400.8 286.264 400.8Z"/>
-                                <path d="M78.2 167.6H53V105.2H146V400.2H78.2V167.6Z"/>
-                            </mask>
-                            <path d="M286.264 400.8C255.464 400.8 230.264 392.4 210.664 375.6C191.464 358.8 181.864 337 181.864 310.2H252.064C252.064 318.2 255.064 324.8 261.064 330C267.064 335.2 275.064 337.8 285.064 337.8C294.664 337.8 302.464 335 308.464 329.4C314.864 323.8 318.064 316.6 318.064 307.8C318.064 299.8 315.264 293.2 309.664 288C304.064 282.8 296.864 280.2 288.064 280.2H250.864V218.4H288.064C294.864 218.4 300.664 216 305.464 211.2C310.264 206.4 312.664 200.4 312.664 193.2C312.664 184.8 310.064 178.2 304.864 173.4C299.664 168.6 293.064 166.2 285.064 166.2C277.864 166.2 271.664 168.4 266.464 172.8C261.664 177.2 259.264 182.8 259.264 189.6H192.664C192.664 164.8 201.464 144.6 219.064 129C236.664 113 259.264 105 286.864 105C314.464 105 336.864 112.2 354.064 126.6C371.664 141 380.464 160 380.464 183.6C380.464 200.8 375.864 214.8 366.664 225.6C357.464 236 345.664 243.2 331.264 247.2C348.464 252 362.064 260.2 372.064 271.8C382.464 283.4 387.664 298 387.664 315.6C387.664 340.4 378.264 360.8 359.464 376.8C340.664 392.8 316.264 400.8 286.264 400.8Z" fill="currentColor"/>
-                            <path d="M78.2 167.6H53V105.2H146V400.2H78.2V167.6Z" fill="currentColor"/>
-                            <path d="M286.264 400.8C255.464 400.8 230.264 392.4 210.664 375.6C191.464 358.8 181.864 337 181.864 310.2H252.064C252.064 318.2 255.064 324.8 261.064 330C267.064 335.2 275.064 337.8 285.064 337.8C294.664 337.8 302.464 335 308.464 329.4C314.864 323.8 318.064 316.6 318.064 307.8C318.064 299.8 315.264 293.2 309.664 288C304.064 282.8 296.864 280.2 288.064 280.2H250.864V218.4H288.064C294.864 218.4 300.664 216 305.464 211.2C310.264 206.4 312.664 200.4 312.664 193.2C312.664 184.8 310.064 178.2 304.864 173.4C299.664 168.6 293.064 166.2 285.064 166.2C277.864 166.2 271.664 168.4 266.464 172.8C261.664 177.2 259.264 182.8 259.264 189.6H192.664C192.664 164.8 201.464 144.6 219.064 129C236.664 113 259.264 105 286.864 105C314.464 105 336.864 112.2 354.064 126.6C371.664 141 380.464 160 380.464 183.6C380.464 200.8 375.864 214.8 366.664 225.6C357.464 236 345.664 243.2 331.264 247.2C348.464 252 362.064 260.2 372.064 271.8C382.464 283.4 387.664 298 387.664 315.6C387.664 340.4 378.264 360.8 359.464 376.8C340.664 392.8 316.264 400.8 286.264 400.8Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-3-mask)"/>
-                            <path d="M78.2 167.6H53V105.2H146V400.2H78.2V167.6Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-3-mask)"/>
-                        </g>
-                        
-                        <g class="mix-blend-multiply dark:mix-blend-normal transition-all delay-400 opacity-100 duration-750 starting:opacity-0 motion-safe:starting:-translate-x-[78px] text-[#F3BEC7] dark:text-[#733000]">
-                            <mask id="path-4-mask" maskUnits="userSpaceOnUse" x="76.6643" y="103" width="338" height="299" fill="black">
-                                <rect fill="white" x="76.6643" y="103" width="338" height="299"/>
-                                <path d="M311.929 400.8C281.129 400.8 255.929 392.4 236.329 375.6C217.129 358.8 207.529 337 207.529 310.2H277.729C277.729 318.2 280.729 324.8 286.729 330C292.729 335.2 300.729 337.8 310.729 337.8C320.329 337.8 328.129 335 334.129 329.4C340.529 323.8 343.729 316.6 343.729 307.8C343.729 299.8 340.929 293.2 335.329 288C329.729 282.8 322.529 280.2 313.729 280.2H276.529V218.4H313.729C320.529 218.4 326.329 216 331.129 211.2C335.929 206.4 338.329 200.4 338.329 193.2C338.329 184.8 335.729 178.2 330.529 173.4C325.329 168.6 318.729 166.2 310.729 166.2C303.529 166.2 297.329 168.4 292.129 172.8C287.329 177.2 284.929 182.8 284.929 189.6H218.329C218.329 164.8 227.129 144.6 244.729 129C262.329 113 284.929 105 312.529 105C340.129 105 362.529 112.2 379.729 126.6C397.329 141 406.129 160 406.129 183.6C406.129 200.8 401.529 214.8 392.329 225.6C383.129 236 371.329 243.2 356.929 247.2C374.129 252 387.729 260.2 397.729 271.8C408.129 283.4 413.329 298 413.329 315.6C413.329 340.4 403.929 360.8 385.129 376.8C366.329 392.8 341.929 400.8 311.929 400.8Z"/>
-                                <path d="M103.864 167.6H78.6643V105.2H171.664V400.2H103.864V167.6Z"/>
-                            </mask>
-                            <path d="M311.929 400.8C281.129 400.8 255.929 392.4 236.329 375.6C217.129 358.8 207.529 337 207.529 310.2H277.729C277.729 318.2 280.729 324.8 286.729 330C292.729 335.2 300.729 337.8 310.729 337.8C320.329 337.8 328.129 335 334.129 329.4C340.529 323.8 343.729 316.6 343.729 307.8C343.729 299.8 340.929 293.2 335.329 288C329.729 282.8 322.529 280.2 313.729 280.2H276.529V218.4H313.729C320.529 218.4 326.329 216 331.129 211.2C335.929 206.4 338.329 200.4 338.329 193.2C338.329 184.8 335.729 178.2 330.529 173.4C325.329 168.6 318.729 166.2 310.729 166.2C303.529 166.2 297.329 168.4 292.129 172.8C287.329 177.2 284.929 182.8 284.929 189.6H218.329C218.329 164.8 227.129 144.6 244.729 129C262.329 113 284.929 105 312.529 105C340.129 105 362.529 112.2 379.729 126.6C397.329 141 406.129 160 406.129 183.6C406.129 200.8 401.529 214.8 392.329 225.6C383.129 236 371.329 243.2 356.929 247.2C374.129 252 387.729 260.2 397.729 271.8C408.129 283.4 413.329 298 413.329 315.6C413.329 340.4 403.929 360.8 385.129 376.8C366.329 392.8 341.929 400.8 311.929 400.8Z" fill="currentColor"/>
-                            <path d="M103.864 167.6H78.6643V105.2H171.664V400.2H103.864V167.6Z" fill="currentColor"/>
-                            <path d="M311.929 400.8C281.129 400.8 255.929 392.4 236.329 375.6C217.129 358.8 207.529 337 207.529 310.2H277.729C277.729 318.2 280.729 324.8 286.729 330C292.729 335.2 300.729 337.8 310.729 337.8C320.329 337.8 328.129 335 334.129 329.4C340.529 323.8 343.729 316.6 343.729 307.8C343.729 299.8 340.929 293.2 335.329 288C329.729 282.8 322.529 280.2 313.729 280.2H276.529V218.4H313.729C320.529 218.4 326.329 216 331.129 211.2C335.929 206.4 338.329 200.4 338.329 193.2C338.329 184.8 335.729 178.2 330.529 173.4C325.329 168.6 318.729 166.2 310.729 166.2C303.529 166.2 297.329 168.4 292.129 172.8C287.329 177.2 284.929 182.8 284.929 189.6H218.329C218.329 164.8 227.129 144.6 244.729 129C262.329 113 284.929 105 312.529 105C340.129 105 362.529 112.2 379.729 126.6C397.329 141 406.129 160 406.129 183.6C406.129 200.8 401.529 214.8 392.329 225.6C383.129 236 371.329 243.2 356.929 247.2C374.129 252 387.729 260.2 397.729 271.8C408.129 283.4 413.329 298 413.329 315.6C413.329 340.4 403.929 360.8 385.129 376.8C366.329 392.8 341.929 400.8 311.929 400.8Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-4-mask)"/>
-                            <path d="M103.864 167.6H78.6643V105.2H171.664V400.2H103.864V167.6Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-4-mask)"/>
-                        </g>
-                        
-                        <g class="mix-blend-hard-light transition-all delay-400 opacity-100 duration-750 starting:opacity-0 motion-safe:starting:-translate-x-[102px] text-[#F3BEC7] dark:text-[#4B0600]">
-                            <mask id="path-5-mask" maskUnits="userSpaceOnUse" x="102.329" y="103" width="338" height="299" fill="black">
-                                <rect fill="white" x="102.329" y="103" width="338" height="299"/>
-                                <path d="M337.593 400.8C306.793 400.8 281.593 392.4 261.993 375.6C242.793 358.8 233.193 337 233.193 310.2H303.393C303.393 318.2 306.393 324.8 312.393 330C318.393 335.2 326.393 337.8 336.393 337.8C345.993 337.8 353.793 335 359.793 329.4C366.193 323.8 369.393 316.6 369.393 307.8C369.393 299.8 366.593 293.2 360.993 288C355.393 282.8 348.193 280.2 339.393 280.2H302.193V218.4H339.393C346.193 218.4 351.993 216 356.793 211.2C361.593 206.4 363.993 200.4 363.993 193.2C363.993 184.8 361.393 178.2 356.193 173.4C350.993 168.6 344.393 166.2 336.393 166.2C329.193 166.2 322.993 168.4 317.793 172.8C312.993 177.2 310.593 182.8 310.593 189.6H243.993C243.993 164.8 252.793 144.6 270.393 129C287.993 113 310.593 105 338.193 105C365.793 105 388.193 112.2 405.393 126.6C422.993 141 431.793 160 431.793 183.6C431.793 200.8 427.193 214.8 417.993 225.6C408.793 236 396.993 243.2 382.593 247.2C399.793 252 413.393 260.2 423.393 271.8C433.793 283.4 438.993 298 438.993 315.6C438.993 340.4 429.593 360.8 410.793 376.8C391.993 392.8 367.593 400.8 337.593 400.8Z"/>
-                                <path d="M129.529 167.6H104.329V105.2H197.329V400.2H129.529V167.6Z"/>
-                            </mask>
-                            <path d="M337.593 400.8C306.793 400.8 281.593 392.4 261.993 375.6C242.793 358.8 233.193 337 233.193 310.2H303.393C303.393 318.2 306.393 324.8 312.393 330C318.393 335.2 326.393 337.8 336.393 337.8C345.993 337.8 353.793 335 359.793 329.4C366.193 323.8 369.393 316.6 369.393 307.8C369.393 299.8 366.593 293.2 360.993 288C355.393 282.8 348.193 280.2 339.393 280.2H302.193V218.4H339.393C346.193 218.4 351.993 216 356.793 211.2C361.593 206.4 363.993 200.4 363.993 193.2C363.993 184.8 361.393 178.2 356.193 173.4C350.993 168.6 344.393 166.2 336.393 166.2C329.193 166.2 322.993 168.4 317.793 172.8C312.993 177.2 310.593 182.8 310.593 189.6H243.993C243.993 164.8 252.793 144.6 270.393 129C287.993 113 310.593 105 338.193 105C365.793 105 388.193 112.2 405.393 126.6C422.993 141 431.793 160 431.793 183.6C431.793 200.8 427.193 214.8 417.993 225.6C408.793 236 396.993 243.2 382.593 247.2C399.793 252 413.393 260.2 423.393 271.8C433.793 283.4 438.993 298 438.993 315.6C438.993 340.4 429.593 360.8 410.793 376.8C391.993 392.8 367.593 400.8 337.593 400.8Z" fill="currentColor"/>
-                            <path d="M129.529 167.6H104.329V105.2H197.329V400.2H129.529V167.6Z" fill="currentColor"/>
-                            <path d="M337.593 400.8C306.793 400.8 281.593 392.4 261.993 375.6C242.793 358.8 233.193 337 233.193 310.2H303.393C303.393 318.2 306.393 324.8 312.393 330C318.393 335.2 326.393 337.8 336.393 337.8C345.993 337.8 353.793 335 359.793 329.4C366.193 323.8 369.393 316.6 369.393 307.8C369.393 299.8 366.593 293.2 360.993 288C355.393 282.8 348.193 280.2 339.393 280.2H302.193V218.4H339.393C346.193 218.4 351.993 216 356.793 211.2C361.593 206.4 363.993 200.4 363.993 193.2C363.993 184.8 361.393 178.2 356.193 173.4C350.993 168.6 344.393 166.2 336.393 166.2C329.193 166.2 322.993 168.4 317.793 172.8C312.993 177.2 310.593 182.8 310.593 189.6H243.993C243.993 164.8 252.793 144.6 270.393 129C287.993 113 310.593 105 338.193 105C365.793 105 388.193 112.2 405.393 126.6C422.993 141 431.793 160 431.793 183.6C431.793 200.8 427.193 214.8 417.993 225.6C408.793 236 396.993 243.2 382.593 247.2C399.793 252 413.393 260.2 423.393 271.8C433.793 283.4 438.993 298 438.993 315.6C438.993 340.4 429.593 360.8 410.793 376.8C391.993 392.8 367.593 400.8 337.593 400.8Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-5-mask)"/>
-                            <path d="M129.529 167.6H104.329V105.2H197.329V400.2H129.529V167.6Z" stroke="var(--stroke-color)" stroke-width="2.4" mask="url(#path-5-mask)"/>
-                        </g>
-                    </svg>
-                    <div class="absolute inset-0 rounded-t-lg lg:rounded-t-none lg:rounded-r-lg shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d]"></div>
+                    <!-- CTA Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <a href="#cotizador" class="px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white font-black text-base rounded-2xl shadow-xl shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-1">
+                            <i data-lucide="calculator" class="w-5 h-5"></i>
+                            <span>Calcular Cotización Online</span>
+                        </a>
+                        <a href="tel:949877316" class="px-6 py-4 bg-slate-900/90 hover:bg-slate-800 text-white font-bold text-base rounded-2xl border border-slate-700 transition-all flex items-center justify-center gap-3 shadow-lg">
+                            <div class="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-[11px] text-slate-400 uppercase tracking-wider leading-none">Llamar Ahora</span>
+                                <span class="text-lg font-black text-white leading-none">949 877 316</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Direct Verification Badge -->
+                    <div class="flex items-center gap-3 pt-2 text-xs text-slate-400 border-t border-slate-800/80">
+                        <img src="{{ asset('images/logotipo-sec.png') }}" alt="SEC" class="h-6 w-auto opacity-90">
+                        <span>Gasfiter Certificado Autorizado SEC Clase 3 · <strong>Domingo Isain Plaza Caamaño</strong> (RUT 12.738.961-6)</span>
+                    </div>
+
                 </div>
-            </main>
+
+                <!-- Hero Right Column: Domingo Profile & Technology Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative">
+                        
+                        <!-- Glowing card frame -->
+                        <div class="glass-dark p-6 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6 relative overflow-hidden">
+                            
+                            <!-- Technician Header -->
+                            <div class="flex items-center gap-4 pb-5 border-b border-slate-800">
+                                <div class="relative">
+                                    <img src="{{ asset('images/domingo-isain.jpg') }}" alt="Domingo Isain - Gasfiter Certificado SEC" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg">
+                                    <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-slate-950 p-1 rounded-full" title="Técnico Certificado SEC">
+                                        <i data-lucide="check-circle" class="w-3.5 h-3.5 stroke-[3]"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <div class="inline-block px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 text-[11px] font-bold uppercase tracking-wider mb-1">
+                                        Especialista Responsable
+                                    </div>
+                                    <h3 class="text-lg font-black text-white leading-tight">Domingo Isain Plaza C.</h3>
+                                    <p class="text-xs text-emerald-400 font-semibold mt-0.5">Gasfíter Certificado Autorizado SEC</p>
+                                    <p class="text-xs text-slate-400">RUT: 12.738.961-6 · Clase 3</p>
+                                </div>
+                            </div>
+
+                            <!-- Live SEC QR Verification Interactive Card -->
+                            <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 flex items-center justify-between gap-4">
+                                <div class="space-y-1">
+                                    <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                                        <i data-lucide="qr-code" class="w-4 h-4 text-emerald-400"></i>
+                                        <span>Credencial Oficial SEC</span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-400">Escanee o presione para verificar registro en el portal oficial de la SEC Chile.</p>
+                                    <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="inline-flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 font-bold underline mt-1">
+                                        <span>Validar en wlhttp.sec.cl</span>
+                                        <i data-lucide="external-link" class="w-3 h-3"></i>
+                                    </a>
+                                </div>
+                                <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="shrink-0 p-1.5 bg-white rounded-xl shadow-md hover:scale-105 transition-transform">
+                                    <img src="{{ asset('images/qr-sec.png') }}" alt="QR SEC Domingo Isain" class="w-16 h-16 object-contain">
+                                </a>
+                            </div>
+
+                            <!-- Fast Pricing Snapshot Banner -->
+                            <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-950/80 to-slate-900 border border-emerald-500/30 space-y-2">
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-slate-300 font-semibold">Precio Base RM (Hasta 10m):</span>
+                                    <span class="font-black text-emerald-400 text-base">$300.000 <span class="text-xs font-normal text-slate-400">neto</span></span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs border-t border-slate-800 pt-2">
+                                    <span class="text-slate-400">Metro adicional cañería:</span>
+                                    <span class="font-bold text-white">$25.000 <span class="text-[11px] text-slate-400">neto</span></span>
+                                </div>
+                                <div class="text-[11px] text-slate-400 pt-1 flex items-center gap-1 text-emerald-300">
+                                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                    <span>Incluye desconexión, inyección, pruebas y Certificado SEC</span>
+                                </div>
+                            </div>
+
+                            <!-- Emergency Floating Action -->
+                            <a href="#cotizador" class="w-full py-3 bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 rounded-xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all">
+                                <i data-lucide="arrow-down-circle" class="w-4 h-4 text-sky-400"></i>
+                                <span>Ir al Cotizador por Metros Lineales</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: REAL-TIME PRICE CALCULATOR & QUOTE FORM -->
+    <section id="cotizador" class="py-16 lg:py-24 bg-slate-900/60 border-y border-slate-800/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-12">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="calculator" class="w-4 h-4"></i>
+                    <span>Cotizador Interactivo en Tiempo Real</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-black text-white tracking-tight">
+                    Cotiza tu Sellado de Fugas de Gas
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Calcule el valor exacto según los metros lineales de cañería no visible desde el medidor hasta sus artefactos. Precios transparentes sin costos ocultos.
+                </p>
+            </div>
+
+            <!-- Main Interactive Card -->
+            <div class="glass-dark rounded-3xl border border-slate-800 shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Left Form Column -->
+                <div class="lg:col-span-7 p-6 sm:p-10 space-y-6">
+                    
+                    <!-- 1. Region Selector -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+                            <span>1. Seleccione su Región o Zona</span>
+                            <span class="text-emerald-400 text-[11px] font-semibold">Tarifas según zona geográfica</span>
+                        </label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <button type="button" x-on:click="zone = 'rm'; provincia = 'Santiago'"
+                                    :class="zone === 'rm' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-lg' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700'"
+                                    class="p-3.5 rounded-xl text-left transition-all">
+                                <div class="font-bold text-xs uppercase tracking-wide">Santiago (RM)</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Base $300k · +$25k/m</div>
+                            </button>
+
+                            <button type="button" x-on:click="zone = 'v_vi'; provincia = 'Valparaíso / Rancagua'"
+                                    :class="zone === 'v_vi' ? 'bg-sky-950/90 border-2 border-sky-400 text-sky-200 ring-2 ring-sky-500/20 shadow-lg' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700'"
+                                    class="p-3.5 rounded-xl text-left transition-all">
+                                <div class="font-bold text-xs uppercase tracking-wide">V y VI Región</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Base $350k · +$30k/m</div>
+                            </button>
+
+                            <button type="button" x-on:click="zone = 'otras'; provincia = 'Otras Regiones'"
+                                    :class="zone === 'otras' ? 'bg-amber-950/90 border-2 border-amber-400 text-amber-200 ring-2 ring-amber-500/20 shadow-lg' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700'"
+                                    class="p-3.5 rounded-xl text-left transition-all">
+                                <div class="font-bold text-xs uppercase tracking-wide">Otras Regiones</div>
+                                <div class="text-[11px] text-slate-400 mt-0.5">Base $400k · +$35k/m</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Metros Lineales Slider & Number Input -->
+                    <div class="space-y-3 p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
+                        <div class="flex items-center justify-between">
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider">
+                                2. Metros Lineales Estimados a Sellar:
+                            </label>
+                            <div class="flex items-center gap-2">
+                                <span class="text-2xl font-black text-emerald-400 font-display" x-text="metros"></span>
+                                <span class="text-xs text-slate-400 uppercase font-bold">Metros</span>
+                            </div>
+                        </div>
+                        <input type="range" min="1" max="100" step="1" x-model="metros"
+                               class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                        <div class="flex items-center justify-between text-[11px] text-slate-500">
+                            <span>1 Metro</span>
+                            <span>10m (Base mínima)</span>
+                            <span>30m</span>
+                            <span>50m</span>
+                            <span>100m+</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400">
+                            * El metraje se calcula aproximadamente desde el medidor hasta la llave de paso de cada artefacto a gas.
+                        </p>
+                    </div>
+
+                    <!-- 3. Communes & Address -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                                Comuna <span class="text-rose-400">*</span>
+                            </label>
+                            <input type="text" x-model="comuna" placeholder="Ej: Las Condes, Providencia, Maipú..."
+                                   class="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                                Dirección / Calle y N° (Opcional)
+                            </label>
+                            <input type="text" x-model="direccion" placeholder="Ej: Av. Apoquindo 4500, Depto 301"
+                                   class="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500">
+                        </div>
+                    </div>
+
+                    <!-- 4. Client Contact Details -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                                Su Nombre <span class="text-rose-400">*</span>
+                            </label>
+                            <input type="text" x-model="nombre" placeholder="Nombre y Apellido"
+                                   class="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                                Teléfono / WhatsApp <span class="text-rose-400">*</span>
+                            </label>
+                            <input type="tel" x-model="telefono" placeholder="+56 9 XXXX XXXX"
+                                   class="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-500">
+                        </div>
+                    </div>
+
+                    <!-- 5. Tax Type Selector -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                            Tipo de Comprobante
+                        </label>
+                        <div class="flex items-center gap-4 text-xs">
+                            <label class="flex items-center gap-2 cursor-pointer text-slate-300">
+                                <input type="radio" name="taxType" value="neto" x-model="taxType" class="text-emerald-500 focus:ring-emerald-500">
+                                <span>Neto Directo</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer text-slate-300">
+                                <input type="radio" name="taxType" value="factura" x-model="taxType" class="text-emerald-500 focus:ring-emerald-500">
+                                <span>Factura con IVA (+19%)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 6. Additional Notes -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-1.5">
+                            Artefactos o Detalles de la Fuga (Opcional)
+                        </label>
+                        <textarea x-model="detalles" rows="2" placeholder="Ej: Calefón en logia y cocina a gas. Presenta olor a gas en pasillo."
+                                  class="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-xl px-3.5 py-2 text-sm text-white placeholder-slate-500"></textarea>
+                    </div>
+
+                </div>
+
+                <!-- Right Live Computation & Action Column -->
+                <div class="lg:col-span-5 bg-gradient-to-b from-slate-900/90 to-slate-950 p-6 sm:p-10 border-t lg:border-t-0 lg:border-l border-slate-800 flex flex-col justify-between space-y-6">
+                    
+                    <div class="space-y-5">
+                        
+                        <div class="pb-4 border-b border-slate-800">
+                            <span class="text-xs text-sky-400 font-bold uppercase tracking-wider block">Resumen de Cotización</span>
+                            <h3 class="text-xl font-black text-white mt-1">Sellado Prodoral R6-1</h3>
+                            <p class="text-xs text-slate-400" x-text="zone === 'rm' ? 'Santiago (Región Metropolitana)' : (zone === 'v_vi' ? 'Quinta y Sexta Región' : 'Otras Regiones')"></p>
+                        </div>
+
+                        <!-- Price Breakdown List -->
+                        <div class="space-y-3 text-xs">
+                            <div class="flex items-center justify-between text-slate-300">
+                                <span>Base mínima (Hasta 10 metros):</span>
+                                <span class="font-bold text-white" x-text="formatCLP(basePrice)"></span>
+                            </div>
+
+                            <div class="flex items-center justify-between text-slate-300" x-show="extraMeters > 0">
+                                <span>Metros adicionales (<span x-text="extraMeters"></span>m x <span x-text="formatCLP(extraMeterPrice)"></span>):</span>
+                                <span class="font-bold text-white" x-text="formatCLP(extraMeters * extraMeterPrice)"></span>
+                            </div>
+
+                            <div class="flex items-center justify-between text-slate-300 pt-2 border-t border-slate-800/80">
+                                <span>Subtotal Neto:</span>
+                                <span class="font-bold text-slate-200" x-text="formatCLP(subtotalNeto)"></span>
+                            </div>
+
+                            <div class="flex items-center justify-between text-slate-400" x-show="taxType === 'factura'">
+                                <span>IVA (19%):</span>
+                                <span class="font-bold text-slate-300" x-text="formatCLP(taxAmount)"></span>
+                            </div>
+                        </div>
+
+                        <!-- Total Grand Price Card -->
+                        <div class="p-5 rounded-2xl bg-gradient-to-br from-emerald-950 to-slate-900 border-2 border-emerald-500/40 shadow-xl space-y-1 text-center">
+                            <span class="text-[11px] text-emerald-400 uppercase font-bold tracking-wider block">
+                                Total Estimado a Pagar (<span x-text="taxType === 'factura' ? 'Con Factura' : 'Neto'"></span>)
+                            </span>
+                            <div class="text-3xl sm:text-4xl font-black text-white font-display" x-text="formatCLP(totalPrice)"></div>
+                            <span class="text-[11px] text-slate-400 block pt-1">
+                                🤝 Usted Paga Después de Solucionado y Verificada la Hermeticidad
+                            </span>
+                        </div>
+
+                        <!-- Included Checklist -->
+                        <div class="space-y-1.5 text-xs text-slate-300 pt-2">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                <span>Desconexión y conexión de artefactos a gas</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                <span>Pruebas de hermeticidad manométrica a 368 mmca</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                <span>Certificado Oficial de Servicio SEC firmado por Domingo Isain</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                                <span>Garantía de 3 Años por escrito</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="button" x-on:click="submitQuote()" :disabled="submitting"
+                            class="w-full py-4 bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-black text-base rounded-2xl shadow-xl shadow-emerald-600/30 transition-all flex items-center justify-center gap-2.5 disabled:opacity-50">
+                        <template x-if="!submitting">
+                            <span class="flex items-center gap-2">
+                                <i data-lucide="send" class="w-5 h-5"></i>
+                                <span>Solicitar Cotización y Agendar por WhatsApp</span>
+                            </span>
+                        </template>
+                        <template x-if="submitting">
+                            <span class="flex items-center gap-2">
+                                <i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>
+                                <span>Registrando Cotización...</span>
+                            </span>
+                        </template>
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
 
-        @if (Route::has('login'))
-            <div class="h-14.5 hidden lg:block"></div>
-        @endif
-    </body>
+        <!-- Success Modal with WhatsApp Action -->
+        <div x-show="quoteSubmitted" x-cloak
+             class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+            <div class="glass-dark max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-emerald-500/40 shadow-2xl space-y-6 text-center transform transition-all">
+                
+                <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto">
+                    <i data-lucide="check-check" class="w-8 h-8"></i>
+                </div>
+
+                <div class="space-y-2">
+                    <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider block">Cotización Registrada Exitosamente</span>
+                    <h3 class="text-2xl font-black text-white font-display">
+                        Cotización N° <span x-text="quoteFolio"></span>
+                    </h3>
+                    <p class="text-sm text-slate-300">
+                        Total Estimado: <strong class="text-emerald-400 text-lg" x-text="quoteTotalFormatted"></strong>
+                    </p>
+                    <p class="text-xs text-slate-400">
+                        Hemos registrado su cotización en el sistema de SellafuGas. Haga clic a continuación para enviar los detalles directamente al WhatsApp de Domingo Isain y coordinar su visita.
+                    </p>
+                </div>
+
+                <div class="space-y-3">
+                    <a :href="whatsappRedirectUrl" target="_blank"
+                       class="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-base rounded-2xl shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-3 transition-all">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span>Abrir WhatsApp con Domingo Isain</span>
+                    </a>
+                    
+                    <button type="button" x-on:click="quoteSubmitted = false"
+                            class="text-xs text-slate-400 hover:text-white underline">
+                        Cerrar y volver al sitio
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECTION: HOW PRODORAL WORKS (REPARAMOS SIN ROMPER) -->
+    <section id="como-funciona" class="py-16 lg:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="cpu" class="w-4 h-4"></i>
+                    <span>Tecnología Alemana de Sellado Interior</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight">
+                    ¿Cómo Funciona Prodoral R6-1?
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Prodoral R6-1 es un polímero sellante alemán de última generación diseñado específicamente para la reparación de fugas en redes interiores de gas no visibles sin dañar su hogar.
+                </p>
+            </div>
+
+            <!-- 4 Step Process Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="glass-card-hover p-6 rounded-2xl space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-black text-xl font-display border border-sky-500/30">
+                        01
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Prueba Inicial y Diagnóstico</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Desconectamos artefactos y medidor para realizar prueba de estanqueidad inicial determinando la magnitud de la fuga con manómetro digital normado.
+                    </p>
+                </div>
+
+                <div class="glass-card-hover p-6 rounded-2xl space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-xl font-display border border-emerald-500/30">
+                        02
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Inyección Neumática Prodoral</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Inyectamos Prodoral R6-1 al interior de la matriz de cañerías a presión calculada. El fluido penetra y sella uniones roscadas y porosidades en toda la red.
+                    </p>
+                </div>
+
+                <div class="glass-card-hover p-6 rounded-2xl space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-black text-xl font-display border border-cyan-500/30">
+                        03
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Purga y Polimerización</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Se extrae el excedente mediante flujo de aire comprimido filtrado. El sellante forma una película elástica e indestructible resistente a la presión de gas.
+                    </p>
+                </div>
+
+                <div class="glass-card-hover p-6 rounded-2xl space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-xl font-display border border-amber-500/30">
+                        04
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Prueba Hermética & Certificado SEC</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Prueba final estanco a 368 mmca sin caídas de presión por 15 min. Se reconectan artefactos y se entrega el Certificado Oficial SEC con 3 años de garantía.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Comparison Table: SellafuGas vs Método Tradicional -->
+            <div class="glass-dark rounded-3xl border border-slate-800 p-6 sm:p-10 space-y-6">
+                <div class="text-center max-w-2xl mx-auto space-y-2">
+                    <h3 class="text-2xl font-black text-white font-display">
+                        Comparativa: SellafuGas Prodoral vs Picar Muros Tradicional
+                    </h3>
+                    <p class="text-xs text-slate-400">Vea por qué más de 1.800 clientes eligen sellar con Prodoral R6-1</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-800 text-xs font-bold uppercase tracking-wider text-slate-400">
+                                <th class="py-4 px-4">Característica</th>
+                                <th class="py-4 px-4 text-emerald-400 bg-emerald-950/30 rounded-t-xl">SellafuGas Prodoral R6-1</th>
+                                <th class="py-4 px-4 text-rose-400">Método Tradicional (Romper Muros)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/80 text-xs sm:text-sm">
+                            <tr>
+                                <td class="py-3.5 px-4 font-semibold text-white">Tiempo de Ejecución</td>
+                                <td class="py-3.5 px-4 font-bold text-emerald-400 bg-emerald-950/20">Menos de 2 Horas</td>
+                                <td class="py-3.5 px-4 text-slate-400">5 a 10 Días de obras molestas</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 px-4 font-semibold text-white">Daño a la Propiedad</td>
+                                <td class="py-3.5 px-4 font-bold text-emerald-400 bg-emerald-950/20">Cero picaduras, Cero escombros</td>
+                                <td class="py-3.5 px-4 text-rose-400">Destrucción de cerámicos, muros y pintura</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 px-4 font-semibold text-white">Costo Total Estimado</td>
+                                <td class="py-3.5 px-4 font-bold text-emerald-400 bg-emerald-950/20">Hasta 70% Menor (Precio cerrado)</td>
+                                <td class="py-3.5 px-4 text-slate-400">Muy alto (gasfíter + albañil + pintor + materiales)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 px-4 font-semibold text-white">Garantía por Escrito</td>
+                                <td class="py-3.5 px-4 font-bold text-emerald-400 bg-emerald-950/20">3 Años de Garantía</td>
+                                <td class="py-3.5 px-4 text-slate-400">Generalmente 3 a 6 meses</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 px-4 font-semibold text-white">Certificado SEC Oficial</td>
+                                <td class="py-3.5 px-4 font-bold text-emerald-400 bg-emerald-950/20">Entregado al terminar por Domingo Isain (SEC)</td>
+                                <td class="py-3.5 px-4 text-slate-400">Requiere tramitación aparte</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3.5 px-4 font-semibold text-white">Condición de Pago</td>
+                                <td class="py-3.5 px-4 font-bold text-emerald-400 bg-emerald-950/20">Usted Paga Después de Solucionado</td>
+                                <td class="py-3.5 px-4 text-slate-400">Anticipos previos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: DOMINGO ISAIN CERTIFICATIONS & CREDENTIALS -->
+    <section id="certificaciones" class="py-16 lg:py-24 bg-slate-900/40 border-t border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="award" class="w-4 h-4"></i>
+                    <span>Respaldo y Seriedad Profesional</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight">
+                    Certificados y Credenciales de Domingo Isain
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Verifique el registro oficial ante la SEC y las certificaciones técnicas para garantizar la máxima seguridad en su instalación de gas.
+                </p>
+            </div>
+
+            <!-- 4 Official Credentials Display Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Credential 1: Gasfiter SEC -->
+                <div class="glass-dark p-6 rounded-2xl border-2 border-emerald-500/40 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="p-2.5 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                                <i data-lucide="award" class="w-6 h-6"></i>
+                            </span>
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-[10px] font-bold uppercase">
+                                Oficial SEC
+                            </span>
+                        </div>
+                        <h3 class="text-base font-black text-white">Gasfíter Certificado Autorizado SEC</h3>
+                        <p class="text-xs text-slate-400">
+                            Licencia SEC Clase 3 para redes de gas en baja y media presión. Domingo Isain Plaza C. · RUT 12.738.961-6.
+                        </p>
+                    </div>
+                    <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank"
+                       class="w-full py-2.5 bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5 transition-colors">
+                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        <span>Verificar Licencia SEC Online</span>
+                    </a>
+                </div>
+
+                <!-- Credential 2: Fugas de Gas -->
+                <div class="glass-dark p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="p-2.5 rounded-xl bg-sky-500/20 text-sky-400 border border-sky-500/30">
+                                <i data-lucide="flame" class="w-6 h-6"></i>
+                            </span>
+                            <span class="px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 text-[10px] font-bold uppercase">
+                                Desde 2009
+                            </span>
+                        </div>
+                        <h3 class="text-base font-black text-white">Certificado en Fugas de Gas</h3>
+                        <p class="text-xs text-slate-400">
+                            Especialista certificado en detección, diagnóstico de hermeticidad y sellado de fugas en redes domiciliarias e industriales.
+                        </p>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400 text-center">
+                        <strong class="text-white">Norma NCh 2235</strong> & DS66 SEC
+                    </div>
+                </div>
+
+                <!-- Credential 3: Prodoral R6-1 -->
+                <div class="glass-dark p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="p-2.5 rounded-xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+                                <i data-lucide="shield" class="w-6 h-6"></i>
+                            </span>
+                            <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 text-[10px] font-bold uppercase">
+                                Alemania DIN
+                            </span>
+                        </div>
+                        <h3 class="text-base font-black text-white">Certificado Prodoral R6-1</h3>
+                        <p class="text-xs text-slate-400">
+                            Aplicador homologado en tecnología alemana Prodoral R6-1 según normas DIN EN 13090, NAG-203 y DS66 Art. 7.
+                        </p>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400 text-center">
+                        <strong class="text-white">DIN EN 13090</strong> / NAG-203
+                    </div>
+                </div>
+
+                <!-- Credential 4: Pruebas de Hermeticidad & Marca -->
+                <div class="glass-dark p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="p-2.5 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </span>
+                            <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 text-[10px] font-bold uppercase">
+                                Marca Reg.
+                            </span>
+                        </div>
+                        <h3 class="text-base font-black text-white">Pruebas de Hermeticidad DS66</h3>
+                        <p class="text-xs text-slate-400">
+                            Certificado en presurización y hermeticidad estanco a 368 mmca. Marca SellafuGas® registrada oficialmente.
+                        </p>
+                    </div>
+                    <div class="p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 text-[11px] text-slate-400 text-center">
+                        SellafuGas® Marca Registrada
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: 10 HIGH-CTR FAQS -->
+    <section id="faq" class="py-16 lg:py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="text-center space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    <span>Resolución de Dudas Frecuentes</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-black text-white tracking-tight">
+                    Preguntas Frecuentes sobre Sellado de Gas
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Todo lo que necesita saber sobre el procedimiento, garantías, precios y certificados oficiales SEC.
+                </p>
+            </div>
+
+            <!-- Accordion List (10 FAQs) -->
+            <div class="space-y-3.5">
+                
+                <!-- FAQ 1 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 1 ? null : 1)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>1. ¿Cómo se calculan los metros lineales para el sellado de la red de gas?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 1 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 1" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        La medición se calcula de forma lineal estimada desde el medidor de gas o regulador central hasta la llave de paso de cada artefacto (cocina, calefón, caldera, estufas). En la Región Metropolitana, el valor base es de $300.000 neto para los primeros 10 metros, y cada metro adicional tiene un valor de $25.000 neto.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 2 ? null : 2)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>2. ¿Por qué el sellado con Prodoral R6-1 no requiere romper muros ni pisos?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 2 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 2" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        Prodoral R6-1 es una resina química alemana que se inyecta directamente al interior de las cañerías existentes. Al presurizarse, el producto fluye por toda la red sellando microporos y uniones roscadas por dentro. Esto elimina por completo la necesidad de picar cerámicos, romper tabiques o generar escombros.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 3 ? null : 3)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>3. ¿El certificado emitido por Domingo Isain es válido ante la SEC y compañías de seguros?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 3 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 3" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        Sí. Domingo Isain Plaza Caamaño es Gasfíter Certificado Autorizado SEC Clase 3 (RUT 12.738.961-6). Al término del trabajo se entrega un Certificado Oficial de Servicio con código QR de verificación directa ante la SEC para tramitar la reposición del servicio con Metrogas, Lipigas, Gasco, Abastible o presentar a su compañía de seguros.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 4 ? null : 4)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>4. ¿Cuánto tiempo toma el procedimiento de sellado?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 4 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 4" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        El procedimiento completo toma menos de 2 horas en una vivienda o departamento estándar. El proceso incluye diagnóstico inicial, desconexión de artefactos, inyección neumática de Prodoral, purga, secado con compresor y prueba final de hermeticidad manométrica.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 5 ? null : 5)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>5. ¿Qué garantía tiene el sellado de fugas con Prodoral R6-1?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 5 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 5" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        Otorgamos una garantía por escrito de 3 años por efectos de sellado en la red interior intervenida.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 6 ? null : 6)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>6. ¿Qué significa 'Usted Paga Después de Solucionado'?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 6 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 6" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        No cobramos anticipos para iniciar el servicio. El cliente solo paga una vez que el trabajo está 100% finalizado y se ha comprobado la total hermeticidad estanco a 368 mmca en presencia del cliente.
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 7 ? null : 7)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>7. ¿Qué normativas técnicas y decretos cumple Prodoral R6-1 en Chile?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 7 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 7" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        Prodoral R6-1 cumple con las normas DIN EN 13090 (norma europea de sellantes de gas) y NAG-203, y está plenamente aceptado por la SEC bajo el Decreto Supremo DS66 Artículo 7 y Artículo 44.2.3.
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 8 ? null : 8)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>8. ¿Se deben desconectar artefactos a gas durante el trabajo?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 8 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 8" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        Sí. Para realizar la inyección es necesario desconectar el medidor y los artefactos (calefón, cocina, estufas). Nuestro servicio incluye la desconexión y la posterior reconexión y verificación de encendido de todos los artefactos.
+                    </div>
+                </div>
+
+                <!-- FAQ 9 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 9 ? null : 9)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>9. ¿Qué comunas y regiones cubren para atención en el mismo día?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 9 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 9" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        Atendemos en todas las comunas de Santiago (Las Condes, Lo Barnechea, Providencia, Vitacura, La Reina, Ñuñoa, Chicureo, Colina, Peñalolén, La Florida, San Miguel, Maipú, etc.) y en la Quinta (Valparaíso, Viña del Mar, Quilpué) y Sexta Región (Rancagua, Machalí, etc.).
+                    </div>
+                </div>
+
+                <!-- FAQ 10 -->
+                <div class="glass-dark rounded-2xl border border-slate-800 overflow-hidden">
+                    <button type="button" x-on:click="activeFaq = (activeFaq === 10 ? null : 10)"
+                            class="w-full p-5 text-left flex items-center justify-between gap-4 font-bold text-white text-sm sm:text-base hover:text-emerald-400 transition-colors">
+                        <span>10. ¿Cómo procedo ante un corte de gas por inspección o emergencia?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 transition-transform text-slate-400 shrink-0" :class="activeFaq === 10 ? 'rotate-180 text-emerald-400' : ''"></i>
+                    </button>
+                    <div x-show="activeFaq === 10" x-cloak class="px-5 pb-5 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80 pt-3 leading-relaxed">
+                        Contáctenos de inmediato al teléfono o WhatsApp +56 9 4987 7316 (949 877 316). Acudimos el mismo día para diagnosticar, sellar con Prodoral R6-1, emitir el Certificado SEC oficial y dejar la red lista para el reenganche inmediato del suministro.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800/80 py-12 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-3 md:col-span-2">
+                    <div class="flex items-center gap-3">
+                        <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-12 w-auto">
+                        <div>
+                            <span class="font-display font-black text-xl text-white">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</span>
+                            <span class="text-[11px] text-slate-400 block font-semibold">Domingo Isain · Gasfiter Certificado SEC</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-md">
+                        Servicio técnico especializado en sellado de fugas de gas no visibles en cañerías con Prodoral R6-1 alemán sin romper muros. Procedimiento &lt; 2 horas, garantía 3 años, usted paga después de solucionado.
+                    </p>
+                    <div class="text-[11px] text-slate-500">
+                        Dirección Postal: Estado 215, Santiago · Instalgaschile SpA: Av. Lib. Bernardo O'Higgins 1302, Santiago, Chile 🇨🇱
+                    </div>
+                </div>
+
+                <!-- Col 2: Fast Links -->
+                <div class="space-y-2">
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Enlaces Rápidos</h4>
+                    <ul class="space-y-1.5 text-xs">
+                        <li><a href="#cotizador" class="hover:text-emerald-400 transition-colors">Cotizador de Sellado</a></li>
+                        <li><a href="#como-funciona" class="hover:text-sky-400 transition-colors">Tecnología Prodoral R6-1</a></li>
+                        <li><a href="#certificaciones" class="hover:text-sky-400 transition-colors">Verificar Certificados SEC</a></li>
+                        <li><a href="#faq" class="hover:text-sky-400 transition-colors">Preguntas Frecuentes</a></li>
+                        <li><a href="{{ route('login') }}" class="hover:text-slate-200 transition-colors">Acceso Administrador</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Contact & Emergency -->
+                <div class="space-y-2">
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Atención y Urgencias</h4>
+                    <p class="text-xs text-slate-300 font-bold">Teléfono / WhatsApp:</p>
+                    <a href="tel:949877316" class="text-base font-black text-emerald-400 block hover:underline">
+                        +56 9 4987 7316
+                    </a>
+                    <p class="text-[11px] text-slate-400">Atención de Lunes a Domingo en RM, V y VI Región.</p>
+                </div>
+
+            </div>
+
+            <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+                <p>© {{ date('Y') }} SellafuGas®. Marca Registrada. Domingo Isain Plaza Caamaño (RUT 12.738.961-6) - Gasfiter Certificado SEC Clase 3.</p>
+                <p>Todos los derechos reservados · Normativa SEC DS66 / DIN EN 13090.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- REAL-TIME SOCIAL PROOF NOTIFICATION TOAST (FOMO SYSTEM) -->
+    <div id="fomoToast" class="fixed bottom-6 left-6 z-50 transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-none sm:pointer-events-auto">
+        <div class="glass-dark border border-emerald-500/40 p-4 rounded-2xl shadow-2xl flex items-center gap-3.5 max-w-sm">
+            <div class="relative p-2.5 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shrink-0">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+                <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            </div>
+            <div class="space-y-0.5">
+                <p id="fomoText" class="text-xs font-bold text-white leading-tight">
+                    Una visita agendada en la comuna de Las Condes
+                </p>
+                <p id="fomoTime" class="text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+                    <i data-lucide="clock" class="w-3 h-3"></i>
+                    <span>Hace 2 minutos</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING WHATSAPP & PHONE ACTION BUTTONS -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        
+        <!-- Direct Phone Call Button -->
+        <a href="tel:949877316" title="Llamar a Domingo Isain"
+           class="p-3.5 bg-slate-900/90 hover:bg-slate-800 text-white rounded-full border border-slate-700 shadow-xl flex items-center justify-center group transition-all hover:scale-110">
+            <i data-lucide="phone-call" class="w-5 h-5 text-sky-400 group-hover:animate-bounce"></i>
+        </a>
+
+        <!-- Floating Pulsing WhatsApp Button -->
+        <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo%20Isain%2C%20necesito%20cotizar%20sellado%20de%20gas%20SellafuGas" target="_blank"
+           title="Contactar a Domingo Isain por WhatsApp"
+           class="relative p-4 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full shadow-2xl shadow-emerald-500/50 flex items-center justify-center transition-all transform hover:scale-110 group">
+            <span class="absolute inset-0 rounded-full bg-emerald-400 animate-pulse-ring pointer-events-none"></span>
+            <i data-lucide="message-circle" class="w-7 h-7 relative z-10 fill-current"></i>
+        </a>
+
+    </div>
+
+    <!-- Scripts: Lucide Icons & Dynamic Real-Time Toast Cycle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+
+            // Real-Time Social Proof Toast Cycle (FOMO)
+            const fomoEvents = [
+                { text: "Una visita de Sellado agendada en la comuna de Las Condes", time: "Hace 2 minutos" },
+                { text: "Cotización de Sellado Prodoral (18m) en Providencia", time: "Hace 5 minutos" },
+                { text: "Certificado Oficial SEC emitido en Chicureo / Colina", time: "Hace 11 minutos" },
+                { text: "Sellado exitoso sin romper completado en Vitacura", time: "Hace 19 minutos" },
+                { text: "Prueba de hermeticidad DS66 solicitada en La Reina", time: "Hace 27 minutos" },
+                { text: "Urgencia por fuga de gas atendida en Ñuñoa", time: "Hace 34 minutos" },
+                { text: "Visita de sellado en cañería agendada en Rancagua", time: "Hace 46 minutos" },
+                { text: "Certificado SEC entregado en Viña del Mar", time: "Hace 58 minutos" },
+                { text: "Sellado Prodoral R6-1 finalizado en Lo Barnechea", time: "Hace 1 hora" },
+                { text: "Cotización de sellado realizada en Peñalolén", time: "Hace 1 hora" },
+                { text: "Inspección y sellado de gas agendado en Maipú", time: "Hace 1 hora" },
+                { text: "Certificado de servicio emitido en La Florida", time: "Hace 2 horas" }
+            ];
+
+            let toastIndex = 0;
+            const toastEl = document.getElementById('fomoToast');
+            const textEl = document.getElementById('fomoText');
+            const timeEl = document.getElementById('fomoTime');
+
+            function showNextToast() {
+                const ev = fomoEvents[toastIndex % fomoEvents.length];
+                textEl.innerText = ev.text;
+                timeEl.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>${ev.time}</span>`;
+                
+                // Show
+                toastEl.classList.remove('translate-y-24', 'opacity-0');
+                toastEl.classList.add('translate-y-0', 'opacity-100');
+
+                // Hide after 5 seconds
+                setTimeout(() => {
+                    toastEl.classList.remove('translate-y-0', 'opacity-100');
+                    toastEl.classList.add('translate-y-24', 'opacity-0');
+                }, 5000);
+
+                toastIndex++;
+            }
+
+            // Start after 3 seconds, repeat every 9 seconds
+            setTimeout(() => {
+                showNextToast();
+                setInterval(showNextToast, 9000);
+            }, 3000);
+        });
+    </script>
+
+</body>
 </html>

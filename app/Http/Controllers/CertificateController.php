@@ -86,8 +86,13 @@ class CertificateController extends Controller
         $lastCert = Certificate::orderByRaw('CAST(certificate_number AS UNSIGNED) DESC')->first();
         $nextNumber = $lastCert ? intval($lastCert->certificate_number) + 1 : 14409;
 
-        // Default details start empty so the user can select via template pills or type freely
-        $defaultDetails = "";
+        // Default details with official Prodoral Certificado text
+        $defaultDetails = "Se realizó sellado de fuga de gas en red de 30 metros lineales aproximadamente.\n\n"
+            . "Se asegura hermeticidad de acuerdo al Decreto Supremo 66 Artículo 44.2.3 SEC. Se utilizó prodoral r6-1 sellante alemán para Fugas de Gas aceptado por SEC ds66 artículo 7: DIN EN 13090 Y NAG-203.\n\n"
+            . "Solucionado, garantía 3 años por efectos de sellado.\n\n"
+            . "Prueba de hermeticidad final a 267mmca estanco por 5 minutos, sin fugas.\n\n"
+            . "Responsable Domingo Isain Plaza Caamaño Rut 12738961-6\n"
+            . "Gasfiter Certificado Autorizado SEC Clase 3";
 
         return view('certificates.create', compact('nextNumber', 'defaultDetails'));
     }
@@ -121,7 +126,14 @@ class CertificateController extends Controller
             'photo_3' => 'nullable|image|max:10240',
         ]);
 
-        $validated['tax_type'] = 'neto';
+        $user = Auth::user();
+        if ($validated['document_type'] === 'certificado' && ! $user->isAdmin()) {
+            return back()->withInput()->withErrors([
+                'document_type' => 'Solo Domingo Isain (Administrador / SEC Clase 3) tiene autorización para emitir Certificados Oficiales. Su documento debe emitirse como Cotización.'
+            ]);
+        }
+
+        $validated['tax_type'] = $request->input('tax_type', 'neto');
 
         // Process items list
         $rawItems = $request->input('items', []);
@@ -380,10 +392,42 @@ class CertificateController extends Controller
         }
         $updateData['extra_photos'] = $extraPaths;
 
+        $user = Auth::user();
+        if ($validated['document_type'] === 'certificado' && ! $user->isAdmin()) {
+            return back()->withInput()->withErrors([
+                'document_type' => 'Solo Domingo Isain (Administrador / SEC Clase 3) tiene autorización para validar y emitir Certificados Oficiales.'
+            ]);
+        }
+
         $certificate->update($updateData);
 
         return redirect()->route('certificates.show', $certificate->id)
-            ->with('success', 'Certificado actualizado correctamente.');
+            ->with('success', 'Documento N° ' . $certificate->certificate_number . ' actualizado correctamente.');
+    }
+
+    /**
+     * Convert a Quotation into an Official SEC Certificate (Admin / Domingo only)
+     */
+    public function convertToCertificate(Certificate $certificate)
+    {
+        $user = Auth::user();
+        if (! $user->isAdmin()) {
+            abort(403, 'Solo Domingo Isain (Administrador / SEC Clase 3) tiene autorización para emitir Certificados Oficiales.');
+        }
+
+        $certificate->update([
+            'document_type' => 'certificado',
+            'status' => 'emitido',
+            'gasfiter_name' => 'Domingo Isain Plaza Caamaño',
+            'gasfiter_rut' => '12.738.961-6',
+            'gasfiter_sec_class' => 'Gasfiter Certificado Autorizado SEC Clase 3',
+            'hermetic_test_result' => $certificate->hermetic_test_result ?: 'Aprobada - Hermética',
+            'test_pressure' => $certificate->test_pressure ?: '368 mmca (DS66 SEC)',
+            'pipe_material' => $certificate->pipe_material ?: 'Cobre / Acero',
+        ]);
+
+        return redirect()->route('certificates.show', $certificate->id)
+            ->with('success', "Cotización N° {$certificate->certificate_number} convertida exitosamente a Certificado Oficial SEC emitido por Domingo Isain.");
     }
 
     public function destroy(Certificate $certificate)
@@ -409,11 +453,19 @@ class CertificateController extends Controller
     public function downloadPdf(Certificate $certificate)
     {
         // Prepare base64 images for DomPDF embedding
-        $logoBase64 = $this->getImageBase64(public_path('images/instalgaschile-logitpo.png'));
+        $logoPath = file_exists(public_path('images/logotipo-sellafugas.png'))
+            ? public_path('images/logotipo-sellafugas.png')
+            : (file_exists(public_path('images/logotipo-sellafugas.cl.webp'))
+                ? public_path('images/logotipo-sellafugas.cl.webp')
+                : public_path('images/instalgaschile-logitpo.png'));
+
+        $logoBase64 = $this->getImageBase64($logoPath);
         $secLogoBase64 = $this->getImageBase64(public_path('images/logotipo-sec.png'));
         $secQrBase64 = $certificate->photo_2 
             ? $this->getImageBase64(storage_path('app/public/' . $certificate->photo_2))
-            : $this->getImageBase64(public_path('images/domingo-isain-gasfiter-sec-qr.png'));
+            : (file_exists(public_path('images/qr-sec.png'))
+                ? $this->getImageBase64(public_path('images/qr-sec.png'))
+                : $this->getImageBase64(public_path('images/domingo-isain-gasfiter-sec-qr.png')));
         $holdingLogoBase64 = $this->getImageBase64(public_path('images/logotipo-holding.png'));
         $firmaBase64 = $this->getImageBase64(public_path('images/firma-domingo.png'));
 
@@ -430,7 +482,7 @@ class CertificateController extends Controller
             }
         }
 
-        // Generate QR code for registro_instalgaschile.pdf
+        // Generate QR code for SEC verification online
         $registroQrBase64 = '';
         try {
             $renderer = new \BaconQrCode\Renderer\ImageRenderer(
@@ -438,8 +490,8 @@ class CertificateController extends Controller
                 new \BaconQrCode\Renderer\Image\SvgImageBackEnd()
             );
             $writer = new \BaconQrCode\Writer($renderer);
-            $pdfUrl = url('registro_instalgaschile.pdf');
-            $svgContent = $writer->writeString($pdfUrl);
+            $secUrl = 'https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182';
+            $svgContent = $writer->writeString($secUrl);
             $registroQrBase64 = 'data:image/svg+xml;base64,' . base64_encode($svgContent);
         } catch (\Throwable $e) {
             $registroQrBase64 = '';
@@ -460,7 +512,7 @@ class CertificateController extends Controller
 
         $pdf->setPaper('a4', 'portrait');
 
-        $prefix = $certificate->document_type === 'cotizacion' ? 'Cotizacion_Servicio' : 'Certificado_Servicio';
+        $prefix = $certificate->document_type === 'cotizacion' ? 'Cotizacion_SellafuGas' : 'Certificado_SellafuGas';
         return $pdf->stream("{$prefix}_{$certificate->certificate_number}.pdf");
     }
 

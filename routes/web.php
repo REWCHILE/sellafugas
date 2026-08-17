@@ -3,9 +3,31 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\QuotePublicController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
-// Guest auth routes
+/*
+|--------------------------------------------------------------------------
+| Public Routes (Sitio Web Público Sellafugas.cl)
+|--------------------------------------------------------------------------
+*/
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+// Public quotation calculator & submission
+Route::post('/cotizar', [QuotePublicController::class, 'store'])->name('quote.public.store');
+Route::post('/cotizar/calcular', [QuotePublicController::class, 'calculate'])->name('quote.public.calculate');
+
+// Public certificate PDF view/download route (accessible by clients via shared link)
+Route::get('/certificates/{certificate}/pdf', [CertificateController::class, 'downloadPdf'])->name('certificates.pdf');
+
+/*
+|--------------------------------------------------------------------------
+| Guest Auth Routes
+|--------------------------------------------------------------------------
+*/
 Route::middleware('guest')->group(function () {
     Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
@@ -13,38 +35,23 @@ Route::middleware('guest')->group(function () {
     Route::post('/set-password', [UserController::class, 'updateSetPassword'])->name('password.set.update');
 });
 
-// Email preview testing route
-Route::get('/mail-preview/welcome', function () {
-    $user = \App\Models\User::first() ?: new \App\Models\User([
-        'name' => 'Domingo Isain Plaza Caamaño',
-        'email' => 'domi@instalgaschile.cl',
-        'role' => 'technician',
-        'sec_code' => 'Gasfiter Certificado Autorizado SEC Clase 3',
-        'rut' => '12.738.961-6',
-    ]);
-    $setupUrl = route('password.set.form', [
-        'token' => 'token-demostracion-123456789',
-        'email' => $user->email,
-    ]);
-    return new \App\Mail\TechnicianWelcomeMail($user, $setupUrl);
-});
-
-// Public certificate PDF view/download route (accessible by clients via shared link)
-Route::get('/certificates/{certificate}/pdf', [CertificateController::class, 'downloadPdf'])->name('certificates.pdf');
-
-// Authenticated routes
+/*
+|--------------------------------------------------------------------------
+| Authenticated Management Software Routes (Sistema Interno)
+|--------------------------------------------------------------------------
+*/
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/', function () {
+    Route::get('/dashboard', function () {
         return redirect()->route('certificates.index');
-    });
+    })->name('dashboard');
 
     // Profile Management
-    Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
-    // Certificate management (Static routes first)
+    // Certificate & Quotation management
     Route::get('/certificates', [CertificateController::class, 'index'])->name('certificates.index');
     Route::get('/certificates/create', [CertificateController::class, 'create'])->name('certificates.create');
     Route::get('/certificates/import', [CertificateController::class, 'showImportForm'])->name('certificates.import.form');
@@ -56,7 +63,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/certificates/{certificate}/edit', [CertificateController::class, 'edit'])->name('certificates.edit');
     Route::put('/certificates/{certificate}', [CertificateController::class, 'update'])->name('certificates.update');
 
-    // Admin only routes
+    // Admin Only: Convert Quotation to Official SEC Certificate
+    Route::post('/certificates/{certificate}/convert', [CertificateController::class, 'convertToCertificate'])->name('certificates.convert');
+
+    // Admin only routes (Solo Domingo Isain / Administradores)
     Route::middleware(['App\Http\Middleware\RoleMiddleware:admin'])->group(function () {
         Route::delete('/certificates/{certificate}', [CertificateController::class, 'destroy'])->name('certificates.destroy');
         Route::post('/users/{user}/welcome-email', [UserController::class, 'sendWelcomeMail'])->name('users.welcome-email');

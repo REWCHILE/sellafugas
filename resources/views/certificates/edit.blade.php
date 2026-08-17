@@ -22,40 +22,41 @@
          },
          get total() { return this.subtotal; },
          formatMoney(val) { return '$' + new Intl.NumberFormat('es-CL').format(val || 0); },
-         activeTemplate: null,
+         activeTemplate: '{{ old('document_type', $certificate->document_type ?: 'certificado') }}',
          metrosLineales: 30,
-         presionMmca: 368,
-         updateSelladoText() {
-             this.activeTemplate = 'sellado';
-             const area = document.getElementById('work_details');
-             if (!area) return;
-             const m = this.metrosLineales || 30;
-             const p = this.presionMmca || 368;
-             
-             area.value = `Se realizó sellado de fuga de gas en red de ${m} metros lineales aproximadamente\n\n` +
+         presionMmca: 267,
+         getProdoralCotizacionText() {
+             const m = this.metrosLineales || 50;
+             return `Se oferta sellado de fuga de gas en red de ${m} metros lineales aproximadamente.\n\n` +
                  `Se asegura hermeticidad de acuerdo al Decreto Supremo 66 Artículo 44.2.3 SEC no importa si es una o más fugas. Se utilizará prodoral r6-1 sellante alemán para Fugas de Gas aceptado por SEC ds66 artículo 7: DIN EN 13090 Y NAG-203.\n\n` +
-                 `En procedimiento necesitamos desconectar artefactos y medidor para realizar la inyección, necesitamos provisión de electricidad y acceso libre a su domicilio y medidor mientras dure el procedimiento.\n\n` +
-                 `Prueba de hermeticidad final a ${p}mmca estanco por 5 minutos, sin fugas.\n\n` +
+                 `En procedimiento necesitamos desconectar artefactos y medidor para realizar la inyección, necesitamos provisión de electricidad y acceso libre a su domicilio y medidor (o regulador ) mientras dure el procedimiento.\n\n` +
                  `Tiempo de ejecución 2 horas aproximadamente, se entrega certificado de servicio realizado, garantía 3 años por efectos de sellado.\n` +
                  `Se solicita pago contado una vez realizado el trabajo.\n\n` +
                  `Responsable Domingo Isain Plaza Caamaño Rut 12738961-6\n` +
                  `Gasfiter Certificado Autorizado SEC Clase 3`;
          },
-         applyTemplate(type) {
+         getProdoralCertificadoText() {
+             const m = this.metrosLineales || 30;
+             const p = this.presionMmca || 267;
+             return `Se realizó sellado de fuga de gas en red de ${m} metros lineales aproximadamente.\n\n` +
+                 `Se asegura hermeticidad de acuerdo al Decreto Supremo 66 Artículo 44.2.3 SEC. Se utilizó prodoral r6-1 sellante alemán para Fugas de Gas aceptado por SEC ds66 artículo 7: DIN EN 13090 Y NAG-203.\n\n` +
+                 `Solucionado, garantía 3 años por efectos de sellado.\n\n` +
+                 `Prueba de hermeticidad final a ${p}mmca estanco por 5 minutos, sin fugas.\n\n` +
+                 `Responsable Domingo Isain Plaza Caamaño Rut 12738961-6\n` +
+                 `Gasfiter Certificado Autorizado SEC Clase 3`;
+         },
+         updateTextarea() {
              const area = document.getElementById('work_details');
-             if (this.activeTemplate === type) {
-                 this.activeTemplate = null;
-                 if (area) area.value = '';
-             } else {
-                 this.activeTemplate = type;
-                 if (type === 'sellado') {
-                     this.updateSelladoText();
-                 } else if (type === 'hermeticidad') {
-                     if (area) area.value = `Prueba de hermeticidad en instalación de gas según normativa SEC DS66.\n\nSe realiza presurización a 368 mmca manteniéndose estable por 15 minutos sin caídas de presión.\n\nInstalación apta y conforme a normas de seguridad vigentes.`;
-                 } else if (type === 'calefon') {
-                     if (area) area.value = `Servicio técnico y mantenimiento preventivo/correctivo de artefacto a gas (Calefón/Caldera).\n\nVerificación de ducto de evacuación de gases de combustión, limpieza de inyectores, prueba de encendido y sellado de conexiones. Proceso verificado bajo norma SEC.`;
-                 }
+             if (!area) return;
+             if (this.activeTemplate === 'cotizacion') {
+                 area.value = this.getProdoralCotizacionText();
+             } else if (this.activeTemplate === 'certificado') {
+                 area.value = this.getProdoralCertificadoText();
              }
+         },
+         applyTemplate(type) {
+             this.activeTemplate = type;
+             this.updateTextarea();
          }
      }">
 
@@ -316,69 +317,64 @@
 
                 <!-- Quick Preset Buttons -->
                 <div class="flex items-center gap-2 flex-wrap">
-                    <span class="text-xs text-slate-400 font-medium">Plantillas rápidas:</span>
-                    <button type="button" @click="applyTemplate('sellado')" 
-                            :class="activeTemplate === 'sellado' ? 'bg-sky-500 text-white font-bold ring-2 ring-sky-400/40 shadow-lg shadow-sky-500/20' : 'bg-slate-800 text-sky-300 hover:bg-slate-700'"
-                            class="px-3 py-1.5 text-xs rounded-xl border border-sky-500/30 transition-all cursor-pointer flex items-center gap-1.5">
-                        <span>🛡️ Sellado Fuga DS66</span>
+                    <span class="text-xs text-slate-400 font-medium">Plantillas oficiales:</span>
+                    <button type="button" @click="applyTemplate('cotizacion')" 
+                            :class="activeTemplate === 'cotizacion' ? 'bg-sky-500 text-white font-bold ring-2 ring-sky-400/40 shadow-lg shadow-sky-500/20' : 'bg-slate-800 text-sky-300 hover:bg-slate-700'"
+                            class="px-3.5 py-1.5 text-xs rounded-xl border border-sky-500/30 transition-all cursor-pointer flex items-center gap-1.5">
+                        <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                        <span>📄 Plantilla Prodoral Cotización</span>
                     </button>
-                    <button type="button" @click="applyTemplate('hermeticidad')" 
-                            :class="activeTemplate === 'hermeticidad' ? 'bg-emerald-500 text-white font-bold ring-2 ring-emerald-400/40 shadow-lg shadow-emerald-500/20' : 'bg-slate-800 text-emerald-300 hover:bg-slate-700'"
-                            class="px-3 py-1.5 text-xs rounded-xl border border-emerald-500/30 transition-all cursor-pointer flex items-center gap-1.5">
-                        <span>🧪 Prueba Hermeticidad</span>
-                    </button>
-                    <button type="button" @click="applyTemplate('calefon')" 
-                            :class="activeTemplate === 'calefon' ? 'bg-amber-500 text-white font-bold ring-2 ring-amber-400/40 shadow-lg shadow-amber-500/20' : 'bg-slate-800 text-amber-300 hover:bg-slate-700'"
-                            class="px-3 py-1.5 text-xs rounded-xl border border-amber-500/30 transition-all cursor-pointer flex items-center gap-1.5">
-                        <span>🔥 Calefón / Caldera</span>
+                    <button type="button" @click="applyTemplate('certificado')" 
+                            :class="activeTemplate === 'certificado' ? 'bg-emerald-500 text-white font-bold ring-2 ring-emerald-400/40 shadow-lg shadow-emerald-500/20' : 'bg-slate-800 text-emerald-300 hover:bg-slate-700'"
+                            class="px-3.5 py-1.5 text-xs rounded-xl border border-emerald-500/30 transition-all cursor-pointer flex items-center gap-1.5">
+                        <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                        <span>📜 Plantilla Prodoral Certificado</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Dynamic Input Box for Fuga de Gas Template -->
-            <template x-if="activeTemplate === 'sellado'">
-                <div class="p-4 bg-sky-950/40 border border-sky-500/30 rounded-xl space-y-3">
-                    <div class="flex items-center justify-between flex-wrap gap-2">
-                        <span class="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
-                            <i data-lucide="sliders" class="w-4 h-4"></i>
-                            <span>Ajustes Dinámicos: Plantilla Sellado Fugas de Gas</span>
-                        </span>
-                        <span class="text-[11px] text-slate-400">Modifica los campos para actualizar la frase en tiempo real</span>
+            <!-- Dynamic Input Box for Prodoral Template -->
+            <div class="p-4 bg-slate-900/90 border border-slate-700/80 rounded-2xl space-y-3">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                    <span class="text-xs font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+                        <i data-lucide="sliders" class="w-4 h-4 text-emerald-400"></i>
+                        <span>Campos Dinámicos Prodoral R6-1</span>
+                    </span>
+                    <span class="text-[11px] text-slate-400">Modifica los metros o presión para rellenar el texto automáticamente</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">
+                            📏 Metros Lineales de Red:
+                        </label>
+                        <div class="flex items-center gap-2">
+                            <input type="number" 
+                                   x-model.number="metrosLineales" 
+                                   @input="updateTextarea()" 
+                                   min="1" max="1000" 
+                                   placeholder="30"
+                                   class="w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm font-bold focus:outline-none focus:border-sky-500">
+                            <span class="text-xs text-slate-400 font-medium shrink-0">metros</span>
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">
-                                📏 Metros Lineales de Red:
-                            </label>
-                            <div class="flex items-center gap-2">
-                                <input type="number" 
-                                       x-model.number="metrosLineales" 
-                                       @input="updateSelladoText()" 
-                                       min="1" max="1000" 
-                                       placeholder="30"
-                                       class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm font-bold focus:outline-none focus:border-sky-500">
-                                <span class="text-xs text-slate-400 font-medium shrink-0">metros</span>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-300 mb-1">
-                                ⏱️ Presión de Hermeticidad (mmca):
-                            </label>
-                            <div class="flex items-center gap-2">
-                                <input type="number" 
-                                       x-model.number="presionMmca" 
-                                       @input="updateSelladoText()" 
-                                       min="1" max="5000" 
-                                       placeholder="368"
-                                       class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm font-bold focus:outline-none focus:border-sky-500">
-                                <span class="text-xs text-slate-400 font-medium shrink-0">mmca</span>
-                            </div>
+                    <div x-show="activeTemplate === 'certificado'">
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">
+                            ⏱️ Prueba de Hermeticidad (mmca):
+                        </label>
+                        <div class="flex items-center gap-2">
+                            <input type="number" 
+                                   x-model.number="presionMmca" 
+                                   @input="updateTextarea()" 
+                                   min="1" max="5000" 
+                                   placeholder="267"
+                                   class="w-full px-3 py-2 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm font-bold focus:outline-none focus:border-sky-500">
+                            <span class="text-xs text-slate-400 font-medium shrink-0">mmca</span>
                         </div>
                     </div>
                 </div>
-            </template>
+            </div>
 
             <div>
                 <div class="flex items-center justify-between mb-2">

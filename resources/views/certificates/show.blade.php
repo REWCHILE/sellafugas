@@ -15,6 +15,17 @@
 
         <div class="flex items-center gap-2 flex-wrap">
             
+            @if($certificate->document_type === 'cotizacion' && auth()->user()->isAdmin())
+                <!-- Convert to Official SEC Certificate Button (Admin only) -->
+                <form action="{{ route('certificates.convert', $certificate->id) }}" method="POST" onsubmit="return confirm('¿Confirmar conversión de esta cotización a Certificado Oficial SEC emitido por Domingo Isain?');">
+                    @csrf
+                    <button type="submit" class="px-5 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                        <span>Emitir Certificado Oficial SEC</span>
+                    </button>
+                </form>
+            @endif
+
             <!-- Download PDF Button -->
             <a href="{{ route('certificates.pdf', $certificate->id) }}" target="_blank" 
                class="px-5 py-2.5 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-sky-500/25 transition-all flex items-center gap-2">
@@ -25,8 +36,10 @@
             <!-- WhatsApp Share Button -->
             @php
                 $pdfUrl = route('certificates.pdf', $certificate->id);
-                $docName = $certificate->document_type === 'cotizacion' ? 'la Cotización' : 'el Certificado';
-                $waText = rawurlencode("Hola {$certificate->client_name}, le compartimos {$docName} de Servicio N° {$certificate->certificate_number} de Instalgaschile SPA por un total de {$certificate->formatted_total}.\n\nEnlace directo para descargar el documento PDF:\n{$pdfUrl}");
+                $docName = $certificate->document_type === 'cotizacion' ? 'Cotización' : 'Certificado Oficial SEC';
+                $waText = rawurlencode("Hola {$certificate->client_name}, le compartimos {$docName} N° {$certificate->certificate_number} de SellafuGas Domingo Isain por un total de {$certificate->formatted_total}.\n\n" .
+                    ($certificate->work_details ? "Detalle del servicio:\n{$certificate->work_details}\n\n" : "") .
+                    "Enlace para descargar el documento PDF:\n{$pdfUrl}");
                 $waPhone = preg_replace('/[^0-9]/', '', $certificate->client_phone);
             @endphp
             <a href="https://wa.me/{{ $waPhone }}?text={{ $waText }}" target="_blank"
@@ -58,7 +71,7 @@
         <!-- 1. Header: Logo, Title & SEC Badge -->
         <div class="flex items-center justify-between border-b-2 border-slate-900 pb-6">
             <div class="flex items-center gap-3">
-                <img src="{{ asset('images/instalgaschile-logitpo.png') }}" alt="Instalgaschile Logo" class="h-20 w-auto">
+                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-20 w-auto">
             </div>
 
             <div class="text-center">

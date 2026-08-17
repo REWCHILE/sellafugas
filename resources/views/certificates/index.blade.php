@@ -66,7 +66,7 @@
                 <span>Gestión de Certificados de Servicio</span>
             </h1>
             <p class="text-xs text-slate-400 mt-1">
-                Servicio Técnico Certificado SEC — Instalgaschile Spa
+                SellafuGas® Domingo Isain — Servicio Técnico Certificado SEC Clase 3
             </p>
         </div>
         <div class="flex items-center gap-3">

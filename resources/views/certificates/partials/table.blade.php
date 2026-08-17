@@ -90,8 +90,10 @@
                                 <!-- WhatsApp Share -->
                                 @php
                                     $pdfUrl = route('certificates.pdf', $cert->id);
-                                    $docName = $cert->document_type === 'cotizacion' ? 'la Cotización' : 'el Certificado';
-                                    $waText = rawurlencode("Hola {$cert->client_name}, le compartimos {$docName} de Servicio N° {$cert->certificate_number} de Instalgaschile SPA por un total de {$cert->formatted_total}.\n\nEnlace directo para descargar el documento PDF:\n{$pdfUrl}");
+                                    $docName = $cert->document_type === 'cotizacion' ? 'Cotización' : 'Certificado Oficial SEC';
+                                    $waText = rawurlencode("Hola {$cert->client_name}, le compartimos {$docName} N° {$cert->certificate_number} de SellafuGas Domingo Isain por un total de {$cert->formatted_total}.\n\n" .
+                                        ($cert->work_details ? "Detalle del servicio:\n{$cert->work_details}\n\n" : "") .
+                                        "Enlace para descargar el documento PDF:\n{$pdfUrl}");
                                     $waPhone = preg_replace('/[^0-9]/', '', $cert->client_phone);
                                 @endphp
                                 <a href="https://wa.me/{{ $waPhone }}?text={{ $waText }}" target="_blank"

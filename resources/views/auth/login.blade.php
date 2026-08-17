@@ -34,11 +34,12 @@
         
         <!-- Header Brand -->
         <div class="text-center mb-8">
-            <div class="inline-flex items-center justify-center p-3 rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl mb-4">
-                <img src="{{ asset('images/instalgaschile-logitpo.png') }}" alt="Instalgaschile" class="h-12 w-auto">
+            <div class="inline-flex items-center justify-center p-3 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl mb-4">
+                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-16 w-auto rounded-2xl">
             </div>
-            <h1 class="text-2xl font-bold text-white tracking-tight">Instalgaschile Spa</h1>
-            <p class="text-xs text-sky-400 font-medium mt-1 uppercase tracking-wider">Sistema de Certificados y Gestión SEC</p>
+            <h1 class="text-2xl font-black text-white tracking-tight">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</h1>
+            <p class="text-xs text-emerald-400 font-bold mt-1 uppercase tracking-wider">Sistema de Certificados y Cotizaciones SEC</p>
+            <p class="text-[11px] text-slate-400">Domingo Isain Plaza C. · Gasfiter Certificado SEC Clase 3</p>
         </div>
 
         <!-- Login Card -->
