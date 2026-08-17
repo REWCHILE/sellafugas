@@ -28,7 +28,7 @@
                 <span>Documentos & Certificaciones Oficiales</span>
             </div>
             <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight">
-                Documentos y Certificados de Domingo Isain
+                Documentos y Certificados de Domingo Isain Plaza Caamaño
             </h2>
             <p class="text-slate-300 text-sm sm:text-base">
                 Transparencia y respaldo total. Verifique las certificaciones técnicas y autorizaciones oficiales de Domingo Isain Plaza Caamaño (RUT 12.738.961-6) ante la Superintendencia de Electricidad y Combustibles (SEC) y normas internacionales.
@@ -259,7 +259,7 @@
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-slate-800">
                 <div class="flex items-center gap-2 text-xs text-slate-400">
                     <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-                    <span>Documento auténtico y respaldado por Domingo Isain (SEC Clase 3)</span>
+                    <span>Documento auténtico y respaldado por Domingo Isain Plaza Caamaño (SEC Clase 3)</span>
                 </div>
 
                 <div class="flex items-center gap-3 w-full sm:w-auto">

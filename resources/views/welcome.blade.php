@@ -459,7 +459,7 @@
                                     <div class="inline-block px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 text-[11px] font-bold uppercase tracking-wider mb-1">
                                         Especialista Responsable
                                     </div>
-                                    <h3 class="text-lg font-black text-white leading-tight">Domingo Isain Plaza C.</h3>
+                                    <h3 class="text-lg font-black text-white leading-tight">Domingo Isain Plaza Caamaño</h3>
                                     <p class="text-xs text-emerald-400 font-semibold mt-0.5">Gasfíter Certificado Autorizado SEC</p>
                                     <p class="text-xs text-slate-400">RUT: 12.738.961-6 · Clase 3</p>
                                 </div>
