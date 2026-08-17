@@ -188,39 +188,8 @@
           }
       }">
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 glass-header">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-11 w-auto rounded-lg shadow-md group-hover:scale-105 transition-transform">
-                <div>
-                    <span class="font-black text-xl text-white tracking-wide block leading-tight">DOMINGO <span class="text-amber-400">ISAIN</span></span>
-                    <span class="text-[11px] text-amber-400 font-semibold tracking-wider uppercase">Calefont SEC · Mantención</span>
-                </div>
-            </a>
-
-            <!-- Full Navigation Menu -->
-            <nav class="hidden xl:flex items-center gap-4 text-xs font-semibold text-slate-300">
-                <a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 transition-colors">Fugas de Gas</a>
-                <a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 transition-colors">Gasfíter SEC</a>
-                <a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 transition-colors">Sello Rojo</a>
-                <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
-                <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
-                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Piscinas</a>
-                <a href="{{ route('landing.reparacion-calefont') }}" class="text-amber-400 font-bold border-b-2 border-amber-400 pb-1">Calefont SEC</a>
-                <a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados DS66</a>
-                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-2.5 py-1 rounded-lg">
-                    Acceso Admin
-                </a>
-            </nav>
-
-            <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20necesito%20reparar%20mi%20calefont" target="_blank"
-               class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-amber-500/25 transition-all flex items-center gap-2">
-                <i data-lucide="flame" class="w-4 h-4"></i>
-                <span>Atención Calefont</span>
-            </a>
-        </div>
-    </header>
+    <!-- Top Header Partial -->
+    @include('partials.landing-header')
 
     <!-- Hero Section -->
     <section class="py-16 bg-radial from-slate-900 to-slate-950">
@@ -428,37 +397,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="space-y-3">
-                <span class="text-base font-black text-white block">SellafuGas® Calefont SEC</span>
-                <p>Servicio técnico autorizado SEC en reparación, mantención e instalación de calefones y calderas.</p>
-                <p class="text-slate-300">Domingo Isain · RUT: 12.738.961-6</p>
-            </div>
-            <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Servicios</span>
-                <ul class="space-y-2">
-                    <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-white">Sellado Fugas de Gas</a></li>
-                    <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-white">Gasfíter Certificado SEC</a></li>
-                    <li><a href="{{ route('landing.sello-rojo') }}" class="hover:text-white">Sello Rojo</a></li>
-                    <li><a href="{{ route('landing.reparacion-calefont') }}" class="text-amber-400 font-bold">Calefont SEC</a></li>
-                    <li><a href="{{ route('landing.certificados-sec') }}" class="hover:text-white">Certificados SEC DS66</a></li>
-                </ul>
-            </div>
-            <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Contacto Directo</span>
-                <ul class="space-y-2">
-                    <li>Teléfono: <a href="tel:+56949877316" class="text-white font-bold">+56 9 4987 7316</a></li>
-                    <li>WhatsApp: <a href="https://wa.me/56949877316" target="_blank" class="text-emerald-400 font-bold">949 877 316</a></li>
-                </ul>
-            </div>
-            <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Acreditación SEC</span>
-                <p class="text-xs text-slate-300">Superintendencia de Electricidad y Combustibles (SEC) · DS66</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Partial -->
+    @include('partials.landing-footer')
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

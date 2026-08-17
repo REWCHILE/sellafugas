@@ -122,4 +122,44 @@ class PublicLandingController extends Controller
             'currentSlug' => 'certificados-sec-gas',
         ]);
     }
+
+    /**
+     * 10. Prodoral R6-1 Sellado Alemán Página Dedicada
+     */
+    public function prodoral()
+    {
+        return view('landings.prodoral', [
+            'metaTitle' => 'Prodoral R6-1 Chile | Sellado Alemán de Fugas de Gas Sin Romper Muros',
+            'metaDescription' => 'Tecnología alemana Prodoral R6-1 en Chile. Sellado polimérico interno de cañerías de gas empotradas según norma DIN EN 13090, NAG-203 y DS66 SEC. 3 años de garantía y ahorro del 70%.',
+            'canonicalUrl' => url('/prodoral'),
+            'currentSlug' => 'prodoral',
+        ]);
+    }
+
+    /**
+     * 11. Nosotros / Quiénes Somos
+     */
+    public function nosotros()
+    {
+        return view('nosotros', [
+            'metaTitle' => 'Sobre Nosotros | SellafuGas® & Domingo Isain Gasfíter SEC Clase 3',
+            'metaDescription' => 'Conozca SellafuGas® y al instalador autorizado SEC Domingo Isain Plaza Caamaño. Más de 15 años de trayectoria en sellado de gas no destructivo, detección de fugas y certificación DS66.',
+            'canonicalUrl' => url('/nosotros'),
+            'currentSlug' => 'nosotros',
+        ]);
+    }
+
+    /**
+     * 12. Contacto y Central de Urgencias 24/7
+     */
+    public function contacto()
+    {
+        return view('contacto', [
+            'metaTitle' => 'Contacto y Central de Urgencias 24/7 | SellafuGas® Domingo Isain',
+            'metaDescription' => 'Contáctenos al +56 9 4987 7316 o por WhatsApp para emergencias de gas, agua o sellado Prodoral. Atención inmediata en toda la Región Metropolitana, V y VI Región.',
+            'canonicalUrl' => url('/contacto'),
+            'currentSlug' => 'contacto',
+        ]);
+    }
 }
+

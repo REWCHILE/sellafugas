@@ -192,51 +192,8 @@
           }
       }">
 
-    <!-- Top Urgent Ribbon -->
-    <div class="bg-rose-700 text-white text-xs py-2 px-4 text-center font-bold tracking-wide flex items-center justify-center gap-3">
-        <span class="inline-flex items-center gap-1.5 animate-pulse bg-white/20 px-2 py-0.5 rounded-full">
-            <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-amber-300"></i>
-            <span>URGENCIA SELLO ROJO & CORTE DE GAS</span>
-        </span>
-        <span class="hidden sm:inline">Evita el corte de suministro. Regularizamos tu instalación hoy mismo con Certificado Oficial SEC.</span>
-        <a href="tel:+56949877316" class="underline font-black text-amber-200 hover:text-white flex items-center gap-1">
-            <i data-lucide="phone" class="w-3.5 h-3.5"></i> 949 877 316
-        </a>
-    </div>
-
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 glass-header">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-11 w-auto rounded-lg shadow-md group-hover:scale-105 transition-transform">
-                <div>
-                    <span class="font-black text-xl text-white tracking-wide block leading-tight">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</span>
-                    <span class="text-[11px] text-rose-400 font-semibold tracking-wider uppercase">Sello Rojo SEC · Regularización</span>
-                </div>
-            </a>
-
-            <!-- Full Navigation Menu -->
-            <nav class="hidden xl:flex items-center gap-4 text-xs font-semibold text-slate-300">
-                <a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 transition-colors">Fugas de Gas</a>
-                <a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 transition-colors">Gasfíter SEC</a>
-                <a href="{{ route('landing.sello-rojo') }}" class="text-rose-400 font-bold border-b-2 border-rose-400 pb-1">Sello Rojo</a>
-                <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
-                <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
-                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Piscinas</a>
-                <a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 transition-colors">Calefont SEC</a>
-                <a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados DS66</a>
-                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-2.5 py-1 rounded-lg">
-                    Acceso Admin
-                </a>
-            </nav>
-
-            <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20tengo%20un%20Sello%20Rojo%20de%20gas%20y%20necesito%20regularizacion%20urgente" target="_blank"
-               class="px-4 py-2.5 bg-rose-600 hover:bg-rose-500 text-white font-black text-sm rounded-xl shadow-lg shadow-rose-600/25 transition-all flex items-center gap-2">
-                <i data-lucide="alert-octagon" class="w-4 h-4"></i>
-                <span>Levantar Sello Rojo</span>
-            </a>
-        </div>
-    </header>
+    <!-- Top Header Partial -->
+    @include('partials.landing-header')
 
     <!-- Hero Section -->
     <section class="py-16 bg-radial from-slate-900 to-slate-950">
@@ -444,38 +401,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div class="space-y-3">
-                <span class="text-base font-black text-white block">SellafuGas® Sello Rojo SEC</span>
-                <p>Especialistas en levantamiento de no conformidades, sellado de fugas de gas y obtención de Sello Verde.</p>
-                <p class="text-slate-300">Domingo Isain · SEC Clase 3</p>
-            </div>
-            <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Páginas de Servicio</span>
-                <ul class="space-y-2">
-                    <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-white">Sellado Fugas de Gas</a></li>
-                    <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-white">Gasfíter Certificado SEC</a></li>
-                    <li><a href="{{ route('landing.sello-rojo') }}" class="text-rose-400 font-bold">Levantamiento Sello Rojo</a></li>
-                    <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-white">Gas Trazador</a></li>
-                    <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-white">Fugas de Agua</a></li>
-                    <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-white">Fugas en Piscinas</a></li>
-                </ul>
-            </div>
-            <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Contacto Directo</span>
-                <ul class="space-y-2">
-                    <li>Teléfono: <a href="tel:+56949877316" class="text-white font-bold">+56 9 4987 7316</a></li>
-                    <li>WhatsApp: <a href="https://wa.me/56949877316" target="_blank" class="text-emerald-400 font-bold">949 877 316</a></li>
-                </ul>
-            </div>
-            <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Certificación SEC</span>
-                <p class="text-xs text-slate-300">Superintendencia de Electricidad y Combustibles (SEC) · DS66</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Partial -->
+    @include('partials.landing-footer')
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

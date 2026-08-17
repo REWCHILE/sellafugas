@@ -28,6 +28,9 @@ Route::get('/sello-rojo-sec', [PublicLandingController::class, 'selloRojo'])->na
 Route::get('/deteccion-fugas-sin-romper', [PublicLandingController::class, 'deteccionSinRomper'])->name('landing.deteccion-sin-romper');
 Route::get('/reparacion-calefont-sec', [PublicLandingController::class, 'reparacionCalefont'])->name('landing.reparacion-calefont');
 Route::get('/certificados-sec-gas', [PublicLandingController::class, 'certificadosSec'])->name('landing.certificados-sec');
+Route::get('/prodoral', [PublicLandingController::class, 'prodoral'])->name('landing.prodoral');
+Route::get('/nosotros', [PublicLandingController::class, 'nosotros'])->name('nosotros');
+Route::get('/contacto', [PublicLandingController::class, 'contacto'])->name('contacto');
 
 // Public quotation calculator & submission
 Route::post('/cotizar', [QuotePublicController::class, 'store'])->name('quote.public.store');
