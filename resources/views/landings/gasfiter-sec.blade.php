@@ -39,10 +39,6 @@
                             700: '#075985',
                             900: '#0c4a6e',
                             950: '#031726',
-                        },
-                        sec: {
-                            500: '#dc2626',
-                            600: '#b91c1c',
                         }
                     }
                 }
@@ -52,7 +48,6 @@
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -70,7 +65,7 @@
         }
     </style>
 
-    <!-- Schema.org JSON-LD -->
+    <!-- Schema.org JSON-LD Plumber -->
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
@@ -98,29 +93,115 @@
       }
     }
     </script>
+
+    <!-- Schema.org FAQPage (10 FAQs Reales) -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@@type": "Question",
+          "name": "¿Cómo verificar que un gasfíter está realmente autorizado y vigente en la SEC?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Se puede verificar ingresando el RUT del instalador en el Registro Nacional de Instaladores de Gas de la SEC. Domingo Isain Plaza Caamaño cuenta con RUT 12.738.961-6 y licencia SEC Clase 3 activa desde 2009, verificable además mediante el código QR impreso en cada certificado de servicio."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué tipo de trabajos puede certificar un Gasfiter SEC Clase 3?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Un instalador Clase 3 está autorizado por la SEC para ejecutar, reparar, modificar y certificar instalaciones interiores de gas en baja presión para uso residencial y comercial hasta 60 kW de potencia térmica nominal, incluyendo sellado de fugas, pruebas de hermeticidad DS66 y memorias de cálculo."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué incluye el Certificado Oficial de Servicio emitido por Domingo Isain?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Incluye los datos del cliente y predio, detalle del procedimiento técnico bajo norma DS66, medición manométrica digital a 368 mmca por 5 minutos, evidencia fotográfica, firma autorizada SEC y código QR para verificación digital inmediata ante entidades certificadoras."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cuánto demora la atención a domicilio en Santiago y comunas aledañas?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Atendemos urgencias el mismo día en comunas como Las Condes, Vitacura, Providencia, Lo Barnechea, La Reina, Ñuñoa, Santiago Centro, La Florida, Peñalolén y Chicureo, coordinando horarios flexibles de lunes a domingo."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿El gasfiter SEC repara fugas de gas sin tener que romper pisos ni paredes?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí. Como especialista certificado, Domingo Isain aplica la tecnología de inyección de polímero alemán Prodoral R6-1 (normas DIN EN 13090 y NAG-203), sellando cañerías interiores no visibles en menos de 2 horas sin picar cerámicos ni demoler muros."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cómo se soluciona un corte de suministro de gas o Sello Rojo?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Se inspecciona la red, se corrige la fuga o anomalía detectada en el informe de inspección, se realiza la prueba de hermeticidad manométrica normada y se emite el Certificado Oficial de Servicio para que la empresa distribuidora reabra la llave de paso de gas."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Se entrega garantía por los trabajos de gasfitería y sellado de gas?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí. Todos los trabajos de sellado de fugas cuentan con 3 años de garantía por escrito, y las reparaciones de artefactos e instalaciones cuentan con respaldo técnico directo."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿En qué consiste la política 'Usted Paga Después de Solucionado'?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "No solicitamos anticipos para el inicio del servicio. El pago se efectúa únicamente cuando el trabajo ha sido ejecutado y se ha comprobado la hermeticidad total con manómetro digital ante el cliente."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Se realizan revisiones de artefactos a gas como calefones y cocinas?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí. Se verifica la correcta combustión, ducto de evacuación de gases quemados, llaves de paso, flexibles normados y uniones roscadas de calefones, calderas y cocinas a gas."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cuáles son los medios de pago aceptados?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Aceptamos transferencia electrónica bancaria, tarjetas de débito/crédito y efectivo, emitiendo boleta o factura exenta/afecta según requerimiento del cliente o comunidad de edificio."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white"
       x-data="{
           nombre: '',
           telefono: '',
           comuna: 'Las Condes',
-          servicio: 'Certificado SEC / Sello Rojo',
-          loading: false,
-          sent: false,
-          async submitForm() {
+          servicio: 'Sellado de Fuga de Gas Prodoral',
+          openFaq: null,
+          submitForm() {
               if(!this.nombre || !this.telefono) {
                   alert('Por favor ingrese su Nombre y Teléfono');
                   return;
               }
-              this.loading = true;
-              const text = `Hola Domingo Isain (Gasfiter SEC), solicito atención técnica:\n\n👤 *Nombre:* ${this.nombre}\n📱 *Teléfono:* ${this.telefono}\n📍 *Comuna:* ${this.comuna}\n🛠️ *Servicio Requerido:* ${this.servicio}`;
+              const text = `Hola Domingo Isain (Gasfiter SEC), solicito atención técnica:\n\n👤 *Nombre:* ${this.nombre}\n📱 *Teléfono:* ${this.telefono}\n📍 *Comuna:* ${this.comuna}\n🛠️ *Servicio:* ${this.servicio}`;
               window.open(`https://api.whatsapp.com/send?phone=56949877316&text=${encodeURIComponent(text)}`, '_blank');
-              this.sent = true;
-              this.loading = false;
           }
       }">
 
-    <!-- Top Urgent Bar -->
+    <!-- Top Emergency Bar -->
     <div class="bg-emerald-600 text-slate-950 text-xs py-2 px-4 text-center font-bold tracking-wide flex items-center justify-center gap-3">
         <span class="inline-flex items-center gap-1.5 bg-slate-950 text-emerald-400 px-2 py-0.5 rounded-full">
             <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
@@ -132,7 +213,7 @@
         </a>
     </div>
 
-    <!-- Header Navigation -->
+    <!-- Navigation Header -->
     <header class="sticky top-0 z-40 glass-header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
@@ -143,15 +224,18 @@
                 </div>
             </a>
 
-            <!-- Services Menu Desktop -->
-            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-300">
+            <!-- Full Navigation Menu -->
+            <nav class="hidden xl:flex items-center gap-4 text-xs font-semibold text-slate-300">
                 <a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 transition-colors">Fugas de Gas</a>
                 <a href="{{ route('landing.gasfiter-sec') }}" class="text-sky-400 font-bold border-b-2 border-sky-400 pb-1">Gasfíter SEC</a>
+                <a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 transition-colors">Sello Rojo</a>
                 <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
                 <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
-                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Fugas en Piscinas</a>
-                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-3 py-1.5 rounded-xl transition-colors">
-                    Acceso Administrador
+                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Piscinas</a>
+                <a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 transition-colors">Calefont SEC</a>
+                <a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados DS66</a>
+                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-2.5 py-1 rounded-lg">
+                    Acceso Admin
                 </a>
             </nav>
 
@@ -168,9 +252,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Left: Domingo Picture and Badge -->
                 <div class="lg:col-span-5">
-                    <div class="glass-card p-8 rounded-3xl border border-slate-700 space-y-6 text-center">
+                    <div class="glass-card p-8 rounded-3xl border border-slate-700 space-y-6 text-center shadow-2xl">
                         <img src="{{ asset('images/domingo-isain.jpg') }}" alt="Domingo Isain Plaza Caamaño Gasfiter SEC Clase 3" 
                              class="w-44 h-44 rounded-3xl object-cover border-4 border-emerald-400 mx-auto shadow-2xl">
                         
@@ -205,7 +288,6 @@
                     </div>
                 </div>
 
-                <!-- Right: Content & Fast Request Form -->
                 <div class="lg:col-span-7 space-y-6">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-300 text-xs font-bold uppercase tracking-wider">
                         <span>Acreditación Oficial Superintendencia SEC</span>
@@ -216,7 +298,7 @@
                     </h1>
 
                     <p class="text-base text-slate-300 leading-relaxed">
-                        Atención directa por <strong>Domingo Isain Plaza Caamaño</strong>, instalador de gas certificado por la SEC desde 2009. Especialista en sellado de fugas sin romper, levantamiento de sellos rojos, pruebas de hermeticidad con manómetro digital normado y emisión de certificados oficiales.
+                        Atención técnica directa por <strong>Domingo Isain Plaza Caamaño</strong>, gasfíter autorizado por la SEC Clase 3 con más de 15 años de trayectoria ininterrumpida. Servicios especializados en sellado de fugas con Prodoral R6-1, levantamiento de sellos rojos, pruebas de hermeticidad con manómetro digital normado y emisión de certificados oficiales.
                     </p>
 
                     <!-- Fast Contact Card -->
@@ -241,14 +323,13 @@
                             </select>
                         </div>
 
-                        <button type="button" @click="submitForm()" :disabled="loading"
+                        <button type="button" @click="submitForm()"
                                 class="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
                             <i data-lucide="message-circle" class="w-4 h-4"></i>
                             <span>Enviar Solicitud a Domingo por WhatsApp</span>
                         </button>
                     </div>
 
-                    <!-- Guarantee Pills -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                         <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 text-center">
                             <span class="text-xs font-bold text-white block">Usted Paga Después</span>
@@ -270,37 +351,135 @@
         </div>
     </section>
 
-    <!-- Services Grid -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block mb-2">Servicios Técnicos Acreditados</span>
-            <h2 class="text-3xl font-black text-white">Especialidades del Instalador SEC Domingo Isain</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
-                <div class="w-12 h-12 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-bold text-xl">
-                    <i data-lucide="shield" class="w-6 h-6"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white">Sellado de Fugas sin Romper</h3>
-                <p class="text-sm text-slate-300">Inyección de polímero alemán Prodoral R6-1 directamente al interior de las cañerías. Sella microporos y uniones roscadas en 2 horas.</p>
+    <!-- 10 Visible FAQs Section -->
+    <section id="faq" class="py-16 bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block mb-2">Acreditación y Servicios</span>
+                <h2 class="text-3xl font-black text-white">10 Preguntas Frecuentes sobre Gasfíter Certificado SEC</h2>
+                <p class="text-xs text-slate-400 mt-1">Conoce los alcances técnicos y legales de contratar a un instalador autorizado SEC Clase 3</p>
             </div>
 
-            <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
-                <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl">
-                    <i data-lucide="gauge" class="w-6 h-6"></i>
+            <!-- FAQ 1 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 1 ? null : 1)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>1. ¿Cómo verificar que un gasfíter está realmente autorizado y vigente en la SEC?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 1 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 1" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Se puede verificar ingresando el RUT del instalador en el Registro Nacional de Instaladores de Gas de la SEC. Domingo Isain Plaza Caamaño cuenta con RUT 12.738.961-6 y licencia SEC Clase 3 activa desde 2009, verificable además mediante el código QR impreso en cada certificado de servicio.
                 </div>
-                <h3 class="text-lg font-bold text-white">Pruebas de Hermeticidad DS66</h3>
-                <p class="text-sm text-slate-300">Medición a 368 mmca con manómetro digital de alta precisión bajo norma SEC DS66 Art. 44.2.3 para verificar estanqueidad total.</p>
             </div>
 
-            <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-4">
-                <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xl">
-                    <i data-lucide="file-check-2" class="w-6 h-6"></i>
+            <!-- FAQ 2 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 2 ? null : 2)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>2. ¿Qué tipo de trabajos puede certificar un Gasfiter SEC Clase 3?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 2 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 2" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Un instalador Clase 3 está autorizado por la SEC para ejecutar, reparar, modificar y certificar instalaciones interiores de gas en baja presión para uso residencial y comercial hasta 60 kW de potencia térmica nominal, incluyendo sellado de fugas, pruebas de hermeticidad DS66 y memorias de cálculo.
                 </div>
-                <h3 class="text-lg font-bold text-white">Levantamiento de Sellos Rojos</h3>
-                <p class="text-sm text-slate-300">Regularización de observaciones e informes de sellos rojos para restablecimiento urgente del suministro de gas por Metrogas, Lipigas o Gasco.</p>
             </div>
+
+            <!-- FAQ 3 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 3 ? null : 3)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>3. ¿Qué incluye el Certificado Oficial de Servicio emitido por Domingo Isain?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 3 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 3" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Incluye los datos del cliente y predio, detalle del procedimiento técnico bajo norma DS66, medición manométrica digital a 368 mmca por 5 minutos, evidencia fotográfica, firma autorizada SEC y código QR para verificación digital inmediata ante entidades certificadoras.
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 4 ? null : 4)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>4. ¿Cuánto demora la atención a domicilio en Santiago y comunas aledañas?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 4 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 4" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Atendemos urgencias el mismo día en comunas como Las Condes, Vitacura, Providencia, Lo Barnechea, La Reina, Ñuñoa, Santiago Centro, La Florida, Peñalolén y Chicureo, coordinando horarios flexibles de lunes a domingo.
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 5 ? null : 5)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>5. ¿El gasfiter SEC repara fugas de gas sin tener que romper pisos ni paredes?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 5 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 5" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Sí. Como especialista certificado, Domingo Isain aplica la tecnología de inyección de polímero alemán Prodoral R6-1 (normas DIN EN 13090 y NAG-203), sellando cañerías interiores no visibles en menos de 2 horas sin picar cerámicos ni demoler muros.
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 6 ? null : 6)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>6. ¿Cómo se soluciona un corte de suministro de gas o Sello Rojo?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 6 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 6" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Se inspecciona la red, se corrige la fuga o anomalía detectada en el informe de inspección, se realiza la prueba de hermeticidad manométrica normada y se emite el Certificado Oficial de Servicio para que la empresa distribuidora reabra la llave de paso de gas.
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 7 ? null : 7)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>7. ¿Se entrega garantía por los trabajos de gasfitería y sellado de gas?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 7 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 7" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Sí. Todos los trabajos de sellado de fugas cuentan con 3 años de garantía por escrito, y las reparaciones de artefactos e instalaciones cuentan con respaldo técnico directo.
+                </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 8 ? null : 8)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>8. ¿En qué consiste la política 'Usted Paga Después de Solucionado'?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 8 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 8" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    No solicitamos anticipos para el inicio del servicio. El pago se efectúa únicamente cuando el trabajo ha sido ejecutado y se ha comprobado la hermeticidad total con manómetro digital ante el cliente.
+                </div>
+            </div>
+
+            <!-- FAQ 9 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 9 ? null : 9)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>9. ¿Se realizan revisiones de artefactos a gas como calefones y cocinas?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 9 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 9" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Sí. Se verifica la correcta combustión, ducto de evacuación de gases quemados, llaves de paso, flexibles normados y uniones roscadas de calefones, calderas y cocinas a gas.
+                </div>
+            </div>
+
+            <!-- FAQ 10 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 10 ? null : 10)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>10. ¿Cuáles son los medios de pago aceptados?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 10 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 10" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Aceptamos transferencia electrónica bancaria, tarjetas de débito/crédito y efectivo, emitiendo boleta o factura exenta/afecta según requerimiento del cliente o comunidad de edificio.
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -317,6 +496,7 @@
                 <ul class="space-y-2">
                     <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-white">Sellado Fugas de Gas</a></li>
                     <li><a href="{{ route('landing.gasfiter-sec') }}" class="text-sky-400 font-bold">Gasfíter SEC Domingo</a></li>
+                    <li><a href="{{ route('landing.sello-rojo') }}" class="hover:text-white">Sello Rojo</a></li>
                     <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-white">Gas Trazador</a></li>
                     <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-white">Fugas de Agua</a></li>
                     <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-white">Fugas en Piscinas</a></li>

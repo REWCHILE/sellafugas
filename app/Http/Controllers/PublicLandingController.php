@@ -70,4 +70,56 @@ class PublicLandingController extends Controller
             'currentSlug' => 'fugas-piscinas',
         ]);
     }
+
+    /**
+     * 6. Sello Rojo SEC & Regularización Urgente
+     */
+    public function selloRojo()
+    {
+        return view('landings.sello-rojo-sec', [
+            'metaTitle' => 'Levantamiento y Regularización de Sello Rojo de Gas SEC | Domingo Isain',
+            'metaDescription' => 'Servicio urgente de levantamiento de sello rojo en instalaciones de gas. Sellado de cañerías, pruebas de hermeticidad y emisión de certificado oficial SEC para reposición inmediata de suministro.',
+            'canonicalUrl' => url('/sello-rojo-sec'),
+            'currentSlug' => 'sello-rojo-sec',
+        ]);
+    }
+
+    /**
+     * 7. Detección de Fugas y Filtraciones Sin Romper
+     */
+    public function deteccionSinRomper()
+    {
+        return view('landings.deteccion-fugas-sin-romper', [
+            'metaTitle' => 'Detección de Fugas y Filtraciones Sin Romper Muros ni Pisos | SellafuGas',
+            'metaDescription' => 'Localización no destructiva de fugas de gas y agua con tecnología avanzada: geófono, gas trazador, cámara termográfica y manometría digital. Inspección precisa en Santiago y regiones.',
+            'canonicalUrl' => url('/deteccion-fugas-sin-romper'),
+            'currentSlug' => 'deteccion-fugas-sin-romper',
+        ]);
+    }
+
+    /**
+     * 8. Reparación y Mantenimiento de Calefont SEC
+     */
+    public function reparacionCalefont()
+    {
+        return view('landings.reparacion-calefont-sec', [
+            'metaTitle' => 'Reparación e Instalación de Calefont Gasfiter Autorizado SEC | Domingo Isain',
+            'metaDescription' => 'Servicio técnico especializado en calefont a gas tiro natural, forzado e ionizado (Junkers, Splendid, Mademsa, Neckar). Instalador autorizado SEC Clase 3 con certificación oficial.',
+            'canonicalUrl' => url('/reparacion-calefont-sec'),
+            'currentSlug' => 'reparacion-calefont-sec',
+        ]);
+    }
+
+    /**
+     * 9. Certificados Oficiales de Gas SEC DS66
+     */
+    public function certificadosSec()
+    {
+        return view('landings.certificados-sec-gas', [
+            'metaTitle' => 'Certificados Oficiales de Gas SEC DS66 | Pruebas de Hermeticidad',
+            'metaDescription' => 'Emisión de Certificados Oficiales de Hermeticidad e Instalaciones de Gas bajo Decreto Supremo DS66 por Domingo Isain (Gasfiter SEC Clase 3). Código QR verificable en la plataforma SEC.',
+            'canonicalUrl' => url('/certificados-sec-gas'),
+            'currentSlug' => 'certificados-sec-gas',
+        ]);
+    }
 }

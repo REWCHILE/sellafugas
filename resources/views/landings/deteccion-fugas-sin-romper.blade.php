@@ -19,7 +19,6 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -65,20 +64,20 @@
         }
     </style>
 
-    <!-- Schema.org JSON-LD PlumbingService -->
+    <!-- Schema.org JSON-LD Service -->
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
-      "@@type": "PlumbingService",
-      "name": "Detección y Reparación de Fugas de Agua Potable Sin Romper",
-      "serviceType": "Water Leak Detection and Repair",
+      "@@type": "Service",
+      "name": "Detección No Invasiva de Fugas y Filtraciones Sin Romper",
+      "serviceType": "Non-destructive Leak Detection",
       "provider": {
-        "@@type": "Plumber",
+        "@@type": "HVACBusiness",
         "name": "SellafuGas® Domingo Isain",
         "telephone": "+56949877316",
-        "url": "https://sellafugas.cl/fugas-de-agua"
+        "url": "https://sellafugas.cl/deteccion-fugas-sin-romper"
       },
-      "areaServed": ["Santiago", "Las Condes", "Vitacura", "Providencia", "Lo Barnechea", "La Reina", "Ñuñoa", "La Florida", "Chicureo", "Valparaíso", "Rancagua"]
+      "areaServed": ["Santiago", "Las Condes", "Vitacura", "Providencia", "Lo Barnechea", "La Reina", "Ñuñoa", "Peñalolén", "Chicureo", "Valparaíso", "Rancagua"]
     }
     </script>
 
@@ -90,82 +89,82 @@
       "mainEntity": [
         {
           "@@type": "Question",
-          "name": "¿Cómo saber si tengo una fuga de agua oculta en mi casa o departamento?",
+          "name": "¿Por qué es mejor detectar una fuga sin romper antes de hacer obras?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Los principales indicios son: aumento repentino e injustificado en la cuenta del agua, el medidor gira cuando todas las llaves están cerradas, presencia de manchas de humedad o eflorescencias de salitre en muros y zoclos, y baja de presión en duchas."
+            "text": "Detectar de forma no invasiva evita destruir cerámicos descatalogados, picar radier a ciegas, generar polvo y escombros, y reduce los costos de reparación en hasta un 70%."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Qué tecnología se utiliza para detectar fugas de agua sin romper?",
+          "name": "¿Qué tecnologías no invasivas combinan en una inspección?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Utilizamos Geófonos Electroacústicos de Suelo con amplificación sónica digital de alta ganancia, Gas Trazador (Formiergas N2/H2 95/5) para microporosidades y Cámaras Termográficas Infrarrojas para tuberías de agua caliente y losa radiante."
+            "text": "Combinamos 4 tecnologías: Geófono acústico digital, Gas Trazador (Nitrógeno/Hidrógeno 95/5), Cámara Termográfica infrarroja Fluke y Manometría digital de alta precisión."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Es necesario romper pisos para encontrar la fuga?",
+          "name": "¿Pueden localizar fugas en cañerías embutidas dentro de muros de hormigón o tabiques?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "No. La detección es 100% no destructiva. Escuchamos y rastreamos desde la superficie del radier, cerámica, piso flotante o pasto, marcando el punto exacto para que la eventual reparación sea minúscula."
+            "text": "Sí. Mediante termografía y gas trazador detectamos fugas empotradas en cualquier tipo de muro sin causar daños superficiales."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Cuánto tiempo toma una inspección de fuga de agua?",
+          "name": "¿Qué precisión tiene la marcación del punto de fuga?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Una inspección residencial promedio toma entre 1 y 2 horas, entregando al cliente el diagnóstico inmediato en terreno."
+            "text": "Marcamos un perímetro exacto de pocos centímetros sobre el piso o pared, permitiendo una apertura mínima y limpia."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Entregan informe técnico para rebaja de cuenta en Aguas Andinas o cobro de seguros?",
+          "name": "¿Cuánto demora el servicio de detección no invasiva?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Sí. Emitimos un Informe Técnico Oficial de Detección y Reparación de Fuga No Visible con respaldo fotográfico, mediciones y firma profesional, válido para tramitar solicitudes de refacturación por sobreconsumo ante empresas sanitarias y aseguradoras."
+            "text": "El diagnóstico completo toma generalmente entre 60 y 90 minutos."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Detectan fugas en redes de agua caliente y calefacción?",
+          "name": "¿Sirve tanto para redes de gas como de agua potable?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Sí. Inspeccionamos circuitos de agua fría, agua caliente sanitaria (cobre y PEX), y sistemas de calefacción central (radiadores y losa radiante)."
+            "text": "Sí. Inspeccionamos cañerías de gas licuado/natural, redes de agua fría, agua caliente sanitaria y circuitos de calefacción central."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Realizan la reparación una vez ubicada la fuga de agua?",
+          "name": "¿Entregan certificado e informe técnico al finalizar?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Sí. Contamos con gasfíteres profesionales para realizar la apertura milimétrica, reparación de la tubería, prueba de estanqueidad y reposición prolija."
+            "text": "Sí. Emitimos un informe técnico profesional con respaldo fotográfico, mediciones y validez para aseguradoras y empresas de servicios básicos."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Qué cobertura tienen en la Región Metropolitana y otras zonas?",
+          "name": "¿Qué garantía ofrecen por la localización de la fuga?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Cubrimos todas las comunas del Gran Santiago (Sector Oriente, Poniente, Norte y Sur), Chicureo, Colina, además de Valparaíso, Viña del Mar y Rancagua."
+            "text": "Garantizamos la precisión del diagnóstico bajo nuestra política 'Usted Paga Después de Solucionado'."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Qué garantía tienen los trabajos de detección y reparación?",
+          "name": "¿Atienden urgencias en departamentos y condominios?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Garantizamos la exactitud de la detección y entregamos garantía por escrito en todas las reparaciones ejecutadas."
+            "text": "Sí. Contamos con equipamiento portátil silencioso ideal para edificios residenciales sin causar molestias a los vecinos."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Cómo agendar una visita de emergencia por filtración de agua?",
+          "name": "¿Cómo agendar una detección no invasiva?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Comuníquese al WhatsApp +56 9 4987 7316 indicando su comuna y síntomas para coordinar una visita técnica en el día."
+            "text": "Escríbanos al WhatsApp +56 9 4987 7316 o llámenos al 949 877 316 para atención técnica inmediata."
           }
         }
       ]
@@ -177,14 +176,14 @@
           nombre: '',
           telefono: '',
           comuna: 'Las Condes',
-          tipoInmueble: 'Casa Particular',
+          tipoFuga: 'Fuga de Gas Oculta',
           openFaq: null,
-          submitAgua() {
+          submitDeteccion() {
               if(!this.nombre || !this.telefono) {
                   alert('Por favor ingrese su Nombre y Teléfono');
                   return;
               }
-              const text = `Hola Domingo Isain (SellafuGas), tengo una fuga de agua potable y necesito detección con Geófono / Reparación:\n\n👤 *Nombre:* ${this.nombre}\n📱 *Teléfono:* ${this.telefono}\n📍 *Comuna:* ${this.comuna}\n🏠 *Tipo de Inmueble:* ${this.tipoInmueble}`;
+              const text = `Hola Domingo Isain (SellafuGas), necesito Detección No Invasiva Sin Romper:\n\n👤 *Nombre:* ${this.nombre}\n📱 *Teléfono:* ${this.telefono}\n📍 *Comuna:* ${this.comuna}\n🔍 *Tipo de Fuga:* ${this.tipoFuga}`;
               window.open(`https://api.whatsapp.com/send?phone=56949877316&text=${encodeURIComponent(text)}`, '_blank');
           }
       }">
@@ -196,7 +195,7 @@
                 <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-11 w-auto rounded-lg shadow-md group-hover:scale-105 transition-transform">
                 <div>
                     <span class="font-black text-xl text-white tracking-wide block leading-tight">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</span>
-                    <span class="text-[11px] text-blue-400 font-semibold tracking-wider uppercase">Fugas de Agua · Geófono</span>
+                    <span class="text-[11px] text-emerald-400 font-semibold tracking-wider uppercase">Detección Sin Romper · SEC</span>
                 </div>
             </a>
 
@@ -206,8 +205,9 @@
                 <a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 transition-colors">Gasfíter SEC</a>
                 <a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 transition-colors">Sello Rojo</a>
                 <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
-                <a href="{{ route('landing.fugas-agua') }}" class="text-blue-400 font-bold border-b-2 border-blue-400 pb-1">Fugas de Agua</a>
+                <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
                 <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Piscinas</a>
+                <a href="{{ route('landing.deteccion-sin-romper') }}" class="text-emerald-400 font-bold border-b-2 border-emerald-400 pb-1">Sin Romper</a>
                 <a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 transition-colors">Calefont SEC</a>
                 <a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados DS66</a>
                 <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-2.5 py-1 rounded-lg">
@@ -215,10 +215,10 @@
                 </a>
             </nav>
 
-            <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20necesito%20detectar%20una%20fuga%20de%20agua" target="_blank"
-               class="px-4 py-2.5 bg-blue-500 hover:bg-blue-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2">
+            <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20necesito%20deteccion%20de%20fuga%20sin%20romper" target="_blank"
+               class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-emerald-500/25 transition-all flex items-center gap-2">
                 <i data-lucide="message-circle" class="w-4 h-4"></i>
-                <span>WhatsApp Urgencias Agua</span>
+                <span>Solicitar Detección</span>
             </a>
         </div>
     </header>
@@ -229,54 +229,54 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-bold uppercase tracking-wider">
-                        <span>Tecnología Acústica Geófono & Ultrasonido</span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
+                        <span>Tecnología No Destructiva de Precisión</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-                        Detección de Fugas de Agua <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-teal-300">Sin Romper el Piso</span>
+                        Detección de Fugas <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-sky-400">Sin Romper Muros ni Pisos</span>
                     </h1>
 
                     <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
-                        ¿Tu cuenta de agua subió misteriosamente, el medidor gira solo o tienes humedad en muros? Localizamos la filtración invisible exacta bajo radier, baldosas o pasto mediante <strong>Geófonos Electroacústicos de Alta Sensibilidad y Termografía Digital</strong>.
+                        Evita picar cerámicas y radieres a ciegas. Localizamos el punto exacto de la filtración oculta en redes de gas y agua potable utilizando <strong>Geófonos Electroacústicos, Gas Trazador N2/H2 y Cámaras Termográficas</strong> con respaldo de <strong>Domingo Isain (Gasfiter SEC Clase 3)</strong>.
                     </p>
 
                     <!-- Feature Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
-                            <span><strong>Geófono Digital</strong> con amplificación sónica</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                            <span><strong>Cero demolición:</strong> Diagnóstico no invasivo</span>
                         </div>
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
-                            <span><strong>Cámaras Termográficas</strong> infrarrojas</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                            <span><strong>Ahorro del 70%:</strong> En costos de reparación</span>
                         </div>
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
-                            <span><strong>Reparación puntual</strong> sin destrozos</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                            <span><strong>Informe Técnico:</strong> Válido para aseguradoras</span>
                         </div>
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
-                            <span><strong>Informe técnico</strong> para Aguas Andinas / Seguros</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                            <span><strong>Usted Paga Después:</strong> De solucionado</span>
                         </div>
                     </div>
 
                     <!-- Fast Contact Card -->
                     <div class="glass-card p-6 rounded-3xl border border-slate-700 space-y-4 pt-4">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Agendar Detección de Fuga de Agua:</h3>
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Agendar Detección No Invasiva:</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" placeholder="Su Nombre *" x-model="nombre"
-                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-emerald-500">
                             <input type="tel" placeholder="Teléfono *" x-model="telefono"
-                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-emerald-500">
                             <input type="text" placeholder="Comuna *" x-model="comuna"
-                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-emerald-500">
                         </div>
 
-                        <button type="button" @click="submitAgua()"
-                                class="w-full py-4 bg-gradient-to-r from-blue-500 via-sky-500 to-emerald-500 hover:from-blue-400 hover:to-emerald-400 text-slate-950 font-black text-base rounded-xl shadow-xl shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                            <i data-lucide="search" class="w-5 h-5"></i>
-                            <span>Solicitar Detección con Geófono por WhatsApp</span>
+                        <button type="button" @click="submitDeteccion()"
+                                class="w-full py-4 bg-gradient-to-r from-emerald-500 via-teal-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-black text-base rounded-xl shadow-xl shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                            <i data-lucide="scan" class="w-5 h-5"></i>
+                            <span>Coordinar Detección con Domingo por WhatsApp</span>
                         </button>
                     </div>
 
@@ -284,11 +284,11 @@
 
                 <div class="lg:col-span-5 space-y-6">
                     <div class="glass-card p-4 rounded-3xl border border-slate-700 overflow-hidden shadow-2xl">
-                        <img src="{{ asset('images/geofono-deteccion-agua.png') }}" alt="Geófono para detección de fugas de agua" class="w-full h-80 object-cover rounded-2xl">
+                        <img src="{{ asset('images/geofono-deteccion-agua.png') }}" alt="Equipos de detección no destructiva" class="w-full h-80 object-cover rounded-2xl">
                         <div class="p-4 space-y-2">
-                            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">Inspección Acústica Profesional</span>
-                            <h3 class="text-lg font-bold text-white">Geófono de Suelo Electroacústico</h3>
-                            <p class="text-xs text-slate-300">Detecta la frecuencia sonora que genera el escape de agua a presión bajo radier, baldosas o tierra con exactitud.</p>
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider block">Diagnóstico Avanzado en Terreno</span>
+                            <h3 class="text-lg font-bold text-white">Inspección Acústica y Sensorial</h3>
+                            <p class="text-xs text-slate-300">Localizamos la fuga invisible con exactitud milimétrica para intervenir únicamente el centímetro necesario.</p>
                         </div>
                     </div>
                 </div>
@@ -301,20 +301,20 @@
     <section id="faq" class="py-16 bg-slate-900/60 border-t border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             <div class="text-center mb-8">
-                <span class="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-2">Preguntas y Respuestas</span>
-                <h2 class="text-3xl font-black text-white">10 Preguntas Frecuentes sobre Fugas de Agua Potable</h2>
-                <p class="text-xs text-slate-400 mt-1">Conoce cómo evitar daños estructurales y sobreconsumos en tu cuenta de agua</p>
+                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-2">Preguntas Frecuentes</span>
+                <h2 class="text-3xl font-black text-white">10 Preguntas sobre Detección Sin Romper</h2>
+                <p class="text-xs text-slate-400 mt-1">Descubre cómo protegemos la estructura de tu hogar con tecnología no destructiva</p>
             </div>
 
             <!-- FAQ 1 -->
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 1 ? null : 1)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>1. ¿Cómo saber si tengo una fuga de agua oculta en mi casa o departamento?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 1 ? 'rotate-180' : ''"></i>
+                    <span>1. ¿Por qué es mejor detectar una fuga sin romper antes de hacer obras?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 1 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 1" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Los principales indicios son: aumento repentino e injustificado en la cuenta del agua, el medidor gira cuando todas las llaves están cerradas, presencia de manchas de humedad o eflorescencias de salitre en muros y zoclos, y baja de presión en duchas.
+                    Detectar de forma no invasiva evita destruir cerámicos descatalogados, picar radier a ciegas, generar polvo y escombros, y reduce los costos de reparación en hasta un 70%.
                 </div>
             </div>
 
@@ -322,11 +322,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 2 ? null : 2)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>2. ¿Qué tecnología se utiliza para detectar fugas de agua sin romper?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 2 ? 'rotate-180' : ''"></i>
+                    <span>2. ¿Qué tecnologías no invasivas combinan en una inspección?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 2 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 2" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Utilizamos Geófonos Electroacústicos de Suelo con amplificación sónica digital de alta ganancia, Gas Trazador (Formiergas N2/H2 95/5) para microporosidades y Cámaras Termográficas Infrarrojas para tuberías de agua caliente y losa radiante.
+                    Combinamos 4 tecnologías: Geófono acústico digital, Gas Trazador (Nitrógeno/Hidrógeno 95/5), Cámara Termográfica infrarroja Fluke y Manometría digital de alta precisión.
                 </div>
             </div>
 
@@ -334,11 +334,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 3 ? null : 3)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>3. ¿Es necesario romper pisos para encontrar la fuga?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 3 ? 'rotate-180' : ''"></i>
+                    <span>3. ¿Pueden localizar fugas en cañerías embutidas dentro de muros de hormigón o tabiques?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 3 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 3" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    No. La detección es 100% no destructiva. Escuchamos y rastreamos desde la superficie del radier, cerámica, piso flotante o pasto, marcando el punto exacto para que la eventual reparación sea minúscula.
+                    Sí. Mediante termografía y gas trazador detectamos fugas empotradas en cualquier tipo de muro sin causar daños superficiales.
                 </div>
             </div>
 
@@ -346,11 +346,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 4 ? null : 4)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>4. ¿Cuánto tiempo toma una inspección de fuga de agua?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 4 ? 'rotate-180' : ''"></i>
+                    <span>4. ¿Qué precisión tiene la marcación del punto de fuga?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 4 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 4" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Una inspección residencial promedio toma entre 1 y 2 horas, entregando al cliente el diagnóstico inmediato en terreno.
+                    Marcamos un perímetro exacto de pocos centímetros sobre el piso o pared, permitiendo una apertura mínima y limpia.
                 </div>
             </div>
 
@@ -358,11 +358,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 5 ? null : 5)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>5. ¿Entregan informe técnico para rebaja de cuenta en Aguas Andinas o cobro de seguros?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 5 ? 'rotate-180' : ''"></i>
+                    <span>5. ¿Cuánto demora el servicio de detección no invasiva?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 5 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 5" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Sí. Emitimos un Informe Técnico Oficial de Detección y Reparación de Fuga No Visible con respaldo fotográfico, mediciones y firma profesional, válido para tramitar solicitudes de refacturación por sobreconsumo ante empresas sanitarias y aseguradoras.
+                    El diagnóstico completo toma generalmente entre 60 y 90 minutos.
                 </div>
             </div>
 
@@ -370,11 +370,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 6 ? null : 6)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>6. ¿Detectan fugas en redes de agua caliente y calefacción?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 6 ? 'rotate-180' : ''"></i>
+                    <span>6. ¿Sirve tanto para redes de gas como de agua potable?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 6 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 6" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Sí. Inspeccionamos circuitos de agua fría, agua caliente sanitaria (cobre y PEX), y sistemas de calefacción central (radiadores y losa radiante).
+                    Sí. Inspeccionamos cañerías de gas licuado/natural, redes de agua fría, agua caliente sanitaria y circuitos de calefacción central.
                 </div>
             </div>
 
@@ -382,11 +382,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 7 ? null : 7)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>7. ¿Realizan la reparación una vez ubicada la fuga de agua?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 7 ? 'rotate-180' : ''"></i>
+                    <span>7. ¿Entregan certificado e informe técnico al finalizar?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 7 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 7" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Sí. Contamos con gasfíteres profesionales para realizar la apertura milimétrica, reparación de la tubería, prueba de estanqueidad y reposición prolija.
+                    Sí. Emitimos un informe técnico profesional con respaldo fotográfico, mediciones y validez para aseguradoras y empresas de servicios básicos.
                 </div>
             </div>
 
@@ -394,11 +394,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 8 ? null : 8)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>8. ¿Qué cobertura tienen en la Región Metropolitana y otras zonas?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 8 ? 'rotate-180' : ''"></i>
+                    <span>8. ¿Qué garantía ofrecen por la localización de la fuga?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 8 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 8" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Cubrimos todas las comunas del Gran Santiago (Sector Oriente, Poniente, Norte y Sur), Chicureo, Colina, además de Valparaíso, Viña del Mar y Rancagua.
+                    Garantizamos la precisión del diagnóstico bajo nuestra política 'Usted Paga Después de Solucionado'.
                 </div>
             </div>
 
@@ -406,11 +406,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 9 ? null : 9)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>9. ¿Qué garantía tienen los trabajos de detección y reparación?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 9 ? 'rotate-180' : ''"></i>
+                    <span>9. ¿Atienden urgencias en departamentos y condominios?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 9 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 9" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Garantizamos la exactitud de la detección y entregamos garantía por escrito en todas las reparaciones ejecutadas.
+                    Sí. Contamos con equipamiento portátil silencioso ideal para edificios residenciales sin causar molestias a los vecinos.
                 </div>
             </div>
 
@@ -418,11 +418,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 10 ? null : 10)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>10. ¿Cómo agendar una visita de emergencia por filtración de agua?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 10 ? 'rotate-180' : ''"></i>
+                    <span>10. ¿Cómo agendar una detección no invasiva?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-emerald-400 transition-transform" :class="openFaq === 10 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 10" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Comuníquese al WhatsApp +56 9 4987 7316 indicando su comuna y síntomas para coordinar una visita técnica en el día.
+                    Escríbanos al WhatsApp +56 9 4987 7316 o llámenos al 949 877 316 para atención técnica inmediata.
                 </div>
             </div>
 
@@ -433,8 +433,9 @@
     <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
-                <span class="text-base font-black text-white block">SellafuGas® Fugas de Agua</span>
-                <p>Especialistas en detección electroacústica, geófono y reparación puntual de cañerías de agua potable.</p>
+                <span class="text-base font-black text-white block">SellafuGas® Detección Sin Romper</span>
+                <p>Especialistas en detección no destructiva de fugas de gas y agua con tecnología de vanguardia.</p>
+                <p class="text-slate-300">Domingo Isain · SEC Clase 3</p>
             </div>
             <div>
                 <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Servicios</span>
@@ -443,8 +444,8 @@
                     <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-white">Gasfíter Certificado SEC</a></li>
                     <li><a href="{{ route('landing.sello-rojo') }}" class="hover:text-white">Sello Rojo</a></li>
                     <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-white">Gas Trazador</a></li>
-                    <li><a href="{{ route('landing.fugas-agua') }}" class="text-blue-400 font-bold">Fugas de Agua</a></li>
-                    <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-white">Fugas en Piscinas</a></li>
+                    <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-white">Fugas de Agua</a></li>
+                    <li><a href="{{ route('landing.deteccion-sin-romper') }}" class="text-emerald-400 font-bold">Detección Sin Romper</a></li>
                 </ul>
             </div>
             <div>
@@ -455,8 +456,8 @@
                 </ul>
             </div>
             <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Garantía de Servicio</span>
-                <p class="text-xs text-slate-300">Usted Paga Después de Solucionado · Atención en toda la Región Metropolitana.</p>
+                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Garantía SEC</span>
+                <p class="text-xs text-slate-300">Usted Paga Después de Solucionado · Atención en toda la RM y Regiones.</p>
             </div>
         </div>
     </footer>

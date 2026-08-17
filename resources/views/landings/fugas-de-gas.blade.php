@@ -7,7 +7,7 @@
     <meta name="description" content="{{ $metaDescription }}">
     <link rel="canonical" href="{{ $canonicalUrl }}" />
 
-    <!-- Open Graph / Social Preview -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ $canonicalUrl }}">
     <meta property="og:title" content="{{ $metaTitle }}">
@@ -42,15 +42,6 @@
                             800: '#0c4a6e',
                             900: '#082f49',
                             950: '#031726',
-                        },
-                        amber: {
-                            400: '#fbbf24',
-                            500: '#f59e0b',
-                        },
-                        emerald: {
-                            400: '#34d399',
-                            500: '#10b981',
-                            600: '#059669',
                         }
                     }
                 }
@@ -60,7 +51,6 @@
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -76,50 +66,41 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .glow-emerald {
-            box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.35);
-        }
         .glow-sky {
             box-shadow: 0 0 40px -10px rgba(2, 132, 199, 0.35);
         }
     </style>
 
-    <!-- Schema.org Structured Data -->
+    <!-- Schema.org JSON-LD Service & LocalBusiness -->
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
-      "@@type": "Service",
-      "name": "Sellado y Reparación de Fugas de Gas Sin Romper",
-      "serviceType": "Gas Leak Repair and Sealing",
-      "provider": {
-        "@@type": "HVACBusiness",
-        "name": "SellafuGas® Domingo Isain",
-        "telephone": "+56949877316",
-        "url": "https://sellafugas.cl"
+      "@@type": "HVACBusiness",
+      "name": "SellafuGas® Domingo Isain - Sellado de Fugas de Gas Prodoral R6-1",
+      "image": "{{ asset('images/logotipo-sellafugas.cl.webp') }}",
+      "@@id": "https://sellafugas.cl/fugas-de-gas",
+      "url": "https://sellafugas.cl/fugas-de-gas",
+      "telephone": "+56949877316",
+      "priceRange": "$300.000 - $850.000 CLP",
+      "address": {
+        "@@type": "PostalAddress",
+        "streetAddress": "Estado 215 / Av. Libertador Bernardo O'Higgins 1302",
+        "addressLocality": "Santiago",
+        "addressRegion": "Región Metropolitana",
+        "postalCode": "8320000",
+        "addressCountry": "CL"
       },
-      "areaServed": ["Santiago", "Región Metropolitana", "Valparaíso", "Rancagua"],
-      "hasOfferCatalog": {
-        "@@type": "OfferCatalog",
-        "name": "Servicios de Fugas de Gas",
-        "itemListElement": [
-          {
-            "@@type": "Offer",
-            "itemOffered": {
-              "@@type": "Service",
-              "name": "Sellado de Fuga de Gas con Prodoral R6-1 en Red Interior"
-            },
-            "priceSpecification": {
-              "@@type": "PriceSpecification",
-              "price": "300000",
-              "priceCurrency": "CLP"
-            }
-          }
-        ]
-      }
+      "founder": {
+        "@@type": "Person",
+        "name": "Domingo Isain Plaza Caamaño",
+        "jobTitle": "Gasfiter Certificado Autorizado SEC Clase 3",
+        "taxID": "12.738.961-6"
+      },
+      "areaServed": ["Santiago", "Las Condes", "Vitacura", "Providencia", "Lo Barnechea", "La Reina", "Ñuñoa", "Peñalolén", "La Florida", "Chicureo", "Colina", "Maipú", "San Miguel", "Rancagua", "Valparaíso", "Viña del Mar"]
     }
     </script>
 
-    <!-- Schema.org FAQ -->
+    <!-- Schema.org JSON-LD FAQPage (10 FAQs Reales) -->
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
@@ -127,26 +108,82 @@
       "mainEntity": [
         {
           "@@type": "Question",
-          "name": "¿Cómo reparar una fuga de gas en cañería interna sin picar pisos ni muros?",
+          "name": "¿Cómo se realiza el sellado de cañerías de gas con Prodoral R6-1 sin picar muros ni pisos?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Con el sistema alemán Prodoral R6-1, se inyecta un polímero sellante líquido a presión controlada dentro de la cañería. El producto sella todas las uniones roscadas y microporosidades desde el interior, logrando hermeticidad total en menos de 2 horas sin obras destructivas."
+            "text": "Prodoral R6-1 es una dispersión polimérica alemana certificada DIN EN 13090 y NAG-203. Se inyecta neumáticamente a presión controlada dentro de la cañería tras aislar los artefactos. Recorre todo el interior, polimerizando y sellando todas las uniones roscadas y microporos de forma hermética y elástica sin romper muros ni pisos."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Qué garantía tiene el sellado de fugas de gas?",
+          "name": "¿El certificado emitido es válido ante la SEC y compañías de gas como Metrogas, Lipigas, Abastible y Gasco?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Entregamos 3 años de garantía por escrito y emitimos el Certificado Oficial de Hermeticidad SEC tras verificar la prueba a 368 mmca bajo Decreto Supremo DS66."
+            "text": "Sí, absolutamente. Domingo Isain Plaza Caamaño es Gasfíter Instalador de Gas Autorizado SEC Clase 3 (RUT 12.738.961-6). Al terminar la prueba de hermeticidad a 368 mmca bajo Decreto Supremo DS66 Artículo 44.2.3, se entrega el Certificado Oficial de Servicio con código QR verificable en la plataforma oficial de la SEC."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Cuál es el valor del sellado de fugas de gas?",
+          "name": "¿Cuánto tiempo demora el procedimiento de sellado en una casa o departamento?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "En la Región Metropolitana el valor base es de $300.000 neto hasta 10 metros lineales de cañería, y $25.000 neto por metro adicional. Aplica la condición Usted Paga Después de Solucionado."
+            "text": "El procedimiento completo toma menos de 2 horas. Incluye la prueba de diagnóstico inicial, desconexión de artefactos, inyección neumática del sellante alemán Prodoral, purga, secado neumático y prueba final de hermeticidad estanco por 5 minutos a 368 mmca."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué garantía tiene el sellado de cañerías de gas?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Otorgamos 3 años de garantía por escrito por efectos de sellado de fugas de gas en la red interior tratada."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿En qué consiste la condición 'Usted Paga Después de Solucionado'?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Nuestra política de máxima confianza y seguridad garantiza que el cliente solo realiza el pago una vez que el procedimiento ha concluido con éxito y se ha demostrado la total hermeticidad de la instalación mediante manómetro digital sin caídas de presión."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué normas técnicas cumple el producto Prodoral R6-1 en Chile?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Prodoral R6-1 cumple rigurosamente con las normativas internacionales DIN EN 13090 y NAG-203, y está expresamente aceptado por la Superintendencia de Electricidad y Combustibles (SEC) bajo el Decreto Supremo 66 Artículo 7."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Se deben desconectar artefactos a gas durante el sellado?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí. Nuestro servicio incluye la desconexión cuidadosa y posterior reconexión de todos los artefactos a gas (calefón, cocina, estufas, calderas) para aislar la red durante la inyección y asegurar una hermeticidad total."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué cobertura tienen en Santiago y regiones?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Atendemos de forma inmediata en toda la Región Metropolitana (Las Condes, Vitacura, Providencia, Lo Barnechea, Chicureo, La Reina, Ñuñoa, La Florida, Maipú, Santiago Centro, etc.), Quinta Región (Valparaíso, Viña del Mar, Quilpué, etc.) y Sexta Región (Rancagua, Machalí, etc.)."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cómo solicito atención inmediata si tengo gas cortado por sello rojo o emergencia?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Puede comunicarse directamente al teléfono / WhatsApp +56 9 4987 7316 (949 877 316) o completar el cotizador en línea. Atendemos emergencias y urgencias el mismo día para reestablecer el suministro de gas a la brevedad."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Es compatible con gas natural y gas licuado de petróleo (GLP)?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí. Prodoral R6-1 es 100% compatible y químicamente resistente tanto a gas licuado (GLP en cilindros o granel) como a gas natural por cañería de red, garantizando una vida útil de décadas en la instalación."
           }
         }
       ]
@@ -158,8 +195,6 @@
           metros: 12,
           zone: 'rm',
           taxType: 'neto',
-          basePrice: 300000,
-          extraPerMeter: 25000,
           get subtotalNeto() {
               const baseMeters = 10;
               const extraMeters = Math.max(0, this.metros - baseMeters);
@@ -177,8 +212,7 @@
           clientPhone: '',
           clientComuna: 'Las Condes',
           loading: false,
-          submitted: false,
-          folio: null,
+          openFaq: null,
           async submitQuote() {
               if(!this.clientName || !this.clientPhone) {
                   alert('Por favor ingrese su Nombre y Teléfono');
@@ -188,10 +222,7 @@
               try {
                   const res = await fetch('{{ route('quote.public.store') }}', {
                       method: 'POST',
-                      headers: {
-                          'Content-Type': 'application/json',
-                          'Accept': 'application/json'
-                      },
+                      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                       body: JSON.stringify({
                           nombre: this.clientName,
                           telefono: this.clientPhone,
@@ -199,26 +230,19 @@
                           metros: this.metros,
                           zone: this.zone,
                           tax_type: this.taxType,
-                          detalles: 'Solicitud desde landing Fugas de Gas (Prodoral R6-1)'
+                          detalles: 'Cotización desde Landing Fugas de Gas Prodoral'
                       })
                   });
                   const data = await res.json();
-                  if(data.success) {
-                      this.submitted = true;
-                      this.folio = data.folio;
-                      if(data.whatsapp_url) {
-                          window.open(data.whatsapp_url, '_blank');
-                      }
+                  if(data.success && data.whatsapp_url) {
+                      window.open(data.whatsapp_url, '_blank');
                   }
-              } catch(e) {
-                  console.error(e);
-              } finally {
-                  this.loading = false;
-              }
+              } catch(e) { console.error(e); }
+              finally { this.loading = false; }
           }
       }">
 
-    <!-- Top Emergency Bar -->
+    <!-- Top Emergency Ribbon -->
     <div class="bg-gradient-to-r from-rose-700 via-rose-600 to-amber-600 text-white text-xs py-2 px-4 text-center font-bold tracking-wide flex items-center justify-center gap-3">
         <span class="inline-flex items-center gap-1.5 animate-pulse bg-white/20 px-2 py-0.5 rounded-full">
             <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-200"></i>
@@ -241,26 +265,26 @@
                 </div>
             </a>
 
-            <!-- Services Menu Desktop -->
-            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-300">
+            <!-- Full Navigation for all 9 landings -->
+            <nav class="hidden xl:flex items-center gap-4 text-xs font-semibold text-slate-300">
                 <a href="{{ route('landing.fugas-gas') }}" class="text-sky-400 font-bold border-b-2 border-sky-400 pb-1">Fugas de Gas</a>
                 <a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 transition-colors">Gasfíter SEC</a>
+                <a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 transition-colors">Sello Rojo</a>
                 <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
                 <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
-                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Fugas en Piscinas</a>
-                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-3 py-1.5 rounded-xl transition-colors">
-                    Acceso Administrador
+                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Piscinas</a>
+                <a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 transition-colors">Calefont SEC</a>
+                <a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados DS66</a>
+                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-2.5 py-1 rounded-lg">
+                    Acceso Admin
                 </a>
             </nav>
 
-            <!-- Direct Call CTA -->
-            <div class="flex items-center gap-3">
-                <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20tengo%20una%20fuga%20de%20gas%20y%20necesito%20sellado%20con%20Prodoral%20R6-1" target="_blank"
-                   class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-emerald-500/25 transition-all flex items-center gap-2">
-                    <i data-lucide="message-circle" class="w-4 h-4"></i>
-                    <span class="hidden sm:inline">WhatsApp Urgente</span>
-                </a>
-            </div>
+            <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20tengo%20una%20fuga%20de%20gas%20y%20necesito%20sellado%20con%20Prodoral%20R6-1" target="_blank"
+               class="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-emerald-500/25 transition-all flex items-center gap-2">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span class="hidden sm:inline">WhatsApp Urgente</span>
+            </a>
         </div>
     </header>
 
@@ -269,7 +293,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Left Content -->
                 <div class="lg:col-span-7 space-y-6">
                     <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold uppercase tracking-wider">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -281,10 +304,9 @@
                     </h1>
 
                     <p class="text-lg text-slate-300 leading-relaxed">
-                        Solución definitiva e inmediata para fugas de gas no visibles en cañerías interiores de casas, departamentos y edificios con <strong>Prodoral R6-1</strong>. Procedimiento en menos de 2 horas con prueba de hermeticidad manométrica digital y <strong>Certificado Oficial SEC</strong>.
+                        Solución definitiva e inmediata para fugas de gas no visibles en cañerías interiores de casas, departamentos y edificios con <strong>Prodoral R6-1</strong>. Procedimiento en menos de 2 horas con prueba de hermeticidad manométrica digital y <strong>Certificado Oficial SEC</strong> emitido por <strong>Domingo Isain Plaza Caamaño</strong>.
                     </p>
 
-                    <!-- Trust Checklist -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
                             <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0"></i>
@@ -304,7 +326,6 @@
                         </div>
                     </div>
 
-                    <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
                         <a href="#cotizador" class="px-6 py-4 bg-gradient-to-r from-sky-500 to-emerald-500 hover:from-sky-400 hover:to-emerald-400 text-slate-950 font-black text-base rounded-2xl shadow-xl shadow-sky-500/20 text-center transition-all flex items-center justify-center gap-2">
                             <i data-lucide="calculator" class="w-5 h-5"></i>
@@ -317,7 +338,6 @@
                     </div>
                 </div>
 
-                <!-- Right Card: Domingo SEC Profile -->
                 <div class="lg:col-span-5">
                     <div class="glass-card p-6 rounded-3xl border border-slate-700/80 glow-sky space-y-6">
                         <div class="flex items-center gap-4">
@@ -356,8 +376,41 @@
         </div>
     </section>
 
+    <!-- Technical Workflow: 4 Steps -->
+    <section class="py-16 bg-slate-900/80 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block mb-2">Procedimiento Certificado en 4 Fases</span>
+                <h2 class="text-3xl font-black text-white">¿Cómo realizamos el sellado de cañerías en menos de 2 horas?</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <span class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center font-black text-lg">1</span>
+                    <h3 class="text-base font-bold text-white">Diagnóstico y Aislamiento</h3>
+                    <p class="text-xs text-slate-300">Desconexión cuidadosa de artefactos y medidor. Prueba de estanqueidad inicial con manómetro digital de precisión.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-lg">2</span>
+                    <h3 class="text-base font-bold text-white">Inyección Neumática Prodoral</h3>
+                    <p class="text-xs text-slate-300">Inyección a presión controlada del polímero alemán Prodoral R6-1 para recorrer todas las uniones roscadas y microporos de la red.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <span class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-black text-lg">3</span>
+                    <h3 class="text-base font-bold text-white">Purga y Secado con Aire</h3>
+                    <p class="text-xs text-slate-300">Extracción del excedente de producto y secado forzado con turbina neumática para acelerar la polimerización interna del sello.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl border border-slate-800 space-y-3">
+                    <span class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-black text-lg">4</span>
+                    <h3 class="text-base font-bold text-white">Prueba DS66 y Certificado</h3>
+                    <p class="text-xs text-slate-300">Prueba de hermeticidad a 368 mmca estanco por 5 minutos y entrega del Certificado Oficial SEC con QR y 3 años de garantía.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Interactive Price Calculator Section -->
-    <section id="cotizador" class="py-16 bg-slate-900/60 border-y border-slate-800">
+    <section id="cotizador" class="py-16 bg-slate-950 border-y border-slate-800">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-10">
                 <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block mb-2">Cotizador Transparente en Tiempo Real</span>
@@ -367,14 +420,13 @@
 
             <div class="glass-card p-8 rounded-3xl border border-slate-700 space-y-8">
                 
-                <!-- Sliders & Selectors -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
                             1. Seleccione su Región:
                         </label>
                         <select x-model="zone" class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white font-semibold focus:outline-none focus:border-sky-500">
-                            <option value="rm">Santiago (Región Metropolitana) - Base $300.000</option>
+                            <option value="rm">Santiago (Región Metropolitana) - Base $300.000 (hasta 10m)</option>
                             <option value="v_vi">Quinta y Sexta Región (Valparaíso / Rancagua) - Base $350.000</option>
                             <option value="otras">Otras Regiones Cercanas - Base $400.000</option>
                         </select>
@@ -397,7 +449,6 @@
                     </div>
                 </div>
 
-                <!-- Price Box Breakdown -->
                 <div class="p-6 rounded-2xl bg-slate-950/80 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div>
                         <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">Total Estimado del Servicio:</span>
@@ -417,7 +468,6 @@
                     </div>
                 </div>
 
-                <!-- Quick Booking Form -->
                 <div class="space-y-4 pt-2">
                     <h3 class="text-sm font-bold text-white uppercase tracking-wider">Complete sus datos para agendar o recibir cotización por WhatsApp:</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -440,91 +490,135 @@
         </div>
     </section>
 
-    <!-- Why Prodoral Section (Table) -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-2">Tecnología de Vanguardia</span>
-            <h2 class="text-3xl font-black text-white">¿Por qué reparar con Prodoral R6-1 en vez de picar muros?</h2>
-        </div>
-
-        <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/60">
-            <table class="w-full text-left text-sm text-slate-300">
-                <thead class="bg-slate-900 text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-800">
-                    <tr>
-                        <th class="py-4 px-6">Característica</th>
-                        <th class="py-4 px-6 text-emerald-400 font-black">SellafuGas® Prodoral R6-1</th>
-                        <th class="py-4 px-6 text-rose-400 font-black">Gasfitería Tradicional (Picar)</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-800">
-                    <tr>
-                        <td class="py-4 px-6 font-semibold text-white">Daño Estructural</td>
-                        <td class="py-4 px-6 text-emerald-300 font-bold">Cero rotura de muros, pisos ni cerámicas</td>
-                        <td class="py-4 px-6 text-slate-400">Demolición invasiva, polvo y escombros</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6 font-semibold text-white">Tiempo de Ejecución</td>
-                        <td class="py-4 px-6 text-emerald-300 font-bold">Menos de 2 horas</td>
-                        <td class="py-4 px-6 text-slate-400">De 4 a 10 días de obras</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6 font-semibold text-white">Garantía Escrita</td>
-                        <td class="py-4 px-6 text-emerald-300 font-bold">3 Años de Garantía</td>
-                        <td class="py-4 px-6 text-slate-400">6 meses a 1 año</td>
-                    </tr>
-                    <tr>
-                        <td class="py-4 px-6 font-semibold text-white">Certificado SEC</td>
-                        <td class="py-4 px-6 text-emerald-300 font-bold">Certificado Oficial Inmediato</td>
-                        <td class="py-4 px-6 text-slate-400">Requiere inspecciones adicionales</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- FAQ Accordion -->
-    <section class="py-16 bg-slate-900/40 border-t border-slate-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4" x-data="{ openFaq: null }">
+    <!-- 10 Visible FAQs Section -->
+    <section id="faq" class="py-16 bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             <div class="text-center mb-8">
-                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block mb-2">Dudas y Respuestas</span>
-                <h2 class="text-3xl font-black text-white">Preguntas Frecuentes sobre Fugas de Gas</h2>
+                <span class="text-xs font-bold text-sky-400 uppercase tracking-widest block mb-2">Resolución de Dudas Frecuentes</span>
+                <h2 class="text-3xl font-black text-white">10 Preguntas Frecuentes sobre Sellado de Fugas de Gas</h2>
+                <p class="text-xs text-slate-400 mt-1">Todo lo que necesitas saber antes de contratar el servicio con SellafuGas® y Domingo Isain</p>
             </div>
 
-            <!-- FAQ Item 1 -->
+            <!-- FAQ 1 -->
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 1 ? null : 1)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>¿Cómo funciona el sellado de cañerías de gas con Prodoral R6-1?</span>
+                    <span>1. ¿Cómo se realiza el sellado de cañerías de gas con Prodoral R6-1 sin picar muros ni pisos?</span>
                     <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 1 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 1" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Prodoral R6-1 es una emulsión polimérica viscosa de fabricación alemana que se inyecta neumáticamente a través de las cañerías de gas existentes tras desconectar los artefactos. Recorre todas las roscas y microporos, polimerizando y formando un sello elástico permanente que resiste vibraciones y no se degrada con el gas licuado o natural.
+                    Prodoral R6-1 es una dispersión polimérica alemana certificada DIN EN 13090 y NAG-203. Se inyecta neumáticamente a presión controlada dentro de la cañería tras aislar los artefactos. Recorre todo el interior, polimerizando y sellando todas las uniones roscadas y microporos de forma hermética y elástica sin romper muros ni pisos.
                 </div>
             </div>
 
-            <!-- FAQ Item 2 -->
+            <!-- FAQ 2 -->
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 2 ? null : 2)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>¿El certificado emitido es válido ante la SEC y compañías de gas (Metrogas, Lipigas, Abastible, Gasco)?</span>
+                    <span>2. ¿El certificado emitido es válido ante la SEC y compañías de gas como Metrogas, Lipigas, Abastible y Gasco?</span>
                     <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 2 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 2" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Sí, 100%. Domingo Isain Plaza Caamaño es Gasfíter Instalador de Gas Autorizado SEC Clase 3 (RUT 12.738.961-6). El certificado cuenta con código QR verificable en la plataforma oficial de la SEC y cumple con la normativa DS66 Artículo 44.2.3.
+                    Sí, absolutamente. Domingo Isain Plaza Caamaño es Gasfíter Instalador de Gas Autorizado SEC Clase 3 (RUT 12.738.961-6). Al terminar la prueba de hermeticidad a 368 mmca bajo Decreto Supremo DS66 Artículo 44.2.3, se entrega el Certificado Oficial de Servicio con código QR verificable en la plataforma oficial de la SEC.
                 </div>
             </div>
 
-            <!-- FAQ Item 3 -->
+            <!-- FAQ 3 -->
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 3 ? null : 3)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>¿Qué ocurre si tengo gas cortado por sello rojo de la entidad inspectora?</span>
+                    <span>3. ¿Cuánto tiempo demora el procedimiento de sellado en una casa o departamento?</span>
                     <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 3 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 3" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Realizamos el sellado y la prueba de hermeticidad el mismo día. Al finalizar, te entregamos el Certificado de Servicio sellado y firmado para que la entidad certificadora o empresa distribuidora reestablezca el suministro de gas sin demoras.
+                    El procedimiento completo toma menos de 2 horas. Incluye la prueba de diagnóstico inicial, desconexión de artefactos, inyección neumática del sellante alemán Prodoral, purga, secado neumático y prueba final de hermeticidad estanco por 5 minutos a 368 mmca.
                 </div>
             </div>
+
+            <!-- FAQ 4 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 4 ? null : 4)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>4. ¿Qué garantía tiene el sellado de cañerías de gas?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 4 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 4" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Otorgamos 3 años de garantía por escrito por efectos de sellado de fugas de gas en la red interior tratada.
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 5 ? null : 5)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>5. ¿En qué consiste la condición 'Usted Paga Después de Solucionado'?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 5 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 5" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Nuestra política de máxima confianza y seguridad garantiza que el cliente solo realiza el pago una vez que el procedimiento ha concluido con éxito y se ha demostrado la total hermeticidad de la instalación mediante manómetro digital sin caídas de presión.
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 6 ? null : 6)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>6. ¿Qué normas técnicas cumple el producto Prodoral R6-1 en Chile?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 6 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 6" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Prodoral R6-1 cumple rigurosamente con las normativas internacionales DIN EN 13090 y NAG-203, y está expresamente aceptado por la Superintendencia de Electricidad y Combustibles (SEC) bajo el Decreto Supremo 66 Artículo 7.
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 7 ? null : 7)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>7. ¿Se deben desconectar artefactos a gas durante el sellado?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 7 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 7" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Sí. Nuestro servicio incluye la desconexión cuidadosa y posterior reconexión de todos los artefactos a gas (calefón, cocina, estufas, calderas) para aislar la red durante la inyección y asegurar una hermeticidad total.
+                </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 8 ? null : 8)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>8. ¿Qué cobertura tienen en Santiago y regiones?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 8 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 8" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Atendemos de forma inmediata en toda la Región Metropolitana (Las Condes, Vitacura, Providencia, Lo Barnechea, Chicureo, La Reina, Ñuñoa, La Florida, Maipú, Santiago Centro, etc.), Quinta Región (Valparaíso, Viña del Mar, Quilpué, etc.) y Sexta Región (Rancagua, Machalí, etc.).
+                </div>
+            </div>
+
+            <!-- FAQ 9 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 9 ? null : 9)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>9. ¿Cómo solicito atención inmediata si tengo gas cortado por sello rojo o emergencia?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 9 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 9" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Puede comunicarse directamente al teléfono / WhatsApp +56 9 4987 7316 (949 877 316) o completar el cotizador en línea. Atendemos emergencias y urgencias el mismo día para reestablecer el suministro de gas a la brevedad.
+                </div>
+            </div>
+
+            <!-- FAQ 10 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 10 ? null : 10)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>10. ¿Es compatible con gas natural y gas licuado de petróleo (GLP)?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-sky-400 transition-transform" :class="openFaq === 10 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 10" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Sí. Prodoral R6-1 es 100% compatible y químicamente resistente tanto a gas licuado (GLP en cilindros o granel) como a gas natural por cañería de red, garantizando una vida útil de décadas en la instalación.
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -534,16 +628,19 @@
             <div class="space-y-3">
                 <span class="text-base font-black text-white block">SellafuGas® Domingo Isain</span>
                 <p>Especialistas en detección y sellado de fugas de gas sin romper muros con Prodoral R6-1. Gasfíter Autorizado SEC Clase 3.</p>
-                <p class="text-slate-300">RUT Empresa: 76.776.528-2 · Estado 215, Santiago</p>
+                <p class="text-slate-300">RUT: 12.738.961-6 · Estado 215, Santiago</p>
             </div>
             <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Servicios Especializados</span>
+                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Servicios de Gas y Agua</span>
                 <ul class="space-y-2">
                     <li><a href="{{ route('landing.fugas-gas') }}" class="text-sky-400 font-bold">Sellado Fugas de Gas</a></li>
-                    <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-white transition-colors">Gasfíter Certificado SEC</a></li>
-                    <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-white transition-colors">Detección con Gas Trazador</a></li>
-                    <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-white transition-colors">Detección Fugas de Agua</a></li>
-                    <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-white transition-colors">Fugas en Piscinas</a></li>
+                    <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-white">Gasfíter Certificado SEC</a></li>
+                    <li><a href="{{ route('landing.sello-rojo') }}" class="hover:text-white">Levantamiento Sello Rojo</a></li>
+                    <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-white">Detección con Gas Trazador</a></li>
+                    <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-white">Detección Fugas de Agua</a></li>
+                    <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-white">Fugas en Piscinas</a></li>
+                    <li><a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-white">Calefont SEC</a></li>
+                    <li><a href="{{ route('landing.certificados-sec') }}" class="hover:text-white">Certificados SEC DS66</a></li>
                 </ul>
             </div>
             <div>

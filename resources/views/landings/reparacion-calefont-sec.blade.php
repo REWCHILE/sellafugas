@@ -12,14 +12,13 @@
     <meta property="og:url" content="{{ $canonicalUrl }}">
     <meta property="og:title" content="{{ $metaTitle }}">
     <meta property="og:description" content="{{ $metaDescription }}">
-    <meta property="og:image" content="{{ asset('images/geofono-deteccion-agua.png') }}">
+    <meta property="og:image" content="{{ asset('images/reparacion-calefont-sec.png') }}">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -65,20 +64,20 @@
         }
     </style>
 
-    <!-- Schema.org JSON-LD PlumbingService -->
+    <!-- Schema.org JSON-LD HVACBusiness -->
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
-      "@@type": "PlumbingService",
-      "name": "Detección y Reparación de Fugas de Agua Potable Sin Romper",
-      "serviceType": "Water Leak Detection and Repair",
+      "@@type": "HVACBusiness",
+      "name": "Reparación y Mantenimiento de Calefont Gasfíter SEC Domingo Isain",
+      "serviceType": "Water Heater and Boiler Repair SEC",
       "provider": {
         "@@type": "Plumber",
-        "name": "SellafuGas® Domingo Isain",
+        "name": "Domingo Isain Plaza Caamaño",
         "telephone": "+56949877316",
-        "url": "https://sellafugas.cl/fugas-de-agua"
+        "url": "https://sellafugas.cl/reparacion-calefont-sec"
       },
-      "areaServed": ["Santiago", "Las Condes", "Vitacura", "Providencia", "Lo Barnechea", "La Reina", "Ñuñoa", "La Florida", "Chicureo", "Valparaíso", "Rancagua"]
+      "areaServed": ["Santiago", "Las Condes", "Vitacura", "Providencia", "Lo Barnechea", "La Reina", "Ñuñoa", "Peñalolén", "Chicureo", "Valparaíso", "Rancagua"]
     }
     </script>
 
@@ -90,82 +89,82 @@
       "mainEntity": [
         {
           "@@type": "Question",
-          "name": "¿Cómo saber si tengo una fuga de agua oculta en mi casa o departamento?",
+          "name": "¿Qué marcas y tipos de calefont atienden?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Los principales indicios son: aumento repentino e injustificado en la cuenta del agua, el medidor gira cuando todas las llaves están cerradas, presencia de manchas de humedad o eflorescencias de salitre en muros y zoclos, y baja de presión en duchas."
+            "text": "Atendemos todas las marcas líderes del mercado chileno: Splendid, Junkers, Mademsa, Neckar, Trotter, Rheem, Bosch y Albin Trotter, en versiones de tiro natural, tiro forzado de cámara abierta y cámara estanca ionizados."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Qué tecnología se utiliza para detectar fugas de agua sin romper?",
+          "name": "¿Por qué mi calefont se apaga solo al mezclar con agua fría?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Utilizamos Geófonos Electroacústicos de Suelo con amplificación sónica digital de alta ganancia, Gas Trazador (Formiergas N2/H2 95/5) para microporosidades y Cámaras Termográficas Infrarrojas para tuberías de agua caliente y losa radiante."
+            "text": "Suele deberse a pérdida de caudal de agua, membrana o diafragma gastado, serpentín calcificado con sarro o falla en el sensor de ionización o termostato de sobrecalentamiento."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Es necesario romper pisos para encontrar la fuga?",
+          "name": "¿Es peligroso sentir olor a gas cerca del calefont?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "No. La detección es 100% no destructiva. Escuchamos y rastreamos desde la superficie del radier, cerámica, piso flotante o pasto, marcando el punto exacto para que la eventual reparación sea minúscula."
+            "text": "Sí, es una situación crítica. Debe cerrar la llave de paso de gas inmediatamente, ventilar el recinto y solicitar una inspección técnica con manómetro digital de un gasfíter autorizado SEC."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Cuánto tiempo toma una inspección de fuga de agua?",
+          "name": "¿El servicio incluye mantención preventiva completa del calefont?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Una inspección residencial promedio toma entre 1 y 2 horas, entregando al cliente el diagnóstico inmediato en terreno."
+            "text": "Sí. Incluye limpieza profunda de quemadores e inyectores, descalcificación de serpentín, cambio de membrana y orings, revisión de ducto de evacuación de gases y prueba de hermeticidad de gas."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Entregan informe técnico para rebaja de cuenta en Aguas Andinas o cobro de seguros?",
+          "name": "¿Domingo Isain entrega certificado SEC por la instalación de calefont?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Sí. Emitimos un Informe Técnico Oficial de Detección y Reparación de Fuga No Visible con respaldo fotográfico, mediciones y firma profesional, válido para tramitar solicitudes de refacturación por sobreconsumo ante empresas sanitarias y aseguradoras."
+            "text": "Sí. Como Gasfiter Instalador Autorizado SEC Clase 3 (RUT 12.738.961-6), emite el Certificado Oficial de Instalación y Hermeticidad bajo norma DS66."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Detectan fugas en redes de agua caliente y calefacción?",
+          "name": "¿Realizan conversión de gas natural a gas licuado (o viceversa) en calefones?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Sí. Inspeccionamos circuitos de agua fría, agua caliente sanitaria (cobre y PEX), y sistemas de calefacción central (radiadores y losa radiante)."
+            "text": "Sí. Realizamos el cambio de inyectores calibrados y ajuste de presión de quemador según las especificaciones técnicas del fabricante."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Realizan la reparación una vez ubicada la fuga de agua?",
+          "name": "¿Cuánto demora una reparación o instalación de calefont a domicilio?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Sí. Contamos con gasfíteres profesionales para realizar la apertura milimétrica, reparación de la tubería, prueba de estanqueidad y reposición prolija."
+            "text": "Una mantención o reparación dura entre 45 y 90 minutos en terreno, con repuestos originales."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Qué cobertura tienen en la Región Metropolitana y otras zonas?",
+          "name": "¿Qué garantía tienen las reparaciones de calefont?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Cubrimos todas las comunas del Gran Santiago (Sector Oriente, Poniente, Norte y Sur), Chicureo, Colina, además de Valparaíso, Viña del Mar y Rancagua."
+            "text": "Entregamos garantía técnica por escrito sobre repuestos instalados y mano de obra profesional."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Qué garantía tienen los trabajos de detección y reparación?",
+          "name": "¿Atienden urgencias de calefont sin agua caliente en el día?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Garantizamos la exactitud de la detección y entregamos garantía por escrito en todas las reparaciones ejecutadas."
+            "text": "Sí. Contamos con atención prioritaria el mismo día para solucionar urgencias de agua caliente en toda la Región Metropolitana."
           }
         },
         {
           "@@type": "Question",
-          "name": "¿Cómo agendar una visita de emergencia por filtración de agua?",
+          "name": "¿Cómo agendar una visita técnica para mi calefont?",
           "acceptedAnswer": {
             "@@type": "Answer",
-            "text": "Comuníquese al WhatsApp +56 9 4987 7316 indicando su comuna y síntomas para coordinar una visita técnica en el día."
+            "text": "Escríbanos directamente al WhatsApp +56 9 4987 7316 indicando la marca y los litros de su calefont para agendar de inmediato."
           }
         }
       ]
@@ -177,14 +176,14 @@
           nombre: '',
           telefono: '',
           comuna: 'Las Condes',
-          tipoInmueble: 'Casa Particular',
+          marcaCalefont: 'Splendid / Junkers',
           openFaq: null,
-          submitAgua() {
+          submitCalefont() {
               if(!this.nombre || !this.telefono) {
                   alert('Por favor ingrese su Nombre y Teléfono');
                   return;
               }
-              const text = `Hola Domingo Isain (SellafuGas), tengo una fuga de agua potable y necesito detección con Geófono / Reparación:\n\n👤 *Nombre:* ${this.nombre}\n📱 *Teléfono:* ${this.telefono}\n📍 *Comuna:* ${this.comuna}\n🏠 *Tipo de Inmueble:* ${this.tipoInmueble}`;
+              const text = `Hola Domingo Isain (Gasfiter SEC), necesito servicio para mi CALEFONT:\n\n👤 *Nombre:* ${this.nombre}\n📱 *Teléfono:* ${this.telefono}\n📍 *Comuna:* ${this.comuna}\n🔥 *Marca / Modelo:* ${this.marcaCalefont}`;
               window.open(`https://api.whatsapp.com/send?phone=56949877316&text=${encodeURIComponent(text)}`, '_blank');
           }
       }">
@@ -195,8 +194,8 @@
             <a href="{{ route('home') }}" class="flex items-center gap-3 group">
                 <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-11 w-auto rounded-lg shadow-md group-hover:scale-105 transition-transform">
                 <div>
-                    <span class="font-black text-xl text-white tracking-wide block leading-tight">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</span>
-                    <span class="text-[11px] text-blue-400 font-semibold tracking-wider uppercase">Fugas de Agua · Geófono</span>
+                    <span class="font-black text-xl text-white tracking-wide block leading-tight">DOMINGO <span class="text-amber-400">ISAIN</span></span>
+                    <span class="text-[11px] text-amber-400 font-semibold tracking-wider uppercase">Calefont SEC · Mantención</span>
                 </div>
             </a>
 
@@ -206,19 +205,19 @@
                 <a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 transition-colors">Gasfíter SEC</a>
                 <a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 transition-colors">Sello Rojo</a>
                 <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
-                <a href="{{ route('landing.fugas-agua') }}" class="text-blue-400 font-bold border-b-2 border-blue-400 pb-1">Fugas de Agua</a>
+                <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
                 <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Piscinas</a>
-                <a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 transition-colors">Calefont SEC</a>
+                <a href="{{ route('landing.reparacion-calefont') }}" class="text-amber-400 font-bold border-b-2 border-amber-400 pb-1">Calefont SEC</a>
                 <a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados DS66</a>
                 <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-2.5 py-1 rounded-lg">
                     Acceso Admin
                 </a>
             </nav>
 
-            <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20necesito%20detectar%20una%20fuga%20de%20agua" target="_blank"
-               class="px-4 py-2.5 bg-blue-500 hover:bg-blue-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-blue-500/25 transition-all flex items-center gap-2">
-                <i data-lucide="message-circle" class="w-4 h-4"></i>
-                <span>WhatsApp Urgencias Agua</span>
+            <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20necesito%20reparar%20mi%20calefont" target="_blank"
+               class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-amber-500/25 transition-all flex items-center gap-2">
+                <i data-lucide="flame" class="w-4 h-4"></i>
+                <span>Atención Calefont</span>
             </a>
         </div>
     </header>
@@ -229,54 +228,54 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-bold uppercase tracking-wider">
-                        <span>Tecnología Acústica Geófono & Ultrasonido</span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
+                        <span>Servicio Técnico Autorizado SEC Clase 3</span>
                     </div>
 
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-                        Detección de Fugas de Agua <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-teal-300">Sin Romper el Piso</span>
+                        Reparación y Mantención de <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-300 to-emerald-400">Calefont SEC a Domicilio</span>
                     </h1>
 
                     <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
-                        ¿Tu cuenta de agua subió misteriosamente, el medidor gira solo o tienes humedad en muros? Localizamos la filtración invisible exacta bajo radier, baldosas o pasto mediante <strong>Geófonos Electroacústicos de Alta Sensibilidad y Termografía Digital</strong>.
+                        Servicio profesional en terreno por <strong>Domingo Isain Plaza Caamaño (RUT 12.738.961-6)</strong>. Reparación, descalcificación de serpentín, cambio de membranas, instalación normada de tiro forzado y certificación SEC de calefones a gas en Santiago.
                     </p>
 
                     <!-- Feature Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
-                            <span><strong>Geófono Digital</strong> con amplificación sónica</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 shrink-0"></i>
+                            <span><strong>Todas las marcas:</strong> Splendid, Junkers, Trotter</span>
                         </div>
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
-                            <span><strong>Cámaras Termográficas</strong> infrarrojas</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 shrink-0"></i>
+                            <span><strong>Prueba de Gas:</strong> Hermeticidad manométrica</span>
                         </div>
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
-                            <span><strong>Reparación puntual</strong> sin destrozos</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 shrink-0"></i>
+                            <span><strong>Repuestos Originales:</strong> Con garantía escrita</span>
                         </div>
                         <div class="flex items-center gap-2.5 text-sm text-slate-200">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-sky-400 shrink-0"></i>
-                            <span><strong>Informe técnico</strong> para Aguas Andinas / Seguros</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-400 shrink-0"></i>
+                            <span><strong>Certificado SEC:</strong> Validez legal DS66</span>
                         </div>
                     </div>
 
                     <!-- Fast Contact Card -->
                     <div class="glass-card p-6 rounded-3xl border border-slate-700 space-y-4 pt-4">
-                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Agendar Detección de Fuga de Agua:</h3>
+                        <h3 class="text-sm font-bold text-white uppercase tracking-wider">Solicitar Atención Técnica para Calefont:</h3>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <input type="text" placeholder="Su Nombre *" x-model="nombre"
-                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500">
                             <input type="tel" placeholder="Teléfono *" x-model="telefono"
-                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500">
                             <input type="text" placeholder="Comuna *" x-model="comuna"
-                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-sky-500">
+                                   class="w-full px-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500">
                         </div>
 
-                        <button type="button" @click="submitAgua()"
-                                class="w-full py-4 bg-gradient-to-r from-blue-500 via-sky-500 to-emerald-500 hover:from-blue-400 hover:to-emerald-400 text-slate-950 font-black text-base rounded-xl shadow-xl shadow-blue-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                            <i data-lucide="search" class="w-5 h-5"></i>
-                            <span>Solicitar Detección con Geófono por WhatsApp</span>
+                        <button type="button" @click="submitCalefont()"
+                                class="w-full py-4 bg-gradient-to-r from-amber-500 via-orange-500 to-sky-500 hover:from-amber-400 hover:to-sky-400 text-slate-950 font-black text-base rounded-xl shadow-xl shadow-amber-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                            <i data-lucide="wrench" class="w-5 h-5"></i>
+                            <span>Agendar Reparación de Calefont por WhatsApp</span>
                         </button>
                     </div>
 
@@ -284,11 +283,11 @@
 
                 <div class="lg:col-span-5 space-y-6">
                     <div class="glass-card p-4 rounded-3xl border border-slate-700 overflow-hidden shadow-2xl">
-                        <img src="{{ asset('images/geofono-deteccion-agua.png') }}" alt="Geófono para detección de fugas de agua" class="w-full h-80 object-cover rounded-2xl">
+                        <img src="{{ asset('images/reparacion-calefont-sec.png') }}" alt="Mantenimiento Calefont SEC" class="w-full h-80 object-cover rounded-2xl">
                         <div class="p-4 space-y-2">
-                            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">Inspección Acústica Profesional</span>
-                            <h3 class="text-lg font-bold text-white">Geófono de Suelo Electroacústico</h3>
-                            <p class="text-xs text-slate-300">Detecta la frecuencia sonora que genera el escape de agua a presión bajo radier, baldosas o tierra con exactitud.</p>
+                            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider block">Técnico Autorizado SEC</span>
+                            <h3 class="text-lg font-bold text-white">Seguridad y Eficiencia Térmica</h3>
+                            <p class="text-xs text-slate-300">Aseguramos la correcta combustión y evacuación de monóxido de carbono para proteger a tu familia.</p>
                         </div>
                     </div>
                 </div>
@@ -301,20 +300,20 @@
     <section id="faq" class="py-16 bg-slate-900/60 border-t border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
             <div class="text-center mb-8">
-                <span class="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-2">Preguntas y Respuestas</span>
-                <h2 class="text-3xl font-black text-white">10 Preguntas Frecuentes sobre Fugas de Agua Potable</h2>
-                <p class="text-xs text-slate-400 mt-1">Conoce cómo evitar daños estructurales y sobreconsumos en tu cuenta de agua</p>
+                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-2">Preguntas Frecuentes</span>
+                <h2 class="text-3xl font-black text-white">10 Preguntas Frecuentes sobre Calefones a Gas SEC</h2>
+                <p class="text-xs text-slate-400 mt-1">Soluciones rápidas a fallas comunes de encendido, presión y temperatura</p>
             </div>
 
             <!-- FAQ 1 -->
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 1 ? null : 1)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>1. ¿Cómo saber si tengo una fuga de agua oculta en mi casa o departamento?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 1 ? 'rotate-180' : ''"></i>
+                    <span>1. ¿Qué marcas y tipos de calefont atienden?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 1 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 1" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Los principales indicios son: aumento repentino e injustificado en la cuenta del agua, el medidor gira cuando todas las llaves están cerradas, presencia de manchas de humedad o eflorescencias de salitre en muros y zoclos, y baja de presión en duchas.
+                    Atendemos todas las marcas líderes del mercado chileno: Splendid, Junkers, Mademsa, Neckar, Trotter, Rheem, Bosch y Albin Trotter, en versiones de tiro natural, tiro forzado de cámara abierta y cámara estanca ionizados.
                 </div>
             </div>
 
@@ -322,11 +321,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 2 ? null : 2)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>2. ¿Qué tecnología se utiliza para detectar fugas de agua sin romper?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 2 ? 'rotate-180' : ''"></i>
+                    <span>2. ¿Por qué mi calefont se apaga solo al mezclar con agua fría?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 2 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 2" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Utilizamos Geófonos Electroacústicos de Suelo con amplificación sónica digital de alta ganancia, Gas Trazador (Formiergas N2/H2 95/5) para microporosidades y Cámaras Termográficas Infrarrojas para tuberías de agua caliente y losa radiante.
+                    Suele deberse a pérdida de caudal de agua, membrana o diafragma gastado, serpentín calcificado con sarro o falla en el sensor de ionización o termostato de sobrecalentamiento.
                 </div>
             </div>
 
@@ -334,11 +333,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 3 ? null : 3)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>3. ¿Es necesario romper pisos para encontrar la fuga?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 3 ? 'rotate-180' : ''"></i>
+                    <span>3. ¿Es peligroso sentir olor a gas cerca del calefont?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 3 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 3" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    No. La detección es 100% no destructiva. Escuchamos y rastreamos desde la superficie del radier, cerámica, piso flotante o pasto, marcando el punto exacto para que la eventual reparación sea minúscula.
+                    Sí, es una situación crítica. Debe cerrar la llave de paso de gas inmediatamente, ventilar el recinto y solicitar una inspección técnica con manómetro digital de un gasfíter autorizado SEC.
                 </div>
             </div>
 
@@ -346,11 +345,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 4 ? null : 4)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>4. ¿Cuánto tiempo toma una inspección de fuga de agua?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 4 ? 'rotate-180' : ''"></i>
+                    <span>4. ¿El servicio incluye mantención preventiva completa del calefont?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 4 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 4" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Una inspección residencial promedio toma entre 1 y 2 horas, entregando al cliente el diagnóstico inmediato en terreno.
+                    Sí. Incluye limpieza profunda de quemadores e inyectores, descalcificación de serpentín, cambio de membrana y orings, revisión de ducto de evacuación de gases y prueba de hermeticidad de gas.
                 </div>
             </div>
 
@@ -358,11 +357,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 5 ? null : 5)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>5. ¿Entregan informe técnico para rebaja de cuenta en Aguas Andinas o cobro de seguros?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 5 ? 'rotate-180' : ''"></i>
+                    <span>5. ¿Domingo Isain entrega certificado SEC por la instalación de calefont?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 5 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 5" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Sí. Emitimos un Informe Técnico Oficial de Detección y Reparación de Fuga No Visible con respaldo fotográfico, mediciones y firma profesional, válido para tramitar solicitudes de refacturación por sobreconsumo ante empresas sanitarias y aseguradoras.
+                    Sí. Como Gasfiter Instalador Autorizado SEC Clase 3 (RUT 12.738.961-6), emite el Certificado Oficial de Instalación y Hermeticidad bajo norma DS66.
                 </div>
             </div>
 
@@ -370,11 +369,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 6 ? null : 6)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>6. ¿Detectan fugas en redes de agua caliente y calefacción?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 6 ? 'rotate-180' : ''"></i>
+                    <span>6. ¿Realizan conversión de gas natural a gas licuado (o viceversa) en calefones?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 6 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 6" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Sí. Inspeccionamos circuitos de agua fría, agua caliente sanitaria (cobre y PEX), y sistemas de calefacción central (radiadores y losa radiante).
+                    Sí. Realizamos el cambio de inyectores calibrados y ajuste de presión de quemador según las especificaciones técnicas del fabricante.
                 </div>
             </div>
 
@@ -382,11 +381,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 7 ? null : 7)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>7. ¿Realizan la reparación una vez ubicada la fuga de agua?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 7 ? 'rotate-180' : ''"></i>
+                    <span>7. ¿Cuánto demora una reparación o instalación de calefont a domicilio?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 7 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 7" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Sí. Contamos con gasfíteres profesionales para realizar la apertura milimétrica, reparación de la tubería, prueba de estanqueidad y reposición prolija.
+                    Una mantención o reparación dura entre 45 y 90 minutos en terreno, con repuestos originales.
                 </div>
             </div>
 
@@ -394,11 +393,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 8 ? null : 8)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>8. ¿Qué cobertura tienen en la Región Metropolitana y otras zonas?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 8 ? 'rotate-180' : ''"></i>
+                    <span>8. ¿Qué garantía tienen las reparaciones de calefont?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 8 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 8" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Cubrimos todas las comunas del Gran Santiago (Sector Oriente, Poniente, Norte y Sur), Chicureo, Colina, además de Valparaíso, Viña del Mar y Rancagua.
+                    Entregamos garantía técnica por escrito sobre repuestos instalados y mano de obra profesional.
                 </div>
             </div>
 
@@ -406,11 +405,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 9 ? null : 9)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>9. ¿Qué garantía tienen los trabajos de detección y reparación?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 9 ? 'rotate-180' : ''"></i>
+                    <span>9. ¿Atienden urgencias de calefont sin agua caliente en el día?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 9 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 9" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Garantizamos la exactitud de la detección y entregamos garantía por escrito en todas las reparaciones ejecutadas.
+                    Sí. Contamos con atención prioritaria el mismo día para solucionar urgencias de agua caliente en toda la Región Metropolitana.
                 </div>
             </div>
 
@@ -418,11 +417,11 @@
             <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
                 <button type="button" @click="openFaq = (openFaq === 10 ? null : 10)"
                         class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
-                    <span>10. ¿Cómo agendar una visita de emergencia por filtración de agua?</span>
-                    <i data-lucide="chevron-down" class="w-5 h-5 text-blue-400 transition-transform" :class="openFaq === 10 ? 'rotate-180' : ''"></i>
+                    <span>10. ¿Cómo agendar una visita técnica para mi calefont?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-amber-400 transition-transform" :class="openFaq === 10 ? 'rotate-180' : ''"></i>
                 </button>
                 <div x-show="openFaq === 10" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
-                    Comuníquese al WhatsApp +56 9 4987 7316 indicando su comuna y síntomas para coordinar una visita técnica en el día.
+                    Escríbanos directamente al WhatsApp +56 9 4987 7316 indicando la marca y los litros de su calefont para agendar de inmediato.
                 </div>
             </div>
 
@@ -433,8 +432,9 @@
     <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="space-y-3">
-                <span class="text-base font-black text-white block">SellafuGas® Fugas de Agua</span>
-                <p>Especialistas en detección electroacústica, geófono y reparación puntual de cañerías de agua potable.</p>
+                <span class="text-base font-black text-white block">SellafuGas® Calefont SEC</span>
+                <p>Servicio técnico autorizado SEC en reparación, mantención e instalación de calefones y calderas.</p>
+                <p class="text-slate-300">Domingo Isain · RUT: 12.738.961-6</p>
             </div>
             <div>
                 <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Servicios</span>
@@ -442,9 +442,8 @@
                     <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-white">Sellado Fugas de Gas</a></li>
                     <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-white">Gasfíter Certificado SEC</a></li>
                     <li><a href="{{ route('landing.sello-rojo') }}" class="hover:text-white">Sello Rojo</a></li>
-                    <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-white">Gas Trazador</a></li>
-                    <li><a href="{{ route('landing.fugas-agua') }}" class="text-blue-400 font-bold">Fugas de Agua</a></li>
-                    <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-white">Fugas en Piscinas</a></li>
+                    <li><a href="{{ route('landing.reparacion-calefont') }}" class="text-amber-400 font-bold">Calefont SEC</a></li>
+                    <li><a href="{{ route('landing.certificados-sec') }}" class="hover:text-white">Certificados SEC DS66</a></li>
                 </ul>
             </div>
             <div>
@@ -455,8 +454,8 @@
                 </ul>
             </div>
             <div>
-                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Garantía de Servicio</span>
-                <p class="text-xs text-slate-300">Usted Paga Después de Solucionado · Atención en toda la Región Metropolitana.</p>
+                <span class="text-xs font-bold text-white uppercase tracking-wider block mb-3">Acreditación SEC</span>
+                <p class="text-xs text-slate-300">Superintendencia de Electricidad y Combustibles (SEC) · DS66</p>
             </div>
         </div>
     </footer>

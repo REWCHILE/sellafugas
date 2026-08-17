@@ -18,12 +18,16 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-// 5 Specialized SEO Landing Pages (High-Conversion Google Ads & Organic SEO)
+// 9 Specialized SEO Landing Pages (High-Conversion Google Ads & Organic SEO)
 Route::get('/fugas-de-gas', [PublicLandingController::class, 'fugasGas'])->name('landing.fugas-gas');
 Route::get('/gasfiter-sec', [PublicLandingController::class, 'gasfiterSec'])->name('landing.gasfiter-sec');
 Route::get('/gas-trazador', [PublicLandingController::class, 'gasTrazador'])->name('landing.gas-trazador');
 Route::get('/fugas-de-agua', [PublicLandingController::class, 'fugasAgua'])->name('landing.fugas-agua');
 Route::get('/fugas-piscinas', [PublicLandingController::class, 'fugasPiscinas'])->name('landing.fugas-piscinas');
+Route::get('/sello-rojo-sec', [PublicLandingController::class, 'selloRojo'])->name('landing.sello-rojo');
+Route::get('/deteccion-fugas-sin-romper', [PublicLandingController::class, 'deteccionSinRomper'])->name('landing.deteccion-sin-romper');
+Route::get('/reparacion-calefont-sec', [PublicLandingController::class, 'reparacionCalefont'])->name('landing.reparacion-calefont');
+Route::get('/certificados-sec-gas', [PublicLandingController::class, 'certificadosSec'])->name('landing.certificados-sec');
 
 // Public quotation calculator & submission
 Route::post('/cotizar', [QuotePublicController::class, 'store'])->name('quote.public.store');

@@ -7,12 +7,18 @@
     <meta name="description" content="{{ $metaDescription }}">
     <link rel="canonical" href="{{ $canonicalUrl }}" />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:title" content="{{ $metaTitle }}">
+    <meta property="og:description" content="{{ $metaDescription }}">
+    <meta property="og:image" content="{{ asset('images/fugas-piscina-deteccion.png') }}">
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind CSS CDN -->
@@ -58,7 +64,7 @@
         }
     </style>
 
-    <!-- Schema.org JSON-LD -->
+    <!-- Schema.org JSON-LD Service -->
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
@@ -74,6 +80,96 @@
       "areaServed": ["Santiago", "Chicureo", "Las Condes", "Vitacura", "Lo Barnechea", "Colina", "La Reina", "Peñalolén", "Machalí", "Valparaíso", "Viña del Mar"]
     }
     </script>
+
+    <!-- Schema.org FAQPage (10 FAQs Reales) -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@@type": "Question",
+          "name": "¿Cómo saber si mi piscina tiene una fuga o es solo evaporación natural?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Una piscina pierde por evaporación entre 3 a 5 mm diarios en verano. Si el nivel desciende más de 1 a 2 centímetros al día, existe una fuga activa en el vaso, skimmers, retornos o cañerías subterráneas."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Es necesario vaciar el agua de la piscina para realizar la detección?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "No. Nuestro método de inspección se realiza con la piscina completamente llena para no desperdiciar agua ni alterar la presión hidrostática del terreno."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué tecnología se emplea para encontrar la fuga bajo el agua?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Utilizamos Hidrófonos Sumergibles de Alta Sensibilidad, Inyección de Tinte Trazador de Fluoresceína inocuo, Pruebas de Presión Manométrica en los circuitos de filtrado y Cámaras Endoscópicas sumergibles."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cuáles son los puntos más comunes donde ocurren fugas en piscinas?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Los puntos más frecuentes son: unión de skimmers con el muro de hormigón, pasamuros de focos LED, boquillas de retorno, fondo/drenaje principal y rotura por raíces en cañerías subterráneas entre la bomba y la piscina."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Se puede reparar la fuga bajo el agua sin botar el agua?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí. En fisuras de estructura, skimmers y focos aplicamos polímeros y masillas epóxicas subacuáticas de curado bajo agua que sellan de inmediato."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué ocurre si la fuga está en la cañería subterránea enterrada en el jardín?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Aislamos los circuitos mediante tapones neumáticos y presurizamos con gas trazador o geófono para marcar el punto exacto bajo el césped o terraza sin romper todo el entorno."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cuánto tiempo demora la inspección en una piscina residencial?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "La inspección toma entre 2 y 3 horas, verificando tanto la estructura estática como el sistema dinámico con la bomba en funcionamiento."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Sirve para piscinas de hormigón, fibra de vidrio y liner?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Sí. Nuestros equipos y procedimientos son 100% compatibles con piscinas de hormigón pintado, con mosaico/cerámico, piscinas de fibra de vidrio y piscinas con liner de PVC."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Qué zonas atienden para servicios de piscinas?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Atendemos en todo Santiago, especialmente sectores con alta presencia de piscinas como Chicureo, Chamisero, Colina, Lo Barnechea, Las Condes, Vitacura, La Reina, Peñalolén, Pirque, Calera de Tango, además de la V y VI Región."
+          }
+        },
+        {
+          "@@type": "Question",
+          "name": "¿Cómo coordinar una visita técnica para mi piscina?",
+          "acceptedAnswer": {
+            "@@type": "Answer",
+            "text": "Escríbanos directamente al WhatsApp +56 9 4987 7316 indicando su comuna y los centímetros aproximados que pierde al día para una evaluación rápida."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white"
       x-data="{
@@ -81,6 +177,7 @@
           telefono: '',
           comuna: 'Chicureo',
           tipoPiscina: 'Hormigón / Pintura o Cerámica',
+          openFaq: null,
           submitPiscina() {
               if(!this.nombre || !this.telefono) {
                   alert('Por favor ingrese su Nombre y Teléfono');
@@ -102,15 +199,18 @@
                 </div>
             </a>
 
-            <!-- Services Menu Desktop -->
-            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-300">
+            <!-- Full Navigation Menu -->
+            <nav class="hidden xl:flex items-center gap-4 text-xs font-semibold text-slate-300">
                 <a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 transition-colors">Fugas de Gas</a>
                 <a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 transition-colors">Gasfíter SEC</a>
+                <a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 transition-colors">Sello Rojo</a>
                 <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
                 <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
-                <a href="{{ route('landing.fugas-piscinas') }}" class="text-teal-400 font-bold border-b-2 border-teal-400 pb-1">Fugas en Piscinas</a>
-                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-3 py-1.5 rounded-xl transition-colors">
-                    Acceso Administrador
+                <a href="{{ route('landing.fugas-piscinas') }}" class="text-teal-400 font-bold border-b-2 border-teal-400 pb-1">Piscinas</a>
+                <a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 transition-colors">Calefont SEC</a>
+                <a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados DS66</a>
+                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-2.5 py-1 rounded-lg">
+                    Acceso Admin
                 </a>
             </nav>
 
@@ -196,6 +296,138 @@
         </div>
     </section>
 
+    <!-- 10 Visible FAQs Section -->
+    <section id="faq" class="py-16 bg-slate-900/60 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold text-teal-400 uppercase tracking-widest block mb-2">Preguntas y Diagnósticos</span>
+                <h2 class="text-3xl font-black text-white">10 Preguntas Frecuentes sobre Fugas en Piscinas</h2>
+                <p class="text-xs text-slate-400 mt-1">Conoce cómo evitar la pérdida de agua y daño al terreno de tu piscina</p>
+            </div>
+
+            <!-- FAQ 1 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 1 ? null : 1)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>1. ¿Cómo saber si mi piscina tiene una fuga o es solo evaporación natural?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 1 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 1" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Una piscina pierde por evaporación entre 3 a 5 mm diarios en verano. Si el nivel desciende más de 1 a 2 centímetros al día, existe una fuga activa en el vaso, skimmers, retornos o cañerías subterráneas.
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 2 ? null : 2)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>2. ¿Es necesario vaciar el agua de la piscina para realizar la detección?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 2 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 2" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    No. Nuestro método de inspección se realiza con la piscina completamente llena para no desperdiciar agua ni alterar la presión hidrostática del terreno.
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 3 ? null : 3)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>3. ¿Qué tecnología se emplea para encontrar la fuga bajo el agua?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 3 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 3" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Utilizamos Hidrófonos Sumergibles de Alta Sensibilidad, Inyección de Tinte Trazador de Fluoresceína inocuo, Pruebas de Presión Manométrica en los circuitos de filtrado y Cámaras Endoscópicas sumergibles.
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 4 ? null : 4)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>4. ¿Cuáles son los puntos más comunes donde ocurren fugas en piscinas?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 4 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 4" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Los puntos más frecuentes son: unión de skimmers con el muro de hormigón, pasamuros de focos LED, boquillas de retorno, fondo/drenaje principal y rotura por raíces en cañerías subterráneas entre la bomba y la piscina.
+                </div>
+            </div>
+
+            <!-- FAQ 5 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 5 ? null : 5)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>5. ¿Se puede reparar la fuga bajo el agua sin botar el agua?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 5 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 5" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Sí. En fisuras de estructura, skimmers y focos aplicamos polímeros y masillas epóxicas subacuáticas de curado bajo agua que sellan de inmediato.
+                </div>
+            </div>
+
+            <!-- FAQ 6 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 6 ? null : 6)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>6. ¿Qué ocurre si la fuga está en la cañería subterránea enterrada en el jardín?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 6 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 6" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Aislamos los circuitos mediante tapones neumáticos y presurizamos con gas trazador o geófono para marcar el punto exacto bajo el césped o terraza sin romper todo el entorno.
+                </div>
+            </div>
+
+            <!-- FAQ 7 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 7 ? null : 7)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>7. ¿Cuánto tiempo demora la inspección en una piscina residencial?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 7 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 7" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    La inspección toma entre 2 y 3 horas, verificando tanto la estructura estática como el sistema dinámico con la bomba en funcionamiento.
+                </div>
+            </div>
+
+            <!-- FAQ 8 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 8 ? null : 8)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>8. ¿Sirve para piscinas de hormigón, fibra de vidrio y liner?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 8 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 8" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Sí. Nuestros equipos y procedimientos son 100% compatibles con piscinas de hormigón pintado, con mosaico/cerámico, piscinas de fibra de vidrio y piscinas con liner de PVC.
+                </div>
+            </div>
+
+            <!-- FAQ 9 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 9 ? null : 9)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>9. ¿Qué zonas atienden para servicios de piscinas?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 9 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 9" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Atendemos en todo Santiago, especialmente sectores con alta presencia de piscinas como Chicureo, Chamisero, Colina, Lo Barnechea, Las Condes, Vitacura, La Reina, Peñalolén, Pirque, Calera de Tango, además de la V y VI Región.
+                </div>
+            </div>
+
+            <!-- FAQ 10 -->
+            <div class="glass-card rounded-2xl border border-slate-800 overflow-hidden">
+                <button type="button" @click="openFaq = (openFaq === 10 ? null : 10)"
+                        class="w-full p-5 text-left font-bold text-white flex items-center justify-between gap-4">
+                    <span>10. ¿Cómo coordinar una visita técnica para mi piscina?</span>
+                    <i data-lucide="chevron-down" class="w-5 h-5 text-teal-400 transition-transform" :class="openFaq === 10 ? 'rotate-180' : ''"></i>
+                </button>
+                <div x-show="openFaq === 10" class="px-5 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-800/80 pt-4">
+                    Escríbanos directamente al WhatsApp +56 9 4987 7316 indicando su comuna y los centímetros aproximados que pierde al día para una evaluación rápida.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -208,6 +440,7 @@
                 <ul class="space-y-2">
                     <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-white">Sellado Fugas de Gas</a></li>
                     <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-white">Gasfíter Certificado SEC</a></li>
+                    <li><a href="{{ route('landing.sello-rojo') }}" class="hover:text-white">Sello Rojo</a></li>
                     <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-white">Gas Trazador</a></li>
                     <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-white">Fugas de Agua</a></li>
                     <li><a href="{{ route('landing.fugas-piscinas') }}" class="text-teal-400 font-bold">Fugas en Piscinas</a></li>

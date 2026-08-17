@@ -397,15 +397,17 @@
             </a>
 
             <!-- Navigation Links Desktop -->
-            <nav class="hidden lg:flex items-center gap-5 text-xs font-semibold text-slate-300">
+            <nav class="hidden xl:flex items-center gap-3.5 text-xs font-semibold text-slate-300">
                 <a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 transition-colors">Fugas de Gas</a>
                 <a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 transition-colors">Gasfíter SEC</a>
+                <a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 transition-colors">Sello Rojo</a>
                 <a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 transition-colors">Gas Trazador</a>
                 <a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 transition-colors">Fugas de Agua</a>
-                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Fugas en Piscinas</a>
-                <a href="#faq" class="hover:text-sky-400 transition-colors">FAQ</a>
-                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-slate-200 border border-slate-700 px-2.5 py-1 rounded-lg">
-                    Acceso Administrador
+                <a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 transition-colors">Piscinas</a>
+                <a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 transition-colors">Calefont SEC</a>
+                <a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados DS66</a>
+                <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-slate-200 border border-slate-700 px-2 py-1 rounded-lg">
+                    Acceso Admin
                 </a>
             </nav>
 
@@ -1251,13 +1253,17 @@
 
                 <!-- Col 2: Specialized Landing Services -->
                 <div class="space-y-2">
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Especialidades SEO</h4>
-                    <ul class="space-y-1.5 text-xs">
-                        <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 text-slate-300">Sellado Fugas de Gas (Prodoral)</a></li>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Especialidades Técnicas</h4>
+                    <ul class="space-y-1 text-xs">
+                        <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 text-slate-300">Sellado Fugas de Gas (Prodoral R6-1)</a></li>
                         <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 text-slate-300">Gasfiter Certificado SEC Domingo</a></li>
+                        <li><a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 text-slate-300">Levantamiento Sello Rojo SEC</a></li>
                         <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 text-slate-300">Detección con Gas Trazador</a></li>
                         <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 text-slate-300">Detección Fugas de Agua (Geófono)</a></li>
                         <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 text-slate-300">Fugas en Piscinas sin Vaciar</a></li>
+                        <li><a href="{{ route('landing.deteccion-sin-romper') }}" class="hover:text-sky-400 text-slate-300">Detección Sin Romper</a></li>
+                        <li><a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 text-slate-300">Calefont SEC Mantención</a></li>
+                        <li><a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 text-slate-300">Certificados Oficiales SEC DS66</a></li>
                     </ul>
                 </div>
 
