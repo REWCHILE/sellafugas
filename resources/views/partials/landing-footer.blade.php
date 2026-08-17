@@ -47,9 +47,7 @@
                     <li><a href="{{ route('landing.prodoral') }}" class="hover:text-amber-400 transition-colors">Tecnología Prodoral R6-1</a></li>
                     <li><a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 transition-colors">Certificados Oficiales SEC</a></li>
                     @auth
-                    <li><a href="{{ route('certificates.index') }}" class="text-emerald-400 font-bold">Mi Portal Administrador</a></li>
-                    @else
-                    <li><a href="{{ route('login') }}" class="hover:text-slate-200 transition-colors">Acceso Administrador</a></li>
+                    <li><a href="{{ route('certificates.index') }}" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold hover:bg-emerald-500/30 transition-all"><i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i><span>Mi Portal Administrador</span></a></li>
                     @endauth
                 </ul>
             </div>

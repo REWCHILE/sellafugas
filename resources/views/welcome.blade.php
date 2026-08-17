@@ -1051,81 +1051,8 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 border-t border-slate-800/80 py-12 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                
-                <!-- Col 1: Brand Info -->
-                <div class="space-y-3 md:col-span-2">
-                    <div class="flex items-center gap-3">
-                        <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-12 w-auto">
-                        <div>
-                            <span class="font-display font-black text-xl text-white">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</span>
-                            <span class="text-[11px] text-slate-400 block font-semibold">Domingo Isain · Gasfiter Certificado SEC</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed max-w-md">
-                        Servicio técnico especializado en sellado de fugas de gas no visibles en cañerías con Prodoral R6-1 alemán sin romper muros. Procedimiento &lt; 2 horas, garantía 3 años, usted paga después de solucionado.
-                    </p>
-                    <div class="text-[11px] text-slate-500">
-                        Dirección Postal: Estado 215, Santiago · Instalgaschile SpA: Av. Lib. Bernardo O'Higgins 1302, Santiago, Chile 🇨🇱
-                    </div>
-                </div>
-
-                <!-- Col 2: Specialized Landing Services -->
-                <div class="space-y-2">
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Especialidades Técnicas</h4>
-                    <ul class="space-y-1 text-xs">
-                        <li><a href="{{ route('landing.prodoral') }}" class="hover:text-amber-400 text-amber-300 font-bold">🇩🇪 Prodoral R6-1 Sellado Alemán</a></li>
-                        <li><a href="{{ route('landing.fugas-gas') }}" class="hover:text-sky-400 text-slate-300">Sellado Fugas de Gas Sin Romper</a></li>
-                        <li><a href="{{ route('landing.gasfiter-sec') }}" class="hover:text-sky-400 text-slate-300">Gasfiter Certificado SEC Domingo</a></li>
-                        <li><a href="{{ route('landing.sello-rojo') }}" class="hover:text-sky-400 text-slate-300">Levantamiento Sello Rojo SEC</a></li>
-                        <li><a href="{{ route('landing.gas-trazador') }}" class="hover:text-sky-400 text-slate-300">Detección con Gas Trazador</a></li>
-                        <li><a href="{{ route('landing.fugas-agua') }}" class="hover:text-sky-400 text-slate-300">Detección Fugas de Agua (Geófono)</a></li>
-                        <li><a href="{{ route('landing.fugas-piscinas') }}" class="hover:text-sky-400 text-slate-300">Fugas en Piscinas sin Vaciar</a></li>
-                        <li><a href="{{ route('landing.deteccion-sin-romper') }}" class="hover:text-sky-400 text-slate-300">Detección Sin Romper Muros</a></li>
-                        <li><a href="{{ route('landing.reparacion-calefont') }}" class="hover:text-sky-400 text-slate-300">Calefont SEC Mantención</a></li>
-                        <li><a href="{{ route('landing.certificados-sec') }}" class="hover:text-sky-400 text-slate-300">Certificados Oficiales SEC DS66</a></li>
-                    </ul>
-                </div>
-
-                <!-- Col 3: Fast Links -->
-                <div class="space-y-2">
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">SellafuGas®</h4>
-                    <ul class="space-y-1.5 text-xs">
-                        <li><a href="{{ route('nosotros') }}" class="hover:text-sky-400 text-slate-300">Sobre Nosotros</a></li>
-                        <li><a href="{{ route('contacto') }}" class="hover:text-sky-400 text-slate-300">Contacto y Emergencias 24/7</a></li>
-                        <li><a href="#cotizador" class="hover:text-emerald-400 transition-colors">Cotizador de Sellado</a></li>
-                        <li><a href="#como-funciona" class="hover:text-sky-400 transition-colors">Tecnología Prodoral R6-1</a></li>
-                        <li><a href="#certificaciones" class="hover:text-sky-400 transition-colors">Verificar Certificados SEC</a></li>
-                        <li><a href="#faq" class="hover:text-sky-400 transition-colors">Preguntas Frecuentes</a></li>
-                        @auth
-                        <li><a href="{{ route('certificates.index') }}" class="text-emerald-400 font-bold">Mi Portal Administrador</a></li>
-                        @else
-                        <li><a href="{{ route('login') }}" class="hover:text-slate-200 transition-colors">Acceso Administrador</a></li>
-                        @endauth
-                    </ul>
-                </div>
-
-                <!-- Col 4: Contact & Emergency -->
-                <div class="space-y-2">
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider">Atención y Urgencias</h4>
-                    <p class="text-xs text-slate-300 font-bold">Teléfono / WhatsApp:</p>
-                    <a href="tel:949877316" class="text-base font-black text-emerald-400 block hover:underline">
-                        +56 9 4987 7316
-                    </a>
-                    <p class="text-[11px] text-slate-400">Atención de Lunes a Domingo en RM, V y VI Región.</p>
-                </div>
-
-            </div>
-
-            <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
-                <p>© {{ date('Y') }} SellafuGas®. Marca Registrada. Domingo Isain Plaza Caamaño (RUT 12.738.961-6) - Gasfiter Certificado SEC Clase 3.</p>
-                <p>Todos los derechos reservados · Normativa SEC DS66 / DIN EN 13090.</p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Partial -->
+    @include('partials.landing-footer')
 
     <!-- REAL-TIME SOCIAL PROOF NOTIFICATION TOAST (FOMO SYSTEM) -->
     <div id="fomoToast" class="fixed bottom-6 left-6 z-50 transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-none sm:pointer-events-auto">

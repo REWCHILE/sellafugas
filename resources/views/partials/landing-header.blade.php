@@ -147,13 +147,15 @@
             <a href="{{ route('contacto') }}" class="hover:text-sky-400 transition-colors {{ request()->routeIs('contacto') ? 'text-sky-400 font-bold' : '' }}">Contacto</a>
 
             @auth
-            <a href="{{ route('certificates.index') }}" class="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1.5 rounded-xl flex items-center gap-1.5 hover:bg-emerald-500/20 transition-all">
-                <i data-lucide="layout-dashboard" class="w-3.5 h-3.5"></i>
-                <span>Mi Portal Admin</span>
-            </a>
-            @else
-            <a href="{{ route('login') }}" class="text-xs text-slate-400 hover:text-white border border-slate-700 px-2.5 py-1 rounded-lg">
-                Acceso Admin
+            <!-- Standout Dynamic Admin Portal Button (Only when Authenticated) -->
+            <a href="{{ route('certificates.index') }}" 
+               class="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 text-slate-950 font-black text-xs shadow-lg shadow-emerald-500/30 ring-2 ring-emerald-400/50 hover:ring-emerald-300 transform transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:shadow-neon-emerald hover:brightness-110 active:scale-95 group">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-slate-950"></span>
+                </span>
+                <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-slate-950 group-hover:rotate-12 transition-transform duration-300"></i>
+                <span>Mi Portal</span>
             </a>
             @endauth
         </nav>
@@ -331,13 +333,11 @@
                     </a>
 
                     @auth
-                    <a href="{{ route('certificates.index') }}" class="block w-full py-2.5 text-center text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 rounded-xl hover:bg-emerald-500/20 transition-all">
-                        <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 inline mr-1"></i>
+                    <!-- Standout Dynamic Admin Portal Drawer Button -->
+                    <a href="{{ route('certificates.index') }}" 
+                       class="w-full py-3 text-center text-xs font-black text-slate-950 bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-500 rounded-xl shadow-lg shadow-emerald-500/30 ring-2 ring-emerald-400/50 flex items-center justify-center gap-2 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-neon-emerald active:scale-95">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
                         <span>Mi Portal Administrador</span>
-                    </a>
-                    @else
-                    <a href="{{ route('login') }}" class="block w-full py-2.5 text-center text-xs font-bold text-slate-400 border border-slate-700/80 rounded-xl hover:text-white hover:bg-slate-800/60 transition-all">
-                        <span>Acceso Administrador</span>
                     </a>
                     @endauth
                 </div>
