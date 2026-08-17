@@ -322,6 +322,9 @@
         </div>
     </section>
 
+    <!-- SECTION: DOMINGO ISAIN CERTIFICATIONS & CREDENTIALS -->
+    @include('partials.certificates-section')
+
     <!-- 10 Visible FAQs Section -->
     <section id="faq" class="py-16 bg-slate-900/60 border-t border-slate-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
