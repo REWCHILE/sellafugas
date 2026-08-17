@@ -42,10 +42,10 @@
             <div class="glass-dark rounded-2xl border-2 border-emerald-500/40 p-5 flex flex-col justify-between space-y-4 shadow-xl shadow-emerald-950/20 group hover:border-emerald-400 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
-                    <div class="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-3 cursor-pointer group-hover:shadow-lg transition-all"
+                    <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-2 cursor-pointer group-hover:shadow-lg transition-all"
                          @click="openCertModal('Licencia Oficial Gasfíter Instalador SEC Clase 3', '{{ asset('images/certificados-sec-gas.png') }}', 'Domingo Isain Plaza Caamaño · RUT 12.738.961-6', 'DS66 SEC · Superintendencia de Electricidad y Combustibles', 'Oficial SEC')">
-                        <img src="{{ asset('images/certificados-sec-gas.png') }}" alt="Licencia SEC Domingo Isain" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-all flex items-center justify-center">
+                        <img src="{{ asset('images/certificados-sec-gas.png') }}" alt="Licencia SEC Domingo Isain" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-all flex items-center justify-center pointer-events-none">
                             <span class="p-2 rounded-full bg-emerald-500/90 text-slate-950 shadow-lg group-hover:scale-110 transition-transform">
                                 <i data-lucide="eye" class="w-4 h-4 stroke-[2.5]"></i>
                             </span>
@@ -87,10 +87,10 @@
             <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-sky-500/60 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
-                    <div class="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700/80 aspect-[4/3] flex items-center justify-center cursor-pointer group-hover:shadow-lg transition-all"
+                    <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-2 cursor-pointer group-hover:shadow-lg transition-all"
                          @click="openCertModal('Certificado Técnico de Fugas de Gas', '{{ asset('images/certificates/certificado-fugade-gas.webp') }}', 'Sellado interno de matrices y cañerías sin romper', 'Norma NCh 2235 & DS66 SEC', 'Certificación Técnica')">
-                        <img src="{{ asset('images/certificates/certificado-fugade-gas.webp') }}" alt="Certificado Fuga de Gas Domingo Isain" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-all flex items-center justify-center">
+                        <img src="{{ asset('images/certificates/certificado-fugade-gas.webp') }}" alt="Certificado Fuga de Gas Domingo Isain" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-all flex items-center justify-center pointer-events-none">
                             <span class="p-2 rounded-full bg-sky-500/90 text-slate-950 shadow-lg group-hover:scale-110 transition-transform">
                                 <i data-lucide="eye" class="w-4 h-4 stroke-[2.5]"></i>
                             </span>
@@ -126,10 +126,10 @@
             <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-amber-500/60 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
-                    <div class="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700/80 aspect-[4/3] flex items-center justify-center cursor-pointer group-hover:shadow-lg transition-all"
+                    <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-2 cursor-pointer group-hover:shadow-lg transition-all"
                          @click="openCertModal('Certificado Oficial Aplicador Prodoral R6-1', '{{ asset('images/certificates/certificado-prodoral.webp') }}', 'Tecnología alemana de sellado polimérico por inyección', 'DIN EN 13090 · NAG-203 · DS66 Art. 7', 'Norma Alemana')">
-                        <img src="{{ asset('images/certificates/certificado-prodoral.webp') }}" alt="Certificado Prodoral R6-1 Domingo Isain" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-all flex items-center justify-center">
+                        <img src="{{ asset('images/certificates/certificado-prodoral.webp') }}" alt="Certificado Prodoral R6-1 Domingo Isain" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-all flex items-center justify-center pointer-events-none">
                             <span class="p-2 rounded-full bg-amber-500/90 text-slate-950 shadow-lg group-hover:scale-110 transition-transform">
                                 <i data-lucide="eye" class="w-4 h-4 stroke-[2.5]"></i>
                             </span>
@@ -165,10 +165,10 @@
             <div class="glass-dark rounded-2xl border border-slate-800 p-5 flex flex-col justify-between space-y-4 shadow-xl group hover:border-cyan-500/60 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
-                    <div class="relative rounded-xl overflow-hidden bg-slate-900 border border-slate-700/80 aspect-[4/3] flex items-center justify-center cursor-pointer group-hover:shadow-lg transition-all"
+                    <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-2 cursor-pointer group-hover:shadow-lg transition-all"
                          @click="openCertModal('Certificado de Prueba de Hermeticidad Manométrica', '{{ asset('images/certificates/certificado-prueba-hermeticidad.webp') }}', 'Prueba estanco a 368 mmca / 267 mmca sin caída de presión', 'DS66 Art. 44.2.3 · SellafuGas® Marca Registrada', 'Protocolo DS66')">
-                        <img src="{{ asset('images/certificates/certificado-prueba-hermeticidad.webp') }}" alt="Certificado Hermeticidad Domingo Isain" class="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-slate-950/40 group-hover:bg-slate-950/20 transition-all flex items-center justify-center">
+                        <img src="{{ asset('images/certificates/certificado-prueba-hermeticidad.webp') }}" alt="Certificado Hermeticidad Domingo Isain" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-all flex items-center justify-center pointer-events-none">
                             <span class="p-2 rounded-full bg-cyan-500/90 text-slate-950 shadow-lg group-hover:scale-110 transition-transform">
                                 <i data-lucide="eye" class="w-4 h-4 stroke-[2.5]"></i>
                             </span>
