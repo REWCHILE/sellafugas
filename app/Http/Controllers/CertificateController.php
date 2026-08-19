@@ -82,9 +82,11 @@ class CertificateController extends Controller
 
     public function create()
     {
-        // Generate next certificate folio number
+        // Generate next certificate folio number (starting from 257830)
         $lastCert = Certificate::orderByRaw('CAST(certificate_number AS UNSIGNED) DESC')->first();
-        $nextNumber = $lastCert ? intval($lastCert->certificate_number) + 1 : 14409;
+        $nextNumber = ($lastCert && intval($lastCert->certificate_number) >= 257830) 
+            ? intval($lastCert->certificate_number) + 1 
+            : 257830;
 
         // Default details with official Prodoral Certificado text
         $defaultDetails = "Se realizó sellado de fuga de gas en red de 30 metros lineales aproximadamente.\n\n"

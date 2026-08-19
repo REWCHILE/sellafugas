@@ -41,6 +41,20 @@ Route::get('/certificates/{certificate}/pdf', [CertificateController::class, 'do
 
 /*
 |--------------------------------------------------------------------------
+| SEO 301 Permanent Redirects (Legacy URLs indexed on Google)
+|--------------------------------------------------------------------------
+*/
+Route::redirect('/sellafugas', '/', 301);
+Route::redirect('/cotizador', '/#cotizador', 301);
+Route::redirect('/sellafugas-de-gas', '/fugas-de-gas', 301);
+Route::redirect('/tecnico-en-fugas-de-gas', '/gasfiter-sec', 301);
+Route::redirect('/sellado-de-fugas-de-gas-con-prodoral-reparamos-sin-romper-sellafugas-domingo-isaingasfiter-certificado-autorizado-sec', '/prodoral', 301);
+Route::redirect('/sellado-de-fugas-de-gas-con-prodoral-reparamos-sin-romper-sellafugas-domingo-isain-gasfiter-certificado-autorizado-sec-region-metropolitana', '/fugas-de-gas', 301);
+Route::redirect('/sellado-de-fugas-de-gas-con-prodoral-reparamos-sin-romper-sellafugas-domingo-isain-gasfiter-certificado-autorizado-sec-chicureo', '/gasfiter-sec', 301);
+Route::redirect('/wp-content/uploads/2023/06/marca-registrada-SellafuGas-Domingo-Isain.pdf', '/registro_instalgaschile.pdf', 301);
+
+/*
+|--------------------------------------------------------------------------
 | Guest Auth Routes
 |--------------------------------------------------------------------------
 */

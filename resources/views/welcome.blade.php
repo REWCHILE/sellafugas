@@ -23,10 +23,10 @@
     <link rel="icon" type="image/webp" href="{{ asset('images/logotipo-sellafugas.cl.webp') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Human & Industrial Typography Stack (Plus Jakarta Sans, Manrope, Space Grotesk) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
     <!-- Animations Stylesheet Preset -->
     <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
@@ -38,10 +38,27 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif'],
+                        sans: ['Manrope', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        tech: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
+                        copper: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                        },
+                        brass: {
+                            400: '#fbbf24',
+                            500: '#d97706',
+                            600: '#b45309',
+                        },
                         brand: {
                             50: '#f0f9ff',
                             100: '#e0f2fe',
@@ -54,16 +71,17 @@
                             950: '#082f49',
                         },
                         gas: {
-                            emerald: '#10b981',
-                            cyan: '#06b6d4',
-                            amber: '#f59e0b',
-                            rose: '#ef4444',
+                            emerald: '#059669',
+                            cyan: '#0891b2',
+                            amber: '#d97706',
+                            rose: '#e11d48',
                         }
                     },
                     boxShadow: {
-                        'neon-emerald': '0 0 25px -5px rgba(16, 185, 129, 0.4)',
-                        'neon-sky': '0 0 25px -5px rgba(56, 189, 248, 0.4)',
+                        'neon-emerald': '0 0 25px -5px rgba(5, 150, 105, 0.35)',
+                        'neon-sky': '0 0 25px -5px rgba(2, 132, 199, 0.35)',
                         'glow-lg': '0 10px 40px -10px rgba(2, 132, 199, 0.35)',
+                        'tactile': '0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
                     }
                 }
             }
@@ -79,29 +97,63 @@
     <style>
         [x-cloak] { display: none !important; }
         
+        body {
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
         .bg-grid-pattern {
-            background-size: 40px 40px;
+            background-size: 48px 48px;
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
         }
         
         .glass-dark {
-            background: rgba(15, 23, 42, 0.78);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(10, 15, 30, 0.92) 100%);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
 
         .glass-card-hover {
-            background: rgba(15, 23, 42, 0.65);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(11, 19, 38, 0.8) 100%);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.07);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.04);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass-card-hover:hover {
             transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 20px 30px -10px rgba(2, 132, 199, 0.25);
+            border-color: rgba(56, 189, 248, 0.35);
+            box-shadow: 0 20px 35px -10px rgba(2, 132, 199, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .icon-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            position: relative;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .badge-copper {
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.15) 0%, rgba(194, 65, 12, 0.05) 100%);
+            border: 1px solid rgba(251, 146, 60, 0.3);
+            color: #fdba74;
+        }
+
+        .badge-sec {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.18) 0%, rgba(2, 132, 199, 0.12) 100%);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #6ee7b7;
+        }
+
+        .font-tech-num {
+            font-family: 'Space Grotesk', sans-serif;
+            letter-spacing: -0.03em;
         }
 
         @keyframes pulse-ring {
@@ -360,81 +412,108 @@
     <!-- Header Navigation & Mobile Drawer -->
     @include('partials.landing-header')
 
-    <!-- HERO SECTION -->
-    <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
-        <!-- Glowing Ambient Lighting Backdrops -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-sky-600/20 via-emerald-500/20 to-transparent blur-[120px] pointer-events-none -z-10"></div>
-        <div class="absolute top-10 right-10 w-72 h-72 bg-emerald-500/10 blur-[100px] pointer-events-none -z-10"></div>
+    <!-- HERO SECTION WITH DYNAMIC BACKGROUND SLIDER -->
+    <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden"
+             x-data="{ 
+                 currentSlide: 0, 
+                 slides: [
+                     '{{ asset('images/hero-home-main.webp') }}',
+                     '{{ asset('images/hero-prodoral.webp') }}',
+                     '{{ asset('images/hero-sec.webp') }}',
+                     '{{ asset('images/hero-fuga-gas.webp') }}'
+                 ],
+                 init() {
+                     setInterval(() => {
+                         this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+                     }, 5000);
+                 }
+             }">
+        
+        <!-- Dynamic Background Image Slider with Ken Burns & Smooth Fade -->
+        <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
+            <template x-for="(slide, index) in slides" :key="index">
+                <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 transform filter brightness-90 contrast-105"
+                     :class="currentSlide === index ? 'opacity-80 scale-100 transition-all duration-[6000ms] ease-out' : 'opacity-0 scale-105'"
+                     :style="`background-image: url('${slide}');`">
+                </div>
+            </template>
+        </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Directional Cinematic Gradient Overlays (Focused contrast on text, vibrant image visibility) -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/35 -z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent -z-10 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-transparent -z-10 pointer-events-none"></div>
+        <div class="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-600/15 blur-[120px] pointer-events-none -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Hero Left Column: Main Headlines & Value Props -->
                 <div class="lg:col-span-7 space-y-7">
                     
                     <!-- Trust Badges Pill -->
-                    <div data-animate="fade-down" data-delay="100" class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 text-xs font-semibold text-emerald-300 shadow-lg shadow-emerald-950/40">
+                    <div data-animate="fade-down" data-delay="100" class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/95 border border-emerald-500/40 text-xs sm:text-sm font-bold text-emerald-300 shadow-xl shadow-emerald-950/50">
                         <span class="p-1 rounded-full bg-emerald-500 text-slate-950">
-                            <i data-lucide="check" class="w-3 h-3 stroke-[3]"></i>
+                            <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
                         </span>
                         <span>Tecnología Alemana Prodoral R6-1 · Especialistas Desde 2009</span>
                     </div>
 
                     <!-- Main H1 Title -->
-                    <h1 data-animate="fade-up" data-delay="150" class="font-display text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+                    <h1 data-animate="fade-up" data-delay="150" class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
                         Reparación de Fugas de Gas <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400">Sin Romper Muros</span> ni Pisos
                     </h1>
 
                     <!-- Hero Subtitle & Domingo Isain Credential -->
-                    <p data-animate="fade-up" data-delay="200" class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal">
-                        Servicio técnico especializado en sellado de cañerías no visibles con <strong>Prodoral R6-1</strong>. Procedimiento limpio en <strong class="text-emerald-400">menos de 2 horas</strong>, prueba de hermeticidad certificada y entrega de <strong class="text-sky-400">Certificado Oficial SEC</strong> para seguros y empresas de inspección.
+                    <p data-animate="fade-up" data-delay="200" class="text-base sm:text-xl text-slate-200 leading-relaxed font-normal">
+                        Servicio técnico especializado en sellado de cañerías no visibles con <strong>Prodoral R6-1</strong>. Procedimiento limpio en <strong class="text-emerald-400 font-bold">menos de 2 horas</strong>, prueba de hermeticidad certificada y entrega de <strong class="text-sky-400 font-bold">Certificado Oficial SEC</strong> para seguros y empresas de inspección.
                     </p>
 
                     <!-- Key Selling Point Cards -->
-                    <div data-animate="fade-up" data-delay="250" data-stagger class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800 hover-lift">
-                            <div class="flex items-center gap-2 text-emerald-400 mb-1">
-                                <i data-lucide="shield-check" class="w-5 h-5"></i>
-                                <span class="font-bold text-sm">Garantía 3 Años</span>
+                    <div data-animate="fade-up" data-delay="250" data-stagger class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                        <div class="glass-dark p-4 rounded-2xl border border-slate-700/80 hover-lift">
+                            <div class="flex items-center gap-2 text-emerald-400 mb-1.5">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                                <span class="font-display font-black text-base text-white">Garantía 3 Años</span>
                             </div>
-                            <p class="text-xs text-slate-400">Por escrito ante cualquier efecto de sellado</p>
+                            <p class="text-xs text-slate-300 font-medium">Por escrito ante cualquier efecto de sellado</p>
                         </div>
-                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800 hover-lift">
-                            <div class="flex items-center gap-2 text-sky-400 mb-1">
-                                <i data-lucide="clock" class="w-5 h-5"></i>
-                                <span class="font-bold text-sm">Menos de 2 Horas</span>
+                        <div class="glass-dark p-4 rounded-2xl border border-slate-700/80 hover-lift">
+                            <div class="flex items-center gap-2 text-sky-400 mb-1.5">
+                                <i data-lucide="clock" class="w-6 h-6"></i>
+                                <span class="font-display font-black text-base text-white">Menos de 2 Horas</span>
                             </div>
-                            <p class="text-xs text-slate-400">Procedimiento rápido sin escombros</p>
+                            <p class="text-xs text-slate-300 font-medium">Procedimiento rápido sin escombros</p>
                         </div>
-                        <div class="glass-dark p-3.5 rounded-2xl border border-slate-800 col-span-2 sm:col-span-1 hover-lift">
-                            <div class="flex items-center gap-2 text-amber-400 mb-1">
-                                <i data-lucide="handshake" class="w-5 h-5"></i>
-                                <span class="font-bold text-sm">Paga Solucionado</span>
+                        <div class="glass-dark p-4 rounded-2xl border border-slate-700/80 col-span-2 sm:col-span-1 hover-lift">
+                            <div class="flex items-center gap-2 text-amber-400 mb-1.5">
+                                <i data-lucide="handshake" class="w-6 h-6"></i>
+                                <span class="font-display font-black text-base text-white">Paga Solucionado</span>
                             </div>
-                            <p class="text-xs text-slate-400">Comprobada la hermeticidad a 368 mmca</p>
+                            <p class="text-xs text-slate-300 font-medium">Comprobada la hermeticidad a 368 mmca</p>
                         </div>
                     </div>
 
                     <!-- CTA Action Buttons -->
-                    <div data-animate="fade-up" data-delay="300" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
-                        <a href="#cotizador" class="px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white font-black text-base rounded-2xl shadow-xl shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-neon-emerald">
-                            <i data-lucide="calculator" class="w-5 h-5"></i>
+                    <div data-animate="fade-up" data-delay="300" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+                        <a href="#cotizador" class="px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white font-black text-lg rounded-2xl shadow-xl shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-neon-emerald">
+                            <i data-lucide="calculator" class="w-6 h-6"></i>
                             <span>Calcular Cotización Online</span>
                         </a>
-                        <a href="tel:949877316" class="px-6 py-4 bg-slate-900/90 hover:bg-slate-800 text-white font-bold text-base rounded-2xl border border-slate-700 transition-all flex items-center justify-center gap-3 shadow-lg hover-lift">
-                            <div class="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400">
+                        <a href="tel:949877316" class="px-7 py-4 bg-slate-900/95 hover:bg-slate-800 text-white font-bold text-base rounded-2xl border border-slate-700 transition-all flex items-center justify-center gap-3.5 shadow-lg hover-lift">
+                            <div class="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
                                 <i data-lucide="phone" class="w-5 h-5"></i>
                             </div>
                             <div class="text-left">
-                                <span class="block text-[11px] text-slate-400 uppercase tracking-wider leading-none">Llamar Ahora</span>
-                                <span class="text-lg font-black text-white leading-none">949 877 316</span>
+                                <span class="block text-xs text-slate-400 uppercase font-bold tracking-wider leading-none mb-1">Llamar Ahora</span>
+                                <span class="text-xl font-tech font-black text-white leading-none">949 877 316</span>
                             </div>
                         </a>
                     </div>
 
                     <!-- Direct Verification Badge -->
-                    <div data-animate="fade-up" data-delay="350" class="flex items-center gap-3 pt-2 text-xs text-slate-400 border-t border-slate-800/80">
-                        <img src="{{ asset('images/logotipo-sec.png') }}" alt="SEC" class="h-6 w-auto opacity-90">
+                    <div data-animate="fade-up" data-delay="350" class="flex items-center gap-3 pt-3 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80">
+                        <img src="{{ asset('images/logotipo-sec.png') }}" alt="SEC" class="h-7 w-auto opacity-95">
                         <span>Gasfiter Certificado Autorizado SEC Clase 3 · <strong>Domingo Isain Plaza Caamaño</strong> (RUT 12.738.961-6)</span>
                     </div>
 
@@ -445,62 +524,62 @@
                     <div class="relative">
                         
                         <!-- Glowing card frame -->
-                        <div class="glass-dark p-6 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6 relative overflow-hidden hover-lift">
+                        <div class="glass-dark p-6 sm:p-7 rounded-3xl border border-slate-700/80 shadow-2xl space-y-6 relative overflow-hidden hover-lift">
                             
                             <!-- Technician Header -->
                             <div class="flex items-center gap-4 pb-5 border-b border-slate-800">
                                 <div class="relative">
                                     <img src="{{ asset('images/domingo-isain.jpg') }}" alt="Domingo Isain - Gasfiter Certificado SEC" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg">
                                     <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-slate-950 p-1 rounded-full" title="Técnico Certificado SEC">
-                                        <i data-lucide="check-circle" class="w-3.5 h-3.5 stroke-[3]"></i>
+                                        <i data-lucide="check-circle" class="w-4 h-4 stroke-[3]"></i>
                                     </span>
                                 </div>
                                 <div>
-                                    <div class="inline-block px-2 py-0.5 rounded bg-sky-500/10 text-sky-400 text-[11px] font-bold uppercase tracking-wider mb-1">
+                                    <div class="inline-block px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-wider mb-1">
                                         Especialista Responsable
                                     </div>
-                                    <h3 class="text-lg font-black text-white leading-tight">Domingo Isain Plaza Caamaño</h3>
-                                    <p class="text-xs text-emerald-400 font-semibold mt-0.5">Gasfíter Certificado Autorizado SEC</p>
-                                    <p class="text-xs text-slate-400">RUT: 12.738.961-6 · Clase 3</p>
+                                    <h3 class="text-xl font-black text-white font-display leading-tight">Domingo Isain Plaza Caamaño</h3>
+                                    <p class="text-xs sm:text-sm text-emerald-400 font-bold mt-0.5">Gasfíter Certificado Autorizado SEC</p>
+                                    <p class="text-xs text-slate-300 font-tech">RUT: 12.738.961-6 · Clase 3</p>
                                 </div>
                             </div>
 
                             <!-- Live SEC QR Verification Interactive Card -->
-                            <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800 flex items-center justify-between gap-4">
+                            <div class="bg-slate-900/90 p-4 sm:p-5 rounded-2xl border border-slate-800 flex items-center justify-between gap-4">
                                 <div class="space-y-1">
-                                    <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                                    <div class="text-sm font-bold text-white flex items-center gap-2">
                                         <i data-lucide="qr-code" class="w-4 h-4 text-emerald-400"></i>
                                         <span>Credencial Oficial SEC</span>
                                     </div>
-                                    <p class="text-[11px] text-slate-400">Escanee o presione para verificar registro en el portal oficial de la SEC Chile.</p>
-                                    <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="inline-flex items-center gap-1 text-xs text-sky-400 hover:text-sky-300 font-bold underline mt-1">
+                                    <p class="text-xs text-slate-300 leading-relaxed">Escanee o presione para verificar registro en el portal oficial de la SEC Chile.</p>
+                                    <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-sky-400 hover:text-sky-300 font-bold underline mt-1.5">
                                         <span>Validar en wlhttp.sec.cl</span>
-                                        <i data-lucide="external-link" class="w-3 h-3"></i>
+                                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
                                     </a>
                                 </div>
-                                <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="shrink-0 p-1.5 bg-white rounded-xl shadow-md hover:scale-105 transition-transform">
+                                <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="shrink-0 p-2 bg-white rounded-2xl shadow-md hover:scale-105 transition-transform">
                                     <img src="{{ asset('images/qr-sec.png') }}" alt="QR SEC Domingo Isain" class="w-16 h-16 object-contain">
                                 </a>
                             </div>
 
                             <!-- Fast Pricing Snapshot Banner -->
-                            <div class="p-4 rounded-2xl bg-gradient-to-br from-emerald-950/80 to-slate-900 border border-emerald-500/30 space-y-2">
-                                <div class="flex items-center justify-between text-xs">
-                                    <span class="text-slate-300 font-semibold">Precio Base RM (Hasta 10m):</span>
-                                    <span class="font-black text-emerald-400 text-base">$300.000 <span class="text-xs font-normal text-slate-400">neto</span></span>
+                            <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-950/90 to-slate-900 border border-emerald-500/40 space-y-2.5">
+                                <div class="flex items-center justify-between text-sm">
+                                    <span class="text-slate-200 font-semibold">Precio Base RM (Hasta 10m):</span>
+                                    <span class="font-tech font-black text-emerald-400 text-lg">$300.000 <span class="text-xs font-normal text-slate-400">neto</span></span>
                                 </div>
-                                <div class="flex items-center justify-between text-xs border-t border-slate-800 pt-2">
-                                    <span class="text-slate-400">Metro adicional cañería:</span>
-                                    <span class="font-bold text-white">$25.000 <span class="text-[11px] text-slate-400">neto</span></span>
+                                <div class="flex items-center justify-between text-sm border-t border-slate-800 pt-2">
+                                    <span class="text-slate-300">Metro adicional cañería:</span>
+                                    <span class="font-tech font-bold text-white">$25.000 <span class="text-xs text-slate-400">neto</span></span>
                                 </div>
-                                <div class="text-[11px] text-slate-400 pt-1 flex items-center gap-1 text-emerald-300">
-                                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                <div class="text-xs text-emerald-300 pt-1 flex items-center gap-1.5 font-medium">
+                                    <i data-lucide="check" class="w-4 h-4"></i>
                                     <span>Incluye desconexión, inyección, pruebas y Certificado SEC</span>
                                 </div>
                             </div>
 
                             <!-- Emergency Floating Action -->
-                            <a href="#cotizador" class="w-full py-3 bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 rounded-xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all hover:scale-[1.02]">
+                            <a href="#cotizador" class="w-full py-3.5 bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 rounded-2xl font-bold text-sm text-center flex items-center justify-center gap-2 transition-all hover:scale-[1.02]">
                                 <i data-lucide="arrow-down-circle" class="w-4 h-4 text-sky-400"></i>
                                 <span>Ir al Cotizador por Metros Lineales</span>
                             </a>
@@ -508,6 +587,174 @@
                         </div>
 
                     </div>
+                </div>
+
+            </div>
+
+            <!-- Slide Indicators / Dots -->
+            <div class="flex items-center justify-center gap-2 pt-8">
+                <template x-for="(slide, index) in slides" :key="index">
+                    <button type="button" 
+                            @click="currentSlide = index" 
+                            :aria-label="'Diapositiva ' + (index + 1)"
+                            class="h-1.5 rounded-full transition-all duration-300 focus:outline-none"
+                            :class="currentSlide === index ? 'w-8 bg-emerald-400 shadow-md shadow-emerald-500/50' : 'w-2 bg-slate-700 hover:bg-slate-500'"></button>
+                </template>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: TRUST BAR & ACCREDITATION BADGES (SCALED UP) -->
+    <div class="border-y border-slate-800/80 bg-slate-900/60 backdrop-blur-md relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 text-left">
+                
+                <!-- Badge 1: SEC -->
+                <div class="flex items-center gap-4 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-950/60 border border-slate-800/80 hover:border-emerald-500/40 transition-all hover-lift">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-slate-900 border border-emerald-500/40 text-emerald-400 shrink-0 flex items-center justify-center shadow-lg">
+                        <i data-lucide="shield-check" class="w-7 h-7"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="text-base sm:text-lg font-black text-white font-display">SEC Clase 3 Vigente</div>
+                        <div class="text-xs sm:text-sm text-slate-300 font-tech">RUT 12.738.961-6</div>
+                    </div>
+                </div>
+
+                <!-- Badge 2: Prodoral -->
+                <div class="flex items-center gap-4 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-950/60 border border-slate-800/80 hover:border-sky-500/40 transition-all hover-lift">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500/20 to-slate-900 border border-sky-500/40 text-sky-400 shrink-0 flex items-center justify-center shadow-lg">
+                        <i data-lucide="award" class="w-7 h-7"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="text-base sm:text-lg font-black text-white font-display">Prodoral R6-1 Alemán</div>
+                        <div class="text-xs sm:text-sm text-slate-300">DIN EN 13090 · DS66 SEC</div>
+                    </div>
+                </div>
+
+                <!-- Badge 3: 3 Años Garantía -->
+                <div class="flex items-center gap-4 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-950/60 border border-slate-800/80 hover:border-amber-500/40 transition-all hover-lift">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-slate-900 border border-amber-500/40 text-amber-400 shrink-0 flex items-center justify-center shadow-lg">
+                        <i data-lucide="clock" class="w-7 h-7"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="text-base sm:text-lg font-black text-white font-display">Garantía 3 Años</div>
+                        <div class="text-xs sm:text-sm text-slate-300">Certificado por Escrito</div>
+                    </div>
+                </div>
+
+                <!-- Badge 4: Paga al Solucionar -->
+                <div class="flex items-center gap-4 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-950/60 border border-slate-800/80 hover:border-teal-500/40 transition-all hover-lift">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-teal-500/20 to-slate-900 border border-teal-500/40 text-teal-400 shrink-0 flex items-center justify-center shadow-lg">
+                        <i data-lucide="handshake" class="w-7 h-7"></i>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="text-base sm:text-lg font-black text-white font-display">Paga al Solucionar</div>
+                        <div class="text-xs sm:text-sm text-slate-300">Hermeticidad Comprobada</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION: EMERGENCY SAFETY PROTOCOL (¿HUELE A GAS?) - BALANCED & PROPORTIONAL -->
+    <section id="emergencia-gas" class="py-12 sm:py-16 bg-gradient-to-r from-rose-950/40 via-slate-900 to-amber-950/30 border-b border-rose-900/40 relative overflow-hidden">
+        
+        <!-- Background subtle hazard glow -->
+        <div class="absolute -right-20 -top-20 w-96 h-96 bg-rose-500/10 blur-[120px] pointer-events-none"></div>
+        <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-amber-500/10 blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-dark border-2 border-rose-500/30 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl space-y-8 relative overflow-hidden">
+
+                <!-- Top Header & Action Row -->
+                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
+                    <div class="space-y-3 max-w-2xl">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/20 text-rose-400 border border-rose-500/40 text-xs font-black uppercase tracking-wider animate-pulse">
+                            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                            <span>Protocolo de Seguridad Oficial SEC</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white font-display tracking-tight leading-tight">
+                            ¿Huele a Gas en este Momento?
+                        </h2>
+                        <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-normal">
+                            Siga estos <strong class="text-white font-bold">3 pasos inmediatos</strong> para proteger su hogar. Atendemos emergencias y sellado en el mismo día.
+                        </p>
+                    </div>
+
+                    <!-- Direct Emergency Buttons in Header -->
+                    <div class="flex flex-col sm:flex-row items-stretch gap-3.5 w-full lg:w-auto shrink-0">
+                        <a href="tel:949877316" class="py-3.5 px-6 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-400 text-white font-black text-sm sm:text-base rounded-2xl shadow-xl shadow-rose-600/30 flex items-center justify-center gap-3 transition-all hover:scale-[1.02]">
+                            <i data-lucide="phone-call" class="w-5 h-5"></i>
+                            <span class="font-display">Llamar: 949 877 316</span>
+                        </a>
+
+                        <a href="https://api.whatsapp.com/send?phone=56949877316&text=URGENTE%20Domingo%20Isain%2C%20tengo%20olor%20a%20gas%20en%20mi%20domicilio%20necesito%20atencion%20urgente" target="_blank"
+                           class="py-3.5 px-6 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base rounded-2xl shadow-xl shadow-emerald-500/30 flex items-center justify-center gap-3 transition-all hover:scale-[1.02]">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span class="font-display">WhatsApp Urgencias SEC</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3 Balanced Step Cards Row -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6">
+                    
+                    <!-- Step 1 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/70 border border-slate-800 hover:border-rose-500/40 transition-all space-y-4 hover-lift">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-lg bg-rose-500/20 text-rose-400 font-tech font-bold text-xs uppercase tracking-wider border border-rose-500/30">
+                                Paso 01
+                            </span>
+                            <div class="p-2.5 rounded-xl bg-rose-500/10 text-rose-400">
+                                <i data-lucide="shield-alert" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg font-black text-white font-display">Cerrar Llave de Paso</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Corte de inmediato la válvula del medidor general o cilindro de gas para suspender el suministro.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/70 border border-slate-800 hover:border-amber-500/40 transition-all space-y-4 hover-lift">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-400 font-tech font-bold text-xs uppercase tracking-wider border border-amber-500/30">
+                                Paso 02
+                            </span>
+                            <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400">
+                                <i data-lucide="wind" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg font-black text-white font-display">Ventilar sin Luces</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Abra ventanas y puertas. <strong class="text-amber-300">No accione</strong> interruptores, timbres ni fósforos para evitar chispas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="p-6 rounded-2xl bg-slate-950/70 border border-slate-800 hover:border-emerald-500/40 transition-all space-y-4 hover-lift">
+                        <div class="flex items-center justify-between">
+                            <span class="px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 font-tech font-bold text-xs uppercase tracking-wider border border-emerald-500/30">
+                                Paso 03
+                            </span>
+                            <div class="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h3 class="text-lg font-black text-white font-display">Llamar a Urgencias SEC</h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Acudimos para sellar con Prodoral R6-1 en <strong class="text-emerald-400">menos de 2 horas sin picar</strong> y con certificado SEC.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -787,6 +1034,209 @@
 
     </section>
 
+    <!-- SECTION: INTERACTIVE SAVINGS CALCULATOR (SELLAFUGAS VS PICAR MUROS) -->
+    <section id="calculadora-ahorro" class="py-16 lg:py-24 bg-slate-950/80 relative overflow-hidden"
+             x-data="{
+                 propertyType: 'casa_1',
+                 get traditionalCost() {
+                     if (this.propertyType === 'depto') return 1150000;
+                     if (this.propertyType === 'casa_1') return 1420000;
+                     if (this.propertyType === 'casa_2') return 1850000;
+                     return 2400000;
+                 },
+                 get sellafugasCost() {
+                     if (this.propertyType === 'depto') return 300000;
+                     if (this.propertyType === 'casa_1') return 350000;
+                     if (this.propertyType === 'casa_2') return 450000;
+                     return 600000;
+                 },
+                 get totalSaved() {
+                     return this.traditionalCost - this.sellafugasCost;
+                 },
+                 get percentSaved() {
+                     return Math.round((this.totalSaved / this.traditionalCost) * 100);
+                 },
+                 formatCLP(val) {
+                     return '$' + new Intl.NumberFormat('es-CL').format(val || 0);
+                 }
+             }">
+        
+        <!-- Ambient light -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[130px] pointer-events-none -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div data-animate="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="trending-down" class="w-4 h-4"></i>
+                    <span>Comparador de Ahorro Económico y Tiempo</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl font-black text-white tracking-tight">
+                    ¿Cuánto Dinero y Tiempo te Ahorras con SellafuGas?
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Picar muros y pisos para cambiar cañerías multiplica los costos de albañilería, cerámicas y pintura. Compare el gasto tradicional frente a la inyección alemana Prodoral R6-1.
+                </p>
+            </div>
+
+            <!-- Property Type Selector -->
+            <div data-animate="fade-up" data-delay="100" class="max-w-4xl mx-auto">
+                <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider text-center mb-3">
+                    Seleccione el tipo de inmueble o extensión aproximada:
+                </label>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <button type="button" @click="propertyType = 'depto'"
+                            :class="propertyType === 'depto' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
+                            class="p-4 rounded-2xl text-center transition-all">
+                        <i data-lucide="building" class="w-5 h-5 mx-auto mb-1.5" :class="propertyType === 'depto' ? 'text-emerald-400' : 'text-slate-500'"></i>
+                        <div class="font-bold text-xs">Departamento</div>
+                        <div class="text-[11px] text-slate-400">~10 a 12 metros</div>
+                    </button>
+
+                    <button type="button" @click="propertyType = 'casa_1'"
+                            :class="propertyType === 'casa_1' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
+                            class="p-4 rounded-2xl text-center transition-all">
+                        <i data-lucide="home" class="w-5 h-5 mx-auto mb-1.5" :class="propertyType === 'casa_1' ? 'text-emerald-400' : 'text-slate-500'"></i>
+                        <div class="font-bold text-xs">Casa 1 Piso</div>
+                        <div class="text-[11px] text-slate-400">~15 a 20 metros</div>
+                    </button>
+
+                    <button type="button" @click="propertyType = 'casa_2'"
+                            :class="propertyType === 'casa_2' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
+                            class="p-4 rounded-2xl text-center transition-all">
+                        <i data-lucide="layers" class="w-5 h-5 mx-auto mb-1.5" :class="propertyType === 'casa_2' ? 'text-emerald-400' : 'text-slate-500'"></i>
+                        <div class="font-bold text-xs">Casa 2 Pisos</div>
+                        <div class="text-[11px] text-slate-400">~25 a 30 metros</div>
+                    </button>
+
+                    <button type="button" @click="propertyType = 'condominio'"
+                            :class="propertyType === 'condominio' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
+                            class="p-4 rounded-2xl text-center transition-all">
+                        <i data-lucide="map-pin" class="w-5 h-5 mx-auto mb-1.5" :class="propertyType === 'condominio' ? 'text-emerald-400' : 'text-slate-500'"></i>
+                        <div class="font-bold text-xs">Red Extensa</div>
+                        <div class="text-[11px] text-slate-400">~35 a 50+ metros</div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Comparison Cards & Live Savings Result -->
+            <div data-animate="fade-scale" data-delay="200" class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-5xl mx-auto items-stretch">
+                
+                <!-- Left: Traditional Invasive Method -->
+                <div class="lg:col-span-4 glass-dark rounded-3xl border border-rose-900/30 p-6 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 text-[10px] font-black uppercase border border-rose-500/20">
+                            <i data-lucide="x-circle" class="w-3.5 h-3.5"></i>
+                            <span>Método Tradicional Invasivo</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Romper Muros y Pisos</h3>
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span class="text-slate-400">Picar losas y muros:</span>
+                                <span class="font-semibold text-rose-300">$280.000</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span class="text-slate-400">Cañería nueva + soldaduras:</span>
+                                <span class="font-semibold text-rose-300">$450.000</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span class="text-slate-400">Cerámicos, pintura y albañil:</span>
+                                <span class="font-semibold text-rose-300">$490.000</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span class="text-slate-400">Retiro de escombros y aseo:</span>
+                                <span class="font-semibold text-rose-300">$90.000</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-1 text-rose-400">
+                                <span>Tiempo sin gas en su hogar:</span>
+                                <span class="font-bold">5 a 10 Días</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-rose-950/30 border border-rose-800/30 text-center">
+                        <div class="text-[11px] text-slate-400 uppercase font-semibold">Costo Total Estimado</div>
+                        <div class="text-2xl font-black text-rose-400 font-display" x-text="formatCLP(traditionalCost)"></div>
+                    </div>
+                </div>
+
+                <!-- Center: Real Savings Highlight Metric -->
+                <div class="lg:col-span-4 bg-gradient-to-br from-emerald-950 via-slate-900 to-sky-950 rounded-3xl border-2 border-emerald-500/50 p-6 sm:p-8 flex flex-col items-center justify-between text-center space-y-6 shadow-2xl shadow-emerald-950/40">
+                    <div class="space-y-2">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-black uppercase tracking-wider border border-emerald-500/40 animate-pulse">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            <span>Ahorro Estimado</span>
+                        </div>
+                        <div class="text-4xl sm:text-5xl font-black text-white font-display tracking-tight" x-text="formatCLP(totalSaved)"></div>
+                        <div class="text-xs font-bold text-emerald-400">
+                            Ahorras aproximadamente el <span class="text-base" x-text="percentSaved"></span>% de tu dinero
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-950/60 border border-emerald-500/30 w-full space-y-2 text-xs">
+                        <div class="flex items-center justify-between text-slate-300">
+                            <span>⏱️ Tiempo de solución:</span>
+                            <span class="font-bold text-emerald-400">< 2 Horas</span>
+                        </div>
+                        <div class="flex items-center justify-between text-slate-300">
+                            <span>🛡️ Garantía por escrito:</span>
+                            <span class="font-bold text-emerald-400">3 Años</span>
+                        </div>
+                        <div class="flex items-center justify-between text-slate-300">
+                            <span>📜 Certificado Oficial:</span>
+                            <span class="font-bold text-emerald-400">SEC Clase 3</span>
+                        </div>
+                    </div>
+
+                    <a href="#cotizador" class="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-emerald-500/30 transition-all flex items-center justify-center gap-2 hover:scale-[1.02]">
+                        <i data-lucide="calculator" class="w-4 h-4"></i>
+                        <span>Cotizar Mi Sellado Ahora</span>
+                    </a>
+                </div>
+
+                <!-- Right: SellafuGas Prodoral Method -->
+                <div class="lg:col-span-4 glass-dark rounded-3xl border border-emerald-500/30 p-6 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase border border-emerald-500/20">
+                            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                            <span>Tecnología SellafuGas</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Prodoral R6-1 Alemán</h3>
+                        <div class="space-y-2 text-xs text-slate-300">
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span class="text-slate-400">Rotura de muros y pisos:</span>
+                                <span class="font-bold text-emerald-400">$0 (Cero daños)</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span class="text-slate-400">Inyección sellante Prodoral:</span>
+                                <span class="font-semibold text-white">Incluida</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span class="text-slate-400">Pruebas a 368 mmca:</span>
+                                <span class="font-semibold text-white">Incluida</span>
+                            </div>
+                            <div class="flex items-center justify-between border-b border-slate-800/80 pb-1.5">
+                                <span class="text-slate-400">Certificado Oficial SEC:</span>
+                                <span class="font-semibold text-white">Incluido</span>
+                            </div>
+                            <div class="flex items-center justify-between pt-1 text-emerald-400">
+                                <span>Tiempo de ejecución:</span>
+                                <span class="font-bold">Menos de 2 Horas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-center">
+                        <div class="text-[11px] text-slate-400 uppercase font-semibold">Valor SellafuGas Cerrado</div>
+                        <div class="text-2xl font-black text-emerald-400 font-display" x-text="formatCLP(sellafugasCost)"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
     <!-- SECTION: HOW PRODORAL WORKS (REPARAMOS SIN ROMPER) -->
     <section id="como-funciona" class="py-16 lg:py-24 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
@@ -901,6 +1351,371 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: SPECIALIZED SERVICES GRID (SERVICIOS INTEGRALES DE GASFITERÍA Y GAS) -->
+    <section id="servicios" class="py-16 lg:py-24 bg-slate-900/60 border-t border-slate-800/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div data-animate="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="wrench" class="w-4 h-4"></i>
+                    <span>Soluciones Técnicas Especializadas SEC</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight">
+                    Servicios Integrales en Redes de Gas y Fugas
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Atención técnica certificada de urgencia y programada. Conozca nuestras soluciones especializadas con cobertura en Santiago, V y VI Región.
+                </p>
+            </div>
+
+            <!-- 6 Services Grid -->
+            <div data-animate="fade-up" data-delay="150" data-stagger class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Service 1: Prodoral R6-1 -->
+                <div class="glass-dark p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-emerald-500/50 transition-all hover-lift flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield-check" class="w-7 h-7"></i>
+                        </div>
+                        <div class="space-y-1.5">
+                            <span class="text-[11px] font-bold uppercase text-emerald-400 tracking-wider">Tecnología Alemana</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">
+                                Sellado de Fugas sin Romper
+                            </h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Reparación de fugas no visibles en cañerías interiores con Prodoral R6-1. Procedimiento limpio en <2 horas, 3 años de garantía y Certificado SEC.
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Cero escombros</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">DIN EN 13090</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">DS66 Art. 7</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('landing.prodoral') }}" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-emerald-600 hover:text-slate-950 text-emerald-400 font-bold text-xs flex items-center justify-between border border-slate-800 transition-all">
+                        <span>Ver Detalles y Procedimiento</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2: Gasfíter SEC -->
+                <div class="glass-dark p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-sky-500/50 transition-all hover-lift flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-sky-500/10 text-sky-400 border border-sky-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="user-check" class="w-7 h-7"></i>
+                        </div>
+                        <div class="space-y-1.5">
+                            <span class="text-[11px] font-bold uppercase text-sky-400 tracking-wider">Acreditación Oficial</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-sky-400 transition-colors">
+                                Gasfíter Certificado SEC
+                            </h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Instalación, modificación y reparación de redes de gas en baja y media presión a cargo de Domingo Isain Plaza Caamaño (SEC Clase 3).
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">RUT 12.738.961-6</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Clase 3 Autorizada</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">A Domicilio</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('landing.gasfiter-sec') }}" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-sky-600 hover:text-white text-sky-400 font-bold text-xs flex items-center justify-between border border-slate-800 transition-all">
+                        <span>Ver Credencial y Servicios SEC</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3: Gas Trazador -->
+                <div class="glass-dark p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-cyan-500/50 transition-all hover-lift flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="crosshair" class="w-7 h-7"></i>
+                        </div>
+                        <div class="space-y-1.5">
+                            <span class="text-[11px] font-bold uppercase text-cyan-400 tracking-wider">Detección Milimétrica</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                                Gas Trazador & Geófono
+                            </h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Localización no destructiva de fugas subterráneas e interiores mediante mezcla de hidrógeno/nitrógeno y sensores acústicos de alta precisión.
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Formigas H2/N2</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Geófono digital</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Sin romper</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('landing.gas-trazador') }}" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-cyan-600 hover:text-white text-cyan-400 font-bold text-xs flex items-center justify-between border border-slate-800 transition-all">
+                        <span>Ver Tecnología de Detección</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4: Sello Rojo SEC -->
+                <div class="glass-dark p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-rose-500/50 transition-all hover-lift flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-rose-500/10 text-rose-400 border border-rose-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield-alert" class="w-7 h-7"></i>
+                        </div>
+                        <div class="space-y-1.5">
+                            <span class="text-[11px] font-bold uppercase text-rose-400 tracking-wider">Regularización Inmediata</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-rose-400 transition-colors">
+                                Solución Sello Rojo SEC
+                            </h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Reparación de no conformidades, corrección de ventilaciones, sellado de cañerías y gestión para recuperación del Sello Verde con Metrogas y distribuidoras.
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Cortes de suministro</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Sello Verde</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Inspecciones periódicas</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('landing.sello-rojo') }}" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-rose-600 hover:text-white text-rose-400 font-bold text-xs flex items-center justify-between border border-slate-800 transition-all">
+                        <span>Ver Solución Sello Rojo</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5: Certificados SEC -->
+                <div class="glass-dark p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-amber-500/50 transition-all hover-lift flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="file-check-2" class="w-7 h-7"></i>
+                        </div>
+                        <div class="space-y-1.5">
+                            <span class="text-[11px] font-bold uppercase text-amber-400 tracking-wider">Normativa DS66</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                                Certificados SEC & Hermeticidad
+                            </h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Emisión de Certificados Oficiales de Prueba de Hermeticidad a 368 mmca con código QR y validez legal ante compañías de gas y aseguradoras.
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">DS66 Art. 44.2.3</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">QR Verificable</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Manómetro digital</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('landing.certificados-sec') }}" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-amber-600 hover:text-slate-950 text-amber-400 font-bold text-xs flex items-center justify-between border border-slate-800 transition-all">
+                        <span>Ver Certificaciones Oficiales</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6: Calefont SEC -->
+                <div class="glass-dark p-6 sm:p-8 rounded-3xl border border-slate-800 hover:border-teal-500/50 transition-all hover-lift flex flex-col justify-between space-y-6 group">
+                    <div class="space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-400 border border-teal-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="flame" class="w-7 h-7"></i>
+                        </div>
+                        <div class="space-y-1.5">
+                            <span class="text-[11px] font-bold uppercase text-teal-400 tracking-wider">Mantención & Seguridad</span>
+                            <h3 class="text-xl font-bold text-white group-hover:text-teal-400 transition-colors">
+                                Reparación de Calefont SEC
+                            </h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                Mantención preventiva, cambio de membranas, sensores de monóxido, serpentín y reparación de fugas en calefones ionizados y tiro forzado.
+                            </p>
+                        </div>
+                        <div class="pt-2 flex flex-wrap gap-2 text-[11px] text-slate-300">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Junkers · Splendid</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Mademsa · Neckar</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800">Tiro Forzado</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('landing.reparacion-calefont') }}" class="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-teal-600 hover:text-slate-950 text-teal-400 font-bold text-xs flex items-center justify-between border border-slate-800 transition-all">
+                        <span>Ver Servicio de Calefont</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: REAL CASE STUDIES & SUCCESS STORIES (CASOS REALES VERIFICADOS) -->
+    <section id="casos-de-exito" class="py-16 lg:py-24 bg-slate-950 relative overflow-hidden">
+        
+        <!-- Background light -->
+        <div class="absolute top-1/3 right-10 w-96 h-96 bg-emerald-500/5 blur-[140px] pointer-events-none -z-10"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-sky-500/5 blur-[120px] pointer-events-none -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <div data-animate="fade-up" class="text-center max-w-3xl mx-auto space-y-4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                    <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                    <span>Experiencia Comprobada en Terreno</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight">
+                    Casos de Éxito Reales y Verificados
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Vea cómo resolvimos fugas de gas complejas en tiempo récord, evitando roturas millonarias de pisos y muros para clientes en toda la Región Metropolitana y regiones.
+                </p>
+            </div>
+
+            <!-- 4 Case Studies Grid -->
+            <div data-animate="fade-up" data-delay="150" data-stagger class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Case 1: Depto Providencia -->
+                <div class="glass-dark rounded-3xl border border-slate-800 p-6 sm:p-8 space-y-6 hover:border-emerald-500/40 transition-all hover-lift">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="space-y-1">
+                            <span class="px-2.5 py-1 rounded-full bg-rose-500/10 text-rose-400 text-[10px] font-black uppercase border border-rose-500/20">
+                                Corte por Sello Rojo Metrogas
+                            </span>
+                            <h3 class="text-xl font-black text-white font-display pt-1">
+                                Departamento en Providencia
+                            </h3>
+                            <p class="text-xs text-slate-400">Edificio Residencial · Av. Manuel Montt</p>
+                        </div>
+                        <span class="text-2xl font-black text-emerald-400 font-display">1h 20m</span>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                        <p><strong>Problema:</strong> Inspección periódica detectó caída de presión en cañería embutida bajo losa de hormigón. Suministro cortado con sello rojo.</p>
+                        <p><strong>Solución SellafuGas:</strong> Desconexión de cocina y calefón, inyección neumática de Prodoral R6-1 en red de 14 metros lineales y prueba a 368 mmca estanco.</p>
+                        <p class="text-emerald-400 font-semibold"><strong>Resultado:</strong> Certificado SEC emitido de inmediato y reposición del medidor realizada el mismo día.</p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Metraje</div>
+                            <div class="font-bold text-white">14 Metros</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Ahorro Obras</div>
+                            <div class="font-bold text-emerald-400">$1.100.000</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Garantía</div>
+                            <div class="font-bold text-sky-400">3 Años</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2: Casa Las Condes -->
+                <div class="glass-dark rounded-3xl border border-slate-800 p-6 sm:p-8 space-y-6 hover:border-emerald-500/40 transition-all hover-lift">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="space-y-1">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase border border-emerald-500/20">
+                                Cero Rotura de Pisos Nobles
+                            </span>
+                            <h3 class="text-xl font-black text-white font-display pt-1">
+                                Casa en Las Condes
+                            </h3>
+                            <p class="text-xs text-slate-400">Sector San Damián · Vivienda Unifamiliar</p>
+                        </div>
+                        <span class="text-2xl font-black text-emerald-400 font-display">1h 45m</span>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                        <p><strong>Problema:</strong> Fuga no visible en cañería de gas que atravesaba living y hall con piso de mármol travertino importado de alto costo.</p>
+                        <p><strong>Solución SellafuGas:</strong> Sellado completo con polímero Prodoral R6-1 en 28 metros de cañería sin tocar ni una sola palmeta de mármol.</p>
+                        <p class="text-emerald-400 font-semibold"><strong>Resultado:</strong> Hermeticidad total a 368 mmca comprobada ante el cliente. Ahorro millonario en obras civiles.</p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Metraje</div>
+                            <div class="font-bold text-white">28 Metros</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Ahorro Obras</div>
+                            <div class="font-bold text-emerald-400">$3.800.000</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Garantía</div>
+                            <div class="font-bold text-sky-400">3 Años</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3: Condominio Chicureo -->
+                <div class="glass-dark rounded-3xl border border-slate-800 p-6 sm:p-8 space-y-6 hover:border-emerald-500/40 transition-all hover-lift">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="space-y-1">
+                            <span class="px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-[10px] font-black uppercase border border-cyan-500/20">
+                                Red Extensa Subterránea
+                            </span>
+                            <h3 class="text-xl font-black text-white font-display pt-1">
+                                Condominio en Chicureo / Colina
+                            </h3>
+                            <p class="text-xs text-slate-400">Sector Chamisero · Matriz Exterior a Caldera</p>
+                        </div>
+                        <span class="text-2xl font-black text-emerald-400 font-display">2h 10m</span>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                        <p><strong>Problema:</strong> Red subterránea de 42 metros con microporosidades por corrosión exterior que impedían habilitar el sistema de calefacción central.</p>
+                        <p><strong>Solución SellafuGas:</strong> Prueba manométrica digital, inyección neumática reforzada de Prodoral R6-1 y purga controlada.</p>
+                        <p class="text-emerald-400 font-semibold"><strong>Resultado:</strong> Red 100% estanca, certificado SEC entregado para la administración y calefacción funcionando.</p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Metraje</div>
+                            <div class="font-bold text-white">42 Metros</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Ahorro Obras</div>
+                            <div class="font-bold text-emerald-400">$2.500.000</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Garantía</div>
+                            <div class="font-bold text-sky-400">3 Años</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 4: Casa Viña del Mar -->
+                <div class="glass-dark rounded-3xl border border-slate-800 p-6 sm:p-8 space-y-6 hover:border-emerald-500/40 transition-all hover-lift">
+                    <div class="flex items-start justify-between gap-4">
+                        <div class="space-y-1">
+                            <span class="px-2.5 py-1 rounded-full bg-sky-500/10 text-sky-400 text-[10px] font-black uppercase border border-sky-500/20">
+                                Cobertura Quinta Región
+                            </span>
+                            <h3 class="text-xl font-black text-white font-display pt-1">
+                                Casa en Viña del Mar
+                            </h3>
+                            <p class="text-xs text-slate-400">Sector Recreo · Quinta Región</p>
+                        </div>
+                        <span class="text-2xl font-black text-emerald-400 font-display">1h 35m</span>
+                    </div>
+
+                    <div class="space-y-3 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                        <p><strong>Problema:</strong> Fuga en muro perimetral entre cocina y logia con fuerte olor a gas. Dueño buscaba evitar picar cerámicas descontinuadas.</p>
+                        <p><strong>Solución SellafuGas:</strong> Traslado inmediato a la V Región, sellado con tecnología Prodoral y presurización hermética.</p>
+                        <p class="text-emerald-400 font-semibold"><strong>Resultado:</strong> Fuga eliminada en menos de 2 horas sin picar cerámicas y entrega de garantía de 3 años.</p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Metraje</div>
+                            <div class="font-bold text-white">18 Metros</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Ahorro Obras</div>
+                            <div class="font-bold text-emerald-400">$1.450.000</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800">
+                            <div class="text-slate-400 text-[11px]">Garantía</div>
+                            <div class="font-bold text-sky-400">3 Años</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>

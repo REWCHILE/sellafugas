@@ -71,9 +71,11 @@ class QuotePublicController extends Controller
             ]
         );
 
-        // Generate next Folio number
+        // Generate next Folio number (starting from 257830)
         $lastCert = Certificate::orderByRaw('CAST(certificate_number AS UNSIGNED) DESC')->first();
-        $nextNumber = $lastCert ? intval($lastCert->certificate_number) + 1 : 14414;
+        $nextNumber = ($lastCert && intval($lastCert->certificate_number) >= 257830) 
+            ? intval($lastCert->certificate_number) + 1 
+            : 257830;
 
         $zoneLabel = match($zone) {
             'rm' => 'Santiago (Región Metropolitana)',

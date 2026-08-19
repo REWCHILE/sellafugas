@@ -25,6 +25,11 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 /legacy_photos/
-/IMAGENES/
 *.pdf
-
+*.apk
+/sellafugas_app/build/
+/sellafugas_app/.dart_tool/
+/sellafugas_app/android/.gradle/
+/sellafugas_app/android/local.properties
+/sellafugas_app/.flutter-plugins
+/sellafugas_app/.flutter-plugins-dependencies

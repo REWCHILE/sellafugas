@@ -42,7 +42,7 @@
             <div class="glass-dark rounded-2xl border-2 border-emerald-500/40 p-5 flex flex-col justify-between space-y-4 shadow-xl shadow-emerald-950/20 group hover:border-emerald-400 transition-all hover-lift">
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
-                    <div class="relative rounded-xl overflow-hidden bg-slate-950 border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-2 cursor-pointer group-hover:shadow-lg transition-all"
+                    <div class="relative rounded-xl overflow-hidden bg-white border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-2 cursor-pointer group-hover:shadow-lg transition-all"
                          @click="openCertModal('Licencia Oficial Gasfíter Instalador SEC Clase 3', '{{ asset('images/certificados-sec-gas.png') }}', 'Domingo Isain Plaza Caamaño · RUT 12.738.961-6', 'DS66 SEC · Superintendencia de Electricidad y Combustibles', 'Oficial SEC')">
                         <img src="{{ asset('images/certificados-sec-gas.png') }}" alt="Licencia SEC Domingo Isain" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-all flex items-center justify-center pointer-events-none">
