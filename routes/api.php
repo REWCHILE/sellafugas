@@ -12,6 +12,16 @@ use App\Http\Controllers\Api\UserController;
 |--------------------------------------------------------------------------
 */
 
+// API Status & Healthcheck
+Route::get('/', function () {
+    return response()->json([
+        'status' => 'online',
+        'service' => 'SellafuGas API REST',
+        'version' => '1.0.0',
+        'server_time' => now()->toDateTimeString(),
+    ]);
+});
+
 // Public Auth routes
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
 
