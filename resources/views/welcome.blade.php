@@ -23,6 +23,9 @@
     <link rel="icon" type="image/webp" href="{{ asset('images/logotipo-sellafugas.cl.webp') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
+    <!-- LCP Hero Image Preload -->
+    <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
+
     <!-- Google Fonts: Human & Industrial Typography Stack (Plus Jakarta Sans, Manrope, Space Grotesk) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +95,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         [x-cloak] { display: none !important; }
@@ -529,7 +532,7 @@
                             <!-- Technician Header -->
                             <div class="flex items-center gap-4 pb-5 border-b border-slate-800">
                                 <div class="relative">
-                                    <img src="{{ asset('images/domingo-isain.jpg') }}" alt="Domingo Isain - Gasfiter Certificado SEC" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg">
+                                    <img src="{{ asset('images/domingo-isain.jpg') }}" alt="Domingo Isain - Gasfiter Certificado SEC" width="300" height="300" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg">
                                     <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-slate-950 p-1 rounded-full" title="Técnico Certificado SEC">
                                         <i data-lucide="check-circle" class="w-4 h-4 stroke-[3]"></i>
                                     </span>
@@ -558,7 +561,7 @@
                                     </a>
                                 </div>
                                 <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="shrink-0 p-2 bg-white rounded-2xl shadow-md hover:scale-105 transition-transform">
-                                    <img src="{{ asset('images/qr-sec.png') }}" alt="QR SEC Domingo Isain" class="w-16 h-16 object-contain">
+                                    <img src="{{ asset('images/qr-sec.png') }}" alt="QR SEC Domingo Isain" width="200" height="200" class="w-16 h-16 object-contain">
                                 </a>
                             </div>
 
@@ -818,7 +821,7 @@
                     <!-- 2. Metros Lineales Slider & Number Input -->
                     <div class="space-y-3 p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
                         <div class="flex items-center justify-between">
-                            <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider">
+                            <label for="metros-input" class="block text-xs font-bold text-slate-300 uppercase tracking-wider">
                                 2. Metros Lineales Estimados a Sellar:
                             </label>
                             <div class="flex items-center gap-2">
@@ -826,7 +829,7 @@
                                 <span class="text-xs text-slate-400 uppercase font-bold">Metros</span>
                             </div>
                         </div>
-                        <input type="range" min="1" max="100" step="1" x-model="metros"
+                        <input id="metros-input" aria-label="Metros Lineales Estimados a Sellar" type="range" min="1" max="100" step="1" x-model="metros"
                                class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500">
                         <div class="flex items-center justify-between text-[11px] text-slate-500">
                             <span>1 Metro</span>

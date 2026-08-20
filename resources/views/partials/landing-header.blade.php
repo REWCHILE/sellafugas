@@ -32,7 +32,7 @@
         
         <!-- Logo & Brand Title -->
         <a href="{{ route('home') }}" class="flex items-center gap-3.5 group">
-            <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo Oficial" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
+            <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo Oficial" width="320" height="320" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
             <div>
                 <span class="font-display font-black text-2xl sm:text-3xl text-white tracking-tight leading-none block">
                     SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®
