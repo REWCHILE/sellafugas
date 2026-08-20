@@ -249,7 +249,8 @@
                 <!-- Section 1: Navigation -->
                 <div class="space-y-1">
                     <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block px-3 mb-1.5">Navegación Principal</span>
-                    <a href="{{ route('home') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-100 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('home') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold transition-colors {{ request()->routeIs('home') ? 'bg-sky-500/20 text-sky-300 ring-1 ring-sky-500/40' : 'text-slate-100 hover:bg-slate-800 hover:text-white' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                         </svg>
@@ -267,13 +268,15 @@
                         </svg>
                         <span>Documentos & Certificados</span>
                     </a>
-                    <a href="{{ route('nosotros') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-100 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('nosotros') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold transition-colors {{ request()->routeIs('nosotros') ? 'bg-sky-500/20 text-sky-300 ring-1 ring-sky-500/40' : 'text-slate-100 hover:bg-slate-800 hover:text-white' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                         <span>Sobre Nosotros (Domingo SEC)</span>
                     </a>
-                    <a href="{{ route('contacto') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold text-slate-100 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('contacto') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-bold transition-colors {{ request()->routeIs('contacto') ? 'bg-emerald-500/20 text-emerald-300 ring-1 ring-emerald-500/40' : 'text-slate-100 hover:bg-slate-800 hover:text-white' }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
@@ -285,7 +288,8 @@
                 <div class="space-y-1.5 pt-3 border-t border-slate-800">
                     <span class="text-[10px] font-bold text-amber-400 uppercase tracking-wider block px-3 mb-1.5">Servicios Especializados</span>
                     
-                    <a href="{{ route('landing.prodoral') }}" @click="mobileNav = false" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold text-amber-300 bg-amber-500/15 border border-amber-500/30 hover:bg-amber-500/25 transition-all">
+                    <a href="{{ route('landing.prodoral') }}" @click="mobileNav = false" 
+                       class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition-all {{ request()->routeIs('landing.prodoral') ? 'bg-amber-500/30 text-amber-200 border-2 border-amber-400' : 'text-amber-300 bg-amber-500/15 border border-amber-500/30 hover:bg-amber-500/25' }}">
                         <span class="flex items-center gap-2">
                             <span class="text-sm">🇩🇪</span>
                             <span>Prodoral R6-1 Sellado Alemán</span>
@@ -293,47 +297,56 @@
                         <span class="text-[9px] uppercase px-1.5 py-0.5 rounded bg-amber-400/20 text-amber-300 font-black">Sin Romper</span>
                     </a>
 
-                    <a href="{{ route('landing.fugas-gas') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.fugas-gas') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.fugas-gas') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>🔥</span>
                         <span>Sellado Fugas de Gas</span>
                     </a>
 
-                    <a href="{{ route('landing.gasfiter-sec') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.gasfiter-sec') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.gasfiter-sec') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>🛡️</span>
                         <span>Gasfíter Certificado SEC</span>
                     </a>
 
-                    <a href="{{ route('landing.sello-rojo') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.sello-rojo') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.sello-rojo') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>🚨</span>
                         <span>Levantamiento Sello Rojo</span>
                     </a>
 
-                    <a href="{{ route('landing.gas-trazador') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.gas-trazador') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.gas-trazador') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>💨</span>
                         <span>Detección Gas Trazador</span>
                     </a>
 
-                    <a href="{{ route('landing.fugas-agua') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.fugas-agua') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.fugas-agua') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>💧</span>
                         <span>Detección Fugas de Agua</span>
                     </a>
 
-                    <a href="{{ route('landing.fugas-piscinas') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.fugas-piscinas') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.fugas-piscinas') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>🏊</span>
                         <span>Fugas en Piscinas sin Vaciar</span>
                     </a>
 
-                    <a href="{{ route('landing.deteccion-sin-romper') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.deteccion-sin-romper') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.deteccion-sin-romper') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>🔍</span>
                         <span>Detección Sin Romper Muros</span>
                     </a>
 
-                    <a href="{{ route('landing.reparacion-calefont') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.reparacion-calefont') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.reparacion-calefont') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>🔧</span>
                         <span>Calefont SEC Reparación</span>
                     </a>
 
-                    <a href="{{ route('landing.certificados-sec') }}" @click="mobileNav = false" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-200 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="{{ route('landing.certificados-sec') }}" @click="mobileNav = false" 
+                       class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-semibold transition-colors {{ request()->routeIs('landing.certificados-sec') ? 'bg-emerald-500/20 text-emerald-300 font-bold ring-1 ring-emerald-500/40' : 'text-slate-200 hover:bg-slate-800 hover:text-white' }}">
                         <span>📋</span>
                         <span>Certificados Oficiales DS66</span>
                     </a>

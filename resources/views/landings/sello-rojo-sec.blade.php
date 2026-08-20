@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -175,7 +175,7 @@
     }
     </script>
 </head>
-<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white"
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white overflow-x-hidden"
       x-data="{
           nombre: '',
           telefono: '',
@@ -194,6 +194,8 @@
 
     <!-- Top Header Partial -->
     @include('partials.landing-header')
+
+    <main id="main-content" class="overflow-x-hidden">
 
     <!-- Hero Section -->
     <section class="py-16 bg-radial from-slate-900 to-slate-950">
@@ -403,6 +405,8 @@
 
         </div>
     </section>
+
+    </main>
 
     <!-- Footer Partial -->
     @include('partials.landing-footer')
