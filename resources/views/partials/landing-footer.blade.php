@@ -22,7 +22,7 @@
 
             <!-- Col 2: Specialized Landing Services -->
             <div class="space-y-2">
-                <h3 class="text-sm font-bold text-white uppercase tracking-wider">Especialidades Técnicas</h3>
+                <h2 class="text-sm font-bold text-white uppercase tracking-wider">Especialidades Técnicas</h2>
                 <ul class="space-y-1 text-xs">
                     <li><a href="{{ route('landing.prodoral') }}" class="inline-block py-0.5 hover:text-amber-400 text-amber-300 font-bold">🇩🇪 Prodoral R6-1 Sellado Alemán</a></li>
                     <li><a href="{{ route('landing.fugas-gas') }}" class="inline-block py-0.5 hover:text-sky-400 text-slate-300">Sellado Fugas de Gas Sin Romper</a></li>
@@ -39,7 +39,7 @@
 
             <!-- Col 3: Fast Links -->
             <div class="space-y-2">
-                <h3 class="text-sm font-bold text-white uppercase tracking-wider">SellafuGas®</h3>
+                <h2 class="text-sm font-bold text-white uppercase tracking-wider">SellafuGas®</h2>
                 <ul class="space-y-1.5 text-xs">
                     <li><a href="{{ route('nosotros') }}" class="inline-block py-0.5 hover:text-sky-400 text-slate-300">Sobre Nosotros</a></li>
                     <li><a href="{{ route('contacto') }}" class="inline-block py-0.5 hover:text-sky-400 text-slate-300">Contacto y Central de Urgencias</a></li>

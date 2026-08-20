@@ -26,71 +26,18 @@
     <!-- LCP Hero Image Preload -->
     <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
 
-    <!-- Google Fonts: Human & Industrial Typography Stack (Plus Jakarta Sans, Manrope, Space Grotesk) -->
+    <!-- Google Fonts: Human & Industrial Typography Stack -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Preloaded Production Compiled Tailwind CSS Stylesheet -->
+    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style">
+    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
 
     <!-- Animations Stylesheet Preset (Asynchronous loading) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Manrope', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-                        display: ['Plus Jakarta Sans', 'sans-serif'],
-                        tech: ['Space Grotesk', 'sans-serif'],
-                    },
-                    colors: {
-                        copper: {
-                            50: '#fff7ed',
-                            100: '#ffedd5',
-                            200: '#fed7aa',
-                            300: '#fdba74',
-                            400: '#fb923c',
-                            500: '#f97316',
-                            600: '#ea580c',
-                            700: '#c2410c',
-                            800: '#9a3412',
-                        },
-                        brass: {
-                            400: '#fbbf24',
-                            500: '#d97706',
-                            600: '#b45309',
-                        },
-                        brand: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            400: '#38bdf8',
-                            500: '#0284c7',
-                            600: '#0369a1',
-                            700: '#075985',
-                            900: '#0c4a6e',
-                            950: '#082f49',
-                        },
-                        gas: {
-                            emerald: '#059669',
-                            cyan: '#0891b2',
-                            amber: '#d97706',
-                            rose: '#e11d48',
-                        }
-                    },
-                    boxShadow: {
-                        'neon-emerald': '0 0 25px -5px rgba(5, 150, 105, 0.35)',
-                        'neon-sky': '0 0 25px -5px rgba(2, 132, 199, 0.35)',
-                        'glow-lg': '0 10px 40px -10px rgba(2, 132, 199, 0.35)',
-                        'tactile': '0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
-                    }
-                }
-            }
-        }
-    </script>
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>

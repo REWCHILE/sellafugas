@@ -18,7 +18,7 @@
                 <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
                 <span>Verificar SEC Online</span>
             </a>
-            <a href="tel:949877316" class="text-white bg-emerald-700 hover:bg-emerald-600 px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all shadow-md shadow-emerald-700/30 flex items-center gap-2">
+            <a href="tel:949877316" class="text-slate-950 bg-emerald-400 hover:bg-emerald-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all shadow-md shadow-emerald-400/30 flex items-center gap-2">
                 <i data-lucide="phone-call" class="w-4 h-4"></i>
                 <span>949 877 316</span>
             </a>
