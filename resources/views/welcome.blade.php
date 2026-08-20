@@ -415,6 +415,9 @@
     <!-- Header Navigation & Mobile Drawer -->
     @include('partials.landing-header')
 
+    <!-- MAIN CONTENT LANDMARK REGION FOR ACCESSIBILITY -->
+    <main id="main-content">
+
     <!-- HERO SECTION WITH DYNAMIC BACKGROUND SLIDER -->
     <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden"
              x-data="{ 
@@ -516,7 +519,7 @@
 
                     <!-- Direct Verification Badge -->
                     <div data-animate="fade-up" data-delay="350" class="flex items-center gap-3 pt-3 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80">
-                        <img src="{{ asset('images/logotipo-sec.png') }}" alt="SEC" class="h-7 w-auto opacity-95">
+                        <img src="{{ asset('images/logotipo-sec.webp') }}" alt="SEC" width="120" height="92" class="h-7 w-auto opacity-95">
                         <span>Gasfiter Certificado Autorizado SEC Clase 3 · <strong>Domingo Isain Plaza Caamaño</strong> (RUT 12.738.961-6)</span>
                     </div>
 
@@ -532,7 +535,7 @@
                             <!-- Technician Header -->
                             <div class="flex items-center gap-4 pb-5 border-b border-slate-800">
                                 <div class="relative">
-                                    <img src="{{ asset('images/domingo-isain.jpg') }}" alt="Domingo Isain - Gasfiter Certificado SEC" width="300" height="300" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg">
+                                    <img src="{{ asset('images/domingo-isain.webp') }}" alt="Domingo Isain - Gasfiter Certificado SEC" width="160" height="160" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg">
                                     <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-slate-950 p-1 rounded-full" title="Técnico Certificado SEC">
                                         <i data-lucide="check-circle" class="w-4 h-4 stroke-[3]"></i>
                                     </span>
@@ -561,7 +564,7 @@
                                     </a>
                                 </div>
                                 <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="shrink-0 p-2 bg-white rounded-2xl shadow-md hover:scale-105 transition-transform">
-                                    <img src="{{ asset('images/qr-sec.png') }}" alt="QR SEC Domingo Isain" width="200" height="200" class="w-16 h-16 object-contain">
+                                    <img src="{{ asset('images/qr-sec.webp') }}" alt="QR SEC Domingo Isain" width="140" height="140" class="w-16 h-16 object-contain">
                                 </a>
                             </div>
 
@@ -595,13 +598,15 @@
             </div>
 
             <!-- Slide Indicators / Dots -->
-            <div class="flex items-center justify-center gap-2 pt-8">
+            <div class="flex items-center justify-center gap-1 pt-8">
                 <template x-for="(slide, index) in slides" :key="index">
                     <button type="button" 
                             @click="currentSlide = index" 
                             :aria-label="'Diapositiva ' + (index + 1)"
-                            class="h-1.5 rounded-full transition-all duration-300 focus:outline-none"
-                            :class="currentSlide === index ? 'w-8 bg-emerald-400 shadow-md shadow-emerald-500/50' : 'w-2 bg-slate-700 hover:bg-slate-500'"></button>
+                            class="p-2.5 min-w-[32px] min-h-[32px] flex items-center justify-center focus:outline-none cursor-pointer">
+                        <span class="h-2 rounded-full transition-all duration-300"
+                              :class="currentSlide === index ? 'w-8 bg-emerald-400 shadow-md shadow-emerald-500/50' : 'w-2 bg-slate-700 hover:bg-slate-500'"></span>
+                    </button>
                 </template>
             </div>
 
@@ -1873,6 +1878,8 @@
     </section>
 
     <!-- Footer Partial -->
+    </main>
+
     @include('partials.landing-footer')
 
     <!-- REAL-TIME SOCIAL PROOF NOTIFICATION TOAST (FOMO SYSTEM) -->
