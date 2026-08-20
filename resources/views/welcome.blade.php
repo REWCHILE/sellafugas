@@ -1012,7 +1012,7 @@
                         Total Estimado: <strong class="text-emerald-400 text-lg" x-text="quoteTotalFormatted"></strong>
                     </p>
                     <p class="text-xs text-slate-400">
-                        Hemos registrado su cotización en el sistema de SellafuGas. Haga clic a continuación para enviar los detalles directamente al WhatsApp de Domingo Isain y coordinar su visita.
+                        Hemos registrado su cotización en el sistema de SellafuGas. Haga clic a continuación para enviar los detalles directamente al WhatsApp de Domingo Isain y coordinar su trabajo de sellado.
                     </p>
                 </div>
 

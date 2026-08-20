@@ -144,7 +144,7 @@ class QuotePublicController extends Controller
             "💰 *Total Estimado:* $" . number_format($pricing['total_price'], 0, ',', '.') . " " . ($taxType === 'factura' ? '(IVA Incluido)' : 'Neto') . "\n" .
             "🛡️ *Incluye:* Sellado Prodoral R6-1 sin romper + Pruebas de Hermeticidad + Certificado SEC + 3 Años Garantía.\n" .
             ($validated['detalles'] ? "📝 *Detalle:* {$validated['detalles']}\n" : "") .
-            "\n¿Tiene disponibilidad para coordinar la visita?";
+            "\n¿Tiene disponibilidad para coordinar el trabajo de sellado?";
 
         $whatsappUrl = "https://api.whatsapp.com/send?phone=56949877316&text=" . urlencode($whatsappMessage);
 
