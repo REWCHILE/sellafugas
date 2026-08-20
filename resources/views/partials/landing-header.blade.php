@@ -18,7 +18,7 @@
                 <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
                 <span>Verificar SEC Online</span>
             </a>
-            <a href="tel:949877316" class="text-white bg-emerald-600 hover:bg-emerald-500 px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all shadow-md shadow-emerald-600/30 flex items-center gap-2">
+            <a href="tel:949877316" class="text-white bg-emerald-700 hover:bg-emerald-600 px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all shadow-md shadow-emerald-700/30 flex items-center gap-2">
                 <i data-lucide="phone-call" class="w-4 h-4"></i>
                 <span>949 877 316</span>
             </a>
@@ -32,7 +32,7 @@
         
         <!-- Logo & Brand Title -->
         <a href="{{ route('home') }}" class="flex items-center gap-3.5 group">
-            <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo Oficial" width="320" height="320" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
+            <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo Oficial" width="120" height="120" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
             <div>
                 <span class="font-display font-black text-2xl sm:text-3xl text-white tracking-tight leading-none block">
                     SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®
@@ -172,9 +172,9 @@
             </a>
 
             <!-- Mobile Hamburger Button -->
-            <button type="button" @click="mobileNav = true" 
+            <button type="button" @click.stop="mobileNav = true" 
                     aria-label="Abrir Menú"
-                    class="lg:hidden p-2.5 rounded-xl bg-slate-800/90 text-slate-200 hover:text-white border border-slate-700 hover:bg-slate-700 transition-all flex items-center justify-center">
+                    class="lg:hidden p-2.5 rounded-xl bg-slate-800/90 text-slate-200 hover:text-white border border-slate-700 hover:bg-slate-700 transition-all flex items-center justify-center cursor-pointer pointer-events-auto">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>

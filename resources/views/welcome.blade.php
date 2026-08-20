@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,8 +31,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Animations Stylesheet Preset -->
-    <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
+    <!-- Animations Stylesheet Preset (Asynchronous loading) -->
+    <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -416,7 +417,7 @@
     @include('partials.landing-header')
 
     <!-- MAIN CONTENT LANDMARK REGION FOR ACCESSIBILITY -->
-    <main id="main-content">
+    <main id="main-content" class="overflow-x-hidden">
 
     <!-- HERO SECTION WITH DYNAMIC BACKGROUND SLIDER -->
     <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden"
@@ -449,7 +450,7 @@
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/35 -z-10 pointer-events-none"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent -z-10 pointer-events-none"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-transparent -z-10 pointer-events-none"></div>
-        <div class="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-600/15 blur-[120px] pointer-events-none -z-10"></div>
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[500px] h-[300px] bg-sky-600/15 blur-[100px] pointer-events-none -z-10 overflow-hidden"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -564,7 +565,7 @@
                                     </a>
                                 </div>
                                 <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="shrink-0 p-2 bg-white rounded-2xl shadow-md hover:scale-105 transition-transform">
-                                    <img src="{{ asset('images/qr-sec.webp') }}" alt="QR SEC Domingo Isain" width="140" height="140" class="w-16 h-16 object-contain">
+                                    <img src="{{ asset('images/qr-sec.webp') }}" alt="QR SEC Domingo Isain" width="100" height="100" class="w-16 h-16 object-contain">
                                 </a>
                             </div>
 
@@ -1070,7 +1071,7 @@
              }">
         
         <!-- Ambient light -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/10 blur-[130px] pointer-events-none -z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[500px] h-[300px] bg-emerald-500/10 blur-[100px] pointer-events-none -z-10 overflow-hidden"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             

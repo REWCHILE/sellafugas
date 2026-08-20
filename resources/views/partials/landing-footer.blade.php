@@ -6,7 +6,7 @@
             <!-- Col 1: Brand Info -->
             <div class="space-y-3 md:col-span-2">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" width="180" height="180" class="h-12 w-auto">
+                    <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" width="120" height="120" class="h-12 w-auto">
                     <div>
                         <span class="font-display font-black text-xl text-white">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</span>
                         <span class="text-[11px] text-slate-300 block font-semibold">Domingo Isain Plaza Caamaño · Gasfiter Certificado SEC Clase 3</span>
