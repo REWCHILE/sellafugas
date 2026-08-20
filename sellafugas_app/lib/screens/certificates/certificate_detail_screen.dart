@@ -39,24 +39,56 @@ class _CertificateDetailScreenState extends State<CertificateDetailScreen> {
   }
 
   Future<void> _launchUrl(String url) async {
+    if (url.isEmpty) return;
     final uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    try {
+      bool launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      if (!launched) {
+        launched = await launchUrl(uri, mode: LaunchMode.platformDefault);
+      }
+      if (!launched && mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('No fue posible abrir el enlace en una aplicación externa.'),
+            backgroundColor: AppColors.danger,
+          ),
+        );
+      }
+    } catch (e) {
+      debugPrint('Error abriendo URL ($url): $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error al abrir enlace: $e'),
+            backgroundColor: AppColors.danger,
+          ),
+        );
+      }
     }
   }
 
   Future<void> _callPhone(String phone) async {
     final clean = phone.replaceAll(RegExp(r'[^0-9+]'), '');
+    if (clean.isEmpty) return;
     final uri = Uri.parse('tel:$clean');
-    if (await canLaunchUrl(uri)) {
+    try {
       await launchUrl(uri);
+    } catch (e) {
+      debugPrint('Error llamando al teléfono ($phone): $e');
     }
   }
 
   Future<void> _shareWhatsApp() async {
-    if (_cert?.whatsappUrl != null) {
-      await _launchUrl(_cert!.whatsappUrl!);
+    if (_cert == null) return;
+    String url = _cert!.whatsappUrl ?? '';
+    if (url.isEmpty) {
+      final phone = (_cert!.clientPhone ?? '').replaceAll(RegExp(r'[^0-9]'), '');
+      final pdfUrl = _cert!.pdfUrl ?? '';
+      final docName = _cert!.isCertificate ? 'Certificado Oficial SEC' : 'Cotización';
+      final msg = "Hola ${_cert!.clientName}, le compartimos su $docName N° ${_cert!.certificateNumber} de SellafuGas®:\n$pdfUrl";
+      url = "https://wa.me/$phone?text=${Uri.encodeComponent(msg)}";
     }
+    await _launchUrl(url);
   }
 
   Future<void> _convertToOfficialCert() async {

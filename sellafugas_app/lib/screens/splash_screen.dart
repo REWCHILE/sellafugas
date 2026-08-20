@@ -35,10 +35,23 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   }
 
   Future<void> _checkAuth() async {
-    await Future.delayed(const Duration(milliseconds: 1600));
+    final auth = Provider.of<AuthProvider>(context, listen: false);
+
+    // Wait for AuthProvider initialization to finish
+    int maxWaitMs = 5000;
+    int waitedMs = 0;
+    while (auth.status == AuthStatus.uninitialized && waitedMs < maxWaitMs) {
+      await Future.delayed(const Duration(milliseconds: 100));
+      waitedMs += 100;
+    }
+
+    // Ensure minimum splash animation time for smooth UX
+    if (waitedMs < 1200) {
+      await Future.delayed(Duration(milliseconds: 1200 - waitedMs));
+    }
+
     if (!mounted) return;
 
-    final auth = Provider.of<AuthProvider>(context, listen: false);
     if (auth.isAuthenticated) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const MainNavigationScreen()),

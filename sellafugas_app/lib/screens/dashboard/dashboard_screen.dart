@@ -107,7 +107,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   ),
                                 ),
                                 const SizedBox(height: 2),
-                                Row(
+                                Wrap(
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  spacing: 6,
+                                  runSpacing: 4,
                                   children: [
                                     Container(
                                       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
@@ -126,13 +129,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         ),
                                       ),
                                     ),
-                                    if (user?.secCode != null) ...[
-                                      const SizedBox(width: 6),
+                                    if (user?.secCode != null && user!.secCode!.isNotEmpty)
                                       Text(
-                                        'SEC: ${user?.secCode}',
+                                        'SEC: ${user.secCode}',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(fontSize: 11, color: AppColors.textMutedDark),
                                       ),
-                                    ],
                                   ],
                                 ),
                               ],

@@ -43,10 +43,12 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<void> _refreshProfile() async {
-    final user = await AuthService.fetchCurrentUser();
-    if (user != null) {
-      _currentUser = user;
+    final result = await AuthService.fetchCurrentUser();
+    if (result['status'] == 'success' && result['user'] != null) {
+      _currentUser = result['user'] as UserModel;
       notifyListeners();
+    } else if (result['status'] == 'unauthorized') {
+      await logout();
     }
   }
 

@@ -58,7 +58,7 @@ class AuthService {
     return null;
   }
 
-  static Future<UserModel?> fetchCurrentUser() async {
+  static Future<Map<String, dynamic>> fetchCurrentUser() async {
     try {
       final response = await ApiService.get('/me');
       if (response.statusCode == 200) {
@@ -67,11 +67,13 @@ class AuthService {
           final user = UserModel.fromJson(data['user']);
           final prefs = await SharedPreferences.getInstance();
           await prefs.setString(_keyUser, jsonEncode(data['user']));
-          return user;
+          return {'status': 'success', 'user': user};
         }
+      } else if (response.statusCode == 401) {
+        return {'status': 'unauthorized'};
       }
     } catch (_) {}
-    return null;
+    return {'status': 'network_error'};
   }
 
   static Future<void> logout() async {

@@ -44,8 +44,13 @@ class _CertificatesListScreenState extends State<CertificatesListScreen> {
     final cleanPhone = phone.replaceAll(RegExp(r'[^0-9]'), '');
     final msg = "Hola $name, le compartimos su documento oficial SellafuGas® N° $folio:\n$pdfUrl";
     final uri = Uri.parse("https://wa.me/$cleanPhone?text=${Uri.encodeComponent(msg)}");
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    try {
+      bool launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
+      if (!launched) {
+        await launchUrl(uri, mode: LaunchMode.platformDefault);
+      }
+    } catch (e) {
+      debugPrint('Error al abrir WhatsApp: $e');
     }
   }
 
