@@ -690,7 +690,7 @@
                             <span class="font-display">Llamar: 949 877 316</span>
                         </a>
 
-                        <a href="https://api.whatsapp.com/send?phone=56949877316&text=URGENTE%20Domingo%20Isain%2C%20tengo%20olor%20a%20gas%20en%20mi%20domicilio%20necesito%20atencion%20urgente" target="_blank"
+                        <a href="https://api.whatsapp.com/send?phone=56949877316&text=URGENTE%20Domingo%20Isain%2C%20tengo%20fuga%20de%20gas%20en%20mi%20domicilio%2C%20necesito%20atencion%20urgente" target="_blank"
                            class="py-3.5 px-6 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm sm:text-base rounded-2xl shadow-xl shadow-emerald-500/30 flex items-center justify-center gap-3 transition-all hover:scale-[1.02]">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
                             <span class="font-display">WhatsApp Urgencias SEC</span>
