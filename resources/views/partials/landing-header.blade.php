@@ -26,8 +26,10 @@
     </div>
 </div>
 
-<!-- Main Navigation Header -->
-<header class="glass-dark border-b border-slate-800/80 sticky top-[41px] z-40" x-data="{ mobileNav: false, megaMenuNav: false }">
+<!-- Main Navigation Component Wrapper -->
+<div x-data="{ mobileNav: false, megaMenuNav: false }">
+    <!-- Main Navigation Header -->
+    <header class="glass-dark border-b border-slate-800/80 sticky top-[41px] z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         <!-- Logo & Brand Title -->
@@ -180,10 +182,11 @@
         </div>
 
     </div>
+</header>
 
     <!-- Mobile Off-Canvas Slide-Over Drawer (Right to Left) -->
     <div x-show="mobileNav" x-cloak 
-         class="fixed inset-0 z-[100] lg:hidden" 
+         class="fixed inset-0 z-[9999] lg:hidden" 
          role="dialog" 
          aria-modal="true">
         
@@ -363,4 +366,4 @@
 
         </div>
     </div>
-</header>
+</div>
