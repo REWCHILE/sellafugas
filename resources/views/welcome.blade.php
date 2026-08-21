@@ -35,10 +35,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap"></noscript>
 
-    <!-- Animations Stylesheet (Non-Render-Blocking) -->
-    <link rel="stylesheet" href="{{ asset('css/animations.css') }}" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
-
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -1931,5 +1927,7 @@
         });
     </script>
 
+    <!-- Animations Stylesheet (Loaded asynchronously at end of body) -->
+    <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
 </body>
 </html>

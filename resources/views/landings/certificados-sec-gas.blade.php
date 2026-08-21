@@ -12,7 +12,7 @@
     <meta property="og:url" content="{{ $canonicalUrl }}">
     <meta property="og:title" content="{{ $metaTitle }}">
     <meta property="og:description" content="{{ $metaDescription }}">
-    <meta property="og:image" content="{{ asset('images/certificados-sec-gas.png') }}">
+    <meta property="og:image" content="{{ asset('images/certificados-sec-gas.webp') }}">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
@@ -234,7 +234,7 @@
 
                 <div class="lg:col-span-5 space-y-6" data-animate="fade-left" data-delay="200">
                     <div class="glass-card p-4 rounded-3xl border border-slate-700 overflow-hidden shadow-2xl hover-lift">
-                        <img src="{{ asset('images/certificados-sec-gas.png') }}" alt="Certificado Oficial SEC DS66" class="w-full h-80 object-contain bg-slate-950 p-2 rounded-2xl">
+                        <img src="{{ asset('images/certificados-sec-gas.webp') }}" alt="Certificado Oficial SEC DS66" class="w-full h-80 object-contain bg-slate-950 p-2 rounded-2xl">
                         <div class="p-4 space-y-2">
                             <span class="text-xs font-bold text-sky-400 uppercase tracking-wider block">Documento Técnico Legal</span>
                             <h3 class="text-lg font-bold text-white">Certificación y Validación Digital</h3>

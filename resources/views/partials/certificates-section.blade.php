@@ -43,8 +43,8 @@
                 <div class="space-y-3">
                     <!-- Thumbnail Preview -->
                     <div class="relative rounded-xl overflow-hidden bg-white border border-slate-700/80 aspect-[4/3] flex items-center justify-center p-2 cursor-pointer group-hover:shadow-lg transition-all"
-                         @click="openCertModal('Licencia Oficial Gasfíter Instalador SEC Clase 3', '{{ asset('images/certificados-sec-gas.png') }}', 'Domingo Isain Plaza Caamaño · RUT 12.738.961-6', 'DS66 SEC · Superintendencia de Electricidad y Combustibles', 'Oficial SEC')">
-                        <img src="{{ asset('images/certificados-sec-gas.png') }}" alt="Licencia SEC Domingo Isain" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300">
+                         @click="openCertModal('Licencia Oficial Gasfíter Instalador SEC Clase 3', '{{ asset('images/certificados-sec-gas.webp') }}', 'Domingo Isain Plaza Caamaño · RUT 12.738.961-6', 'DS66 SEC · Superintendencia de Electricidad y Combustibles', 'Oficial SEC')">
+                        <img src="{{ asset('images/certificados-sec-gas.webp') }}" alt="Licencia SEC Domingo Isain" class="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300">
                         <div class="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-all flex items-center justify-center pointer-events-none">
                             <span class="p-2 rounded-full bg-emerald-500/90 text-slate-950 shadow-lg group-hover:scale-110 transition-transform">
                                 <i data-lucide="eye" class="w-4 h-4 stroke-[2.5]"></i>
@@ -69,7 +69,7 @@
 
                 <div class="space-y-2 pt-2 border-t border-slate-800">
                     <button type="button" 
-                            @click="openCertModal('Licencia Oficial Gasfíter Instalador SEC Clase 3', '{{ asset('images/certificados-sec-gas.png') }}', 'Domingo Isain Plaza Caamaño · RUT 12.738.961-6', 'DS66 SEC · Superintendencia de Electricidad y Combustibles', 'Oficial SEC')"
+                            @click="openCertModal('Licencia Oficial Gasfíter Instalador SEC Clase 3', '{{ asset('images/certificados-sec-gas.webp') }}', 'Domingo Isain Plaza Caamaño · RUT 12.738.961-6', 'DS66 SEC · Superintendencia de Electricidad y Combustibles', 'Oficial SEC')"
                             class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-slate-950 font-black rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all shadow-md shadow-emerald-600/30">
                         <i data-lucide="eye" class="w-3.5 h-3.5"></i>
                         <span>Ver Licencia SEC Oficial</span>
