@@ -10,7 +10,7 @@
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
             </span>
             <span class="text-emerald-300 font-bold uppercase tracking-wider text-xs sm:text-sm">Servicio Urgente Fugas & Sellado Prodoral R6-1</span>
-            <span class="hidden sm:inline text-slate-500">|</span>
+            <span class="hidden sm:inline text-emerald-400/60 text-[8px] mx-0.5">●</span>
             <span class="hidden sm:inline text-slate-200 font-medium">Gasfíter SEC Domingo Isain · <strong>RUT 12.738.961-6</strong></span>
         </div>
         <div class="flex items-center gap-4 text-xs sm:text-sm font-semibold">

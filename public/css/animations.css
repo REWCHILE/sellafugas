@@ -265,10 +265,13 @@ body::-webkit-scrollbar-thumb,
     box-shadow: inset 0 0 6px rgba(16, 185, 129, 0.5);
 }
 
-html::-webkit-scrollbar-thumb:hover,
-body::-webkit-scrollbar-thumb:hover,
-::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #7dd3fc 0%, #34d399 100%);
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+/* ==========================================================================
+   8. Custom Circle Cursor Replacement (Hide default browser arrow & text beam |)
+   ========================================================================== */
+
+@media (min-width: 768px) {
+    html, body, a, button, input, select, textarea {
+        cursor: none !important;
+    }
 }
 
