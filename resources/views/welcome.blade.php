@@ -26,17 +26,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap"></noscript>
 
-    <!-- Alpine.js -->
+    <!-- Lucide Icons & Alpine.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Lucide Icons: Loaded lazily after page render -->
     <script>
-    window.addEventListener('load', function() {
-        var s = document.createElement('script');
-        s.src = 'https://unpkg.com/lucide@latest';
-        s.onload = function() { if(window.lucide) lucide.createIcons(); };
-        document.body.appendChild(s);
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.lucide) lucide.createIcons();
+        });
     </script>
 
     <style>
