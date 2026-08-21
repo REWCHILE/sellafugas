@@ -1,3 +1,8 @@
+<!-- DYNAMIC MOUSE FOLLOW SPOTLIGHT GLOW EFFECT (Desktop & Tablet) -->
+<div id="mouseGlowSpotlight" 
+     class="fixed pointer-events-none z-30 w-[450px] h-[450px] rounded-full bg-radial from-sky-500/20 via-emerald-500/10 to-transparent blur-3xl opacity-0 transition-opacity duration-300 ease-out hidden md:block"
+     style="top: 0; left: 0; transform: translate3d(-50%, -50%, 0); will-change: transform;"></div>
+
 <!-- REAL-TIME SOCIAL PROOF NOTIFICATION TOAST (FOMO SYSTEM) -->
 <div id="fomoToast" class="fixed bottom-4 left-3 sm:bottom-6 sm:left-6 z-50 transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-none sm:pointer-events-auto">
     <div class="glass-dark border border-emerald-500/40 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-2.5 sm:gap-3.5 max-w-[240px] xs:max-w-[270px] sm:max-w-sm">
@@ -115,5 +120,43 @@
             showNextToast();
             setInterval(showNextToast, 9500);
         }, 3500);
+
+        // 3. Mouse Follower Neon Spotlight Engine (Desktop & Laptop)
+        const spotlight = document.getElementById('mouseGlowSpotlight');
+        if (spotlight && window.innerWidth >= 768) {
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let currentX = mouseX;
+            let currentY = mouseY;
+            let isMoving = false;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                if (!isMoving) {
+                    isMoving = true;
+                    spotlight.style.opacity = '1';
+                    requestAnimationFrame(animateSpotlight);
+                }
+            }, { passive: true });
+
+            function animateSpotlight() {
+                // Physics interpolation for smooth liquid trailing
+                currentX += (mouseX - currentX) * 0.12;
+                currentY += (mouseY - currentY) * 0.12;
+
+                spotlight.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+
+                if (Math.abs(mouseX - currentX) > 0.1 || Math.abs(mouseY - currentY) > 0.1) {
+                    requestAnimationFrame(animateSpotlight);
+                } else {
+                    isMoving = false;
+                }
+            }
+
+            document.addEventListener('mouseleave', () => {
+                spotlight.style.opacity = '0';
+            });
+        }
     });
 </script>
