@@ -3,21 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SellafuGas® | Reparación de Fugas de Gas Sin Romper · Prodoral R6-1 · Gasfiter Certificado SEC Domingo Isain</title>
-    
-    <!-- Meta SEO Tags -->
-    <meta name="description" content="Sellado de fugas de gas no visibles en cañerías sin romper muros ni pisos. Aplicación oficial de Prodoral R6-1 alemán por Domingo Isain, Gasfiter Certificado SEC Clase 3. Procedimiento < 2 horas, garantía 3 años, usted paga después de solucionado. RM, V y VI Región. Llame al 949 877 316.">
-    <meta name="keywords" content="sellafugas, fuga de gas, fugas de gas, gasfiter certificado, gasfiter certificados sec, prodoral, prodoral r6-1, reparacion de fugas de gas sin romper, sellar fuga de gas, detectar fuga de gas, sellado de cañerias de gas, gasfiter certificado a domicilio, gasfiter sec santiago, gasfiter sec la florida, gasfiter las condes, gasfiter providencia, gasfiter chicureo, prueba de hermeticidad gas, ds66 sec">
-    <meta name="author" content="Domingo Isain Plaza Caamaño - SellafuGas®">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://sellafugas.cl">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sellafugas.cl/">
-    <meta property="og:title" content="SellafuGas® · Reparación de Fugas de Gas Sin Romper con Prodoral R6-1 · Gasfiter SEC">
-    <meta property="og:description" content="Especialistas en sellado de fugas de gas no visibles. Solución en menos de 2 horas con tecnología alemana Prodoral R6-1. Garantía 3 años por escrito. Certificado SEC oficial.">
-    <meta property="og:image" content="{{ asset('images/logotipo-sellafugas.cl.webp') }}">
+    @include('partials.meta-tags', [
+        'metaTitle' => 'SellafuGas® | Reparación de Fugas de Gas Sin Romper · Prodoral R6-1 · Gasfiter SEC',
+        'metaDescription' => 'Sellado de fugas de gas no visibles en cañerías sin romper muros ni pisos. Aplicación oficial de Prodoral R6-1 por Domingo Isain (Gasfiter SEC Clase 3). Garantía 3 años. Llame al 949 877 316.',
+        'canonicalUrl' => 'https://sellafugas.cl',
+        'metaImage' => asset('images/og-share-whatsapp.jpg')
+    ])
 
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="{{ asset('images/logotipo-sellafugas.cl.webp') }}">

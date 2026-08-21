@@ -3,16 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $metaTitle }}</title>
-    <meta name="description" content="{{ $metaDescription }}">
-    <link rel="canonical" href="{{ $canonicalUrl }}" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ $canonicalUrl }}">
-    <meta property="og:title" content="{{ $metaTitle }}">
-    <meta property="og:description" content="{{ $metaDescription }}">
-    <meta property="og:image" content="{{ asset('images/domingo-isain-caamano-gasfiter-sec.webp') }}">
+    @include('partials.meta-tags', [
+        'metaTitle' => $metaTitle,
+        'metaDescription' => $metaDescription,
+        'canonicalUrl' => $canonicalUrl
+    ])
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
