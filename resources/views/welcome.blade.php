@@ -26,24 +26,31 @@
     <!-- LCP Hero Image Preload -->
     <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
 
-    <!-- Google Fonts: Human & Industrial Typography Stack -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
-
-    <!-- Preloaded Production Compiled Tailwind CSS Stylesheet -->
-    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style">
+    <!-- Production Compiled Tailwind CSS Stylesheet (Critical) -->
     <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
 
-    <!-- Animations Stylesheet Preset (Asynchronous loading) -->
-    <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Google Fonts (Non-Render-Blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap"></noscript>
+
+    <!-- Animations Stylesheet (Non-Render-Blocking) -->
+    <link rel="stylesheet" href="{{ asset('css/animations.css') }}" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
 
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <!-- Lucide Icons -->
-    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lucide Icons: Loaded lazily after page render -->
+    <script>
+    window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://unpkg.com/lucide@latest';
+        s.onload = function() { if(window.lucide) lucide.createIcons(); };
+        document.body.appendChild(s);
+    });
+    </script>
 
     <style>
         [x-cloak] { display: none !important; }
@@ -385,8 +392,13 @@
         
         <!-- Dynamic Background Image Slider with Ken Burns & Smooth Fade -->
         <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
+            <!-- First slide rendered server-side for instant LCP (no JS dependency) -->
+            <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 transform filter brightness-90 contrast-105 opacity-80"
+                 :class="currentSlide === 0 ? 'opacity-80 scale-100 transition-all duration-[6000ms] ease-out' : 'opacity-0 scale-105'"
+                 style="background-image: url('{{ asset('images/hero-home-main.webp') }}');">
+            </div>
             <template x-for="(slide, index) in slides" :key="index">
-                <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 transform filter brightness-90 contrast-105"
+                <div x-show="index > 0" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 transform filter brightness-90 contrast-105"
                      :class="currentSlide === index ? 'opacity-80 scale-100 transition-all duration-[6000ms] ease-out' : 'opacity-0 scale-105'"
                      :style="`background-image: url('${slide}');`">
                 </div>
@@ -492,7 +504,7 @@
                                     <div class="inline-block px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-400 text-xs font-bold uppercase tracking-wider mb-1">
                                         Especialista Responsable
                                     </div>
-                                    <h3 class="text-xl font-black text-white font-display leading-tight">Domingo Isain Plaza Caamaño</h3>
+                                    <h2 class="text-xl font-black text-white font-display leading-tight">Domingo Isain Plaza Caamaño</h2>
                                     <p class="text-xs sm:text-sm text-emerald-400 font-bold mt-0.5">Gasfíter Certificado Autorizado SEC</p>
                                     <p class="text-xs text-slate-300 font-tech">RUT: 12.738.961-6 · Clase 3</p>
                                 </div>
@@ -1871,9 +1883,6 @@
     <!-- Scripts: Lucide Icons & Dynamic Real-Time Toast Cycle -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if (window.lucide) {
-                lucide.createIcons();
-            }
 
             // Real-Time Social Proof Toast Cycle (FOMO)
             const fomoEvents = [

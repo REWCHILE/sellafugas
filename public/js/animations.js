@@ -45,16 +45,20 @@
                 });
             }, observerOptions);
 
-            // Check if element is already in viewport on initial load
-            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-            elementsToAnimate.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                // If element is already in or near viewport above the fold
-                if (rect.top <= windowHeight * 0.92 && rect.bottom >= 0) {
-                    el.classList.add('is-visible');
-                } else {
-                    observer.observe(el);
+            // Batch all DOM geometry reads in a single frame to avoid forced reflow
+            requestAnimationFrame(function() {
+                var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                var rects = [];
+                var i;
+                for (i = 0; i < elementsToAnimate.length; i++) {
+                    rects.push(elementsToAnimate[i].getBoundingClientRect());
+                }
+                for (i = 0; i < elementsToAnimate.length; i++) {
+                    if (rects[i].top <= windowHeight * 0.92 && rects[i].bottom >= 0) {
+                        elementsToAnimate[i].classList.add('is-visible');
+                    } else {
+                        observer.observe(elementsToAnimate[i]);
+                    }
                 }
             });
 
