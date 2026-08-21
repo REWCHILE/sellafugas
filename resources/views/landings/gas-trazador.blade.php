@@ -383,10 +383,7 @@
     <!-- Footer Partial -->
     @include('partials.landing-footer')
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if(window.lucide) lucide.createIcons();
-        });
-    </script>
+    <!-- Floating Widgets & FOMO System -->
+    @include('partials.floating-widgets')
 </body>
 </html>

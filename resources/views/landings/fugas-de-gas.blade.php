@@ -561,13 +561,8 @@
     <!-- Footer Partial -->
     @include('partials.landing-footer')
 
-    <!-- Floating Buttons -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20tengo%20una%20fuga%20de%20gas%20y%20necesito%20sellado%20con%20Prodoral%20R6-1" target="_blank"
-           class="w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110">
-            <i data-lucide="message-circle" class="w-7 h-7"></i>
-        </a>
-    </div>
+    <!-- Floating Widgets & FOMO System -->
+    @include('partials.floating-widgets')
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

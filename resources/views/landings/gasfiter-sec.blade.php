@@ -425,18 +425,7 @@
     <!-- Footer Partial -->
     @include('partials.landing-footer')
 
-    <!-- Floating WhatsApp -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <a href="https://api.whatsapp.com/send?phone=56949877316&text=Hola%20Domingo,%20necesito%20un%20Gasfiter%20Certificado%20SEC" target="_blank"
-           class="w-14 h-14 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110">
-            <i data-lucide="message-circle" class="w-7 h-7"></i>
-        </a>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if(window.lucide) lucide.createIcons();
-        });
-    </script>
+    <!-- Floating Widgets & FOMO System -->
+    @include('partials.floating-widgets')
 </body>
 </html>
