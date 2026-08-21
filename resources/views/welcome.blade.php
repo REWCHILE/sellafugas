@@ -761,22 +761,22 @@
                         </label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                             <button type="button" x-on:click="zone = 'rm'; provincia = 'Santiago'"
-                                    :class="zone === 'rm' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-lg' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700'"
-                                    class="p-3.5 rounded-xl text-left transition-all">
+                                    :class="zone === 'rm' ? 'bg-emerald-950/90 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-lg' : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700'"
+                                    class="p-3.5 rounded-xl text-left border-2 transition-colors duration-150">
                                 <div class="font-bold text-xs uppercase tracking-wide">Santiago (RM)</div>
                                 <div class="text-[11px] text-slate-400 mt-0.5">Base $300k · +$25k/m</div>
                             </button>
 
                             <button type="button" x-on:click="zone = 'v_vi'; provincia = 'Valparaíso / Rancagua'"
-                                    :class="zone === 'v_vi' ? 'bg-sky-950/90 border-2 border-sky-400 text-sky-200 ring-2 ring-sky-500/20 shadow-lg' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700'"
-                                    class="p-3.5 rounded-xl text-left transition-all">
+                                    :class="zone === 'v_vi' ? 'bg-sky-950/90 border-sky-400 text-sky-200 ring-2 ring-sky-500/20 shadow-lg' : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700'"
+                                    class="p-3.5 rounded-xl text-left border-2 transition-colors duration-150">
                                 <div class="font-bold text-xs uppercase tracking-wide">V y VI Región</div>
                                 <div class="text-[11px] text-slate-400 mt-0.5">Base $350k · +$30k/m</div>
                             </button>
 
                             <button type="button" x-on:click="zone = 'otras'; provincia = 'Otras Regiones'"
-                                    :class="zone === 'otras' ? 'bg-amber-950/90 border-2 border-amber-400 text-amber-200 ring-2 ring-amber-500/20 shadow-lg' : 'bg-slate-900 border border-slate-800 text-slate-400 hover:border-slate-700'"
-                                    class="p-3.5 rounded-xl text-left transition-all">
+                                    :class="zone === 'otras' ? 'bg-amber-950/90 border-amber-400 text-amber-200 ring-2 ring-amber-500/20 shadow-lg' : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700'"
+                                    class="p-3.5 rounded-xl text-left border-2 transition-colors duration-150">
                                 <div class="font-bold text-xs uppercase tracking-wide">Otras Regiones</div>
                                 <div class="text-[11px] text-slate-400 mt-0.5">Base $400k · +$35k/m</div>
                             </button>
@@ -1054,32 +1054,32 @@
                 </label>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                     <button type="button" @click="propertyType = 'depto'"
-                            :class="propertyType === 'depto' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
-                            class="p-4 rounded-2xl text-center transition-all">
+                            :class="propertyType === 'depto' ? 'bg-emerald-950/90 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700'"
+                            class="p-4 rounded-2xl text-center border-2 transition-colors duration-150">
                         <i data-lucide="building" class="w-5 h-5 mx-auto mb-1.5" :class="propertyType === 'depto' ? 'text-emerald-400' : 'text-slate-500'"></i>
                         <div class="font-bold text-xs">Departamento</div>
                         <div class="text-[11px] text-slate-400">~10 a 12 metros</div>
                     </button>
 
                     <button type="button" @click="propertyType = 'casa_1'"
-                            :class="propertyType === 'casa_1' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
-                            class="p-4 rounded-2xl text-center transition-all">
+                            :class="propertyType === 'casa_1' ? 'bg-emerald-950/90 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700'"
+                            class="p-4 rounded-2xl text-center border-2 transition-colors duration-150">
                         <i data-lucide="home" class="w-5 h-5 mx-auto mb-1.5" :class="propertyType === 'casa_1' ? 'text-emerald-400' : 'text-slate-500'"></i>
                         <div class="font-bold text-xs">Casa 1 Piso</div>
                         <div class="text-[11px] text-slate-400">~15 a 20 metros</div>
                     </button>
 
                     <button type="button" @click="propertyType = 'casa_2'"
-                            :class="propertyType === 'casa_2' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
-                            class="p-4 rounded-2xl text-center transition-all">
+                            :class="propertyType === 'casa_2' ? 'bg-emerald-950/90 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
+                            class="p-4 rounded-2xl text-center border-2 transition-colors duration-150">
                         <i data-lucide="layers" class="w-5 h-5 mx-auto mb-1.5" :class="propertyType === 'casa_2' ? 'text-emerald-400' : 'text-slate-500'"></i>
                         <div class="font-bold text-xs">Casa 2 Pisos</div>
                         <div class="text-[11px] text-slate-400">~25 a 30 metros</div>
                     </button>
 
                     <button type="button" @click="propertyType = 'condominio'"
-                            :class="propertyType === 'condominio' ? 'bg-emerald-950/90 border-2 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border border-slate-800 text-slate-400 hover:border-slate-700'"
-                            class="p-4 rounded-2xl text-center transition-all">
+                            :class="propertyType === 'condominio' ? 'bg-emerald-950/90 border-emerald-400 text-emerald-200 ring-2 ring-emerald-500/20 shadow-xl' : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700'"
+                            class="p-4 rounded-2xl text-center border-2 transition-colors duration-150">
                         <i data-lucide="map-pin" class="w-5 h-5 mx-auto mb-1.5" :class="propertyType === 'condominio' ? 'text-emerald-400' : 'text-slate-500'"></i>
                         <div class="font-bold text-xs">Red Extensa</div>
                         <div class="text-[11px] text-slate-400">~35 a 50+ metros</div>
