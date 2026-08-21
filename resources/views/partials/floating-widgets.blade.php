@@ -1,6 +1,10 @@
-<!-- DYNAMIC MOUSE FOLLOW SPOTLIGHT GLOW EFFECT (Desktop & Tablet) -->
-<div id="mouseGlowSpotlight" 
-     class="fixed pointer-events-none z-30 w-[450px] h-[450px] rounded-full bg-radial from-sky-500/20 via-emerald-500/10 to-transparent blur-3xl opacity-0 transition-opacity duration-300 ease-out hidden md:block"
+<!-- DYNAMIC SHARP MOUSE CURSOR FOLLOWER CIRCLE (Desktop & Tablet) -->
+<div id="customCursorDot" 
+     class="fixed pointer-events-none z-50 w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.9)] opacity-0 transition-opacity duration-300 hidden md:block"
+     style="top: 0; left: 0; transform: translate3d(-50%, -50%, 0); will-change: transform;"></div>
+
+<div id="customCursorRing" 
+     class="fixed pointer-events-none z-50 w-9 h-9 rounded-full border-2 border-emerald-400/80 shadow-[0_0_15px_rgba(16,185,129,0.5)] opacity-0 transition-transform duration-150 ease-out hidden md:block"
      style="top: 0; left: 0; transform: translate3d(-50%, -50%, 0); will-change: transform;"></div>
 
 <!-- REAL-TIME SOCIAL PROOF NOTIFICATION TOAST (FOMO SYSTEM) -->
@@ -121,41 +125,57 @@
             setInterval(showNextToast, 9500);
         }, 3500);
 
-        // 3. Mouse Follower Neon Spotlight Engine (Desktop & Laptop)
-        const spotlight = document.getElementById('mouseGlowSpotlight');
-        if (spotlight && window.innerWidth >= 768) {
+        // 3. Ultra-Smooth Sharp Cursor Follower Circle & Ring Engine
+        const cursorDot = document.getElementById('customCursorDot');
+        const cursorRing = document.getElementById('customCursorRing');
+
+        if (cursorDot && cursorRing && window.innerWidth >= 768) {
             let mouseX = window.innerWidth / 2;
             let mouseY = window.innerHeight / 2;
-            let currentX = mouseX;
-            let currentY = mouseY;
+            let ringX = mouseX;
+            let ringY = mouseY;
             let isMoving = false;
 
             document.addEventListener('mousemove', (e) => {
                 mouseX = e.clientX;
                 mouseY = e.clientY;
+
+                cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
+
                 if (!isMoving) {
                     isMoving = true;
-                    spotlight.style.opacity = '1';
-                    requestAnimationFrame(animateSpotlight);
+                    cursorDot.style.opacity = '1';
+                    cursorRing.style.opacity = '1';
+                    requestAnimationFrame(animateRing);
                 }
             }, { passive: true });
 
-            function animateSpotlight() {
-                // Physics interpolation for smooth liquid trailing
-                currentX += (mouseX - currentX) * 0.12;
-                currentY += (mouseY - currentY) * 0.12;
+            function animateRing() {
+                ringX += (mouseX - ringX) * 0.18;
+                ringY += (mouseY - ringY) * 0.18;
 
-                spotlight.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
+                cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
 
-                if (Math.abs(mouseX - currentX) > 0.1 || Math.abs(mouseY - currentY) > 0.1) {
-                    requestAnimationFrame(animateSpotlight);
+                if (Math.abs(mouseX - ringX) > 0.1 || Math.abs(mouseY - ringY) > 0.1) {
+                    requestAnimationFrame(animateRing);
                 } else {
                     isMoving = false;
                 }
             }
 
+            // Interactive Hover Expansion on buttons & links
+            document.querySelectorAll('a, button, input, select, textarea, [role="button"]').forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursorRing.classList.add('scale-150', 'border-sky-400', 'bg-sky-400/10');
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursorRing.classList.remove('scale-150', 'border-sky-400', 'bg-sky-400/10');
+                });
+            });
+
             document.addEventListener('mouseleave', () => {
-                spotlight.style.opacity = '0';
+                cursorDot.style.opacity = '0';
+                cursorRing.style.opacity = '0';
             });
         }
     });
