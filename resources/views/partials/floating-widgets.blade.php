@@ -21,9 +21,18 @@
     </div>
 </div>
 
-<!-- FLOATING WHATSAPP & PHONE ACTION BUTTONS -->
+<!-- FLOATING WHATSAPP, PHONE & BACK-TO-TOP ACTION BUTTONS -->
 <div class="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2.5 sm:gap-3">
     
+    <!-- Dynamic Back to Top Anchor Button (Appears only near page bottom) -->
+    <button id="backToTopBtn" type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            title="Volver al inicio arriba"
+            class="p-2.5 sm:p-3 bg-slate-900/95 hover:bg-sky-500 text-sky-400 hover:text-slate-950 rounded-full border border-sky-400/40 shadow-2xl flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none translate-y-8 group hover:scale-110 cursor-pointer">
+        <svg class="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-y-1 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
     <!-- Direct Phone Call Button -->
     <a href="tel:949877316" title="Llamar a Domingo Isain"
        class="p-3 sm:p-3.5 bg-slate-900/95 hover:bg-slate-800 text-white rounded-full border border-slate-700 shadow-xl flex items-center justify-center group transition-all hover:scale-110">
@@ -44,9 +53,26 @@
 
 </div>
 
-<!-- Real-Time Social Proof Toast Cycle Script -->
+<!-- Real-Time Social Proof Toast Cycle & Scroll Script -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // 1. Back to Top Scroll Detection (Appears only when near page bottom)
+        const backBtn = document.getElementById('backToTopBtn');
+        if (backBtn) {
+            window.addEventListener('scroll', () => {
+                const scrollPos = window.innerHeight + window.scrollY;
+                const threshold = document.documentElement.scrollHeight - 550;
+                if (scrollPos >= threshold && window.scrollY > 400) {
+                    backBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+                    backBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                } else {
+                    backBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                    backBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+                }
+            }, { passive: true });
+        }
+
+        // 2. Real-Time Social Proof Toast Cycle
         const fomoEvents = [
             { text: "Una visita de Sellado agendada en Las Condes", time: "Hace 2 minutos" },
             { text: "Cotización de Sellado Prodoral (18m) en Providencia", time: "Hace 5 minutos" },

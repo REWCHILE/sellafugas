@@ -177,7 +177,9 @@
             <button type="button" @click.stop="mobileNav = true" 
                     aria-label="Abrir Menú"
                     class="lg:hidden p-2.5 rounded-xl bg-slate-800/90 text-slate-200 hover:text-white border border-slate-700 hover:bg-slate-700 transition-all flex items-center justify-center cursor-pointer pointer-events-auto">
-                <i data-lucide="menu" class="w-6 h-6"></i>
+                <svg class="w-6 h-6 text-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
             </button>
         </div>
 
