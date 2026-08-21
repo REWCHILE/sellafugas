@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import '../../core/constants/app_colors.dart';
 import '../../models/certificate_model.dart';
 import '../../providers/certificate_provider.dart';
+import '../../core/utils/url_launcher_helper.dart';
 import 'certificate_detail_screen.dart';
 import 'certificate_form_screen.dart';
 
@@ -41,16 +41,15 @@ class _CertificatesListScreenState extends State<CertificatesListScreen> {
   }
 
   Future<void> _launchWhatsApp(String phone, String name, String folio, String pdfUrl) async {
-    final cleanPhone = phone.replaceAll(RegExp(r'[^0-9]'), '');
     final msg = "Hola $name, le compartimos su documento oficial SellafuGas® N° $folio:\n$pdfUrl";
-    final uri = Uri.parse("https://wa.me/$cleanPhone?text=${Uri.encodeComponent(msg)}");
-    try {
-      bool launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
-      if (!launched) {
-        await launchUrl(uri, mode: LaunchMode.platformDefault);
-      }
-    } catch (e) {
-      debugPrint('Error al abrir WhatsApp: $e');
+    final success = await UrlLauncherHelper.openWhatsApp(phone: phone, message: msg);
+    if (!success && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('No fue posible abrir WhatsApp.'),
+          backgroundColor: AppColors.danger,
+        ),
+      );
     }
   }
 

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../../core/constants/app_colors.dart';
 import '../../models/certificate_model.dart';
 import '../../providers/auth_provider.dart';
 import '../../providers/certificate_provider.dart';
+import '../../core/utils/url_launcher_helper.dart';
 import 'certificate_form_screen.dart';
 
 class CertificateDetailScreen extends StatefulWidget {
@@ -39,56 +39,37 @@ class _CertificateDetailScreenState extends State<CertificateDetailScreen> {
   }
 
   Future<void> _launchUrl(String url) async {
-    if (url.isEmpty) return;
-    final uri = Uri.parse(url);
-    try {
-      bool launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
-      if (!launched) {
-        launched = await launchUrl(uri, mode: LaunchMode.platformDefault);
-      }
-      if (!launched && mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('No fue posible abrir el enlace en una aplicación externa.'),
-            backgroundColor: AppColors.danger,
-          ),
-        );
-      }
-    } catch (e) {
-      debugPrint('Error abriendo URL ($url): $e');
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error al abrir enlace: $e'),
-            backgroundColor: AppColors.danger,
-          ),
-        );
-      }
+    final success = await UrlLauncherHelper.openPdf(url);
+    if (!success && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('No fue posible abrir el enlace en una aplicación externa.'),
+          backgroundColor: AppColors.danger,
+        ),
+      );
     }
   }
 
   Future<void> _callPhone(String phone) async {
-    final clean = phone.replaceAll(RegExp(r'[^0-9+]'), '');
-    if (clean.isEmpty) return;
-    final uri = Uri.parse('tel:$clean');
-    try {
-      await launchUrl(uri);
-    } catch (e) {
-      debugPrint('Error llamando al teléfono ($phone): $e');
-    }
+    await UrlLauncherHelper.makeCall(phone);
   }
 
   Future<void> _shareWhatsApp() async {
     if (_cert == null) return;
-    String url = _cert!.whatsappUrl ?? '';
-    if (url.isEmpty) {
-      final phone = (_cert!.clientPhone ?? '').replaceAll(RegExp(r'[^0-9]'), '');
-      final pdfUrl = _cert!.pdfUrl ?? '';
-      final docName = _cert!.isCertificate ? 'Certificado Oficial SEC' : 'Cotización';
-      final msg = "Hola ${_cert!.clientName}, le compartimos su $docName N° ${_cert!.certificateNumber} de SellafuGas®:\n$pdfUrl";
-      url = "https://wa.me/$phone?text=${Uri.encodeComponent(msg)}";
+    final phone = _cert!.clientPhone ?? '';
+    final pdfUrl = _cert!.pdfUrl ?? '';
+    final docName = _cert!.isCertificate ? 'Certificado Oficial SEC' : 'Cotización';
+    final msg = _cert!.whatsappText ?? "Hola ${_cert!.clientName}, le compartimos su $docName N° ${_cert!.certificateNumber} de SellafuGas®:\n$pdfUrl";
+    
+    final success = await UrlLauncherHelper.openWhatsApp(phone: phone, message: msg);
+    if (!success && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('No se pudo abrir la aplicación de WhatsApp.'),
+          backgroundColor: AppColors.danger,
+        ),
+      );
     }
-    await _launchUrl(url);
   }
 
   Future<void> _convertToOfficialCert() async {

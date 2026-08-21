@@ -544,7 +544,15 @@ class CertificateController extends Controller
             . "Puede visualizar y descargar su documento oficial en el siguiente enlace:\n{$pdfUrl}\n\n"
             . "SellafuGas® | Sellado de Fugas de Gas Sin Romper con Prodoral R6-1 · Domingo Isain Gasfiter SEC.";
 
-        $whatsappUrl = 'https://wa.me/' . preg_replace('/[^0-9]/', '', $cert->client_phone) . '?text=' . urlencode($whatsappMessage);
+        $cleanPhone = preg_replace('/[^0-9]/', '', $cert->client_phone ?? '');
+        if (strlen($cleanPhone) === 9 && str_starts_with($cleanPhone, '9')) {
+            $cleanPhone = '56' . $cleanPhone;
+        } elseif (strlen($cleanPhone) === 8) {
+            $cleanPhone = '56' . $cleanPhone;
+        }
+        $whatsappUrl = !empty($cleanPhone) 
+            ? 'https://wa.me/' . $cleanPhone . '?text=' . urlencode($whatsappMessage) 
+            : null;
 
         $photos = [
             'photo_1' => $cert->photo_1 ? asset('storage/' . $cert->photo_1) : null,
