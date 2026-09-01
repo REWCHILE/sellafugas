@@ -26,11 +26,11 @@
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
 
-    <!-- Google Fonts (Non-Render-Blocking) -->
+    <!-- Google Fonts (Non-Render-Blocking, Zero CLS Font Loading) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=optional"></noscript>
 
     <!-- Local High-Performance Lucide Icons & Alpine.js -->
     <script defer src="{{ asset('js/lucide.min.js') }}"></script>
@@ -385,7 +385,7 @@
         <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
             <img src="{{ asset('images/hero-home-main.webp') }}"
                  alt="SellafuGas Reparación de Fugas de Gas Sin Romper"
-                 width="854" height="480"
+                 width="640" height="360"
                  fetchpriority="high" decoding="sync"
                  class="absolute inset-0 w-full h-full object-cover object-center filter brightness-90 contrast-105">
         </div>
