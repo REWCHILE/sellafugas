@@ -25,9 +25,10 @@
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
 
-    <!-- Google Fonts (Non-Render-Blocking) -->
+    <!-- Google Fonts (Preloaded & Non-Render-Blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap"></noscript>
 
@@ -396,11 +397,14 @@
         
         <!-- Dynamic Background Image Slider with Ken Burns & Smooth Fade -->
         <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
-            <!-- First slide rendered server-side for instant LCP (no JS dependency) -->
-            <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 transform filter brightness-90 contrast-105 opacity-80"
-                 :class="currentSlide === 0 ? 'opacity-80 scale-100 transition-all duration-[6000ms] ease-out' : 'opacity-0 scale-105'"
-                 style="background-image: url('{{ asset('images/hero-home-main.webp') }}');">
-            </div>
+            <!-- First slide rendered as native HTML <img> for instantaneous LCP -->
+            <img src="{{ asset('images/hero-home-main.webp') }}"
+                 alt="SellafuGas Reparación de Fugas de Gas Sin Romper"
+                 width="1920" height="1080"
+                 fetchpriority="high" decoding="async"
+                 class="absolute inset-0 w-full h-full object-cover object-center filter brightness-90 contrast-105 transition-all duration-1000"
+                 :class="currentSlide === 0 ? 'opacity-80 scale-100 duration-[6000ms] ease-out' : 'opacity-0 scale-105'">
+            
             <template x-for="(slide, index) in slides" :key="index">
                 <div x-show="index > 0" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 transform filter brightness-90 contrast-105"
                      :class="currentSlide === index ? 'opacity-80 scale-100 transition-all duration-[6000ms] ease-out' : 'opacity-0 scale-105'"
@@ -413,7 +417,8 @@
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-slate-950/35 -z-10 pointer-events-none"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent -z-10 pointer-events-none"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-transparent to-transparent -z-10 pointer-events-none"></div>
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[500px] h-[300px] bg-sky-600/15 blur-[100px] pointer-events-none -z-10 overflow-hidden"></div>
+        <!-- Fixed top pixel position to eliminate 0.129 CLS layout shift -->
+        <div class="absolute top-28 sm:top-36 left-1/2 -translate-x-1/2 w-full max-w-[500px] h-[300px] bg-sky-600/15 blur-[100px] pointer-events-none -z-10 overflow-hidden"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
