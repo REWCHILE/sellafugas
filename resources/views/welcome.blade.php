@@ -17,9 +17,9 @@
     <!-- LCP Hero Image Preload -->
     <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
 
-    <!-- Production Compiled Tailwind CSS Stylesheet (Critical) -->
-    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style">
-    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+    <!-- Production Compiled Tailwind CSS Stylesheet (Non-Render-Blocking) -->
+    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}"></noscript>
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -36,7 +36,11 @@
     <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            if (window.lucide) lucide.createIcons();
+            if (window.requestIdleCallback) {
+                requestIdleCallback(function() { if (window.lucide) lucide.createIcons(); });
+            } else {
+                setTimeout(function() { if (window.lucide) lucide.createIcons(); }, 1);
+            }
         });
     </script>
 
@@ -103,20 +107,32 @@
         }
 
         @keyframes pulse-ring {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.15); opacity: 0.3; }
-            100% { transform: scale(0.95); opacity: 0.8; }
+            0% { transform: scale3d(0.95, 0.95, 1); opacity: 0.8; }
+            50% { transform: scale3d(1.15, 1.15, 1); opacity: 0.3; }
+            100% { transform: scale3d(0.95, 0.95, 1); opacity: 0.8; }
         }
         .animate-pulse-ring {
             animation: pulse-ring 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
 
         @keyframes float-slow {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            0%, 100% { transform: translate3d(0, 0px, 0); }
+            50% { transform: translate3d(0, -8px, 0); }
         }
         .animate-float {
             animation: float-slow 4s ease-in-out infinite;
+            will-change: transform;
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .animate-ping, .animate-pulse, .animate-spin {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            transform: translateZ(0);
         }
     </style>
 

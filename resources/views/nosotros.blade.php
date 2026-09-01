@@ -18,9 +18,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"></noscript>
 
-    <!-- Production Compiled Tailwind CSS Stylesheet -->
-    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style">
-    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+    <!-- Production Compiled Tailwind CSS Stylesheet (Non-Render-Blocking) -->
+    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}"></noscript>
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -396,7 +396,11 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            if(window.lucide) lucide.createIcons();
+            if (window.requestIdleCallback) {
+                requestIdleCallback(function() { if (window.lucide) lucide.createIcons(); });
+            } else {
+                setTimeout(function() { if (window.lucide) lucide.createIcons(); }, 1);
+            }
         });
     </script>
 
