@@ -1,30 +1,25 @@
-# SellafuGas® — Reparación de Fugas de Gas Sin Romper
+# SellafuGas®
 
-> Servicio técnico oficial de detección y sellado de fugas de gas no visibles en cañerías interiores mediante la tecnología alemana Prodoral R6-1. Procedimiento sin picar cerámicos ni destruir muros.
+> Reparación y sellado de fugas de gas sin romper muros ni pisos con tecnología alemana Prodoral R6-1 por Domingo Isain (Gasfíter Autorizado SEC Clase 3).
 
-## Información de la Empresa y Contacto
+## Servicios Técnicos
 
-- **Nombre Comercial:** SellafuGas®
-- **Especialista Técnico:** Domingo Isain Plaza Caamaño
-- **Acreditación:** Gasfíter Instalador Autorizado SEC Clase 3 (RUT 12.738.961-6)
-- **Teléfono de Urgencias:** +56 9 4987 7316 (949 877 316)
-- **WhatsApp:** https://api.whatsapp.com/send?phone=56949877316
-- **Sitio Web Oficial:** https://sellafugas.cl
-- **Cobertura:** Región Metropolitana (Santiago), V Región de Valparaíso y VI Región de O'Higgins.
-- **Condición de Pago:** Usted paga después de solucionado (sin anticipos).
-- **Garantía:** 3 años de garantía por escrito en la red intervenida.
+- [Reparación de Fugas de Gas Sin Romper](https://sellafugas.cl/fugas-de-gas): Sellado y reparación no destructiva de redes de gas en cañerías interiores no visibles.
+- [Tecnología Alemana Prodoral R6-1](https://sellafugas.cl/prodoral): Aplicación oficial de sellante polimérico alemán bajo normativa internacional DIN EN 13090 y DS66 Art. 7.
+- [Gasfíter Certificado SEC](https://sellafugas.cl/gasfiter-sec): Instalador autorizado SEC Clase 3 Domingo Isain Plaza Caamaño (RUT 12.738.961-6).
+- [Levantamiento de Sello Rojo SEC](https://sellafugas.cl/sello-rojo-sec): Regularización y certificación ante la SEC y compañías distribuidoras (Metrogas, Lipigas, Gasco, Abastible).
+- [Detección con Gas Trazador](https://sellafugas.cl/gas-trazador): Detección molecular no invasiva con mezcla Formigas N2/H2 para cañerías subterráneas.
+- [Detección de Fugas de Agua](https://sellafugas.cl/fugas-de-agua): Localización acústica de alta precisión con geófono digital sónico.
+- [Detección de Fugas en Piscinas](https://sellafugas.cl/fugas-piscinas): Detección acústica y de ultrasonido sin vaciar agua.
+- [Reparación y Mantención de Calefont](https://sellafugas.cl/reparacion-calefont-sec): Servicio técnico certificado SEC para calefones tiro forzado, natural e ionizados.
+- [Certificados Oficiales SEC DS66](https://sellafugas.cl/certificados-sec-gas): Emisión de certificados oficiales de servicio y hermeticidad a 368 mmca con código QR.
 
-## Servicios Principales
+## Empresa y Contacto
 
-1. **Sellado de Fugas con Prodoral R6-1:** Inyección neumática de resina polimérica alemana certificada (DIN EN 13090, NAG-203, DS66 Art. 7) que sella microporos y uniones roscadas desde el interior de la cañería en menos de 2 horas.
-2. **Levantamiento de Sello Rojo SEC:** Diagnóstico, reparación inmediata de fugas y emisión de Certificado Oficial de Servicio con código QR para tramitar el reenganche con Metrogas, Lipigas, Gasco o Abastible.
-3. **Detección con Gas Trazador:** Detección molecular de fugas no visibles en matrices complejas mediante mezcla inerte N2/H2 (Formigas).
-4. **Detección de Fugas de Agua:** Localización acústica mediante geófono digital sónico para redes de agua potable y matrices enterradas.
-5. **Detección en Piscinas:** Prueba de hermeticidad y detección por ultrasonido sin necesidad de vaciar el agua.
-6. **Mantención y Reparación de Calefont:** Servicio técnico autorizado SEC para calefones ionizados, tiro forzado y tiro natural.
+- [Página Principal SellafuGas](https://sellafugas.cl): Inicio, cotizador interactivo de sellado de cañerías y cálculo de presupuesto.
+- [Sobre Nosotros](https://sellafugas.cl/nosotros): Información institucional de Instalgaschile SPA, trayectoria y credenciales SEC.
+- [Contacto y Urgencias 24/7](https://sellafugas.cl/contacto): Atención inmediata al teléfono +56 9 4987 7316 en Región Metropolitana, V y VI Región.
 
-## Certificaciones y Normativas
+## Optional
 
-- **SEC:** Decreto Supremo DS66 Artículo 7 y Artículo 44.2.3.
-- **Normas Europeas:** DIN EN 13090 (Selladores para instalaciones de gas).
-- **Norma NAG-203:** Sellantes internos de polimerización anaeróbica.
+- [Validación SEC Online](https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182): Verificación oficial de la licencia de instalador SEC Clase 3 en el portal de la SEC.
