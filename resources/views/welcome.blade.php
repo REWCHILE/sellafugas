@@ -385,7 +385,7 @@
         <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
             <img src="{{ asset('images/hero-home-main.webp') }}"
                  alt="SellafuGas Reparación de Fugas de Gas Sin Romper"
-                 width="640" height="360"
+                 width="426" height="240"
                  fetchpriority="high" decoding="sync"
                  class="absolute inset-0 w-full h-full object-cover object-center filter brightness-90 contrast-105">
         </div>
