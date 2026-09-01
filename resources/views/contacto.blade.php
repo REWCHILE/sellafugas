@@ -12,10 +12,9 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-    <!-- Critical Compiled Tailwind CSS Stylesheet (Inlined for Instant 0ms Render Blocking on Mobile) -->
-    <style>
-        {!! \Illuminate\Support\Facades\File::exists(public_path('css/tailwind.min.css')) ? \Illuminate\Support\Facades\File::get(public_path('css/tailwind.min.css')) : '' !!}
-    </style>
+    <!-- Production Tailwind CSS (Non-Render-Blocking Asynchronous Preload - 0ms Blocking, 100% Reliable) -->
+    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}"></noscript>
 
     <!-- Google Fonts (Non-Render-Blocking, Zero CLS Font Loading) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

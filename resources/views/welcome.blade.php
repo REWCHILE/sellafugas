@@ -17,10 +17,9 @@
     <!-- LCP Hero Image Preload -->
     <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
 
-    <!-- Critical Compiled Tailwind CSS Stylesheet (Inlined for Instant 0ms Render Blocking on Mobile) -->
-    <style>
-        {!! \Illuminate\Support\Facades\File::exists(public_path('css/tailwind.min.css')) ? \Illuminate\Support\Facades\File::get(public_path('css/tailwind.min.css')) : '' !!}
-    </style>
+    <!-- Production Tailwind CSS (Non-Render-Blocking Asynchronous Preload - 0ms Blocking, 100% Reliable) -->
+    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}"></noscript>
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
