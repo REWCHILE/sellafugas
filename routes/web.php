@@ -32,6 +32,14 @@ Route::get('/prodoral', [PublicLandingController::class, 'prodoral'])->name('lan
 Route::get('/nosotros', [PublicLandingController::class, 'nosotros'])->name('nosotros');
 Route::get('/contacto', [PublicLandingController::class, 'contacto'])->name('contacto');
 
+// AI Agentic Discovery (llmstxt.org specification)
+Route::get('/llms.txt', function () {
+    return response(file_get_contents(public_path('llms.txt')), 200, [
+        'Content-Type' => 'text/plain; charset=utf-8',
+        'Cache-Control' => 'public, max-age=86400',
+    ]);
+});
+
 // Public quotation calculator & submission
 Route::post('/cotizar', [QuotePublicController::class, 'store'])->name('quote.public.store');
 Route::post('/cotizar/calcular', [QuotePublicController::class, 'calculate'])->name('quote.public.calculate');

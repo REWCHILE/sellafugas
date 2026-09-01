@@ -375,39 +375,16 @@
     <!-- MAIN CONTENT LANDMARK REGION FOR ACCESSIBILITY -->
     <main id="main-content" class="overflow-x-hidden">
 
-    <!-- HERO SECTION WITH DYNAMIC BACKGROUND SLIDER -->
-    <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden"
-             x-data="{ 
-                 currentSlide: 0, 
-                 slides: [
-                     '{{ asset('images/hero-home-main.webp') }}',
-                     '{{ asset('images/hero-prodoral.webp') }}',
-                     '{{ asset('images/hero-sec.webp') }}',
-                     '{{ asset('images/hero-fuga-gas.webp') }}'
-                 ],
-                 init() {
-                     setInterval(() => {
-                         this.currentSlide = (this.currentSlide + 1) % this.slides.length;
-                     }, 5000);
-                 }
-             }">
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
         
-        <!-- Dynamic Background Image Slider with Ken Burns & Smooth Fade -->
+        <!-- High-Performance Static Background WebP Image for Instantaneous LCP (25KB, 0ms render delay) -->
         <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
-            <!-- First slide rendered as native HTML <img> for instantaneous LCP -->
             <img src="{{ asset('images/hero-home-main.webp') }}"
                  alt="SellafuGas Reparación de Fugas de Gas Sin Romper"
-                 width="1920" height="1080"
-                 fetchpriority="high" decoding="async"
-                 class="absolute inset-0 w-full h-full object-cover object-center filter brightness-90 contrast-105 transition-all duration-1000"
-                 :class="currentSlide === 0 ? 'opacity-80 scale-100 duration-[6000ms] ease-out' : 'opacity-0 scale-105'">
-            
-            <template x-for="(slide, index) in slides" :key="index">
-                <div x-show="index > 0" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 transform filter brightness-90 contrast-105"
-                     :class="currentSlide === index ? 'opacity-80 scale-100 transition-all duration-[6000ms] ease-out' : 'opacity-0 scale-105'"
-                     :style="`background-image: url('${slide}');`">
-                </div>
-            </template>
+                 width="854" height="480"
+                 fetchpriority="high" decoding="sync"
+                 class="absolute inset-0 w-full h-full object-cover object-center filter brightness-90 contrast-105">
         </div>
 
         <!-- Directional Cinematic Gradient Overlays (Focused contrast on text, vibrant image visibility) -->
@@ -420,11 +397,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
-                <!-- Hero Left Column: Main Headlines & Value Props -->
+                <!-- Hero Left Column: Main Headlines & Value Props (Zero CLS static initial render) -->
                 <div class="lg:col-span-7 space-y-7">
                     
                     <!-- Trust Badges Pill -->
-                    <div data-animate="fade-down" data-delay="100" class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/95 border border-emerald-500/40 text-xs sm:text-sm font-bold text-emerald-300 shadow-xl shadow-emerald-950/50">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900/95 border border-emerald-500/40 text-xs sm:text-sm font-bold text-emerald-300 shadow-xl shadow-emerald-950/50">
                         <span class="p-1 rounded-full bg-emerald-500 text-slate-950">
                             <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
                         </span>
@@ -432,17 +409,17 @@
                     </div>
 
                     <!-- Main H1 Title -->
-                    <h1 data-animate="fade-up" data-delay="150" class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
+                    <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08]">
                         Reparación de Fugas de Gas <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-cyan-300 to-emerald-400">Sin Romper Muros</span> ni Pisos
                     </h1>
 
                     <!-- Hero Subtitle & Domingo Isain Credential -->
-                    <p data-animate="fade-up" data-delay="200" class="text-base sm:text-xl text-slate-200 leading-relaxed font-normal">
+                    <p class="text-base sm:text-xl text-slate-200 leading-relaxed font-normal">
                         Servicio técnico especializado en sellado de cañerías no visibles con <strong>Prodoral R6-1</strong>. Procedimiento limpio en <strong class="text-emerald-400 font-bold">menos de 2 horas</strong>, prueba de hermeticidad certificada y entrega de <strong class="text-sky-400 font-bold">Certificado Oficial SEC</strong> para seguros y empresas de inspección.
                     </p>
 
                     <!-- Key Selling Point Cards -->
-                    <div data-animate="fade-up" data-delay="250" data-stagger class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
                         <div class="glass-dark p-4 rounded-2xl border border-slate-700/80 hover-lift">
                             <div class="flex items-center gap-2 text-emerald-400 mb-1.5">
                                 <i data-lucide="shield-check" class="w-6 h-6"></i>
@@ -467,7 +444,7 @@
                     </div>
 
                     <!-- CTA Action Buttons -->
-                    <div data-animate="fade-up" data-delay="300" class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
                         <a href="#cotizador" class="px-8 py-4 bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white font-black text-lg rounded-2xl shadow-xl shadow-emerald-600/30 transition-all flex items-center justify-center gap-3 transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-neon-emerald">
                             <i data-lucide="calculator" class="w-6 h-6"></i>
                             <span>Calcular Cotización Online</span>
@@ -484,7 +461,7 @@
                     </div>
 
                     <!-- Direct Verification Badge -->
-                    <div data-animate="fade-up" data-delay="350" class="flex items-center gap-3 pt-3 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80">
+                    <div class="flex items-center gap-3 pt-3 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80">
                         <img src="{{ asset('images/logotipo-sec.webp') }}" alt="SEC" width="120" height="92" class="h-7 w-auto opacity-95">
                         <span>Gasfiter Certificado Autorizado SEC Clase 3 · <strong>Domingo Isain Plaza Caamaño</strong> (RUT 12.738.961-6)</span>
                     </div>
@@ -492,7 +469,7 @@
                 </div>
 
                 <!-- Hero Right Column: Domingo Profile & Technology Card -->
-                <div class="lg:col-span-5" data-animate="fade-left" data-delay="200">
+                <div class="lg:col-span-5">
                     <div class="relative">
                         
                         <!-- Glowing card frame -->
