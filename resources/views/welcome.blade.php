@@ -541,19 +541,6 @@
 
             </div>
 
-            <!-- Slide Indicators / Dots -->
-            <div class="flex items-center justify-center gap-1 pt-8">
-                <template x-for="(slide, index) in slides" :key="index">
-                    <button type="button" 
-                            @click="currentSlide = index" 
-                            :aria-label="'Diapositiva ' + (index + 1)"
-                            class="p-2.5 min-w-[32px] min-h-[32px] flex items-center justify-center focus:outline-none cursor-pointer">
-                        <span class="h-2 rounded-full transition-all duration-300"
-                              :class="currentSlide === index ? 'w-8 bg-emerald-400 shadow-md shadow-emerald-500/50' : 'w-2 bg-slate-700 hover:bg-slate-500'"></span>
-                    </button>
-                </template>
-            </div>
-
         </div>
     </section>
 
