@@ -1,12 +1,3 @@
-<!-- DYNAMIC SHARP MOUSE CURSOR FOLLOWER CIRCLE (Desktop & Tablet) -->
-<div id="customCursorDot" 
-     class="fixed pointer-events-none z-50 w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.9)] opacity-0 transition-opacity duration-300 hidden md:block"
-     style="top: 0; left: 0; transform: translate3d(-50%, -50%, 0); will-change: transform;"></div>
-
-<div id="customCursorRing" 
-     class="fixed pointer-events-none z-50 w-9 h-9 rounded-full border-2 border-emerald-400/80 shadow-[0_0_15px_rgba(16,185,129,0.5)] opacity-0 transition-transform duration-150 ease-out hidden md:block"
-     style="top: 0; left: 0; transform: translate3d(-50%, -50%, 0); will-change: transform;"></div>
-
 <!-- REAL-TIME SOCIAL PROOF NOTIFICATION TOAST (FOMO SYSTEM) -->
 <div id="fomoToast" class="fixed bottom-4 left-3 sm:bottom-6 sm:left-6 z-50 transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-none sm:pointer-events-auto">
     <div class="glass-dark border border-emerald-500/40 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl shadow-2xl flex items-center gap-2.5 sm:gap-3.5 max-w-[240px] xs:max-w-[270px] sm:max-w-sm">
@@ -128,64 +119,6 @@
                 showNextToast();
                 setInterval(showNextToast, 9500);
             }, 3500);
-        }
-
-        // 3. Ultra-Smooth Sharp Cursor Follower (Only for precision pointer devices)
-        const cursorDot = document.getElementById('customCursorDot');
-        const cursorRing = document.getElementById('customCursorRing');
-        const hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-
-        if (cursorDot && cursorRing && hasFinePointer && window.innerWidth >= 768) {
-            let mouseX = window.innerWidth / 2;
-            let mouseY = window.innerHeight / 2;
-            let ringX = mouseX;
-            let ringY = mouseY;
-            let isMoving = false;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-
-                cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
-
-                if (!isMoving) {
-                    isMoving = true;
-                    cursorDot.style.opacity = '1';
-                    cursorRing.style.opacity = '1';
-                    requestAnimationFrame(animateRing);
-                }
-            }, { passive: true });
-
-            function animateRing() {
-                ringX += (mouseX - ringX) * 0.18;
-                ringY += (mouseY - ringY) * 0.18;
-
-                cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
-
-                if (Math.abs(mouseX - ringX) > 0.1 || Math.abs(mouseY - ringY) > 0.1) {
-                    requestAnimationFrame(animateRing);
-                } else {
-                    isMoving = false;
-                }
-            }
-
-            // Event Delegation for Interactive Elements (Zero layout recalculations)
-            document.addEventListener('mouseover', (e) => {
-                if (e.target && e.target.closest('a, button, input, select, textarea, [role="button"]')) {
-                    cursorRing.classList.add('scale-150', 'border-sky-400', 'bg-sky-400/10');
-                }
-            }, { passive: true });
-
-            document.addEventListener('mouseout', (e) => {
-                if (e.target && e.target.closest('a, button, input, select, textarea, [role="button"]')) {
-                    cursorRing.classList.remove('scale-150', 'border-sky-400', 'bg-sky-400/10');
-                }
-            }, { passive: true });
-
-            document.addEventListener('mouseleave', () => {
-                cursorDot.style.opacity = '0';
-                cursorRing.style.opacity = '0';
-            });
         }
     });
 </script>
