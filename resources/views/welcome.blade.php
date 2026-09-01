@@ -17,10 +17,8 @@
     <!-- LCP Hero Image Preload -->
     <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
 
-    <!-- Inlined Production Tailwind CSS Stylesheet (0ms Network Latency, Zero CLS, 0 Render-Blocking Requests) -->
-    <style>
-        {!! file_get_contents(public_path('css/tailwind.min.css')) !!}
-    </style>
+    <!-- Production Compiled Tailwind CSS Stylesheet (Critical Layout - Zero CLS) -->
+    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">

@@ -12,10 +12,8 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-    <!-- Inlined Production Tailwind CSS Stylesheet (0ms Network Latency, Zero CLS, 0 Render-Blocking Requests) -->
-    <style>
-        {!! file_get_contents(public_path('css/tailwind.min.css')) !!}
-    </style>
+    <!-- Production Compiled Tailwind CSS Stylesheet (Critical Layout - Zero CLS) -->
+    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
 
     <!-- Google Fonts (Non-Render-Blocking, Zero CLS Font Loading) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -34,10 +34,14 @@ Route::get('/contacto', [PublicLandingController::class, 'contacto'])->name('con
 
 // AI Agentic Discovery (llmstxt.org specification)
 Route::get('/llms.txt', function () {
-    return response(file_get_contents(public_path('llms.txt')), 200, [
-        'Content-Type' => 'text/plain; charset=utf-8',
-        'Cache-Control' => 'public, max-age=86400',
-    ]);
+    $path = public_path('llms.txt');
+    if (file_exists($path)) {
+        return response(file_get_contents($path), 200, [
+            'Content-Type' => 'text/plain; charset=utf-8',
+            'Cache-Control' => 'public, max-age=86400',
+        ]);
+    }
+    return response("# SellafuGas\n> Reparación de Fugas de Gas Sin Romper\n", 200, ['Content-Type' => 'text/plain; charset=utf-8']);
 });
 
 // Public quotation calculator & submission
