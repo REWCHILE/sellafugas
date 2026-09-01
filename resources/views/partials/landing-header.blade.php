@@ -48,7 +48,7 @@
             
             <!-- Services Dropdown Mega Menu -->
             <div class="relative" @mouseenter="megaMenuNav = true" @mouseleave="megaMenuNav = false">
-                <button type="button" class="flex items-center gap-1.5 hover:text-sky-400 transition-colors py-2 text-slate-200 {{ str_starts_with(request()->route()->getName() ?? '', 'landing.') ? 'text-amber-400 font-extrabold' : '' }}">
+                <button type="button" class="flex items-center gap-1.5 hover:text-sky-400 transition-colors py-2 text-slate-200 {{ request()->routeIs('landing.*') ? 'text-amber-400 font-extrabold' : '' }}">
                     <span>Servicios Especializados</span>
                     <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" :class="megaMenuNav ? 'rotate-180 text-sky-400' : ''"></i>
                 </button>
