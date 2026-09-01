@@ -12,8 +12,10 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-    <!-- Production Compiled Tailwind CSS Stylesheet (Critical Layout - Zero CLS) -->
-    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+    <!-- Critical Compiled Tailwind CSS Stylesheet (Inlined for Instant 0ms Render Blocking on Mobile) -->
+    <style>
+        {!! \Illuminate\Support\Facades\File::exists(public_path('css/tailwind.min.css')) ? \Illuminate\Support\Facades\File::get(public_path('css/tailwind.min.css')) : '' !!}
+    </style>
 
     <!-- Google Fonts (Non-Render-Blocking, Zero CLS Font Loading) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,9 +27,18 @@
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
 
-    <!-- Local Alpine.js & Lucide Icons -->
+    <!-- Local High-Performance Lucide Icons & Alpine.js -->
     <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script defer src="{{ asset('js/lucide.min.js') }}"></script>
+    <script>
+        window.addEventListener('load', function() {
+            if (window.requestIdleCallback) {
+                requestIdleCallback(function() { if (window.lucide) lucide.createIcons(); });
+            } else {
+                setTimeout(function() { if (window.lucide) lucide.createIcons(); }, 30);
+            }
+        }, { once: true });
+    </script>
 
     <style>
         [x-cloak] { display: none !important; }

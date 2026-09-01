@@ -17,8 +17,10 @@
     <!-- LCP Hero Image Preload -->
     <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
 
-    <!-- Production Compiled Tailwind CSS Stylesheet (Critical Layout - Zero CLS) -->
-    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+    <!-- Critical Compiled Tailwind CSS Stylesheet (Inlined for Instant 0ms Render Blocking on Mobile) -->
+    <style>
+        {!! \Illuminate\Support\Facades\File::exists(public_path('css/tailwind.min.css')) ? \Illuminate\Support\Facades\File::get(public_path('css/tailwind.min.css')) : '' !!}
+    </style>
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -34,13 +36,13 @@
     <script defer src="{{ asset('js/lucide.min.js') }}"></script>
     <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('load', function() {
             if (window.requestIdleCallback) {
                 requestIdleCallback(function() { if (window.lucide) lucide.createIcons(); });
             } else {
-                setTimeout(function() { if (window.lucide) lucide.createIcons(); }, 1);
+                setTimeout(function() { if (window.lucide) lucide.createIcons(); }, 30);
             }
-        });
+        }, { once: true });
     </script>
 
     <style>
