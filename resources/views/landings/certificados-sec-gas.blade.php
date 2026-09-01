@@ -12,18 +12,28 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Non-Render-Blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap"></noscript>
 
     <!-- Production Compiled Tailwind CSS Stylesheet -->
     <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style">
     <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
 
-    <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Animations Stylesheet (Non-Render-Blocking) -->
+    <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
+
+    <!-- Local Alpine.js & Lucide Icons -->
+    <script defer src="{{ asset('js/alpine.min.js') }}"></script>
+    <script defer src="{{ asset('js/lucide.min.js') }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) lucide.createIcons();
+        });
+    </script>
 
     <style>
         [x-cloak] { display: none !important; }

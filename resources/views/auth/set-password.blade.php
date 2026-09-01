@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{{ asset('js/lucide.min.js') }}"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex items-center justify-center p-4 relative overflow-x-hidden">
 

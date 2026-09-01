@@ -18,7 +18,12 @@
     <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
 
     <!-- Production Compiled Tailwind CSS Stylesheet (Critical) -->
+    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style">
     <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+
+    <!-- Animations Stylesheet (Non-Render-Blocking) -->
+    <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
 
     <!-- Google Fonts (Non-Render-Blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,9 +31,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap"></noscript>
 
-    <!-- Lucide Icons & Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Local High-Performance Lucide Icons & Alpine.js -->
+    <script defer src="{{ asset('js/lucide.min.js') }}"></script>
+    <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (window.lucide) lucide.createIcons();
@@ -1826,8 +1831,5 @@
     @include('partials.landing-footer')
 
     @include('partials.floating-widgets')
-
-    <!-- Animations Stylesheet (Loaded asynchronously at end of body) -->
-    <link rel="stylesheet" href="{{ asset('css/animations.css') }}">
 </body>
 </html>

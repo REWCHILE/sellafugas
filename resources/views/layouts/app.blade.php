@@ -44,10 +44,10 @@
     </script>
     
     <!-- Alpine.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="{{ asset('js/alpine.min.js') }}"></script>
     
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="{{ asset('js/lucide.min.js') }}"></script>
     
     <style>
         [x-cloak] { display: none !important; }

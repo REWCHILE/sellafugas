@@ -62,21 +62,26 @@
 
 </div>
 
-<!-- Real-Time Social Proof Toast Cycle & Scroll Script -->
+<!-- Real-Time Social Proof Toast Cycle & Scroll Script (Reflow-Free, GPU-Accelerated) -->
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // 1. Back to Top Scroll Detection (Appears only when near page bottom)
+        // 1. Back to Top Scroll Detection (Uses passive window.scrollY to avoid layout reflows)
         const backBtn = document.getElementById('backToTopBtn');
         if (backBtn) {
+            let ticking = false;
             window.addEventListener('scroll', () => {
-                const scrollPos = window.innerHeight + window.scrollY;
-                const threshold = document.documentElement.scrollHeight - 550;
-                if (scrollPos >= threshold && window.scrollY > 400) {
-                    backBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
-                    backBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                } else {
-                    backBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
-                    backBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        if (window.scrollY > 450) {
+                            backBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-8');
+                            backBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                        } else {
+                            backBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                            backBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-8');
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
                 }
             }, { passive: true });
         }
@@ -102,34 +107,35 @@
         const textEl = document.getElementById('fomoText');
         const timeEl = document.getElementById('fomoTime');
 
-        if (!toastEl || !textEl || !timeEl) return;
+        if (toastEl && textEl && timeEl) {
+            function showNextToast() {
+                const ev = fomoEvents[toastIndex % fomoEvents.length];
+                textEl.innerText = ev.text;
+                timeEl.innerHTML = `<svg class="w-3 h-3 text-emerald-400 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>${ev.time}</span>`;
+                
+                toastEl.classList.remove('translate-y-24', 'opacity-0');
+                toastEl.classList.add('translate-y-0', 'opacity-100');
 
-        function showNextToast() {
-            const ev = fomoEvents[toastIndex % fomoEvents.length];
-            textEl.innerText = ev.text;
-            timeEl.innerHTML = `<svg class="w-3 h-3 text-emerald-400 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>${ev.time}</span>`;
-            
-            toastEl.classList.remove('translate-y-24', 'opacity-0');
-            toastEl.classList.add('translate-y-0', 'opacity-100');
+                setTimeout(() => {
+                    toastEl.classList.remove('translate-y-0', 'opacity-100');
+                    toastEl.classList.add('translate-y-24', 'opacity-0');
+                }, 4500);
+
+                toastIndex++;
+            }
 
             setTimeout(() => {
-                toastEl.classList.remove('translate-y-0', 'opacity-100');
-                toastEl.classList.add('translate-y-24', 'opacity-0');
-            }, 4500);
-
-            toastIndex++;
+                showNextToast();
+                setInterval(showNextToast, 9500);
+            }, 3500);
         }
 
-        setTimeout(() => {
-            showNextToast();
-            setInterval(showNextToast, 9500);
-        }, 3500);
-
-        // 3. Ultra-Smooth Sharp Cursor Follower Circle & Ring Engine
+        // 3. Ultra-Smooth Sharp Cursor Follower (Only for precision pointer devices)
         const cursorDot = document.getElementById('customCursorDot');
         const cursorRing = document.getElementById('customCursorRing');
+        const hasFinePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
 
-        if (cursorDot && cursorRing && window.innerWidth >= 768) {
+        if (cursorDot && cursorRing && hasFinePointer && window.innerWidth >= 768) {
             let mouseX = window.innerWidth / 2;
             let mouseY = window.innerHeight / 2;
             let ringX = mouseX;
@@ -163,15 +169,18 @@
                 }
             }
 
-            // Interactive Hover Expansion on buttons & links
-            document.querySelectorAll('a, button, input, select, textarea, [role="button"]').forEach(el => {
-                el.addEventListener('mouseenter', () => {
+            // Event Delegation for Interactive Elements (Zero layout recalculations)
+            document.addEventListener('mouseover', (e) => {
+                if (e.target && e.target.closest('a, button, input, select, textarea, [role="button"]')) {
                     cursorRing.classList.add('scale-150', 'border-sky-400', 'bg-sky-400/10');
-                });
-                el.addEventListener('mouseleave', () => {
+                }
+            }, { passive: true });
+
+            document.addEventListener('mouseout', (e) => {
+                if (e.target && e.target.closest('a, button, input, select, textarea, [role="button"]')) {
                     cursorRing.classList.remove('scale-150', 'border-sky-400', 'bg-sky-400/10');
-                });
-            });
+                }
+            }, { passive: true });
 
             document.addEventListener('mouseleave', () => {
                 cursorDot.style.opacity = '0';
