@@ -17,17 +17,20 @@
     <!-- LCP Hero Image Preload -->
     <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
 
-    <!-- Production Compiled Tailwind CSS Stylesheet (Critical Layout - Zero CLS) -->
-    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+    <!-- Inlined Production Tailwind CSS Stylesheet (0ms Network Latency, Zero CLS, 0 Render-Blocking Requests) -->
+    <style>
+        {!! file_get_contents(public_path('css/tailwind.min.css')) !!}
+    </style>
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Non-Render-Blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Plus+Jakarta+Sans:wght@700;800&family=Space+Grotesk:wght@700&display=swap"></noscript>
 
     <!-- Local High-Performance Lucide Icons & Alpine.js -->
     <script defer src="{{ asset('js/lucide.min.js') }}"></script>
