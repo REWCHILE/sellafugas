@@ -15,8 +15,8 @@
     <!-- Local High-Performance Fonts Preload (0ms 3rd-party latency, zero FOUT/CLS) -->
     <link rel="preload" href="{{ asset('fonts/plus-jakarta-sans.woff2') }}" as="font" type="font/woff2" crossorigin>
 
-    <!-- Core Local Stylesheet (Tailwind CSS + Embedded Self-Hosted Fonts) -->
-    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+    <!-- Inline Critical Core Stylesheet (Zero Render-Blocking Requests, Instant Paint) -->
+    @include('partials.inline-css')
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">

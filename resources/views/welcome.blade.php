@@ -21,8 +21,8 @@
     <link rel="preload" href="{{ asset('fonts/manrope.woff2') }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ asset('fonts/plus-jakarta-sans.woff2') }}" as="font" type="font/woff2" crossorigin>
 
-    <!-- Core Local Stylesheet (Tailwind CSS + Embedded Self-Hosted Fonts) -->
-    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
+    <!-- Inline Critical Core Stylesheet (Zero Render-Blocking Requests, Instant Paint) -->
+    @include('partials.inline-css')
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -98,10 +98,6 @@
             color: #6ee7b7;
         }
 
-        .font-tech-num {
-            font-family: 'Space Grotesk', sans-serif;
-            letter-spacing: -0.03em;
-        }
 
         @keyframes pulse-ring {
             0% { transform: scale3d(0.95, 0.95, 1); opacity: 0.8; }
