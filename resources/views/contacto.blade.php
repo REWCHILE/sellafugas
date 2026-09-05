@@ -12,15 +12,11 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
 
-    <!-- Production Tailwind CSS (Non-Render-Blocking Asynchronous Preload - 0ms Blocking, 100% Reliable) -->
-    <link rel="preload" href="{{ asset('css/tailwind.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}"></noscript>
+    <!-- Local High-Performance Fonts Preload (0ms 3rd-party latency, zero FOUT/CLS) -->
+    <link rel="preload" href="{{ asset('fonts/plus-jakarta-sans.woff2') }}" as="font" type="font/woff2" crossorigin>
 
-    <!-- Google Fonts (Non-Render-Blocking, Zero CLS Font Loading) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=optional"></noscript>
+    <!-- Core Local Stylesheet (Tailwind CSS + Embedded Self-Hosted Fonts) -->
+    <link rel="stylesheet" href="{{ asset('css/tailwind.min.css') }}">
 
     <!-- Animations Stylesheet (Non-Render-Blocking) -->
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
