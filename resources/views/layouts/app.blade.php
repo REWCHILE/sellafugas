@@ -77,7 +77,7 @@
             <!-- Brand Header -->
             <div class="h-20 flex items-center justify-between px-6 border-b border-slate-800/80 bg-slate-900/40">
                 <a href="{{ route('certificates.index') }}" class="flex items-center gap-3 group">
-                    <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-10 w-auto rounded-lg shadow-md group-hover:scale-105 transition-transform">
+                    <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" width="80" height="80" style="aspect-ratio: 1/1;" class="h-10 w-auto rounded-lg shadow-md group-hover:scale-105 transition-transform">
                     <div>
                         <span class="font-black text-lg text-white tracking-wide block leading-tight">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span></span>
                         <span class="text-[11px] text-slate-400 font-medium">Prodoral R6-1 · SEC</span>

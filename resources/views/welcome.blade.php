@@ -367,7 +367,7 @@
         <div class="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
             <img src="{{ asset('images/hero-home-main.webp') }}"
                  alt="SellafuGas Reparación de Fugas de Gas Sin Romper"
-                 width="426" height="240"
+                 width="426" height="240" style="aspect-ratio: 426/240;"
                  fetchpriority="high" decoding="sync"
                  class="absolute inset-0 w-full h-full object-cover object-center filter brightness-90 contrast-105">
         </div>
@@ -447,7 +447,7 @@
 
                     <!-- Direct Verification Badge -->
                     <div class="flex items-center gap-3 pt-3 text-xs sm:text-sm text-slate-300 border-t border-slate-800/80">
-                        <img src="{{ asset('images/logotipo-sec.webp') }}" alt="SEC" width="120" height="92" class="h-7 w-auto opacity-95">
+                        <img src="{{ asset('images/logotipo-sec.webp') }}" alt="SEC" width="117" height="92" style="aspect-ratio: 117/92;" class="h-7 w-auto opacity-95">
                         <span>Gasfiter Certificado Autorizado SEC Clase 3 · <strong>Domingo Isain Plaza Caamaño</strong> (RUT 12.738.961-6)</span>
                     </div>
 
@@ -463,7 +463,7 @@
                             <!-- Technician Header -->
                             <div class="flex items-center gap-4 pb-5 border-b border-slate-800">
                                 <div class="relative">
-                                    <img src="{{ asset('images/domingo-isain.webp') }}" alt="Domingo Isain - Gasfiter Certificado SEC" width="160" height="160" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg">
+                                    <img src="{{ asset('images/domingo-isain.webp') }}" alt="Domingo Isain - Gasfiter Certificado SEC" width="80" height="80" style="aspect-ratio: 1/1;" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg">
                                     <span class="absolute -bottom-1 -right-1 bg-emerald-500 text-slate-950 p-1 rounded-full" title="Técnico Certificado SEC">
                                         <i data-lucide="check-circle" class="w-4 h-4 stroke-[3]"></i>
                                     </span>
@@ -492,7 +492,7 @@
                                     </a>
                                 </div>
                                 <a href="https://wlhttp.sec.cl/rnii/public/licencia/qr?o=285eb263edf5cb049f3f4cc7fa0d2182" target="_blank" class="shrink-0 p-2 bg-white rounded-2xl shadow-md hover:scale-105 transition-transform">
-                                    <img src="{{ asset('images/qr-sec.webp') }}" alt="QR SEC Domingo Isain" width="100" height="100" class="w-16 h-16 object-contain">
+                                    <img src="{{ asset('images/qr-sec.webp') }}" alt="QR SEC Domingo Isain" width="100" height="100" style="aspect-ratio: 1/1;" class="w-16 h-16 object-contain">
                                 </a>
                             </div>
 

@@ -31,7 +31,7 @@
         
         <!-- Logo & Brand Title -->
         <a href="{{ route('home') }}" class="flex items-center gap-3.5 group">
-            <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo Oficial" width="120" height="120" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
+            <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo Oficial" width="80" height="80" style="aspect-ratio: 1/1;" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
             <div>
                 <span class="font-display font-black text-2xl sm:text-3xl text-white tracking-tight leading-none block">
                     SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®
@@ -213,7 +213,7 @@
             <!-- Drawer Top Bar -->
             <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-900/80">
                 <a href="{{ route('home') }}" class="flex items-center gap-2.5" @click="mobileNav = false">
-                    <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" width="120" height="120" class="h-9 w-auto rounded-lg">
+                    <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" width="80" height="80" style="aspect-ratio: 1/1;" class="h-9 w-auto rounded-lg">
                     <div>
                         <span class="font-display font-black text-lg text-white leading-tight block">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</span>
                         <span class="text-[10px] text-slate-300 font-semibold uppercase">Domingo Isain SEC</span>

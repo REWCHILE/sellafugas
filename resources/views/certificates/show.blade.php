@@ -71,7 +71,7 @@
         <!-- 1. Header: Logo, Title & SEC Badge -->
         <div class="flex items-center justify-between border-b-2 border-slate-900 pb-6">
             <div class="flex items-center gap-3">
-                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-20 w-auto">
+                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" width="80" height="80" style="aspect-ratio: 1/1;" class="h-20 w-auto">
             </div>
 
             <div class="text-center">

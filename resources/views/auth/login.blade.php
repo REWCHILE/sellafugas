@@ -35,7 +35,7 @@
         <!-- Header Brand -->
         <div class="text-center mb-8">
             <div class="inline-flex items-center justify-center p-3 rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl mb-4">
-                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" class="h-16 w-auto rounded-2xl">
+                <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo" width="80" height="80" style="aspect-ratio: 1/1;" class="h-16 w-auto rounded-2xl">
             </div>
             <h1 class="text-2xl font-black text-white tracking-tight">SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®</h1>
             <p class="text-xs text-emerald-400 font-bold mt-1 uppercase tracking-wider">Sistema de Certificados y Cotizaciones SEC</p>
