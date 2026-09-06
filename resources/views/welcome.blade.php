@@ -14,12 +14,12 @@
     <link rel="icon" type="image/webp" href="{{ asset('images/logotipo-sellafugas.cl.webp') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-    <!-- LCP Hero Image Preload -->
-    <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}" fetchpriority="high">
-
-    <!-- Local High-Performance Fonts Preload (0ms 3rd-party latency, zero FOUT/CLS) -->
-    <link rel="preload" href="{{ asset('fonts/manrope.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <!-- Local High-Performance Fonts Preload (Priority for LCP Text Element) -->
+    <link rel="preload" href="{{ asset('fonts/manrope.woff2') }}" as="font" type="font/woff2" crossorigin fetchpriority="high">
     <link rel="preload" href="{{ asset('fonts/plus-jakarta-sans.woff2') }}" as="font" type="font/woff2" crossorigin>
+
+    <!-- Hero Background Image Preload -->
+    <link rel="preload" as="image" href="{{ asset('images/hero-home-main.webp') }}">
 
     <!-- Inline Critical Core Stylesheet (Zero Render-Blocking Requests, Instant Paint) -->
     @include('partials.inline-css')
@@ -28,18 +28,8 @@
     <link rel="preload" href="{{ asset('css/animations.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ asset('css/animations.css') }}"></noscript>
 
-    <!-- Local High-Performance Lucide Icons & Alpine.js -->
-    <script defer src="{{ asset('js/lucide.min.js') }}"></script>
+    <!-- Alpine.js Lightweight Reactive Engine -->
     <script defer src="{{ asset('js/alpine.min.js') }}"></script>
-    <script>
-        window.addEventListener('load', function() {
-            if (window.requestIdleCallback) {
-                requestIdleCallback(function() { if (window.lucide) lucide.createIcons(); });
-            } else {
-                setTimeout(function() { if (window.lucide) lucide.createIcons(); }, 30);
-            }
-        }, { once: true });
-    </script>
 
     <style>
         [x-cloak] { display: none !important; }
@@ -1808,5 +1798,17 @@
     @include('partials.landing-footer')
 
     @include('partials.floating-widgets')
+
+    <!-- Lucide Icons (Deferred after Critical Render) -->
+    <script defer src="{{ asset('js/lucide.min.js') }}"></script>
+    <script>
+        window.addEventListener('load', function() {
+            if (window.requestIdleCallback) {
+                requestIdleCallback(function() { if (window.lucide) lucide.createIcons(); });
+            } else {
+                setTimeout(function() { if (window.lucide) lucide.createIcons(); }, 30);
+            }
+        }, { once: true });
+    </script>
 </body>
 </html>
