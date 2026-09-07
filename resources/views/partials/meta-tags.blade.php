@@ -1,10 +1,11 @@
 @props([
-    'metaTitle' => 'SellafuGas® · Reparación de Fugas de Gas Sin Romper con Prodoral R6-1 · Gasfiter SEC',
-    'metaDescription' => 'Especialistas en sellado de fugas de gas no visibles en cañerías sin romper muros ni pisos. Aplicación oficial de Prodoral R6-1 por Domingo Isain, Gasfiter SEC Clase 3. Garantía 3 años.',
+    'metaTitle' => 'SellafuGas® | Reparación de Fugas de Gas Sin Romper SEC',
+    'metaDescription' => 'Sellado de fugas de gas sin romper con Prodoral R6-1. Domingo Isain, Gasfiter SEC Clase 3. Garantía escrita 3 años y certificación DS66. Fono: 949 877 316.',
     'canonicalUrl' => url()->current(),
     'metaImage' => asset('images/og-share-whatsapp.jpg'),
     'phoneDisplay' => '949 877 316',
     'phoneInt' => '+56949877316',
+    'includeDefaultSchema' => true,
 ])
 
 @php
@@ -25,6 +26,13 @@
 <meta name="author" content="Domingo Isain Plaza Caamaño - SellafuGas®">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="{{ $canonicalUrl }}">
+
+<!-- Favicon & Mobile Touch Icons -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+<link rel="icon" type="image/webp" href="{{ asset('images/logotipo-sellafugas.cl.webp') }}">
+<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
 <!-- Open Graph / Facebook / WhatsApp Meta Tags (Facebook Debugger Ready) -->
 <meta property="og:site_name" content="SellafuGas® · Domingo Isain Gasfiter SEC">
@@ -47,6 +55,7 @@
 <meta name="twitter:description" content="{{ $formattedOgDescription }}">
 <meta name="twitter:image" content="{{ $metaImage }}">
 
+@if($includeDefaultSchema)
 <!-- Schema.org JSON-LD (Local Business & Emergency Service with Contact Phone) -->
 <script type="application/ld+json">
 {
@@ -83,3 +92,4 @@
   }
 }
 </script>
+@endif

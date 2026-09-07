@@ -239,8 +239,8 @@
                         <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-black uppercase border border-emerald-500/30" x-text="modalCertBadge"></span>
                         <span class="text-xs text-slate-400 font-semibold" x-text="modalCertNorma"></span>
                     </div>
-                    <h3 class="text-xl sm:text-2xl font-black text-white font-display" x-text="modalCertTitle"></h3>
-                    <p class="text-xs text-slate-300" x-text="modalCertSubtitle"></p>
+                    <h3 class="text-xl sm:text-2xl font-black text-white font-display" x-text="modalCertTitle">Certificado Oficial SEC · SellafuGas</h3>
+                    <p class="text-xs text-slate-300" x-text="modalCertSubtitle">Documento oficial de verificación y hermeticidad</p>
                 </div>
 
                 <!-- Close Button -->

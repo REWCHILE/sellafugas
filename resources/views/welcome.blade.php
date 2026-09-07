@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @include('partials.meta-tags', [
-        'metaTitle' => 'SellafuGas® | Reparación de Fugas de Gas Sin Romper · Prodoral R6-1 · Gasfiter SEC',
-        'metaDescription' => 'Sellado de fugas de gas no visibles en cañerías sin romper muros ni pisos. Aplicación oficial de Prodoral R6-1 por Domingo Isain (Gasfiter SEC Clase 3). Garantía 3 años. Llame al 949 877 316.',
+        'metaTitle' => 'SellafuGas® | Reparación de Fugas de Gas Sin Romper SEC',
+        'metaDescription' => 'Sellado de fugas de gas sin romper con Prodoral R6-1. Domingo Isain, Gasfiter SEC Clase 3. Garantía escrita 3 años y certificación DS66. Fono: 949 877 316.',
         'canonicalUrl' => 'https://sellafugas.cl',
-        'metaImage' => asset('images/og-share-whatsapp.jpg')
+        'metaImage' => asset('images/og-share-whatsapp.jpg'),
+        'includeDefaultSchema' => false,
     ])
 
-    <!-- Favicon -->
+    <!-- Favicon & Mobile Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
     <link rel="icon" type="image/webp" href="{{ asset('images/logotipo-sellafugas.cl.webp') }}">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
@@ -123,9 +125,10 @@
     <script type="application/ld+json">
     {
       "@@context": "https://schema.org",
-      "@@type": "HVACBusiness",
+      "@@type": ["Plumber", "EmergencyService", "HVACBusiness"],
       "name": "SellafuGas® Domingo Isain - Prodoral R6-1",
       "image": "{{ asset('images/logotipo-sellafugas.cl.webp') }}",
+      "description": "Sellado de fugas de gas no visibles en cañerías sin romper muros ni pisos con Prodoral R6-1 por Domingo Isain, Gasfiter SEC Clase 3. Garantía 3 años.",
       "@@id": "https://sellafugas.cl",
       "url": "https://sellafugas.cl",
       "telephone": "+56949877316",
@@ -929,10 +932,10 @@
                 <div class="space-y-2">
                     <span class="text-xs text-emerald-400 font-bold uppercase tracking-wider block">Cotización Registrada Exitosamente</span>
                     <h3 class="text-2xl font-black text-white font-display">
-                        Cotización N° <span x-text="quoteFolio"></span>
+                        Cotización N° <span x-text="quoteFolio">En Línea</span>
                     </h3>
                     <p class="text-sm text-slate-300">
-                        Total Estimado: <strong class="text-emerald-400 text-lg" x-text="quoteTotalFormatted"></strong>
+                        Total Estimado: <strong class="text-emerald-400 text-lg" x-text="quoteTotalFormatted">$0 CLP</strong>
                     </p>
                     <p class="text-xs text-slate-400">
                         Hemos registrado su cotización en el sistema de SellafuGas. Haga clic a continuación para enviar los detalles directamente al WhatsApp de Domingo Isain y coordinar su trabajo de sellado.
@@ -1507,7 +1510,7 @@
                     </div>
 
                     <div class="space-y-3 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                        <p><strong>Problema:</strong> Inspección periódica detectó caída de presión en cañería embutida bajo losa de hormigón. Suministro cortado con sello rojo.</p>
+                        <p><strong>Falla Detectada:</strong> Inspección periódica detectó caída de presión en cañería embutida bajo losa de hormigón. Suministro cortado con sello rojo.</p>
                         <p><strong>Solución SellafuGas:</strong> Desconexión de cocina y calefón, inyección neumática de Prodoral R6-1 en red de 14 metros lineales y prueba a 368 mmca estanco.</p>
                         <p class="text-emerald-400 font-semibold"><strong>Resultado:</strong> Certificado SEC emitido de inmediato y reposición del medidor realizada el mismo día.</p>
                     </div>
@@ -1544,7 +1547,7 @@
                     </div>
 
                     <div class="space-y-3 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                        <p><strong>Problema:</strong> Fuga no visible en cañería de gas que atravesaba living y hall con piso de mármol travertino importado de alto costo.</p>
+                        <p><strong>Diagnóstico y Fuga:</strong> Fuga no visible en cañería de gas que atravesaba living y hall con piso de mármol travertino importado de alto costo.</p>
                         <p><strong>Solución SellafuGas:</strong> Sellado completo con polímero Prodoral R6-1 en 28 metros de cañería sin tocar ni una sola palmeta de mármol.</p>
                         <p class="text-emerald-400 font-semibold"><strong>Resultado:</strong> Hermeticidad total a 368 mmca comprobada ante el cliente. Ahorro millonario en obras civiles.</p>
                     </div>
@@ -1581,7 +1584,7 @@
                     </div>
 
                     <div class="space-y-3 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                        <p><strong>Problema:</strong> Red subterránea de 42 metros con microporosidades por corrosión exterior que impedían habilitar el sistema de calefacción central.</p>
+                        <p><strong>Fuga en Red Subterránea:</strong> Red subterránea de 42 metros con microporosidades por corrosión exterior que impedían habilitar el sistema de calefacción central.</p>
                         <p><strong>Solución SellafuGas:</strong> Prueba manométrica digital, inyección neumática reforzada de Prodoral R6-1 y purga controlada.</p>
                         <p class="text-emerald-400 font-semibold"><strong>Resultado:</strong> Red 100% estanca, certificado SEC entregado para la administración y calefacción funcionando.</p>
                     </div>
@@ -1618,7 +1621,7 @@
                     </div>
 
                     <div class="space-y-3 text-xs text-slate-300 bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
-                        <p><strong>Problema:</strong> Fuga en muro perimetral entre cocina y logia con fuerte olor a gas. Dueño buscaba evitar picar cerámicas descontinuadas.</p>
+                        <p><strong>Fuga en Muro Perimetral:</strong> Fuga en muro perimetral entre cocina y logia con fuerte olor a gas. Dueño buscaba evitar picar cerámicas descontinuadas.</p>
                         <p><strong>Solución SellafuGas:</strong> Traslado inmediato a la V Región, sellado con tecnología Prodoral y presurización hermética.</p>
                         <p class="text-emerald-400 font-semibold"><strong>Resultado:</strong> Fuga eliminada en menos de 2 horas sin picar cerámicas y entrega de garantía de 3 años.</p>
                     </div>

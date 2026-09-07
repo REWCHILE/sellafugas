@@ -25,13 +25,17 @@
 
 <!-- Main Navigation Component Wrapper -->
 <div x-data="{ mobileNav: false, megaMenuNav: false }">
-    <!-- Main Navigation Header -->
-    <header class="glass-dark border-b border-slate-800/80 sticky top-[41px] z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Main Navigation Header with Schema.org Microdata -->
+    <header class="glass-dark border-b border-slate-800/80 sticky top-[41px] z-40" itemscope itemtype="https://schema.org/Plumber">
+        <meta itemprop="name" content="SellafuGas® - Domingo Isain Plaza Caamaño">
+        <meta itemprop="url" content="https://sellafugas.cl">
+        <meta itemprop="telephone" content="+56949877316">
+        <meta itemprop="priceRange" content="$$$">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         
         <!-- Logo & Brand Title -->
-        <a href="{{ route('home') }}" class="flex items-center gap-3.5 group">
-            <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" alt="SellafuGas Logo Oficial" width="80" height="80" style="aspect-ratio: 1/1;" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
+        <a href="{{ route('home') }}" itemprop="url" class="flex items-center gap-3.5 group">
+            <img src="{{ asset('images/logotipo-sellafugas.cl.webp') }}" itemprop="image" alt="SellafuGas Logo Oficial" width="80" height="80" style="aspect-ratio: 1/1;" class="h-12 sm:h-14 w-auto rounded-xl shadow-lg shadow-sky-500/20 group-hover:scale-105 transition-all">
             <div>
                 <span class="font-display font-black text-2xl sm:text-3xl text-white tracking-tight leading-none block">
                     SELLA<span class="text-sky-400">FU</span><span class="text-emerald-400">GAS</span>®
