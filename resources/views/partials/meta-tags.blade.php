@@ -25,6 +25,7 @@
 <meta name="keywords" content="sellafugas, fuga de gas, fugas de gas, gasfiter certificado sec, prodoral r6-1, reparacion de fugas de gas sin romper, sellar fuga de gas, detectar fuga de gas, ds66 sec, domingo isain">
 <meta name="author" content="Domingo Isain Plaza Caamaño - SellafuGas®">
 <meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="a9P5USHEyJSjisUnH1tW_eOUAeGYnijF3NcL327vUOY" />
 <link rel="canonical" href="{{ $canonicalUrl }}">
 
 <!-- Favicon & Mobile Touch Icons -->
